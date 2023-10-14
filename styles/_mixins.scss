@@ -1,0 +1,37 @@
+$max-breakpoints: (
+  'xs': 320px,
+  'sm': 480px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px
+);
+
+@mixin mq-max($breakpoint) {
+  @if map-has-key($max-breakpoints, $breakpoint) {
+    $value: map-get($max-breakpoints, $breakpoint);
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}.";
+  }
+}
+
+$min-breakpoints: (
+  'xs': 319px,
+  'sm': 479px,
+  'md': 767px,
+  'lg': 1023px,
+  'xl': 1199px
+);
+
+@mixin mq-min($breakpoint) {
+  @if map-has-key($min-breakpoints, $breakpoint) {
+    $value: map-get($min-breakpoints, $breakpoint);
+    @media screen and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}.";
+  }
+}
