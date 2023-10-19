@@ -22,6 +22,11 @@ body {
   background-color: #df5b40;
   padding: 4rem;
 }
+@media screen and (max-width: 480px) {
+  body {
+    padding: 2rem;
+  }
+}
 
 section {
   position: relative;
@@ -31,11 +36,16 @@ section {
 
 .hero {
   width: 100%;
-  height: clamp(52rem, 100vh - 10rem, 1080px - 4rem);
+  height: clamp(0px, 52vw, 1024px - 4rem);
+}
+@media screen and (max-width: 1440px) {
+  .hero {
+    height: 48vw;
+  }
 }
 @media screen and (max-width: 1024px) {
   .hero {
-    height: 564px;
+    height: 480px;
   }
 }
 .hero-bg {
@@ -43,20 +53,18 @@ section {
   top: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   z-index: -1;
 }
 .hero h1 {
   padding: 0 2rem;
   font-size: min(11.5vw, 224px);
-  text-align: center;
   text-transform: uppercase;
   filter: drop-shadow(0.4vw 0.4vw 0 rgba(35, 35, 35, 0.25));
 }
 @media screen and (max-width: 1024px) {
   .hero h1 {
-    font-size: 10vw;
+    font-size: 10.8vw;
   }
 }
 @media screen and (min-width: 1023px) {
@@ -64,12 +72,21 @@ section {
     filter: drop-shadow(0.5rem 0.5rem 0 rgba(35, 35, 35, 0.25));
   }
 }
+@media screen and (max-width: 480px) {
+  .hero h1 {
+    padding: 2rem;
+    font-size: 16vw;
+    line-height: 100%;
+    letter-spacing: 2px;
+    filter: drop-shadow(2px 2px 0 rgba(35, 35, 35, 0.25));
+  }
+}
 .hero h2 {
   text-transform: uppercase;
-  font-size: min(3vw, 128px);
+  font-size: min(3vw, 6rem);
   text-align: justify;
-  width: 38%;
-  padding: 2rem 0 0 6rem;
+  width: clamp(0px, 36vw, 72rem);
+  padding: 0 2rem;
 }
 .hero h2 span {
   color: #df5b40;
@@ -136,8 +153,7 @@ section {
   top: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   z-index: -1;
 }
 .perks h2 {
