@@ -64,6 +64,67 @@ section {
     filter: drop-shadow(0.5rem 0.5rem 0 rgba(35, 35, 35, 0.25));
   }
 }
+.hero h2 {
+  text-transform: uppercase;
+  font-size: min(3vw, 128px);
+  text-align: justify;
+  width: 38%;
+  padding: 2rem 0 0 6rem;
+}
+.hero h2 span {
+  color: #df5b40;
+}
+.hero h3 {
+  font-size: 2.4rem;
+  padding: 4rem 0 8rem 6rem;
+  font-weight: 400;
+}
+.hero-btns {
+  display: flex;
+  padding-top: 10rem;
+  gap: 2rem;
+}
+.hero-btns .plans-btn {
+  padding: 1rem;
+  margin-left: 6rem;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  background-color: #232323;
+  color: #fafafa;
+  filter: drop-shadow(0.2vw 0.2vw 0 rgba(35, 35, 35, 0.25));
+}
+.hero-btns .learn-btn {
+  display: flex;
+  gap: 1rem;
+}
+.hero-btns .learn-btn button {
+  background: none;
+  border: none;
+  border-bottom: 2.8px solid #232323;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+}
+.hero-btns .learn-btn img {
+  width: 22px;
+}
+.hero .hero {
+  border: 2px solid blue;
+}
+.hero .hero .bubble-1 {
+  background-color: #FBE144;
+  border-radius: 100%;
+  width: 4rem;
+}
+.hero .hero .bubble-2 {
+  background-color: #D9D9D9;
+  width: 4rem;
+  border-radius: 100%;
+}
+.hero .hero .bubble-3 {
+  background-color: #7EC1D4;
+  width: 4rem;
+  border-radius: 100%;
+}
 
 .perks {
   margin-top: 4rem;
@@ -93,14 +154,14 @@ section {
   }
 }
 .perks h3 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
   padding: 3rem 0 0 4rem;
   width: 30%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .perks h3 {
-    width: 60%;
+    width: 70%;
   }
 }
 .perks-columns {
@@ -117,7 +178,7 @@ section {
 .perks-columns .column-1 {
   width: 30%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .perks-columns .column-1 {
     width: 70%;
   }
@@ -125,12 +186,12 @@ section {
 .perks-columns .column-2 {
   width: 30%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .perks-columns .column-2 {
     width: 70%;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .perks-columns {
     flex-direction: column;
     gap: 0;
@@ -165,28 +226,24 @@ section {
 }
 .perks .perks-person {
   position: absolute;
-  top: 18%;
-  right: 10%;
+  top: 21%;
+  right: 6%;
+  width: clamp(0px, 28%, 28rem);
 }
 .perks .perks-person img {
-  width: 26rem;
-}
-@media screen and (max-width: 1024px) {
-  .perks .perks-person img {
-    width: 20rem;
-  }
+  width: 100%;
 }
 .perks .perks-person .top-heart {
   position: absolute;
   top: -8%;
   right: 76%;
   transform: rotate(-10deg);
-  width: 4rem;
+  width: 22%;
 }
 .perks .perks-person .bottom-heart {
   position: absolute;
   top: 0%;
   right: 4%;
   transform: rotate(10deg);
-  width: 4rem;
+  width: 22%;
 }/*# sourceMappingURL=styles.css.map */

@@ -3,6 +3,9 @@
 $white: #fafafa;
 $black: #232323;
 $coral: #df5b40;
+$blue: #7EC1D4;
+$yellow: #FBE144;
+$grey: #D9D9D9;
 
 $body-padding: 4rem;
 
@@ -67,6 +70,79 @@ section {
             filter: drop-shadow(0.5rem 0.5rem 0 rgba($black, 0.25));
         }
     }
+
+    h2 {
+        text-transform: uppercase;
+        font-size: min(3vw, 128px);
+        text-align: justify;
+        width: 38%;
+        padding: 2rem 0 0 6rem;
+
+        span {
+            color: $coral;
+        }
+    }
+
+    h3 {
+        font-size: 2.4rem;
+        padding: 4rem 0 8rem 6rem;
+        font-weight: 400;
+    }
+
+    &-btns {
+        display: flex;
+        padding-top: 10rem;
+        gap: 2rem;
+
+        .plans-btn {
+            padding: 1rem;
+            margin-left: 6rem;
+            text-transform: uppercase;
+            font-size: 2.4rem;
+            background-color: $black;
+            color: $white;
+            filter: drop-shadow(0.2vw 0.2vw 0 rgba($black, 0.25)); 
+        }
+    
+        .learn-btn {
+            display: flex;
+            gap: 1rem;
+
+            button {
+                background: none;
+                border: none;
+                border-bottom: 2.8px solid $black;
+                text-transform: uppercase;
+                font-size: 2.4rem;
+            }
+
+            img {
+                width: 22px;
+            }
+        }
+    }
+
+    .hero {
+        border: 2px solid blue;
+
+        .bubble-1 {
+            background-color: $yellow; 
+            border-radius: 100%;
+            width: 4rem;
+        }
+
+        .bubble-2 {
+            background-color: $grey;
+            width: 4rem;
+            border-radius: 100%;
+        }
+
+        .bubble-3 {
+            background-color: $blue;
+            width: 4rem;
+            border-radius: 100%;
+        }
+    }
 }
 
 .perks {
@@ -97,13 +173,13 @@ section {
     }
 
     h3 {
-        font-size: 2.4rem;
+        font-size: 2rem;
         font-weight: 600;
         padding: 3rem 0 0 4rem;
         width: 30%;
 
-        @include mq-max('md') {
-            width: 60%;
+        @include mq-max('lg') {
+            width: 70%;
         }
     }
 
@@ -122,8 +198,7 @@ section {
         .column-1 {
             width: 30%;
 
-
-            @include mq-max('md') {
+            @include mq-max('lg') {
                 width: 70%;
             }
         }
@@ -131,12 +206,12 @@ section {
         .column-2 {
             width: 30%;
 
-            @include mq-max('md') {
+            @include mq-max('lg') {
                 width: 70%;
             }
         }
 
-        @include mq-max('md') {
+        @include mq-max('lg') {
             flex-direction: column;
             gap: 0;
         }
@@ -176,15 +251,12 @@ section {
     
     .perks-person {
         position: absolute;
-        top: 18%;
-        right: 10%;
+        top: 21%;
+        right: 6%;
+        width: clamp(0px, 28%, 28rem);
 
         img {
-            width: 26rem;
-
-            @include mq-max('lg') {
-                width: 20rem;
-            }
+            width: 100%;
         }
 
         .top-heart {
@@ -192,7 +264,7 @@ section {
             top: -8%;
             right: 76%;
             transform: rotate(-10deg);
-            width: 4rem;
+            width: 22%;
         }
 
         .bottom-heart {
@@ -200,7 +272,7 @@ section {
             top: 0%;
             right: 4%;
             transform: rotate(10deg);
-            width: 4rem;
+            width: 22%;
         }
 
     }
