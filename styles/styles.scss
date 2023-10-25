@@ -8,30 +8,91 @@ $yellow: #FBE144;
 $grey: #D9D9D9;
 
 $body-padding: 4rem;
-$body-padding-small: $body-padding / 2;
+$body-padding-small: calc($body-padding / 2);
+$section-inner-padding: 4rem;
+$section-inner-padding-small: calc($section-inner-padding / 2);
+
+$width-constraint: 1920px;
 
 $test: 4px dotted black;
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 html {
     font-size: 62.5%;
 
-    @include mq-max('xl') {
+    @include mq-max('xxl') {
         font-size: 50%;
     }
 
-    @include mq-max('md') {
-        font-size: 46%;
+    @include mq-max('xl') {
+        font-size: 45%;
+    }
+
+    @include mq-max('lg') {
+        font-size: 40%;
+    }
+
+    @include mq-max('sm') {
+        font-size: 36%;
     }
 }
 
+a {
+    cursor: pointer;
+    color: $black;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+
+.menu-btn-container {
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    translate: 50% 0;
+    width: clamp(0px, 100vw, $width-constraint);
+    display: flex;
+    justify-content: flex-end;
+    padding: 7.2rem 6rem;
+    z-index: 5;
+    display: none;
+    
+    .menu-btn {
+        background: $black;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 600;
+        box-shadow: 4px 4px 8px rgba($black, 0.5);
+
+        @include mq-max('sm') {
+            bottom: 5.2rem;
+            right: 2.8rem;
+            width: 7.2rem;
+            height: 7.2rem;
+    }
+}
+
+}
+
 body {
-    background-color: $coral;
+    background: $coral;
+}
+
+main {
     padding: $body-padding;
 
     @include mq-max('sm') {
@@ -40,22 +101,28 @@ body {
 }
 
 section {
+    isolation: isolate;
     position: relative;
-    max-width: 1920px;
+    max-width: $width-constraint;
     margin: auto;
 }
 
 .hero {
-    // border: $test;
     width: 100%;
     height: clamp(0px, 52vw, calc(1024px - $body-padding));
 
     @include mq-max('xxl') {
-        height: 48vw;
+        height: clamp(560px, 49.5vw, calc(1024px - $body-padding));
     }
 
     @include mq-max('lg') {
-        height: 480px;
+        height: 560px;
+    }
+
+    @include mq-max('sm') {
+        height: calc(100vh - calc($body-padding * 1.2));
+        height: calc(100dvh - calc($body-padding * 1.2));
+        min-height: 420px;
     }
 
     &-bg {
@@ -68,8 +135,9 @@ section {
     }
 
     h1 {
-        padding: 0 2rem;
+        margin-left: $section-inner-padding;
         font-size: min(11.5vw, 224px);
+        font-weight: 900;
         text-transform: uppercase;
         filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));
         
@@ -81,8 +149,12 @@ section {
             filter: drop-shadow(0.5rem 0.5rem 0 rgba($black, 0.25));
         }
 
+        @include mq-max('md') {
+            margin-left: $section-inner-padding-small;
+            padding: 2rem 0;
+        }
+
         @include mq-max('sm') {
-            padding: 2rem;
             font-size: 16vw;
             line-height: 100%;
             letter-spacing: 2px;
@@ -91,12 +163,23 @@ section {
     }
 
     h2 {
-        // border: $test;
         text-transform: uppercase;
-        font-size: min(3vw, 6rem);
+        font-size: max(20px, 6rem);
         text-align: justify;
-        width: clamp(0px, 36vw, 72rem);
-        padding: 0 2rem;
+        width: 72rem;
+        margin-left: $section-inner-padding;
+        padding-bottom: 2rem;
+
+        @include mq-max('md') {
+            margin-left: $section-inner-padding-small;
+            font-size: 5rem;
+            width: 60rem;
+        }
+
+        @include mq-max('sm') {
+            font-size: 4rem;
+            width: 30.8rem;
+        }
 
         span {
             color: $coral;
@@ -105,63 +188,191 @@ section {
 
     h3 {
         font-size: 2.4rem;
-        padding: 4rem 0 8rem 6rem;
-        font-weight: 400;
+        margin-left: $section-inner-padding;
+        font-weight: 600;
+
+        @include mq-max('md') {
+            margin-left: $section-inner-padding-small;
+        }
     }
 
     &-btns {
+        position: absolute;
+        bottom: 4rem;
+        left: $section-inner-padding;
         display: flex;
-        padding-top: 10rem;
         gap: 2rem;
 
+        @include mq-max('md') {
+            left: $section-inner-padding-small;
+        }
+
         .plans-btn {
-            padding: 1rem;
-            margin-left: 6rem;
+            padding: 1rem 2rem;
             text-transform: uppercase;
             font-size: 2.4rem;
             background-color: $black;
             color: $white;
-            filter: drop-shadow(0.2vw 0.2vw 0 rgba($black, 0.25)); 
+            box-shadow: 4px 4px 0 rgba($black, 0.25);
+
+            &:hover {
+                animation: cta-hover 2s linear infinite;
+            }
+
+            @keyframes cta-hover {
+                10% {
+                    background: $black;
+                    color: $white;
+                }
+                25% {
+                    background: $coral;
+                    color: $black;
+                }
+
+                35% {
+                    background: $coral;
+                }
+                50% {
+                    background: $blue;
+                }
+
+                60% {
+                    background: $blue;
+                }
+                75% {
+                    background: $yellow;
+                }
+
+                85% {
+                    background: $yellow;
+                    color: $black;
+                }
+                100% {
+                    background: $black;
+                    color: $white;
+                }
+            }
         }
     
         .learn-btn {
-            display: flex;
+            @include row-center;
+            position: relative;
             gap: 1rem;
+            font-size: 2.4rem;
+            text-transform: uppercase;
 
-            button {
-                background: none;
-                border: none;
-                border-bottom: 2.8px solid $black;
-                text-transform: uppercase;
-                font-size: 2.4rem;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 84%;
+                height: 3px;
+                background: $black;
+
+                @include mq-max('md') {
+                    height: 2px;
+                }
+
+                @include mq-max('sm') {
+                    width: 80%;
+                }
             }
 
-            img {
-                width: 22px;
+            svg {
+                width: 1.8rem;
+                height: 1.8rem;
+
+                @include mq-max('sm') {
+                    width: 1.4rem;
+                    height: 1.4rem;
+                }
             }
         }
     }
 
-    .hero {
-        border: 2px solid blue;
+    &-img {
+        // border: $test;
+        position: absolute;
+        top: 50%;
+        right: 6%;
+        translate: 0 -24%;
+        width: 64rem;
+        height: 48rem;
 
-        .bubble-1 {
-            background-color: $yellow; 
-            border-radius: 100%;
-            width: 4rem;
+        @include mq-max('xxl') {
+            width: 56rem;
         }
 
-        .bubble-2 {
-            background-color: $grey;
-            width: 4rem;
-            border-radius: 100%;
+        @include mq-max('md') {
+            width: 36rem;
         }
 
-        .bubble-3 {
-            background-color: $blue;
-            width: 4rem;
-            border-radius: 100%;
+        @include mq-max('sm') {
+            width: 14rem;
+            height: 32rem;
+            right: 12%;
         }
+
+        > * {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+
+        .graphic-person-1 {
+            width: 30rem;
+            translate: calc(-50% - 12rem) -50%;
+            
+            @include mq-max('sm') {
+                width: 14rem;
+                translate: calc(-50% - 6rem) -50%;
+            }
+        }
+        
+        .graphic-person-2 {
+            width: 22rem;
+            translate: calc(-50% + 12rem) -50%;
+            
+            @include mq-max('sm') {
+                width: 12rem;
+                translate: calc(-50% + 6rem) -50%;
+            }
+        }
+        
+        // .bubble {
+        //     position: absolute;
+        //     border-radius: 50%;
+        //     border: 2px solid $black;
+        // }
+
+        // .bubble-1 {
+        //     bottom: 0;
+        //     background-color: $blue; 
+        //     width: 12rem;
+        //     height: 12rem;
+        //     // z-index: 1;
+        // }
+
+        // .bubble-2 {
+        //     background-color: $yellow;
+        //     width: min(14vw, 24rem);
+        //     height: min(14vw, 24rem);
+
+        //     @include mq-max('sm') {
+        //         width: 24vw;
+        //         height: 24vw;
+        //     }
+        // }
+
+        // .bubble-3 {
+        //     bottom: 0;
+        //     right: 80%;
+        //     background-color: $grey;
+        //     width: 2rem;
+        //     height: 2rem;
+        // }
     }
 }
 
@@ -180,7 +391,7 @@ section {
     }
 
     h2 {
-        padding: 0 2rem;
+        padding: 0 $section-inner-padding;
         font-size: min(11.5vw, 224px);
         text-align: left;
         text-transform: uppercase;
