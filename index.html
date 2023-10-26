@@ -14,14 +14,27 @@
 </head>
 <body>
 
-    <aside class="menu-btn-container">
-        <button class="menu-btn">Menu</button>
-    </aside>
+    <button class="menu-btn">Menu</button>
 
-    <main>
+    <!-- <aside>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Work</a>
+            <a href="">Perks</a>
+            <a href="">Membership</a>
+            <a href="">Questions</a>
+        </nav>
+    </aside> -->
+
+    <main class="main-content">
 
         <section class="hero">
-            <h1>AXYS Creative</h1>
+            <h1 class="sr-only">AXYS Creative</h1>
+            <figure class="hero-title" aria-hidden="true">
+                <p><span>A</span></p><p><span>X</span></p><p><span>Y</span></p><p><span>S</span></p>
+                <br class="mobile-only">
+                <p><span>C</span></p><p><span>r</span></p><p><span>e</span></p><p><span>a</span></p><p><span>t</span></p><p><span>i</span></p><p><span>v</span></p><p><span>e</span></p>
+            </figure>
             <h2>Web<span>site</span> Design &amp <span>Web</span>site Development</h2>
             <h3>A variety of subscriptions <br>for scaling your business</h3>
             <div class="hero-btns">
@@ -35,16 +48,20 @@
                 </a>        
             </div>
             <figure class="hero-img">
-                <img class="graphic-person graphic-person-1" src="./assets/graphic-person-1.svg" alt="">
-                <img class="graphic-person graphic-person-2" src="./assets/graphic-person-2.svg" alt="">
                 <div class="bubble bubble-1"></div>
                 <div class="bubble bubble-2"></div>
                 <div class="bubble bubble-3"></div>
+                <img class="graphic-person graphic-person-1" src="./assets/graphic-person-1.svg" alt="">
+                <img class="graphic-person graphic-person-2" src="./assets/graphic-person-2.svg" alt="">
             </figure>
             <img class="hero-bg" src="./assets/hero-bg.png" alt="">
         </section>
 
-        <!-- <section class="perks">
+        <section class="selected-work">
+            <h2 class="selected-work-title">Selected <br>Work</h2>
+        </section>
+
+        <section class="perks">
             <h2>the perks</h2>
             <div class="perks-columns">
                 <div class="column-1">
@@ -90,8 +107,11 @@
                 <img src="./assets/graphic-person-3.svg" alt="man with heart eyes, a white shirt, black pants and white shoes walking">
             </figure>
             <img class="perks-bg" src="./assets/blue-bg.jpg" alt="blue, fuzzy background">
-        </section> -->
+        </section>
 
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

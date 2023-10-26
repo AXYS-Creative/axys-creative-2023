@@ -16,13 +16,20 @@
   align-items: center;
 }
 
+@mixin appear($duration, $delay) {
+  opacity: 0;
+  pointer-events: none;
+  animation: appear $duration ease $delay forwards;
+}
+
 $max-breakpoints: (
   'xs': 320px,
   'sm': 480px,
   'md': 768px,
   'lg': 1024px,
   'xl': 1200px,
-  'xxl': 1440px
+  'xxl': 1440px,
+  'xxxl': 1920px
 );
 
 @mixin mq-max($breakpoint) {
@@ -37,12 +44,13 @@ $max-breakpoints: (
 }
 
 $min-breakpoints: (
-  'xs': 319px,
-  'sm': 479px,
-  'md': 767px,
-  'lg': 1023px,
-  'xl': 1199px,
-  'xxl': 1439px
+  'xs': 321px,
+  'sm': 481px,
+  'md': 769px,
+  'lg': 1025px,
+  'xl': 1201px,
+  'xxl': 1441px,
+  'xxxl': 1921px
 );
 
 @mixin mq-min($breakpoint) {
