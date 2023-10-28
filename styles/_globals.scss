@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+
+    @include mq-max('xxl') {
+        font-size: 50%;
+    }
+
+    @include mq-max('xl') {
+        font-size: 45%;
+    }
+
+    @include mq-max('lg') {
+        font-size: 40%;
+    }
+
+    @include mq-max('sm') {
+        font-size: 36%;
+    }
+}
+
+body {
+    background: $coral;
+}
+
+.main-content {
+    padding: $body-padding;
+    transition: 0.8s $cubic-ease;
+    transform-origin: left center;
+
+    @include mq-max('sm') {
+        padding: $body-padding-small;
+    }
+
+    &.active {
+        opacity: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: $black;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+    
+.menu-btn {
+    position: fixed;
+    bottom: $body-padding;
+    right: $body-padding;
+    background: $black;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    color: $white;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 600;
+    box-shadow: 4px 4px 8px rgba($black, 0.5);
+    z-index: 5;
+    transition: background 0.6s $cubic-ease, scale 0.25s ease;
+
+    &:hover {
+        scale: 1.12;
+    }
+    
+    &.active {
+        background: $coral;
+        transition: background 0.6s $cubic-ease 0.4s, scale 0.25s ease;
+    }
+
+    @include mq-min('xxxl') {
+        bottom: $body-padding;
+        right: calc(50% - 92rem);
+    }
+
+    @include mq-max('sm') {
+        bottom: $body-padding-small;
+        right: $body-padding-small;
+        width: 7.2rem;
+        height: 7.2rem;
+    }
+
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: calc($body-padding * 2);
+    z-index: 3;
+    pointer-events: none;
+
+    &.active {
+        pointer-events: all;
+
+        .nav-links {
+            opacity: 1;
+            transition: 0.8s $cubic-ease 0.6s;
+        }
+
+        .abstract {
+            height: 100vh;
+        }
+    }
+
+    .nav-links {
+        width: 40rem;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transition: 0.4s $cubic-ease 0s;
+        z-index: 1;
+        
+
+        a {
+            font-size: 12rem;
+            font-weight: 600;
+            color: $white;
+            text-transform: uppercase;
+
+            @include mq-max('md') {
+                font-size: 8rem;
+            }
+        }
+    }
+
+    .abstract {
+        position: absolute;
+        background: $black;
+        width: 50vw;
+        height: 0;
+        transition: height 0.8s $cubic-ease 0.2s;
+
+        &:nth-of-type(1) {
+            top: 0;
+            right: 0;
+        }
+
+        &:nth-of-type(2) {
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+section {
+    isolation: isolate;
+    position: relative;
+    max-width: $width-constraint;
+    margin: 4rem auto;
+
+    &:first-of-type {
+        margin: 0 auto 4rem auto;
+    }
+}

@@ -10,33 +10,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="./javascript/index.js" defer></script>
+    <script src="./javascript/index.js" type="module"></script>
 </head>
 <body>
 
     <button class="menu-btn">Menu</button>
 
-    <!-- <aside>
-        <nav>
+    <aside class="nav-menu">
+        <nav class="nav-links">
             <a href="">Home</a>
             <a href="">Work</a>
             <a href="">Perks</a>
             <a href="">Membership</a>
             <a href="">Questions</a>
         </nav>
-    </aside> -->
+        <div class="abstract"></div>
+        <div class="abstract"></div>
+    </aside>
 
     <main class="main-content">
 
         <section class="hero">
             <h1 class="sr-only">AXYS Creative</h1>
-            <figure class="hero-title" aria-hidden="true">
+            <figure class="hero-title animated-title active" aria-hidden="true">
                 <p><span>A</span></p><p><span>X</span></p><p><span>Y</span></p><p><span>S</span></p>
                 <br class="mobile-only">
                 <p><span>C</span></p><p><span>r</span></p><p><span>e</span></p><p><span>a</span></p><p><span>t</span></p><p><span>i</span></p><p><span>v</span></p><p><span>e</span></p>
             </figure>
             <h2>Web<span>site</span> Design &amp <span>Web</span>site Development</h2>
-            <h3>A variety of subscriptions <br>for scaling your business</h3>
+            <!-- <h3>A variety of subscriptions <br>for scaling your business</h3> -->
+            <h3>Gain access to endless<br>designs &amp; development</h3>
             <div class="hero-btns">
                 <a class="plans-btn">View plans</a>
                 <a class="learn-btn">Learn more
@@ -58,7 +61,15 @@
         </section>
 
         <section class="selected-work">
-            <h2 class="selected-work-title">Selected <br>Work</h2>
+            <h2 class="sr-only">Selected Work</h2>
+            <figure class="selected-work-title">
+                <div class="word-wrapper word-selected">
+                    <p><span class="selected-work-title-character">S</span></p><p><span class="selected-work-title-character">e</span></p><p><span class="selected-work-title-character">l</span></p><p><span class="selected-work-title-character">e</span></p><p><span class="selected-work-title-character">c</span></p><p><span class="selected-work-title-character">t</span></p><p><span class="selected-work-title-character">e</span></p><p><span class="selected-work-title-character">d</span></p>
+                </div>
+                <div class="word-wrapper word-work">
+                    <p><span class="selected-work-title-character">W</span></p><p><span class="selected-work-title-character">o</span></p><p><span class="selected-work-title-character">r</span></p><p><span class="selected-work-title-character">k</span></p>
+                </div>
+            </figure>
         </section>
 
         <section class="perks">
