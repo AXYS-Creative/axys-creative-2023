@@ -64,12 +64,12 @@ button {
   bottom: 4rem;
   right: 4rem;
   background: #232323;
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 50%;
   color: #fafafa;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 600;
   box-shadow: 4px 4px 8px rgba(35, 35, 35, 0.5);
   z-index: 5;
@@ -102,11 +102,17 @@ button {
   top: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   padding: 8rem;
   z-index: 3;
   pointer-events: none;
+}
+@media screen and (max-width: 480px) {
+  .nav-menu {
+    padding: 4rem;
+  }
 }
 .nav-menu.active {
   pointer-events: all;
@@ -127,14 +133,14 @@ button {
   z-index: 1;
 }
 .nav-menu .nav-links a {
-  font-size: 12rem;
+  font-size: 10rem;
   font-weight: 600;
   color: #fafafa;
   text-transform: uppercase;
 }
 @media screen and (max-width: 768px) {
   .nav-menu .nav-links a {
-    font-size: 8rem;
+    font-size: 6rem;
   }
 }
 .nav-menu .abstract {
@@ -341,12 +347,11 @@ section:first-of-type {
   }
 }
 .hero-btns .plans-btn {
-  padding: 1rem 2rem;
+  padding: 1.6rem 3.2rem;
   text-transform: uppercase;
   font-size: 2.4rem;
   background-color: #232323;
   color: #fafafa;
-  box-shadow: 4px 4px 0 rgba(35, 35, 35, 0.25);
 }
 .hero-btns .plans-btn:hover {
   animation: cta-hover 2s linear infinite;
@@ -390,6 +395,11 @@ section:first-of-type {
   font-size: 2.4rem;
   text-transform: uppercase;
 }
+@media screen and (max-width: 480px) {
+  .hero-btns .learn-btn {
+    display: none;
+  }
+}
 .hero-btns .learn-btn::after {
   content: "";
   position: absolute;
@@ -404,20 +414,9 @@ section:first-of-type {
     height: 2px;
   }
 }
-@media screen and (max-width: 480px) {
-  .hero-btns .learn-btn::after {
-    width: 80%;
-  }
-}
 .hero-btns .learn-btn svg {
   width: 1.8rem;
   height: 1.8rem;
-}
-@media screen and (max-width: 480px) {
-  .hero-btns .learn-btn svg {
-    width: 1.4rem;
-    height: 1.4rem;
-  }
 }
 .hero-img {
   position: absolute;
@@ -560,20 +559,9 @@ section:first-of-type {
   line-height: 100%;
   overflow: hidden;
 }
-@media screen and (max-width: 1024px) {
-  .selected-work-title {
-    font-size: 10.8vw;
-  }
-}
 @media screen and (min-width: 1025px) {
   .selected-work-title {
     filter: drop-shadow(0.5rem 0.5rem 0 rgba(35, 35, 35, 0.25));
-  }
-}
-@media screen and (max-width: 768px) {
-  .selected-work-title {
-    margin-left: 2rem;
-    padding: 2rem 0;
   }
 }
 @media screen and (max-width: 480px) {
@@ -584,6 +572,11 @@ section:first-of-type {
     filter: drop-shadow(2px 2px 0 rgba(35, 35, 35, 0.25));
   }
 }
+@media screen and (max-width: 768px) {
+  .selected-work-title .word-wrapper {
+    display: inline;
+  }
+}
 .selected-work-title p {
   overflow: hidden;
   display: inline-block;
@@ -591,7 +584,6 @@ section:first-of-type {
 .selected-work-title p span {
   display: block;
   translate: 0 100%;
-  transition: cubic-bezier(0.08, 1.07, 0.76, 1.16);
 }
 
 .perks {

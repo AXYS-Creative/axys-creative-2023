@@ -60,12 +60,12 @@ button {
     bottom: $body-padding;
     right: $body-padding;
     background: $black;
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     color: $white;
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 600;
     box-shadow: 4px 4px 8px rgba($black, 0.5);
     z-index: 5;
@@ -99,11 +99,17 @@ button {
     top: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     padding: calc($body-padding * 2);
     z-index: 3;
     pointer-events: none;
+    
+    @include mq-max('sm') {
+        padding: $body-padding;
+
+    }
 
     &.active {
         pointer-events: all;
@@ -128,13 +134,13 @@ button {
         
 
         a {
-            font-size: 12rem;
+            font-size: 10rem;
             font-weight: 600;
             color: $white;
             text-transform: uppercase;
 
             @include mq-max('md') {
-                font-size: 8rem;
+                font-size: 6rem;
             }
         }
     }

@@ -1,94 +1,74 @@
 export const gsapAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".selected-work", {
-    scrollTrigger: {
-      trigger: ".selected-work",
-      start: "top 25%",
-      end: "+1200%",
-      pin: true,
-      // markers: true,
-    },
-  });
+  let mm = gsap.matchMedia();
 
-  // let dynamicWidth = window.innerWidth > 1440 ? "46%" : "20%";
-
-  //
-  // Media Queries in JavsScript
-  //
-
-  // $max-breakpoints: (
-  //     'xs': 320px,
-  //     'sm': 480px,
-  //     'md': 768px,
-  //     'lg': 1024px,
-  //     'xl': 1200px,
-  //     'xxl': 1440px,
-  //     'xxxl': 1920px
-  //   );
-
-  let mediaXXLG = window.matchMedia("(max-width: 1440px)");
-  let mediaXLG = window.matchMedia("(max-width: 1220px)");
-  let mediaLG = window.matchMedia("(max-width: 1024px)");
-  let mediaMD = window.matchMedia("(max-width: 768px)");
-
-  let dynamicWidth;
-
-  if (mediaLG.matches) {
-    dynamicWidth = "40%";
-    // console.log("Narrow viewport");
-  } else {
-    dynamicWidth = "46%";
-    // console.log("Wide viewport");
-  }
-
-  mediaLG.addEventListener("change", (event) => {
-    if (event.matches) {
-      // console.log("Changed to narrow viewport");
-      dynamicWidth = "40%";
-    } else {
-      // console.log("Changed to wide viewport");
-      dynamicWidth = "46%";
-    }
-  });
-
-  gsap.fromTo(
-    ".word-selected",
+  mm.add(
     {
-      translateX: dynamicWidth,
+      screenMD: "(max-width: 768px)",
+      screenLG: "(min-width: 769px)",
     },
-    {
-      translateX: "0",
-      ease: "ease",
-      scrollTrigger: {
-        trigger: ".selected-work",
-        scrub: true,
-        start: "top 25%",
-        end: "+400%",
-        //   markers: true,
-      },
+    (context) => {
+      let { screenMD, screenLG } = context.conditions;
+
+      // Description - Pinning Section
+      gsap.to(".selected-work", {
+        scrollTrigger: {
+          trigger: ".selected-work",
+          start: screenLG ? "top 25%" : "top 16%",
+          end: "+1200%",
+          pin: true,
+          // markers: {
+          //   startColor: "navy",
+          //   endColor: "navy",
+          //   indent: 128,
+          // },
+        },
+      });
     }
   );
 
-  gsap.fromTo(
-    ".word-work",
-    {
-      translateX: "64%",
-    },
-    {
-      translateX: "0",
-      ease: "ease",
-      scrollTrigger: {
-        trigger: ".selected-work",
-        scrub: true,
-        start: "top 25%",
-        end: "+400%",
-        // markers: true,
+  mm.add("(min-width: 768px)", () => {
+    // Description - Shifting Title Text "Selected Work"
+    gsap.fromTo(
+      ".word-selected",
+      {
+        translateX: "46%",
       },
-    }
-  );
+      {
+        translateX: "0",
+        ease: "ease",
+        scrollTrigger: {
+          trigger: ".selected-work",
+          scrub: true,
+          start: "top 25%",
+          end: "+400%",
+        },
+      }
+    );
 
-  const commonProps = {
+    // Description - Shifting Title Text "Selected Work"
+    gsap.fromTo(
+      ".word-work",
+      {
+        translateX: "64%",
+      },
+      {
+        translateX: "0",
+        ease: "ease",
+        scrollTrigger: {
+          trigger: ".selected-work",
+          scrub: true,
+          start: "top 25%",
+          end: "+400%",
+          // markers: true,
+        },
+      }
+    );
+  });
+
+  // Description - Letter animations
+  const selectedWorkTitleProps = {
     y: 0,
     ease: "back.out(2)",
     scrollTrigger: {
@@ -101,16 +81,18 @@ export const gsapAnimations = () => {
     },
   };
 
-  // Assuming the elements share the same class
-  const elements = document.querySelectorAll(".selected-work-title-character");
+  const selectedWorkTitleCharacters = document.querySelectorAll(
+    ".selected-work-title-character"
+  );
 
-  elements.forEach((el, index) => {
+  selectedWorkTitleCharacters.forEach((el, index) => {
     gsap.to(el, {
-      ...commonProps,
+      ...selectedWorkTitleProps,
       duration: 0.25 + 0.05 * index, // Based on the pattern you provided
       delay: 0.05 * index,
     });
   });
+  // Description - Letter animations
 };
 
 gsapAnimations();

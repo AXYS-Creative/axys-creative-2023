@@ -176,12 +176,12 @@ $test: 1px dashed black;
         }
 
         .plans-btn {
-            padding: 1rem 2rem;
+            padding: 1.6rem 3.2rem;
             text-transform: uppercase;
             font-size: 2.4rem;
             background-color: $black;
             color: $white;
-            box-shadow: 4px 4px 0 rgba($black, 0.25);
+            // box-shadow: 4px 4px 0 rgba($black, 0.25);
 
             &:hover {
                 animation: cta-hover 2s linear infinite;
@@ -229,6 +229,10 @@ $test: 1px dashed black;
             font-size: 2.4rem;
             text-transform: uppercase;
 
+            @include mq-max('sm') {
+                display: none;
+            }
+
             &::after {
                 content: "";
                 position: absolute;
@@ -241,20 +245,11 @@ $test: 1px dashed black;
                 @include mq-max('md') {
                     height: 2px;
                 }
-
-                @include mq-max('sm') {
-                    width: 80%;
-                }
             }
 
             svg {
                 width: 1.8rem;
                 height: 1.8rem;
-
-                @include mq-max('sm') {
-                    width: 1.4rem;
-                    height: 1.4rem;
-                }
             }
         }
     }
@@ -385,31 +380,18 @@ $test: 1px dashed black;
 }
 
 .selected-work {
-    // border: $test;
 
     &-title {
-        // border: $test;
         color: $white;
-        // margin-left: $section-inner-padding;
         font-size: min(10vw, 200px);
         font-weight: 900;
         text-transform: uppercase;
-        // text-align: right;
         filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));
         line-height: 100%;
         overflow: hidden;
         
-        @include mq-max('lg') {
-            font-size: 10.8vw;
-        }
-        
         @include mq-min('lg') {
             filter: drop-shadow(0.5rem 0.5rem 0 rgba($black, 0.25));
-        }
-
-        @include mq-max('md') {
-            margin-left: $section-inner-padding-small;
-            padding: 2rem 0;
         }
 
         @include mq-max('sm') {
@@ -419,9 +401,12 @@ $test: 1px dashed black;
             filter: drop-shadow(2px 2px 0 rgba($black, 0.25));
         }
 
-        // .word-wrapper {
-        //     border: $test;
-        // }
+        .word-wrapper {
+
+            @include mq-max('md') {
+                display: inline;
+            }
+        }
 
         p {
             overflow: hidden;
@@ -430,38 +415,8 @@ $test: 1px dashed black;
             span {
                 display: block;
                 translate: 0 100%;
-                transition: $cubic-ease-title;
             }
         }
-
-        // &.active {
-
-        //     .word-selected {
-
-        //         p {
-        //             @for $i from 1 through 12 {
-        //                 &:nth-of-type(#{$i}) {
-        //                     span {
-        //                         animation: title-text (0.2s + 0.05s * $i) $cubic-ease-title (0.05s * ($i - 1)) forwards; // No delay
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-
-        //     .word-work {
-
-        //         p {
-        //             @for $i from 1 through 4 {
-        //                 &:nth-of-type(#{$i}) {
-        //                     span {
-        //                         animation: title-text (0.2s + 0.05s * $i) $cubic-ease-title (0.36s + 0.05s * ($i - 1)) forwards; // No delay
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
 
