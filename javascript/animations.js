@@ -12,9 +12,9 @@ export const gsapAnimations = () => {
       let { screenMD, screenLG } = context.conditions;
 
       // Description - Pinning Section
-      gsap.to(".selected-work", {
+      gsap.to(".work", {
         scrollTrigger: {
-          trigger: ".selected-work",
+          trigger: ".work",
           start: screenLG ? "top 25%" : "top 16%",
           end: "+1200%",
           pin: true,
@@ -28,71 +28,69 @@ export const gsapAnimations = () => {
     }
   );
 
-  mm.add("(min-width: 768px)", () => {
-    // Description - Shifting Title Text "Selected Work"
+  // Shift Title Text. Large screens onlyl***
+  const animateTitleShift = (selector, startTranslateX, endTrigger) => {
     gsap.fromTo(
-      ".word-selected",
+      selector,
+      { translateX: startTranslateX },
       {
-        translateX: "46%",
-      },
-      {
-        translateX: "0",
+        translateX: 0,
         ease: "ease",
         scrollTrigger: {
-          trigger: ".selected-work",
+          trigger: ".work",
           scrub: true,
           start: "top 25%",
-          end: "+400%",
+          end: endTrigger,
         },
       }
     );
-
-    // Description - Shifting Title Text "Selected Work"
-    gsap.fromTo(
-      ".word-work",
-      {
-        translateX: "64%",
-      },
-      {
-        translateX: "0",
-        ease: "ease",
-        scrollTrigger: {
-          trigger: ".selected-work",
-          scrub: true,
-          start: "top 25%",
-          end: "+400%",
-          // markers: true,
-        },
-      }
-    );
-  });
-
-  // Description - Letter animations
-  const selectedWorkTitleProps = {
-    y: 0,
-    ease: "back.out(2)",
-    scrollTrigger: {
-      trigger: ".selected-work",
-      start: "top center",
-      end: "bottom center",
-      toggleActions: "restart none none reverse",
-      onEnter: () =>
-        document.querySelector(".selected-work-title").classList.add("active"),
-    },
   };
 
-  const selectedWorkTitleCharacters = document.querySelectorAll(
-    ".selected-work-title-character"
-  );
+  // Query for large screen animations
+  mm.add("(min-width: 768px)", () => {
+    // Shifting Title Text "Selected"
+    animateTitleShift(".word-selected", "39.5%", "+400%");
 
-  selectedWorkTitleCharacters.forEach((el, index) => {
-    gsap.to(el, {
-      ...selectedWorkTitleProps,
-      duration: 0.25 + 0.05 * index, // Based on the pattern you provided
-      delay: 0.05 * index,
-    });
+    // Shifting Title Text "Work"
+    animateTitleShift(".word-work", "60%", "+640%");
   });
-  // Description - Letter animations
+
+  const animateTitleCharacters = (selector, triggerSelector, end, markers) => {
+    const titleCharacters = document.querySelectorAll(selector);
+
+    titleCharacters.forEach((letter, index) => {
+      gsap.fromTo(
+        letter,
+        { y: "100%" },
+        {
+          y: 0,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: triggerSelector,
+            start: "top center",
+            end: end,
+            toggleActions: "restart reverse restart reverse",
+            markers: markers,
+          },
+          duration: 0.25 + 0.05 * index,
+          delay: 0.05 * index,
+        }
+      );
+    });
+  };
+
+  // Animate work title characters.
+  animateTitleCharacters(".work-title-character", ".work", "+1200% top");
+
+  // For Markers ... Pass as the fourth argument to the function above or below
+  // {
+  //   startColor: "navy",
+  //   endColor: "navy",
+  //   indent: 128,
+  // }
+
+  // Animate perks title characters.
+  animateTitleCharacters(".perks-title-character", ".perks", "50% top");
 };
 
 gsapAnimations();

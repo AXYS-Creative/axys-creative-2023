@@ -42,8 +42,6 @@ $test: 1px dashed black;
     }
 
     @include mq-max('sm') {
-        // height: calc(100vh - calc($body-padding * 1.2));
-        // height: calc(100dvh - calc($body-padding * 1.2));
         height: 70rem;
         min-height: 420px;
     }
@@ -64,32 +62,10 @@ $test: 1px dashed black;
         }
     }
 
+    .section-title,
     .hero-title {
-        margin-left: $section-inner-padding;
-        font-size: min(11.5vw, 224px);
-        font-weight: 900;
-        text-transform: uppercase;
-        filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));
-        
-        @include mq-max('lg') {
-            font-size: 10.8vw;
-        }
-        
-        @include mq-min('lg') {
-            filter: drop-shadow(0.5rem 0.5rem 0 rgba($black, 0.25));
-        }
-    
-        @include mq-max('md') {
-            margin-left: $section-inner-padding-small;
-            padding: 2rem 0;
-        }
-    
-        @include mq-max('sm') {
-            font-size: 16vw;
-            line-height: 100%;
-            letter-spacing: 2px;
-            filter: drop-shadow(2px 2px 0 rgba($black, 0.25));
-        }
+        // See _globals.scss for complete styles
+        // Feel free to make any unique style changes here though
     
         &.active {
             p {
@@ -105,11 +81,8 @@ $test: 1px dashed black;
         }
     
         p {
-            overflow: hidden;
-            display: inline-block;
     
             span {
-                display: block;
                 translate: 0 100%;
             }
             
@@ -120,11 +93,11 @@ $test: 1px dashed black;
             }
         }
     
-        // @keyframes title-text {
-        //     to {
-        //         translate: 0 0;
-        //     }
-        // }
+        @keyframes title-text {
+            to {
+                translate: 0 0;
+            }
+        }
     }
 
     h2 {
@@ -153,14 +126,8 @@ $test: 1px dashed black;
     }
 
     h3 {
-        font-size: 2.4rem;
-        margin-left: $section-inner-padding;
-        font-weight: 600;
+        // See _globals.scss
         @include appear(0.5s, 1.6s);
-
-        @include mq-max('md') {
-            margin-left: $section-inner-padding-small;
-        }
     }
 
     &-btns {
@@ -175,83 +142,13 @@ $test: 1px dashed black;
             left: $section-inner-padding-small;
         }
 
-        .plans-btn {
-            padding: 1.6rem 3.2rem;
-            text-transform: uppercase;
-            font-size: 2.4rem;
-            background-color: $black;
-            color: $white;
-            // box-shadow: 4px 4px 0 rgba($black, 0.25);
-
-            &:hover {
-                animation: cta-hover 2s linear infinite;
-            }
-
-            @keyframes cta-hover {
-                10% {
-                    background: $black;
-                    color: $white;
-                }
-                25% {
-                    background: $coral;
-                    color: $black;
-                }
-
-                35% {
-                    background: $coral;
-                }
-                50% {
-                    background: $blue;
-                }
-
-                60% {
-                    background: $blue;
-                }
-                75% {
-                    background: $yellow;
-                }
-
-                85% {
-                    background: $yellow;
-                    color: $black;
-                }
-                100% {
-                    background: $black;
-                    color: $white;
-                }
-            }
-        }
+        // .plans-btn {
+        //     // See _globals.scss for cta styles
+        // }
     
-        .learn-btn {
-            @include row-center;
-            position: relative;
-            gap: 1rem;
-            font-size: 2.4rem;
-            text-transform: uppercase;
-
-            @include mq-max('sm') {
-                display: none;
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 84%;
-                height: 3px;
-                background: $black;
-
-                @include mq-max('md') {
-                    height: 2px;
-                }
-            }
-
-            svg {
-                width: 1.8rem;
-                height: 1.8rem;
-            }
-        }
+        // .learn-btn {
+        //     // See _globals.scss for cta styles
+        // }
     }
 
     &-img {
@@ -379,26 +276,15 @@ $test: 1px dashed black;
     }
 }
 
-.selected-work {
+.work {
 
     &-title {
+        // See _global.scss for full styles
         color: $white;
-        font-size: min(10vw, 200px);
-        font-weight: 900;
-        text-transform: uppercase;
-        filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));
-        line-height: 100%;
-        overflow: hidden;
+        margin-left: unset;
         
-        @include mq-min('lg') {
-            filter: drop-shadow(0.5rem 0.5rem 0 rgba($black, 0.25));
-        }
-
-        @include mq-max('sm') {
-            font-size: 16vw;
-            line-height: 100%;
-            letter-spacing: 2px;
-            filter: drop-shadow(2px 2px 0 rgba($black, 0.25));
+        @include mq-min('md') {
+            margin-left: unset;
         }
 
         .word-wrapper {
@@ -407,23 +293,24 @@ $test: 1px dashed black;
                 display: inline;
             }
         }
-
-        p {
-            overflow: hidden;
-            display: inline-block;
-            
-            span {
-                display: block;
-                translate: 0 100%;
-            }
-        }
     }
 }
 
 .perks {
-    margin-top: 4rem;
-    width: 100%;
-    height: clamp(52rem, calc(100vh - 10rem), calc(1080px - $body-padding));
+    height: clamp(0px, 52vw, calc(1024px - $body-padding));
+
+    @include mq-max('xxl') {
+        height: clamp(560px, 49.5vw, calc(1024px - $body-padding));
+    }
+
+    @include mq-max('lg') {
+        height: 560px;
+    }
+
+    @include mq-max('sm') {
+        height: 70rem;
+        min-height: 420px;
+    }
 
     &-bg {
         position: absolute;
@@ -434,34 +321,18 @@ $test: 1px dashed black;
         z-index: -1;
     }
 
-    h2 {
-        padding: 0 $section-inner-padding;
-        font-size: min(11.5vw, 224px);
-        text-align: left;
-        text-transform: uppercase;
+    &-title {
         color: $white;
-        filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));  
-
-        @include mq-max('lg') {
-            filter: drop-shadow(0.5rem 0.5rem 0 rgba($black, 0.25));
-        }
     }
 
-    h3 {
-        font-size: 2rem;
-        font-weight: 600;
-        padding: 3rem 0 0 4rem;
-        width: 30%;
-
-        @include mq-max('lg') {
-            width: 70%;
-        }
-    }
+    // h3 {
+    //     // See _globals.scss
+    // }
 
     &-columns {
         display: flex;
         flex-direction: row;
-        padding: 8rem 0 0 4rem;
+        padding-left: $body-padding;
         gap: 100px;
 
         p {
@@ -493,18 +364,15 @@ $test: 1px dashed black;
     }
 
     &-btns {
+        position: absolute;
+        bottom: 4rem;
+        left: $section-inner-padding;
         display: flex;
-        padding: 6rem 0 0 4rem;
         gap: 2rem;
 
-        .plans-btn {
-            padding: 1rem;
-            text-transform: uppercase;
-            font-size: 2.4rem;
-            background-color: $black;
-            color: $white;
-            filter: drop-shadow(0.2vw 0.2vw 0 rgba($black, 0.25)); 
-        }
+        // .plans-btn {
+        //     // See _globals.scss for cta styles
+        // }
     
         .work-btn {
             display: flex;

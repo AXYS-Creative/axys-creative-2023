@@ -169,11 +169,102 @@ section:first-of-type {
   margin: 0 auto 4rem auto;
 }
 
-@keyframes title-text {
-  to {
-    translate: 0 0;
+.section-title {
+  padding-left: 4rem;
+  padding-top: 2rem;
+  font-size: min(11.5vw, 224px);
+  font-weight: 900;
+  text-transform: uppercase;
+  filter: drop-shadow(0.4vw 0.4vw 0 rgba(35, 35, 35, 0.25));
+  line-height: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .section-title {
+    font-size: 10.8vw;
   }
 }
+@media screen and (min-width: 1025px) {
+  .section-title {
+    filter: drop-shadow(0.5rem 0.5rem 0 rgba(35, 35, 35, 0.25));
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-title {
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .section-title {
+    font-size: 16vw;
+    line-height: 100%;
+    letter-spacing: 2px;
+    filter: drop-shadow(2px 2px 0 rgba(35, 35, 35, 0.25));
+  }
+}
+.section-title p {
+  overflow: hidden;
+  display: inline-block;
+}
+.section-title p span {
+  display: block;
+}
+
+.section-description {
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-left: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .section-description {
+    margin-left: 2rem;
+  }
+}
+
+.cta-1 {
+  padding: 1.6rem 3.2rem;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  background-color: #232323;
+  color: #fafafa;
+}
+.cta-1:hover {
+  opacity: 0.75;
+}
+
+.cta-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 768px) {
+  .cta-2 {
+    display: none;
+  }
+}
+.cta-2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 84%;
+  height: 3px;
+  background: #232323;
+}
+@media screen and (max-width: 768px) {
+  .cta-2::after {
+    height: 2px;
+  }
+}
+.cta-2 svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
 @keyframes appear {
   to {
     opacity: 1;
@@ -213,83 +304,66 @@ section:first-of-type {
     height: 100%;
   }
 }
-.hero .hero-title {
-  margin-left: 4rem;
-  font-size: min(11.5vw, 224px);
-  font-weight: 900;
-  text-transform: uppercase;
-  filter: drop-shadow(0.4vw 0.4vw 0 rgba(35, 35, 35, 0.25));
-}
-@media screen and (max-width: 1024px) {
-  .hero .hero-title {
-    font-size: 10.8vw;
-  }
-}
-@media screen and (min-width: 1025px) {
-  .hero .hero-title {
-    filter: drop-shadow(0.5rem 0.5rem 0 rgba(35, 35, 35, 0.25));
-  }
-}
-@media screen and (max-width: 768px) {
-  .hero .hero-title {
-    margin-left: 2rem;
-    padding: 2rem 0;
-  }
-}
-@media screen and (max-width: 480px) {
-  .hero .hero-title {
-    font-size: 16vw;
-    line-height: 100%;
-    letter-spacing: 2px;
-    filter: drop-shadow(2px 2px 0 rgba(35, 35, 35, 0.25));
-  }
-}
+.hero .section-title.active p:nth-of-type(1) span,
 .hero .hero-title.active p:nth-of-type(1) span {
   animation: title-text 0.25s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s forwards;
 }
+.hero .section-title.active p:nth-of-type(2) span,
 .hero .hero-title.active p:nth-of-type(2) span {
   animation: title-text 0.3s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.05s forwards;
 }
+.hero .section-title.active p:nth-of-type(3) span,
 .hero .hero-title.active p:nth-of-type(3) span {
   animation: title-text 0.35s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.1s forwards;
 }
+.hero .section-title.active p:nth-of-type(4) span,
 .hero .hero-title.active p:nth-of-type(4) span {
   animation: title-text 0.4s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.15s forwards;
 }
+.hero .section-title.active p:nth-of-type(5) span,
 .hero .hero-title.active p:nth-of-type(5) span {
   animation: title-text 0.45s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s forwards;
 }
+.hero .section-title.active p:nth-of-type(6) span,
 .hero .hero-title.active p:nth-of-type(6) span {
   animation: title-text 0.5s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.25s forwards;
 }
+.hero .section-title.active p:nth-of-type(7) span,
 .hero .hero-title.active p:nth-of-type(7) span {
   animation: title-text 0.55s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.3s forwards;
 }
+.hero .section-title.active p:nth-of-type(8) span,
 .hero .hero-title.active p:nth-of-type(8) span {
   animation: title-text 0.6s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.35s forwards;
 }
+.hero .section-title.active p:nth-of-type(9) span,
 .hero .hero-title.active p:nth-of-type(9) span {
   animation: title-text 0.65s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.4s forwards;
 }
+.hero .section-title.active p:nth-of-type(10) span,
 .hero .hero-title.active p:nth-of-type(10) span {
   animation: title-text 0.7s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.45s forwards;
 }
+.hero .section-title.active p:nth-of-type(11) span,
 .hero .hero-title.active p:nth-of-type(11) span {
   animation: title-text 0.75s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.5s forwards;
 }
+.hero .section-title.active p:nth-of-type(12) span,
 .hero .hero-title.active p:nth-of-type(12) span {
   animation: title-text 0.8s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.55s forwards;
 }
-.hero .hero-title p {
-  overflow: hidden;
-  display: inline-block;
-}
+.hero .section-title p span,
 .hero .hero-title p span {
-  display: block;
   translate: 0 100%;
 }
+.hero .section-title p:nth-of-type(odd) span,
 .hero .hero-title p:nth-of-type(odd) span {
   translate: 0 -100%;
+}
+@keyframes title-text {
+  to {
+    translate: 0 0;
+  }
 }
 .hero h2 {
   text-transform: uppercase;
@@ -319,17 +393,9 @@ section:first-of-type {
   color: #df5b40;
 }
 .hero h3 {
-  font-size: 2.4rem;
-  margin-left: 4rem;
-  font-weight: 600;
   opacity: 0;
   pointer-events: none;
   animation: appear 0.5s ease 1.6s forwards;
-}
-@media screen and (max-width: 768px) {
-  .hero h3 {
-    margin-left: 2rem;
-  }
 }
 .hero-btns {
   position: absolute;
@@ -345,78 +411,6 @@ section:first-of-type {
   .hero-btns {
     left: 2rem;
   }
-}
-.hero-btns .plans-btn {
-  padding: 1.6rem 3.2rem;
-  text-transform: uppercase;
-  font-size: 2.4rem;
-  background-color: #232323;
-  color: #fafafa;
-}
-.hero-btns .plans-btn:hover {
-  animation: cta-hover 2s linear infinite;
-}
-@keyframes cta-hover {
-  10% {
-    background: #232323;
-    color: #fafafa;
-  }
-  25% {
-    background: #df5b40;
-    color: #232323;
-  }
-  35% {
-    background: #df5b40;
-  }
-  50% {
-    background: #7EC1D4;
-  }
-  60% {
-    background: #7EC1D4;
-  }
-  75% {
-    background: #FBE144;
-  }
-  85% {
-    background: #FBE144;
-    color: #232323;
-  }
-  100% {
-    background: #232323;
-    color: #fafafa;
-  }
-}
-.hero-btns .learn-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  gap: 1rem;
-  font-size: 2.4rem;
-  text-transform: uppercase;
-}
-@media screen and (max-width: 480px) {
-  .hero-btns .learn-btn {
-    display: none;
-  }
-}
-.hero-btns .learn-btn::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 84%;
-  height: 3px;
-  background: #232323;
-}
-@media screen and (max-width: 768px) {
-  .hero-btns .learn-btn::after {
-    height: 2px;
-  }
-}
-.hero-btns .learn-btn svg {
-  width: 1.8rem;
-  height: 1.8rem;
 }
 .hero-img {
   position: absolute;
@@ -550,46 +544,39 @@ section:first-of-type {
   }
 }
 
-.selected-work-title {
+.work-title {
   color: #fafafa;
-  font-size: min(10vw, 200px);
-  font-weight: 900;
-  text-transform: uppercase;
-  filter: drop-shadow(0.4vw 0.4vw 0 rgba(35, 35, 35, 0.25));
-  line-height: 100%;
-  overflow: hidden;
+  margin-left: unset;
 }
-@media screen and (min-width: 1025px) {
-  .selected-work-title {
-    filter: drop-shadow(0.5rem 0.5rem 0 rgba(35, 35, 35, 0.25));
-  }
-}
-@media screen and (max-width: 480px) {
-  .selected-work-title {
-    font-size: 16vw;
-    line-height: 100%;
-    letter-spacing: 2px;
-    filter: drop-shadow(2px 2px 0 rgba(35, 35, 35, 0.25));
+@media screen and (min-width: 769px) {
+  .work-title {
+    margin-left: unset;
   }
 }
 @media screen and (max-width: 768px) {
-  .selected-work-title .word-wrapper {
+  .work-title .word-wrapper {
     display: inline;
   }
 }
-.selected-work-title p {
-  overflow: hidden;
-  display: inline-block;
-}
-.selected-work-title p span {
-  display: block;
-  translate: 0 100%;
-}
 
 .perks {
-  margin-top: 4rem;
-  width: 100%;
-  height: clamp(52rem, 100vh - 10rem, 1080px - 4rem);
+  height: clamp(0px, 52vw, 1024px - 4rem);
+}
+@media screen and (max-width: 1440px) {
+  .perks {
+    height: clamp(560px, 49.5vw, 1024px - 4rem);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .perks {
+    height: 560px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .perks {
+    height: 70rem;
+    min-height: 420px;
+  }
 }
 .perks-bg {
   position: absolute;
@@ -599,34 +586,13 @@ section:first-of-type {
   object-fit: cover;
   z-index: -1;
 }
-.perks h2 {
-  padding: 0 4rem;
-  font-size: min(11.5vw, 224px);
-  text-align: left;
-  text-transform: uppercase;
+.perks-title {
   color: #fafafa;
-  filter: drop-shadow(0.4vw 0.4vw 0 rgba(35, 35, 35, 0.25));
-}
-@media screen and (max-width: 1024px) {
-  .perks h2 {
-    filter: drop-shadow(0.5rem 0.5rem 0 rgba(35, 35, 35, 0.25));
-  }
-}
-.perks h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 3rem 0 0 4rem;
-  width: 30%;
-}
-@media screen and (max-width: 1024px) {
-  .perks h3 {
-    width: 70%;
-  }
 }
 .perks-columns {
   display: flex;
   flex-direction: row;
-  padding: 8rem 0 0 4rem;
+  padding-left: 4rem;
   gap: 100px;
 }
 .perks-columns p {
@@ -657,17 +623,11 @@ section:first-of-type {
   }
 }
 .perks-btns {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
   display: flex;
-  padding: 6rem 0 0 4rem;
   gap: 2rem;
-}
-.perks-btns .plans-btn {
-  padding: 1rem;
-  text-transform: uppercase;
-  font-size: 2.4rem;
-  background-color: #232323;
-  color: #fafafa;
-  filter: drop-shadow(0.2vw 0.2vw 0 rgba(35, 35, 35, 0.25));
 }
 .perks-btns .work-btn {
   display: flex;
