@@ -82,15 +82,22 @@ export const gsapAnimations = () => {
   // Animate work title characters.
   animateTitleCharacters(".work-title-character", ".work", "+1200% top");
 
+  // Animate perks title characters.
+  animateTitleCharacters(".perks-title-character", ".perks", "50% 32%");
+
+  // Animate membership title characters.
+  animateTitleCharacters(
+    ".membership-title-character",
+    ".membership",
+    "50% 32%"
+  );
+
   // For Markers ... Pass as the fourth argument to the function above or below
   // {
   //   startColor: "navy",
   //   endColor: "navy",
   //   indent: 128,
   // }
-
-  // Animate perks title characters.
-  animateTitleCharacters(".perks-title-character", ".perks", "50% top");
 };
 
 gsapAnimations();

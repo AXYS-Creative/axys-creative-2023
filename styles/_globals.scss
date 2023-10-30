@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    // font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Mukta', sans-serif;
+    line-height: 100%;
 }
 
 html {
@@ -60,18 +62,20 @@ button {
     bottom: $body-padding;
     right: $body-padding;
     background: $black;
-    width: 8rem;
-    height: 8rem;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     color: $white;
     text-transform: uppercase;
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: 600;
+    letter-spacing: 1px;
     box-shadow: 4px 4px 8px rgba($black, 0.5);
     z-index: 5;
     transition: background 0.6s $cubic-ease, scale 0.25s ease;
 
-    &:hover {
+    &:hover,
+    &:focus {
         scale: 1.12;
     }
     
@@ -85,11 +89,15 @@ button {
         right: calc(50% - 92rem);
     }
 
+    @include mq-max('md') {
+        width: 68px;
+        height: 68px;
+        font-size: 14px;
+    }
+
     @include mq-max('sm') {
         bottom: $body-padding-small;
         right: $body-padding-small;
-        width: 7.2rem;
-        height: 7.2rem;
     }
 
 }
@@ -126,21 +134,88 @@ button {
 
     .nav-links {
         width: 40rem;
-        display: flex;
-        flex-direction: column;
         opacity: 0;
         transition: 0.4s $cubic-ease 0s;
         z-index: 1;
+
+        @include mq-max('md') {
+            display: flex;
+            flex-direction: column;
+        }
         
 
         a {
+            display: inline-block;
+            overflow: hidden;
+            margin: 0.6rem 0;
+            padding-bottom: 0.4rem;
             font-size: 10rem;
-            font-weight: 600;
-            color: $white;
+            font-weight: 800;
             text-transform: uppercase;
+            -webkit-text-stroke: 2px $white;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-repeat: no-repeat;
+
+            background-size: 0 100%;
+            -webkit-background-size: 0 100%;
+
+            transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
+            -webkit-transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
+
+            background-image: linear-gradient(135deg, $coral 0%, $coral 50%, transparent 50.1%);
+
+            &:hover,
+            &:focus {
+                background-size: 220% 100%;
+                -webkit-background-size: 220% 100%;
+                -webkit-text-stroke: 2px $coral;
+            }
 
             @include mq-max('md') {
                 font-size: 6rem;
+
+                -webkit-text-stroke: 1px $white;
+
+                &:hover,
+                &:focus {
+                    -webkit-text-stroke: 1px $coral;
+                }
+            }
+
+            &:nth-of-type(2) {
+                background-image: linear-gradient(135deg, $blue 0%, $blue 50%, transparent 50.1%);
+
+                &:hover,
+                &:focus {
+                    -webkit-text-stroke: 2px $blue;
+                }
+            }
+
+            &:nth-of-type(3) {
+                background-image: linear-gradient(135deg, $yellow 0%, $yellow 50%, transparent 50.1%);
+
+                &:hover,
+                &:focus {
+                    -webkit-text-stroke: 2px $yellow;
+                }
+            }
+            &:nth-of-type(4) {
+                background-image: linear-gradient(135deg, $slategrey 0%, $slategrey 50%, transparent 50.1%);
+
+                &:hover,
+                &:focus {
+                    -webkit-text-stroke: 2px $slategrey;
+                }
+            }
+            &:nth-of-type(5) {
+                background-image: linear-gradient(135deg, $grey 0%, $grey 50%, transparent 50.1%);
+
+                &:hover,
+                &:focus {
+                    -webkit-text-stroke: 2px $grey;
+                }
             }
         }
     }
@@ -169,24 +244,49 @@ section {
     position: relative;
     max-width: $width-constraint;
     margin: 4rem auto;
+    height: clamp(0px, 52vw, calc(1024px - $body-padding));
+
+    @include mq-max('xxl') {
+        height: clamp(560px, 49.5vw, calc(1024px - $body-padding));
+    }
+
+    @include mq-max('lg') {
+        height: 560px;
+    }
+
+    @include mq-max('sm') {
+        height: 70rem;
+        min-height: 420px;
+    }
 
     &:first-of-type {
         margin: 0 auto 4rem auto;
     }
 }
 
+.section-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 .section-title {
     // border: $test;
     padding-left: $section-inner-padding;
     padding-top: $section-inner-padding-small;
-    font-size: min(11.5vw, 224px);
+    // font-size: min(11.5vw, 224px); // Plus Jakarta Sans
+    font-size: min(12.8vw, 264px); // Mukta
     font-weight: 900;
     text-transform: uppercase;
     filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));
-    line-height: 100%;
+    line-height: 80%;
     
     @include mq-max('lg') {
-        font-size: 10.8vw;
+        // font-size: 10.8vw; // Plus Jakarta Sans
+        font-size: 12.2vw; // Mukta
     }
     
     @include mq-min('lg') {
@@ -196,20 +296,22 @@ section {
     @include mq-max('md') {
         padding-left: $section-inner-padding-small;
         padding-top: calc($section-inner-padding-small / 2);
-        // padding: 2rem 0;
     }
 
     @include mq-max('sm') {
-        font-size: 16vw;
-        line-height: 100%;
+        line-height: 0%;
+        // font-size: 16vw; // Plus Jakarta Sans
+        font-size: 18vw; // Mukta
         letter-spacing: 2px;
         filter: drop-shadow(2px 2px 0 rgba($black, 0.25));
+        margin-bottom: 2rem;
     }
 
     p {
+        // border: $test;
         overflow: hidden;
         display: inline-block;
-
+        
         span {
             display: block;
         }
@@ -218,7 +320,7 @@ section {
 
 .section-description {
     font-size: 2.8rem;
-    font-weight: 400;
+    font-weight: 300;
     margin-left: $section-inner-padding;
 
     @include mq-max('md') {
@@ -232,6 +334,7 @@ section {
     font-size: 2.4rem;
     background-color: $black;
     color: $white;
+    transition: opacity 0.4s ease;
     // box-shadow: 4px 4px 0 rgba($black, 0.25);
 
     &:hover {
@@ -246,7 +349,7 @@ section {
     font-size: 2.4rem;
     text-transform: uppercase;
 
-    @include mq-max('md') {
+    @include mq-max('sm') {
         display: none;
     }
 
@@ -267,5 +370,32 @@ section {
     svg {
         width: 2.4rem;
         height: 2.4rem;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.medium-screen-only {
+    display: none;
+
+    @include mq-max('md') {
+        display: block;
+    }
+}
+
+.small-screen-only {
+    display: none;
+
+    @include mq-max('sm') {
+        display: block;
     }
 }

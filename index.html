@@ -9,20 +9,22 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script src="./javascript/index.js" type="module"></script>
 </head>
 <body>
 
     <button class="menu-btn">Menu</button>
 
-    <aside class="nav-menu">
-        <nav class="nav-links">
-            <a href="">Home</a>
-            <a href="">Work</a>
-            <a href="">Perks</a>
-            <a href="">Membership</a>
-            <a href="">Questions</a>
+    <aside class="nav-menu" aria-controls="nav-menu" aria-expanded="false">
+        <nav class="nav-links" id="nav-menu" aria-hidden="true">
+            <a href="" tabindex="-1">Home</a>
+            <a href="" tabindex="-1">Work</a>
+            <a href="" tabindex="-1">Perks</a>
+            <a href="" tabindex="-1">Membership</a>
+            <a href="" tabindex="-1">Questions</a>
         </nav>
         <div class="abstract"></div>
         <div class="abstract"></div>
@@ -34,12 +36,12 @@
             <h1 class="sr-only">AXYS Creative</h1>
             <figure class="section-title hero-title active" aria-hidden="true">
                 <p><span>A</span></p><p><span>X</span></p><p><span>Y</span></p><p><span>S</span></p>
-                <br class="mobile-only">
+                <br class="small-screen-only">
                 <p><span>C</span></p><p><span>r</span></p><p><span>e</span></p><p><span>a</span></p><p><span>t</span></p><p><span>i</span></p><p><span>v</span></p><p><span>e</span></p>
             </figure>
             <h2>Web<span>site</span> design &amp <span>web</span>site development</h2>
             <!-- <h3>A variety of subscriptions <br>for scaling your business</h3> -->
-            <h3 class="section-description">Gain access to endless<br>designs &amp; development</h3>
+            <h3 class="section-description">Gain access to <strong>endless</strong><br>designs &amp; development</h3>
             <div class="hero-btns">
                 <a class="cta-1 plans-btn">View plans</a>
                 <a class="cta-2 learn-btn">Learn more
@@ -55,7 +57,7 @@
                 <img class="graphic-person graphic-person-1" src="./assets/graphics/graphic-person-1.svg" alt="">
                 <img class="graphic-person graphic-person-2" src="./assets/graphics/graphic-person-2.svg" alt="">
             </figure>
-            <img class="hero-bg" src="./assets/images/bg-white.webp" alt="">
+            <img class="section-bg hero-bg" src="./assets/images/bg-white.webp" alt="">
         </section>
 
         <section class="work">
@@ -64,6 +66,7 @@
                 <div class="word-wrapper word-selected">
                     <p><span class="work-title-character">S</span></p><p><span class="work-title-character">e</span></p><p><span class="work-title-character">l</span></p><p><span class="work-title-character">e</span></p><p><span class="work-title-character">c</span></p><p><span class="work-title-character">t</span></p><p><span class="work-title-character">e</span></p><p><span class="work-title-character">d</span></p>
                 </div>
+                <br class="medium-screen-only">
                 <div class="word-wrapper word-work">
                     <p><span class="work-title-character">W</span></p><p><span class="work-title-character">o</span></p><p><span class="work-title-character">r</span></p><p><span class="work-title-character">k</span></p>
                 </div>
@@ -74,26 +77,26 @@
             <h2 class="sr-only">The Perks</h2>
             <figure class="section-title perks-title" aria-hidden="true">
                 <p><span class="perks-title-character">T</span></p><p><span class="perks-title-character">h</span></p><p><span class="perks-title-character">e</span></p>
-                <br class="mobile-only">
+                <br class="small-screen-only">
                 <p><span class="perks-title-character">P</span></p><p><span class="perks-title-character">e</span></p><p><span class="perks-title-character">r</span></p><p><span class="perks-title-character">k</span></p><p><span class="perks-title-character">s</span></p>
             </figure>
 
             <div class="perks-columns">
-                <div class="column-1">
-                    <p>Unlimited requests</p>
-                    <p>Swift turnaround</p>
-                    <p>Unlimited design revisions</p>
-                    <p>Seemless management</p>
-                </div>
-                <div class="column-2">
-                    <p>Cancel or resume anytime</p>
-                    <p>Unlimited team members</p>
-                    <p>Fixed monthly rate</p>
-                    <p>Original designs</p>
-                </div>
+                <ul class="column column-1">
+                    <li>Unlimited requests</li>
+                    <li>Swift turnaround</li>
+                    <li>Unlimited revisions</li>
+                    <li>Seemless management</li>
+                </ul>
+                <ul class="column column-2">
+                    <li>Cancel or resume anytime</li>
+                    <li>Unlimited team members</li>
+                    <li>Fixed monthly rate</li>
+                    <li>Original designs</li>
+                </ul>
             </div>
 
-            <h3 class="section-description">For a fixed monthly rate, we replace<br>unreliable freelancers and costly agencies.</h3>
+            <h3 class="section-description">A variety of perks for<br> scaling your business</h3>
 
             <div class="perks-btns">
                 <a class="cta-1 plans-btn">View plans</a>
@@ -126,7 +129,16 @@
                 <img src="./assets/graphics/graphic-person-3.svg" alt="man with heart eyes, a white shirt, black pants and white shoes walking">
             </figure>
 
-            <img class="perks-bg" src="./assets/images/bg-blue.webp" alt="blue, fuzzy background">
+            <img class="section-bg perks-bg" src="./assets/images/bg-blue.webp" alt="blue, fuzzy background">
+        </section>
+
+        <section class="membership">
+            <h2 class="sr-only">Membership</h2>
+            <figure class="section-title membership-title" aria-hidden="true">
+                <p><span class="membership-title-character">M</span></p><p><span class="membership-title-character">e</span></p><p><span class="membership-title-character">m</span></p><p><span class="membership-title-character">b</span></p><p><span class="membership-title-character">e</span></p><p><span class="membership-title-character">r</span></p><p><span class="membership-title-character">s</span></p><p><span class="membership-title-character">h</span></p><p><span class="membership-title-character">i</span></p><p><span class="membership-title-character">p</span></p>
+            </figure>
+
+            <img class="section-bg membership-bg" src="./assets/images/bg-purple.webp" alt="blue, fuzzy background">
         </section>
 
     </main>
