@@ -86,11 +86,7 @@ export const gsapAnimations = () => {
   animateTitleCharacters(".perks-title-character", ".perks", "50% 32%");
 
   // Animate membership title characters.
-  animateTitleCharacters(
-    ".membership-title-character",
-    ".membership",
-    "50% 32%"
-  );
+  animateTitleCharacters(".membership-title-character", ".membership", "50% 32%");
 
   // For Markers ... Pass as the fourth argument to the function above or below
   // {

@@ -244,7 +244,7 @@ section {
     position: relative;
     max-width: $width-constraint;
     margin: 4rem auto;
-    height: clamp(0px, 52vw, calc(1024px - $body-padding));
+    height: clamp(0px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
 
     @include mq-max('xxl') {
         height: clamp(560px, 49.5vw, calc(1024px - $body-padding));

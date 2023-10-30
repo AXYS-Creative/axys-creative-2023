@@ -221,7 +221,7 @@ section {
   position: relative;
   max-width: 1920px;
   margin: 4rem auto;
-  height: clamp(0px, 52vw, 1024px - 4rem);
+  height: clamp(0px, 100vh - 8rem, 1024px - 4rem);
 }
 @media screen and (max-width: 1440px) {
   section {
@@ -248,7 +248,8 @@ section:first-of-type {
   top: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: -1;
 }
 
