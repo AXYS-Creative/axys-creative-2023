@@ -770,4 +770,42 @@ section:first-of-type {
   text-align: right;
   margin-left: 0;
   margin-right: 4rem;
+}
+
+.questions-title {
+  color: #232323;
+  text-align: left;
+  margin-right: 0;
+  margin-left: 4rem;
+}
+.questions .questions-details {
+  padding: 4rem 0 0 4rem;
+  width: 42%;
+  cursor: pointer;
+}
+.questions .questions-details .question {
+  display: flex;
+  justify-content: space-between;
+  gap: 10rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #232323;
+  margin-bottom: 2rem;
+}
+.questions .questions-details .question h3 {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+.questions .questions-details .question img {
+  width: 2.4rem;
+}
+.questions .questions-details .answer {
+  display: none;
+  padding: 1.4rem 1rem 2rem 4rem;
+}
+.questions .questions-details .answer p {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.questions .questions-details .answer.active {
+  display: block;
 }/*# sourceMappingURL=styles.css.map */
