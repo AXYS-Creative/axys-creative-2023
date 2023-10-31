@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // font-family: 'Plus Jakarta Sans', sans-serif;
-    font-family: 'Mukta', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    // font-family: 'Mukta', sans-serif;
     line-height: 100%;
 }
 
@@ -244,7 +244,7 @@ section {
     position: relative;
     max-width: $width-constraint;
     margin: 4rem auto;
-    height: clamp(0px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
+    height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
 
     @include mq-max('xxl') {
         height: clamp(560px, 49.5vw, calc(1024px - $body-padding));
@@ -277,16 +277,16 @@ section {
     // border: $test;
     padding-left: $section-inner-padding;
     padding-top: $section-inner-padding-small;
-    // font-size: min(11.5vw, 224px); // Plus Jakarta Sans
-    font-size: min(12.8vw, 264px); // Mukta
+    font-size: min(11.5vw, 224px); // Plus Jakarta Sans
+    // font-size: min(12.8vw, 264px); // Mukta
+    // line-height: 80%; // Muktaa
     font-weight: 900;
     text-transform: uppercase;
     filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));
-    line-height: 80%;
     
     @include mq-max('lg') {
-        // font-size: 10.8vw; // Plus Jakarta Sans
-        font-size: 12.2vw; // Mukta
+        font-size: 10.8vw; // Plus Jakarta Sans
+        // font-size: 12.2vw; // Mukta
     }
     
     @include mq-min('lg') {
@@ -300,8 +300,8 @@ section {
 
     @include mq-max('sm') {
         line-height: 0%;
-        // font-size: 16vw; // Plus Jakarta Sans
-        font-size: 18vw; // Mukta
+        font-size: 16vw; // Plus Jakarta Sans
+        // font-size: 18vw; // Mukta
         letter-spacing: 2px;
         filter: drop-shadow(2px 2px 0 rgba($black, 0.25));
         margin-bottom: 2rem;
