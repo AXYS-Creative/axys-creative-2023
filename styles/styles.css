@@ -800,7 +800,7 @@ section:first-of-type {
 }
 .questions .questions-details .answer {
   display: none;
-  padding: 1.4rem 1rem 2rem 4rem;
+  padding: 0 1rem 2rem 4rem;
 }
 .questions .questions-details .answer p {
   font-size: 2rem;

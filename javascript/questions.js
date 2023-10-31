@@ -9,12 +9,6 @@ export function questions() {
             faqAnswer[index].classList.toggle("active");
         });
     });
-
-    // upArrow.forEach((arrow, index) => {
-    //     arrow.addEventListener("click", () => {
-    //         downArrow[index].classList.toggle("active");
-    //     });
-    // })
 }
 
 questions();
