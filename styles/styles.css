@@ -808,4 +808,7 @@ section:first-of-type {
 }
 .questions .questions-details .answer.active {
   display: block;
+}
+.questions h4 {
+  font-size: 4rem;
 }/*# sourceMappingURL=styles.css.map */
