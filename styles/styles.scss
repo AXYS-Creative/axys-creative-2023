@@ -551,6 +551,7 @@ $test: 1px dashed black;
                 
                 @include mq-max('sm') {
                     margin-bottom: 1.2rem;
+                    padding: 0.2rem;
                 }
             }
 
@@ -580,26 +581,45 @@ $test: 1px dashed black;
                         width: 1.6rem;
                         height: 1.6rem;
                     }
+
+                    path {
+                        fill: $black;
+                    }
                 }
             }
 
             .tooltip {
-                font-size: 14px;
-                line-height: 140%;
                 position: absolute;
                 top: 0;
                 right: 0;
-                translate: 100% -100%;
+                translate: calc(100% - 4px) calc(-100% + 4px);
                 background: $black;
                 color: $white;
+                font-size: 14px;
+                line-height: 140%;
+                // translate: 100% -100%;
                 padding: 1.2rem;
                 border-radius: 0.4rem;
                 opacity: 0;
                 pointer-events: none;
                 transition: 0.3s ease;
-
+                z-index: 3;
+                width: 24rem;
+                
+                &:hover,
+                &:focus-within {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+                    
                 @include mq-max('sm') {
-                    width: 80%;
+                    width: 16rem;
+                //     width: 80%;
+                }
+
+                a {
+                    color: $white;
+                    text-decoration: underline;
                 }
             }
         }
@@ -624,12 +644,6 @@ $test: 1px dashed black;
 
         @include mq-max('md') {
             right: 22%;
-            // top: unset;
-            // bottom: 32%;
-            // right: 12%;
-            // scale: 3.2;
-            // rotate: -12deg;
-            // opacity: 0.08;
         }
 
         @include mq-max('sm') {
@@ -639,7 +653,7 @@ $test: 1px dashed black;
         }
         
         figcaption {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
             text-align: center;
@@ -721,6 +735,195 @@ $test: 1px dashed black;
 
             &.active {
                 display: block;
+            }
+        }
+    }
+}
+
+.pre-footer {
+    padding: $body-padding-small;
+
+    &-brands {
+        @include row-center;
+        gap: 8rem;
+        margin-bottom: 8rem;
+        
+        @include mq-max('xl') {
+            gap: 4rem;
+        }
+
+        @include mq-max('md') {
+            gap: 2rem;
+        }
+        
+        img {
+            width: 18rem;
+            
+            @include mq-max('md') {
+                width: 14rem;
+            }
+        }
+    }
+
+    &-main {
+        @include column-center;
+        justify-content: center;
+        gap: 6rem;
+
+        h2 {
+            color: $white;
+            font-size: 12rem;
+            font-weight: 900;
+            line-height: normal;
+            text-transform: uppercase;
+            filter: drop-shadow(5px 5px 0 rgba($black, 0.25));
+            text-align: justify;
+            width: 93.3rem;
+            
+            @include mq-max('lg') {
+                font-size: 8rem;
+                width: 64rem;
+                filter: drop-shadow(3px 3px 0 rgba($black, 0.25));
+            }
+        }
+
+        p {
+            color: $white;
+            font-size: max(16px, 2.4rem);
+            width: 40rem;
+            text-align: center;
+            
+            @include mq-max('lg') {
+                width: 48rem;
+            }
+        }
+
+        a {
+            background: $yellow;
+            padding: 4rem 8rem;
+            color: $black;
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 6px 6px 0 rgba($black, 0.25);
+
+            @include mq-max('lg') {
+                padding: 3.2rem 4rem;
+                font-size: 3.2rem;
+            }
+        }
+    }
+
+    figure {
+        // border: $test;
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        width: min(12vw, 22rem);
+        z-index: -1;
+        
+        @include mq-max('xxl') {
+            width: 10vw;
+        }
+
+        @include mq-max('md') {
+            top: 64%;
+        }
+
+        .bubble {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 2px solid $black;
+            z-index: -1;
+
+            @include mq-max('lg') {
+                border-width: 1px;
+            }
+        }
+    }
+
+    &-person-1 { 
+        left: $body-padding;
+        
+        @include mq-max('md') {
+            left: $body-padding-small;
+        }
+
+        .bubble-1 {
+            background: $blue;
+            width: min(14vw, 27rem);
+            height: min(14vw, 27rem);
+            translate: -44% -80%;
+
+            @include mq-max('xxl') {
+                width: 12vw;
+                height: 12vw;
+            }
+            
+        }
+
+        .bubble-2 {
+            background: $yellow;
+            width: min(9.4vw, 18rem);
+            height: min(9.4vw, 18rem);
+            translate: -88% 0;
+
+            @include mq-max('xxl') {
+                width: 7.4vw;
+                height: 7.4vw;
+            }
+            
+        }
+
+        .bubble-3 {
+            background: $grey;
+            width: min(9.4vw, 18rem);
+            height: min(9.4vw, 18rem);
+            translate: 16% -20%;
+
+            @include mq-max('xxl') {
+                width: 7.4vw;
+                height: 7.4vw;
+            }
+            
+        }
+    }
+
+    &-person-2 {
+        right: $body-padding;
+        
+        @include mq-max('md') {
+            right: $body-padding-small;
+        }
+
+        img {
+            width: 120%;
+            translate: -5%;
+        }
+
+        .bubble-1 {
+            background: $slategrey;
+            width: min(14vw, 28rem);
+            height: min(14vw, 28rem);
+            translate: -60% -20%;
+
+            @include mq-max('xxl') {
+                width: 12vw;
+                height: 12vw;
+            }
+        }
+
+        .bubble-2 {
+            background: $blue;
+            width: min(10vw, 18rem);
+            height: min(10vw, 18rem);
+            translate: -12% -100%;
+
+            @include mq-max('xxl') {
+                width: 8vw;
+                height: 8vw;
             }
         }
     }

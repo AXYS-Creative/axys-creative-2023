@@ -171,13 +171,13 @@ img {
             transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
             -webkit-transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
 
-            background-image: linear-gradient(135deg, $coral 0%, $coral 50%, transparent 50.1%);
+            background-image: linear-gradient(135deg, $white 0%, $white 50%, transparent 50.1%);
 
             &:hover,
             &:focus {
                 background-size: 220% 100%;
                 -webkit-background-size: 220% 100%;
-                -webkit-text-stroke: 2px $coral;
+                -webkit-text-stroke: 2px $white;
             }
 
             @include mq-max('md') {
@@ -186,24 +186,24 @@ img {
 
                 &:hover,
                 &:focus {
-                    -webkit-text-stroke: 1px $coral;
+                    -webkit-text-stroke: 1px $white;
                 }
             }
 
             &:nth-of-type(2) {
+                background-image: linear-gradient(135deg, $coral 0%, $coral 50%, transparent 50.1%);
+
+                &:hover,
+                &:focus {
+                    -webkit-text-stroke: 2px $coral;
+                }
+            }
+            &:nth-of-type(3) {
                 background-image: linear-gradient(135deg, $blue 0%, $blue 50%, transparent 50.1%);
 
                 &:hover,
                 &:focus {
                     -webkit-text-stroke: 2px $blue;
-                }
-            }
-            &:nth-of-type(3) {
-                background-image: linear-gradient(135deg, $yellow 0%, $yellow 50%, transparent 50.1%);
-
-                &:hover,
-                &:focus {
-                    -webkit-text-stroke: 2px $yellow;
                 }
             }
             &:nth-of-type(4) {
