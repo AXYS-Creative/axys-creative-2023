@@ -249,6 +249,7 @@ section {
   section {
     height: 70rem;
     min-height: 420px;
+    margin: 2rem auto;
   }
 }
 section:first-of-type {
@@ -262,6 +263,8 @@ section:first-of-type {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  user-select: none;
+  pointer-events: none;
 }
 
 .section-title {
@@ -802,6 +805,12 @@ section:first-of-type {
     padding-left: 2rem;
   }
 }
+@media screen and (max-width: 480px) {
+  .membership-title {
+    width: 100%;
+    font-size: 11.4vw;
+  }
+}
 .membership .section-description {
   color: #fafafa;
   margin-bottom: 4rem;
@@ -832,6 +841,11 @@ section:first-of-type {
     padding-left: 2rem;
   }
 }
+@media screen and (max-width: 480px) {
+  .membership-options {
+    width: 100%;
+  }
+}
 .membership-card {
   position: relative;
   background: #fafafa;
@@ -842,6 +856,11 @@ section:first-of-type {
 @media screen and (max-width: 768px) {
   .membership-card {
     width: max(66rem, 92%);
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership-card {
+    width: calc(100% - 2rem);
   }
 }
 .membership-card h3 {
@@ -873,10 +892,45 @@ section:first-of-type {
 .membership-card ul {
   padding-left: 2.4rem;
   margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .membership-card ul li {
+  color: #232323;
+  position: relative;
   font-size: max(0px, 2rem);
   margin-bottom: 1rem;
+}
+.membership-card ul .tooltip-icon {
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: help;
+}
+.membership-card ul .tooltip-icon:hover ~ .tooltip, .membership-card ul .tooltip-icon:focus ~ .tooltip {
+  opacity: 1;
+  pointer-events: all;
+}
+.membership-card ul .tooltip-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+.membership-card ul .tooltip {
+  font-size: 14px;
+  line-height: 140%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  translate: 100% -100%;
+  background: #232323;
+  color: #fafafa;
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
 }
 .membership-card .card-btns {
   display: flex;
@@ -887,6 +941,25 @@ section:first-of-type {
   top: -5%;
   right: 5%;
   rotate: 12deg;
+  width: 12rem;
+  z-index: 1;
+}
+@media screen and (max-width: 1200px) {
+  .membership .ribbon {
+    right: 2%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .membership .ribbon {
+    right: 22%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership .ribbon {
+    right: -2%;
+    top: -6%;
+    width: 9.6rem;
+  }
 }
 .membership .ribbon figcaption {
   font-size: 14px;
@@ -898,11 +971,17 @@ section:first-of-type {
   left: 50%;
   translate: -50% -50%;
 }
+@media screen and (max-width: 1200px) {
+  .membership .ribbon figcaption {
+    font-size: 10px;
+  }
+}
 .membership .membership-person {
   position: absolute;
   bottom: 8%;
   left: 2%;
   width: clamp(8rem, 12%, 20rem);
+  z-index: 2;
 }
 @media screen and (max-width: 768px) {
   .membership .membership-person {
@@ -912,6 +991,12 @@ section:first-of-type {
     right: 4%;
     transform: scaleX(-1);
     width: 16%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership .membership-person {
+    top: 37%;
+    width: 20%;
   }
 }
 
