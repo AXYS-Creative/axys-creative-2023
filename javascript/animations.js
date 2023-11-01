@@ -49,10 +49,10 @@ export const gsapAnimations = () => {
   // Query for large screen animations
   mm.add("(min-width: 768px)", () => {
     // Shifting Title Text "Selected"
-    animateTitleShift(".word-selected", "39.5%", "+400%");
+    animateTitleShift(".word-selected", "38%", "+400%");
 
     // Shifting Title Text "Work"
-    animateTitleShift(".word-work", "60%", "+640%");
+    animateTitleShift(".word-work", "59%", "+640%");
   });
 
   const animateTitleCharacters = (selector, triggerSelector, end, markers) => {
@@ -86,7 +86,11 @@ export const gsapAnimations = () => {
   animateTitleCharacters(".perks-title-character", ".perks", "50% 32%");
 
   // Animate membership title characters.
-  animateTitleCharacters(".membership-title-character", ".membership", "50% 32%");
+  animateTitleCharacters(
+    ".membership-title-character",
+    ".membership",
+    "50% 32%"
+  );
 
   // For Markers ... Pass as the fourth argument to the function above or below
   // {

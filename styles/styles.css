@@ -652,6 +652,7 @@ section:first-of-type {
 
 .work {
   height: unset !important;
+  overflow: hidden;
 }
 .work-title {
   color: #fafafa;
@@ -902,20 +903,37 @@ section:first-of-type {
   font-size: max(0px, 2rem);
   margin-bottom: 1rem;
 }
-.membership-card ul .tooltip-icon {
+@media screen and (max-width: 480px) {
+  .membership-card ul li {
+    margin-bottom: 1.2rem;
+  }
+}
+.membership-card ul .tooltip-indicator {
   vertical-align: middle;
   margin-left: 0.4rem;
   width: 2rem;
   height: 2rem;
   cursor: help;
 }
-.membership-card ul .tooltip-icon:hover ~ .tooltip, .membership-card ul .tooltip-icon:focus ~ .tooltip {
+.membership-card ul .tooltip-indicator:hover ~ .tooltip, .membership-card ul .tooltip-indicator:focus ~ .tooltip {
   opacity: 1;
   pointer-events: all;
 }
-.membership-card ul .tooltip-icon svg {
+@media screen and (max-width: 480px) {
+  .membership-card ul .tooltip-indicator {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+.membership-card ul .tooltip-indicator svg {
   width: 2rem;
   height: 2rem;
+}
+@media screen and (max-width: 480px) {
+  .membership-card ul .tooltip-indicator svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
 }
 .membership-card ul .tooltip {
   font-size: 14px;
@@ -931,6 +949,11 @@ section:first-of-type {
   opacity: 0;
   pointer-events: none;
   transition: 0.3s ease;
+}
+@media screen and (max-width: 480px) {
+  .membership-card ul .tooltip {
+    width: 80%;
+  }
 }
 .membership-card .card-btns {
   display: flex;

@@ -271,6 +271,7 @@ $test: 1px dashed black;
 
 .work {
     height: unset !important;
+    overflow: hidden;
 
     &-title {
         // See _global.scss for full styles
@@ -547,9 +548,13 @@ $test: 1px dashed black;
                 position: relative;
                 font-size: max(0px, 2rem);
                 margin-bottom: 1rem;
+                
+                @include mq-max('sm') {
+                    margin-bottom: 1.2rem;
+                }
             }
 
-            .tooltip-icon {
+            .tooltip-indicator {
                 vertical-align: middle;
                 margin-left: 0.4rem;
                 width: 2rem;
@@ -562,9 +567,19 @@ $test: 1px dashed black;
                     pointer-events: all;
                 }
 
+                @include mq-max('sm') {
+                    width: 1.8rem;
+                    height: 1.8rem;
+                }
+
                 svg {
                     width: 2rem;
                     height: 2rem;
+
+                    @include mq-max('sm') {
+                        width: 1.6rem;
+                        height: 1.6rem;
+                    }
                 }
             }
 
@@ -582,6 +597,10 @@ $test: 1px dashed black;
                 opacity: 0;
                 pointer-events: none;
                 transition: 0.3s ease;
+
+                @include mq-max('sm') {
+                    width: 80%;
+                }
             }
         }
 
