@@ -5,7 +5,8 @@ export const toggleNav = () => {
 
   const mainContent = document.querySelector(".main-content");
   const navMenu = document.querySelector(".nav-menu");
-  const links = navMenu.querySelectorAll("a");
+  const navLinks = navMenu.querySelectorAll("a");
+  const pageLinks = document.querySelectorAll(".page-link");
 
   mainContent.classList.toggle("active");
   navMenu.classList.toggle("active");
@@ -15,9 +16,13 @@ export const toggleNav = () => {
   menuBtn.setAttribute("aria-expanded", !expanded);
   navMenu.setAttribute("aria-hidden", expanded);
 
-  // Update tabIndex for links based on menu visibility
-  links.forEach((link) => {
+  // Update tabIndex for navLinks based on menu visibility
+  navLinks.forEach((link) => {
     link.setAttribute("tabindex", expanded ? "-1" : "0");
+  });
+
+  pageLinks.forEach((link) => {
+    link.setAttribute("tabindex", !expanded ? "-1" : "0");
   });
 };
 

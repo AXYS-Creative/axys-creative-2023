@@ -89,7 +89,8 @@ $test: 1px dashed black;
         width: 72rem; // Plus Jakarta Sans
         // width: 63.5rem; // Mukta
         margin-left: $section-inner-padding;
-        padding: 0 0 2rem; // Mukta
+        padding: 2rem 0 4rem; // Plus Jakarta Sans
+        // padding: 0 0 2rem; // Mukta
         @include appear(0.5s, 1.6s);
 
         @include mq-max('md') {
@@ -311,7 +312,7 @@ $test: 1px dashed black;
         flex-direction: row;
         padding-left: $body-padding;
         gap: 6rem;
-        margin: 0 0 4rem;
+        margin: 2rem 0 6rem;
         
         @include mq-max('md') {
             padding-left: $body-padding-small;      
@@ -329,9 +330,9 @@ $test: 1px dashed black;
         }
 
         li {
-            font-size: 3.2rem;
+            font-size: max(20px, 2.4rem);
             font-weight: 400;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             padding: 1rem 0;
             border-bottom: 2px solid $black;
             
@@ -405,11 +406,6 @@ $test: 1px dashed black;
             width: 12rem;
         }
 
-
-        img {
-            width: 100%;
-        }
-
         .top-heart {
             position: absolute;
             top: -8%;
@@ -430,8 +426,15 @@ $test: 1px dashed black;
 }
 
 .membership {
+    height: unset;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    margin: unset auto;
+    
+    @include mq-max('md') {
+        align-items: flex-start;
+    }
 
     // &-bg {
         // See ".section-bg" in _globals.scss
@@ -440,26 +443,53 @@ $test: 1px dashed black;
     &-title {
         // See ".section-title" _globals.scss
         color: $white;
-        text-align: right;
-        margin-left: 0;
-        margin-right: $body-padding;
+        padding-left: unset;
+        width: 84.6%;
+
+        @include mq-max('md') {
+            padding-left: $body-padding-small;
+        }
+    }
+
+    .section-description {
+        color: $white;
+        margin-bottom: 4rem;
+        width: 84%;
+
+        @include mq-max('md') {
+            margin-top: 2rem;
+        }
     }
 
     &-options {
-        // border: $test;
         display: flex;
         align-items: stretch;
-        align-self: flex-end;
+        width: 84%;
         gap: 2rem;
-        width: 82%;
         padding-right: $body-padding;
+        margin-bottom: calc($body-padding + 2rem);
+        
+        @include mq-max('xxl') {
+            margin-bottom: $body-padding;
+        }
+
+        @include mq-max('md') {
+            flex-direction: column;
+            padding-right: unset;
+            padding-left: $body-padding-small;
+        }
     }
 
     &-card {
+        position: relative;
         background: $white;
         padding: $body-padding-small;
         width: 56rem;
         box-shadow: 0.4rem 0.4rem 0 rgba($black, 0.25);
+        
+        @include mq-max('md') {
+            width: max(66rem, 92%);
+        }
 
         h3 {
             font-size: max(0px, 6.4rem);
@@ -505,6 +535,41 @@ $test: 1px dashed black;
         .card-btns {
             display: flex;
             gap: 2rem;
+        }
+    }
+
+    .ribbon {
+        position: absolute;
+        top: -5%;
+        right: 5%;
+        rotate: 12deg;
+
+        figcaption {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+    }
+
+    .membership-person {
+        // border: $test;
+        position: absolute;
+        bottom: 8%;
+        left: 2%;
+        width: clamp(8rem, 12%, 20rem);
+        
+        @include mq-max('md') {
+            bottom: auto;
+            left: auto;
+            top: 8%;
+            right: 4%;
+            transform: scaleX(-1);
+            width: 16%;
         }
     }
 }

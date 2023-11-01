@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <script src="./javascript/index.js" type="module"></script>
@@ -43,8 +43,8 @@
             <!-- <h3>A variety of subscriptions <br>for scaling your business</h3> -->
             <h3 class="section-description">Gain access to <strong>endless</strong><br>designs &amp; development</h3>
             <div class="hero-btns">
-                <a class="cta-1 plans-btn">View plans</a>
-                <a class="cta-2 learn-btn">Learn more
+                <a class="page-link cta-1 plans-btn" href="#">View plans</a>
+                <a class="page-link cta-2 learn-btn" href="#">Learn more
                     <svg width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.47036 2.40268L29.2383 2.36523L29.2008 27.1332M27.5157 4.08783L2.3658 29.2377" stroke="#232323" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/>
                     </svg>
@@ -99,8 +99,8 @@
             <h3 class="section-description">A variety of perks for<br> scaling your business</h3>
 
             <div class="perks-btns">
-                <a class="cta-1 plans-btn">View plans</a>
-                <a class="cta-2 work-btn">Our work
+                <a class="page-link cta-1 plans-btn">View plans</a>
+                <a class="page-link cta-2 work-btn">Our work
                     <svg width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.47036 2.40268L29.2383 2.36523L29.2008 27.1332M27.5157 4.08783L2.3658 29.2377" stroke="#232323" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/>
                     </svg>
@@ -138,11 +138,17 @@
                 <p><span class="membership-title-character">M</span></p><p><span class="membership-title-character">e</span></p><p><span class="membership-title-character">m</span></p><p><span class="membership-title-character">b</span></p><p><span class="membership-title-character">e</span></p><p><span class="membership-title-character">r</span></p><p><span class="membership-title-character">s</span></p><p><span class="membership-title-character">h</span></p><p><span class="membership-title-character">i</span></p><p><span class="membership-title-character">p</span></p>
             </figure>
 
+            <h3 class="section-description">For a fixed rate, we replace unreliable <br class="medium-screen-only">freelancers and costly agencies.</h3>
+
             <div class="membership-options">
                 <div class="membership-card">
                     <h3>Standard</h3>
+                    <figure class="ribbon">
+                        <img src="./assets/graphics/ribbon.svg" alt="">
+                        <figcaption>Most popular</figcaption>
+                    </figure>
                     <hr>
-                    <h4>$4,995/m <span>Pause or cancel anytime</span></h4>
+                    <h4>$4,995/m <br class="large-screen-only"><span>Pause or cancel anytime</span></h4>
                     
                     <h5>Benefits</h5>
 
@@ -156,14 +162,18 @@
                     </ul>
 
                     <div class="card-btns">
-                        <a class="cta-1" href="">Get Started</a>
-                        <a class="cta-2" href="">Book Call</a>
+                        <a class="page-link cta-1" href="#">Get Started</a>
+                        <a class="page-link cta-2" href="#">Book Call 
+                            <svg width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.47036 2.40268L29.2383 2.36523L29.2008 27.1332M27.5157 4.08783L2.3658 29.2377" stroke="#232323" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <div class="membership-card">
                     <h3>Premium</h3>
                     <hr>
-                    <h4>$6,995/m <span>Pause or cancel anytime</span></h4>
+                    <h4>$6,995/m <br class="large-screen-only"><span>Pause or cancel anytime</span></h4>
                     
                     <h5>Benefits</h5>
 
@@ -177,11 +187,19 @@
                     </ul>
 
                     <div class="card-btns">
-                        <a class="cta-1" href="">Get Started</a>
-                        <a class="cta-2" href="">Book Call</a>
+                        <a class="page-link cta-1" href="#">Get Started</a>
+                        <a class="page-link cta-2" href="#">Book Call 
+                            <svg width="31" height="32" viewBox="0 0 31 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.47036 2.40268L29.2383 2.36523L29.2008 27.1332M27.5157 4.08783L2.3658 29.2377" stroke="#232323" stroke-width="3" stroke-miterlimit="10" stroke-linecap="square"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
+
+            <figure class="graphics-person membership-person">
+                <img src="./assets/graphics/graphic-person-4.svg" alt="">                 
+            </figure>
 
             <img class="section-bg membership-bg" src="./assets/images/bg-purple.webp" alt="blue, fuzzy background">
         </section>
