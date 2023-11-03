@@ -233,7 +233,7 @@ img {
   color: #fafafa;
   font-size: max(14px, 1.8rem);
 }
-.nav-menu .nav-links-2 a:hover::after {
+.nav-menu .nav-links-2 a:hover::after, .nav-menu .nav-links-2 a:focus::after {
   width: 100%;
 }
 .nav-menu .nav-links-2 a::after {
