@@ -1,37 +1,44 @@
 const questionsData = [
-    {
-      question: "Are there limits to design and development services?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
-    {
-        question: "Why wouldn't I just hire a full-time designer & developer?",
-        answer: "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
-    {
-        question: "Do I have a limited number of requests?",
-        answer: "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
-    {
-        question: "How fast is the process from wireframe to launch?",
-        answer: "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
-    {
-        question: "Who are the designers & developers?",
-        answer: "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
-    {
-        question: "How do I request a design and track progress?",
-        answer: "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
-    {
-        question: "What if I'm unsatisfied with the design?",
-        answer: "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
-    {
-        question: "What if I only have a single request?",
-        answer: "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    },
+  {
+    question: "Are there limits to design and development services?",
+    answer:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
+  {
+    question: "Why wouldn't I just hire a full-time designer & developer?",
+    answer:
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
+  {
+    question: "Do I have a limited number of requests?",
+    answer:
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
+  {
+    question: "How fast is the process from wireframe to launch?",
+    answer:
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
+  {
+    question: "Who are the designers & developers?",
+    answer:
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
+  {
+    question: "How do I request a design and track progress?",
+    answer:
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
+  {
+    question: "What if I'm unsatisfied with the design?",
+    answer:
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
+  {
+    question: "What if I only have a single request?",
+    answer:
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+  },
 ];
 
 export function renderQuestions() {
@@ -41,7 +48,7 @@ export function renderQuestions() {
 
   questionsData.forEach(({ question, answer }) => {
     htmlString += `
-              <button class="question">
+              <button class="question page-link">
                 <span>
                     <p>Q.</p>
                     <h3 class="question">${question}</h3>
@@ -60,16 +67,16 @@ export function renderQuestions() {
 renderQuestions();
 
 export function questions() {
-    const faqQuestion = document.querySelectorAll(".question");
-    const faqAnswer = document.querySelectorAll(".answer");
-    // const downArrow = document.querySelectorAll(".arrow-down");
-    // const upArrow = document.querySelectorAll(".arrow-up");
+  const faqQuestion = document.querySelectorAll(".question");
+  const faqAnswer = document.querySelectorAll(".answer");
+  // const downArrow = document.querySelectorAll(".arrow-down");
+  // const upArrow = document.querySelectorAll(".arrow-up");
 
-    faqQuestion.forEach((question, index) => {
-        question.addEventListener("click", () => {
-            faqAnswer[index].classList.toggle("active");
-        });
+  faqQuestion.forEach((question, index) => {
+    question.addEventListener("click", () => {
+      faqAnswer[index].classList.toggle("active");
     });
+  });
 }
 
 questions();
