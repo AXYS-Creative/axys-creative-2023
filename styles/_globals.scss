@@ -136,7 +136,7 @@ img {
     // opacity: 0;
     
     @include mq-max('sm') {
-        padding: $body-padding;
+        padding: calc($body-padding * 2) $body-padding;
     }
 
     &.active {
@@ -250,6 +250,12 @@ img {
         display: flex;
         gap: 2rem;
 
+        @include mq-max('sm') {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
         a {
             position: relative;
             color: $white;
@@ -271,6 +277,11 @@ img {
                 height: 2px;
                 background: $white;
                 transition: 0.3s ease;
+
+                @include mq-max('sm') {
+                    translate: 0 4px;
+                    height: 1px;
+                }
             }
         }
     }
@@ -313,6 +324,7 @@ section {
     max-width: $width-constraint;
     margin: 8rem auto;
     height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
+    scroll-margin-top: $body-padding;
 
     @include mq-max('xxl') {
         height: clamp(580px, calc(100vh - $body-padding * 2), calc(768px - $body-padding));

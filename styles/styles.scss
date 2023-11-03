@@ -752,12 +752,7 @@ $test: 1px dashed black;
 
 .pre-footer {
     height: unset;
-    padding: $body-padding-small;
-
-    @include mq-max('md') {
-        border: $test;
-        padding-bottom: 0;
-    }
+    padding: $body-padding-small $body-padding-small 12rem;
 
     &-brands {
         @include row-center;
@@ -874,6 +869,11 @@ $test: 1px dashed black;
             top: 64%;
         }
 
+        @include mq-max('sm') {
+            top: 80%;
+            scale: 1.25;
+        }
+
         .bubble {
             position: absolute;
             top: 50%;
@@ -981,8 +981,12 @@ $test: 1px dashed black;
 
     @include mq-max('md') {
         flex-direction: column;
-        // border: 2px dashed yellow;
         gap: 20rem;
+    }
+
+    @include mq-max('sm') {
+        padding-bottom: $body-padding;
+        gap: unset;
     }
 
     .location {
@@ -991,14 +995,34 @@ $test: 1px dashed black;
         color: $white;
         line-height: normal;
 
+        @include mq-max('md') {
+            position: absolute;
+            right: 4rem;
+        }
+
+        @include mq-max('md') {
+            font-size: 10px;
+            right: 1.2rem;
+        }
+
         svg {
             position: absolute;
             top: 0;
-            translate: -25% -28%;
+            right: 0;
+            translate: 64% -26%;
             width: max(24px, 4.4rem);
             
+            @include mq-max('xxl') {
+                translate: 64% -30%;
+            }
+
             @include mq-max('lg') {
-                translate: -25% -34%;
+                translate: 64% -34%;
+            }
+            
+            @include mq-max('sm') {
+                translate: 56% -34%;
+                scale: 0.6;
             }
         }
     }
@@ -1009,6 +1033,20 @@ $test: 1px dashed black;
         left: 50%;
         translate: -50% -50%;
         width: 20rem;
+
+        @include mq-max('md') {
+            width: 16rem;
+            top: unset;
+            left: unset;
+            bottom: 0;
+            right: 0;
+            translate: unset;
+        }
+
+        @include mq-max('sm') {
+            width: 10rem;
+            bottom: $body-padding;
+        }
     }
 
     &-nav {
@@ -1016,10 +1054,29 @@ $test: 1px dashed black;
         justify-content: space-between;
         gap: 4rem;
 
+        @include mq-max('md') {
+            justify-content: flex-start;
+            width: calc(100% - 4rem);
+        }
+ 
+        @include mq-max('sm') {
+            width: 100%;
+            gap: 2rem;
+        }
+
         &-group {
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
+
+            @include mq-max('md') {
+                gap: 2rem;
+            }
+
+            @include mq-max('sm') {
+                gap: 1.2rem;
+            }
+
         }
 
         a {

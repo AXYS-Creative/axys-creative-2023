@@ -51,14 +51,14 @@ for (let link of sectionLinks) {
     const targetId = this.getAttribute("href");
     const targetElement = document.querySelector(targetId);
     const targetPosition =
-      targetElement.getBoundingClientRect().top + window.pageYOffset;
+      targetElement.getBoundingClientRect().top + (scrollY - 40);
 
     // Smoothly scroll to the target section using gsap
     gsap.to(window, {
       duration: 0.6,
       delay: 0.8,
       scrollTo: { y: targetPosition, autoKill: false },
-      ease: "power2.inOut",
+      ease: "back.inOut(0.6)",
     });
   });
 }
