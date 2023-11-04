@@ -755,52 +755,94 @@ $test: 1px dashed black;
         margin-left: $body-padding;
     }
 
-    .questions-content {
-        padding: 4rem 0 0 $body-padding;
-        width: 42%;
-        cursor: pointer;
+    .questions-details {
+        display: flex;
+        position: relative;
 
-        .question {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 10rem;
-            width: 100%;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-            
-            h3 {
-                border-bottom: 2px solid $black;
-                font-size: 2.4rem;
-                font-weight: 300;
-                text-align: left;
-            }
-
-            span {
+        .questions-content {
+            padding: 4rem 0 4rem $body-padding;
+            width: 46%;
+            cursor: pointer;
+    
+            .question {
                 display: flex;
+                flex-direction: column;
                 font-size: 2.4rem;
                 font-weight: 300;
+                border-bottom: 2px solid $black;
+                width: 100%;
+                text-align: left;
+    
+                span {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: 2rem 0;
+    
+                    h3 {
+                        font-size: 2.4rem;
+                        font-weight: 300;
+                        flex-grow: 1;
+                        padding-left: 1rem;
+                    }
+                    
+                    .angle-arrow {
+                        width: 2.6rem;
+                        transition: 0.3s $cubic-ease-back;
+
+                        &.active {
+                            rotate: 180deg;
+                        }
+                    }
+                }           
             }
+    
+            .answer {
+                display: none;
+                font-size: 2rem;
+                font-weight: 300;
+                padding: 2rem 0 2rem 4rem;
+    
+                &.active {
+                    display: block;
+                }
+            }
+        }
+    
+        .questions-person {
+            position: absolute;
+            top: 10%;
+            right: 24%;
 
             img {
-                width: 2.4rem;
+                width: 24rem;
             }
         }
 
-        .answer {
-            display: none;
-            padding: 0 1rem 2rem 4rem;
-
+        .questions-cta {
+            position: absolute;
+            top: 48%;
+            right: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 22rem;
+            align-self: flex-end;
+    
             p {
-                font-size: 2rem;
-                font-weight: 300;
+                font-size: 2.4rem;
+                line-height: 3rem;
+                color: black;
+                text-transform: uppercase;
             }
 
-            &.active {
-                display: block;
+            a {
+                display: flex;
+                justify-content: center;
             }
         }
     }
+
 }
 
 .pre-footer {

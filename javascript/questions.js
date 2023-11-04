@@ -2,10 +2,10 @@ const questionsData = [
   {
     question: "Are there limits to design and development services?",
     answer:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+      "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
   },
   {
-    question: "Why wouldn't I just hire a full-time designer & developer?",
+    question: "Why wouldn't I just hire a full-time developer?",
     answer:
       "A. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
   },
@@ -46,18 +46,19 @@ export function renderQuestions() {
 
   let htmlString = "";
 
-  questionsData.forEach(({ question, answer }) => {
+  questionsData.forEach(({ question, answer }, index) => {
     htmlString += `
-              <button class="question page-link">
-                <span>
-                    <p>Q.</p>
-                    <h3 class="question">${question}</h3>
-                    <svg width="31" height="19" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.8 0L15.2 11.4L26.6 0L30.4 3.8L15.2 19L0 3.8L3.8 0Z" fill="#232323"/></svg>
-                </span>
-
-                  <p class="answer">${answer}</p>
-              </button>
+              <div class="faq-item">
+                <button class="question page-link">
+                  <span>
+                      <p>Q.</p>
+                      <h3>${question}</h3>
+                      <svg class="angle-arrow" width="31" height="19" viewBox="0 0 31 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.8 0L15.2 11.4L26.6 0L30.4 3.8L15.2 19L0 3.8L3.8 0Z" fill="#232323"/></svg>
+                  </span>
+                </button>
+                <div class="answer" id="answer-${index}">${answer}</div>
+              </div>
           `;
   });
 
@@ -67,14 +68,23 @@ export function renderQuestions() {
 renderQuestions();
 
 export function questions() {
-  const faqQuestion = document.querySelectorAll(".question");
-  const faqAnswer = document.querySelectorAll(".answer");
-  // const downArrow = document.querySelectorAll(".arrow-down");
-  // const upArrow = document.querySelectorAll(".arrow-up");
+  const faqItems = document.querySelectorAll(".faq-item");
 
-  faqQuestion.forEach((question, index) => {
-    question.addEventListener("click", () => {
-      faqAnswer[index].classList.toggle("active");
+  faqItems.forEach((item, index) => {
+    const questionButton = item.querySelector(".question");
+    const answerDiv = item.querySelector(".answer");
+    const angleArrow = item.querySelector(".angle-arrow");
+
+    questionButton.addEventListener("click", () => {
+      faqItems.forEach((otherItem, otherIndex) => {
+        if (otherIndex !== index) {
+          otherItem.querySelector(".answer").classList.remove("active");
+          otherItem.querySelector(".angle-arrow").classList.remove("active");
+        }
+      });
+
+      answerDiv.classList.toggle("active");
+      angleArrow.classList.toggle("active");
     });
   });
 }
