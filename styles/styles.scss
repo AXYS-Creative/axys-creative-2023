@@ -13,6 +13,7 @@ $section-inner-padding-small: calc($section-inner-padding / 2);
 
 $cubic-ease: cubic-bezier(1,.2,0,.84);
 $cubic-ease-title: cubic-bezier(.08,1.07,.76,1.16);
+$cubic-ease-back: cubic-bezier(.12,.64,.61,1.15);
 
 $width-constraint: 1920px;
 
@@ -83,22 +84,23 @@ $test: 1px dashed black;
     }
 
     h2 {
+        font-family: 'mukta';
         text-transform: uppercase;
         font-size: max(20px, 6rem);
         text-align: justify;
-        width: 72rem; // Plus Jakarta Sans
-        // width: 63.5rem; // Mukta
+        // width: 72rem; // Plus Jakarta Sans
+        width: 63.5rem; // Mukta
         margin-left: $section-inner-padding;
-        padding: 2rem 0 4rem; // Plus Jakarta Sans
-        // padding: 0 0 2rem; // Mukta
+        // padding: 2rem 0 4rem; // Plus Jakarta Sans
+        padding: 0 0 2rem; // Mukta
         @include appear(0.5s, 1.6s);
 
         @include mq-max('md') {
             margin-left: $section-inner-padding-small;
-            font-size: 5rem; // Plus Jakarta Sans
-            width: 60rem; // Plus Jakarta Sans
-            // font-size: 5.4rem; // Mukta
-            // width: 58rem; // Mukta
+            // font-size: 5rem; // Plus Jakarta Sans
+            // width: 60rem; // Plus Jakarta Sans
+            font-size: 5.4rem; // Mukta
+            width: 58rem; // Mukta
         }
         
         @include mq-max('md') {
@@ -107,13 +109,52 @@ $test: 1px dashed black;
 
         @include mq-max('sm') {
             padding: 0 0 2rem;
-            font-size: 4rem;
-            width: 30.8rem; // Plus Jakarta Sans
-            // width: 27rem; // Mukta
+            font-size: 4.8rem;
+            // width: 30.8rem; // Plus Jakarta Sans
+            width: 33.3rem; // Mukta
         }
 
         span {
+            font-family: 'mukta';
             color: $coral;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px $coral;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-repeat: no-repeat;
+            transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
+            -webkit-transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
+
+            @include mq-max('md') {
+                font-weight: 900;
+                -webkit-text-stroke-width: 1px;
+            }
+        }
+
+        .web {
+            background-image: linear-gradient(270deg, $coral 0%, $coral 50%, transparent 50.1%);
+            background-position: right;
+        }
+    
+        .web-1 {
+            animation: hero-sub-text 10s $cubic-ease-title 1.2s infinite alternate;
+        }
+        
+        .web-2 {
+            animation: hero-sub-text-2 10.2s $cubic-ease-title 1s infinite alternate;
+        }
+
+        .site {
+            background-image: linear-gradient(90deg, $coral 0%, $coral 50%, transparent 50.1%);
+            background-position: left;
+        }
+    
+        .site-1 {
+            animation: hero-sub-text-2 10s $cubic-ease-title 1.2s infinite alternate;
+        }
+        
+        .site-2 {
+            animation: hero-sub-text 10.2s $cubic-ease-title 1s infinite alternate;
         }
     }
 
@@ -152,7 +193,6 @@ $test: 1px dashed black;
         translate: 0 -24%;
         width: 64rem;
         height: 48rem;
-        @include appear(0.5s, 1s);
 
         @include mq-max('xxl') {
             width: 56rem;
@@ -179,6 +219,10 @@ $test: 1px dashed black;
         .graphic-person-1 {
             width: 30rem;
             translate: calc(-50% - 10.6rem) -50%;
+            opacity: 0;
+            z-index: 2;
+            @include appear(0.4s, 1.6s);
+            transition: 1.6s $cubic-ease-title;
             
             @include mq-max('md') {
                 width: 24rem;
@@ -194,6 +238,10 @@ $test: 1px dashed black;
         .graphic-person-2 {
             width: 22rem;
             translate: calc(-50% + 10.6rem) -50%;
+            opacity: 0;
+            z-index: 2;
+            @include appear(0.4s, 1.6s);
+            transition: 1.6s $cubic-ease-title;
             
             @include mq-max('md') {
                 width: 18rem;
@@ -221,6 +269,8 @@ $test: 1px dashed black;
             width: 20rem;
             height: 20rem;
             translate: -100% -10%;
+            z-index: 1;
+            @include scale(0.6, 0.6s, 0.7s);
 
             @include mq-max('md') {
                 width: 14rem;
@@ -238,6 +288,7 @@ $test: 1px dashed black;
             width: 30rem;
             height: 30rem;
             translate: -45% -75%;
+            @include scale(0.6, 0.75s, 0.8s);
 
             @include mq-max('md') {
                 width: 20rem;
@@ -255,6 +306,8 @@ $test: 1px dashed black;
             width: 20rem;
             height: 20rem;
             translate: 22% -25%;
+            z-index: -1;
+            @include scale(0.6, 0.9s, 0.9s);
 
             @include mq-max('md') {
                 width: 14rem;

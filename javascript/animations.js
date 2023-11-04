@@ -1,3 +1,39 @@
+export const nonGsapAnimations = () => {
+  const graphicPerson1 = document.querySelector(".graphic-person-1");
+  const graphicPerson2 = document.querySelector(".graphic-person-2");
+
+  // Animate Hero Graphics
+  document.addEventListener("mousemove", (event) => {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    // Calculate the center of the screen
+    const centerX = viewportWidth / 2;
+    const centerY = viewportHeight / 2;
+
+    // Get the mouse position
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    // Calculate the distance from the center
+    const distanceFromCenterX = mouseX - centerX;
+    const distanceFromCenterY = mouseY - centerY;
+
+    // Apply a ratio to reduce the movement effect
+    const ratio = 0.01; // Adjust the ratio as needed for the "nudge" effect
+    const negativeRatio = -0.01; // Adjust the ratio as needed for the "nudge" effect
+
+    // Update the element's position
+    graphicPerson1.style.transform = `translate(${
+      distanceFromCenterX * negativeRatio
+    }px, ${distanceFromCenterY * negativeRatio}px)`;
+
+    graphicPerson2.style.transform = `translate(${
+      distanceFromCenterX * ratio
+    }px, ${distanceFromCenterY * ratio}px)`;
+  });
+};
+
 export const gsapAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +74,7 @@ export const gsapAnimations = () => {
         ease: "ease",
         scrollTrigger: {
           trigger: ".work",
-          scrub: true,
+          scrub: 1,
           start: "top 25%",
           end: endTrigger,
         },
@@ -99,5 +135,7 @@ export const gsapAnimations = () => {
   //   indent: 128,
   // }
 };
+
+nonGsapAnimations();
 
 gsapAnimations();

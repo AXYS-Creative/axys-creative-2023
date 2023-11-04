@@ -133,7 +133,6 @@ img {
     padding: calc($body-padding * 2);
     z-index: 3;
     pointer-events: none;
-    // opacity: 0;
     
     @include mq-max('sm') {
         padding: calc($body-padding * 2) $body-padding;
@@ -250,7 +249,7 @@ img {
         display: flex;
         gap: 2rem;
 
-        @include mq-max('sm') {
+        @include mq-max('md') {
             flex-direction: column;
             align-items: flex-start;
             gap: 1rem;
@@ -279,7 +278,7 @@ img {
                 background: $white;
                 transition: 0.3s ease;
 
-                @include mq-max('sm') {
+                @include mq-max('md') {
                     translate: 0 4px;
                     height: 1px;
                 }
@@ -326,6 +325,10 @@ section {
     margin: 8rem auto;
     height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
     scroll-margin-top: $body-padding;
+
+    @include mq-min('xxxl') {
+        height: calc(100vh - $body-padding * 2);
+    }
 
     @include mq-max('xxl') {
         height: clamp(580px, calc(100vh - $body-padding * 2), calc(768px - $body-padding));

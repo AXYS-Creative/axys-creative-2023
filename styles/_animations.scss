@@ -4,3 +4,81 @@
         pointer-events: all;
     }
 }
+
+@keyframes scale {
+    0% {
+        opacity: 0;
+        scale: 0;
+    }
+
+    50% {
+        opacity: 1;
+        scale: 0;
+    }
+
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes hero-sub-text {
+    0% {
+        background-size: 0 100%;
+        -webkit-background-size: 0 100%;
+    }
+    20% {
+        background-size: 0 100%;
+        -webkit-background-size: 0 100%;
+    }
+    30% {
+        background-size: 220% 100%;
+        -webkit-background-size: 220% 100%;
+    }
+    50% {
+        background-size: 220% 100%;
+        -webkit-background-size: 220% 100%;
+    }
+    70% {
+        background-size: 220% 100%;
+        -webkit-background-size: 220% 100%;
+    }
+    80% {
+        background-size: 0 100%;
+        -webkit-background-size: 0 100%;
+    }
+    100% {
+        background-size: 0 100%;
+        -webkit-background-size: 0 100%;
+    }
+}
+@keyframes hero-sub-text-2 {
+    0% {
+        background-size: 220% 100%;
+        -webkit-background-size: 220% 100%;
+    }
+    20% {
+        background-size: 220% 100%;
+        -webkit-background-size: 220% 100%;
+    }
+    30% {
+        background-size: 0 100%;
+        -webkit-background-size: 0 100%;
+    }
+    50% {
+        background-size: 0 100%;
+        -webkit-background-size: 0 100%;
+    }
+    70% {
+        background-size: 0 100%;
+        -webkit-background-size: 0 100%;
+    }
+    80% {
+        background-size: 220% 100%;
+        -webkit-background-size: 220% 100%;
+    }
+    100% {
+        background-size: 220% 100%;
+        -webkit-background-size: 220% 100%;
+    }
+}

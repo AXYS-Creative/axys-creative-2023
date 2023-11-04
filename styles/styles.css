@@ -221,7 +221,7 @@ img {
   display: flex;
   gap: 2rem;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .nav-menu .nav-links-2 {
     flex-direction: column;
     align-items: flex-start;
@@ -247,7 +247,7 @@ img {
   background: #fafafa;
   transition: 0.3s ease;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .nav-menu .nav-links-2 a::after {
     translate: 0 4px;
     height: 1px;
@@ -286,6 +286,11 @@ section {
   margin: 8rem auto;
   height: clamp(768px, 100vh - 8rem, 1024px - 4rem);
   scroll-margin-top: 4rem;
+}
+@media screen and (min-width: 1921px) {
+  section {
+    height: calc(100vh - 8rem);
+  }
 }
 @media screen and (max-width: 1440px) {
   section {
@@ -465,6 +470,80 @@ section:first-of-type {
     pointer-events: all;
   }
 }
+@keyframes scale {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  50% {
+    opacity: 1;
+    scale: 0;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes hero-sub-text {
+  0% {
+    background-size: 0 100%;
+    -webkit-background-size: 0 100%;
+  }
+  20% {
+    background-size: 0 100%;
+    -webkit-background-size: 0 100%;
+  }
+  30% {
+    background-size: 220% 100%;
+    -webkit-background-size: 220% 100%;
+  }
+  50% {
+    background-size: 220% 100%;
+    -webkit-background-size: 220% 100%;
+  }
+  70% {
+    background-size: 220% 100%;
+    -webkit-background-size: 220% 100%;
+  }
+  80% {
+    background-size: 0 100%;
+    -webkit-background-size: 0 100%;
+  }
+  100% {
+    background-size: 0 100%;
+    -webkit-background-size: 0 100%;
+  }
+}
+@keyframes hero-sub-text-2 {
+  0% {
+    background-size: 220% 100%;
+    -webkit-background-size: 220% 100%;
+  }
+  20% {
+    background-size: 220% 100%;
+    -webkit-background-size: 220% 100%;
+  }
+  30% {
+    background-size: 0 100%;
+    -webkit-background-size: 0 100%;
+  }
+  50% {
+    background-size: 0 100%;
+    -webkit-background-size: 0 100%;
+  }
+  70% {
+    background-size: 0 100%;
+    -webkit-background-size: 0 100%;
+  }
+  80% {
+    background-size: 220% 100%;
+    -webkit-background-size: 220% 100%;
+  }
+  100% {
+    background-size: 220% 100%;
+    -webkit-background-size: 220% 100%;
+  }
+}
 .hero-bg {
   height: 0;
   animation: hero-bg-animation 0.5s ease 0.5s forwards;
@@ -522,12 +601,13 @@ section:first-of-type {
   }
 }
 .hero h2 {
+  font-family: "mukta";
   text-transform: uppercase;
   font-size: max(20px, 6rem);
   text-align: justify;
-  width: 72rem;
+  width: 63.5rem;
   margin-left: 4rem;
-  padding: 2rem 0 4rem;
+  padding: 0 0 2rem;
   opacity: 0;
   pointer-events: none;
   animation: appear 0.5s ease 1.6s forwards;
@@ -535,8 +615,8 @@ section:first-of-type {
 @media screen and (max-width: 768px) {
   .hero h2 {
     margin-left: 2rem;
-    font-size: 5rem;
-    width: 60rem;
+    font-size: 5.4rem;
+    width: 58rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -547,12 +627,46 @@ section:first-of-type {
 @media screen and (max-width: 480px) {
   .hero h2 {
     padding: 0 0 2rem;
-    font-size: 4rem;
-    width: 30.8rem;
+    font-size: 4.8rem;
+    width: 33.3rem;
   }
 }
 .hero h2 span {
+  font-family: "mukta";
   color: #df5b40;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px #df5b40;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-repeat: no-repeat;
+  transition: 0.4s cubic-bezier(0.6, -0.06, 0.33, 1.31);
+  -webkit-transition: 0.4s cubic-bezier(0.6, -0.06, 0.33, 1.31);
+}
+@media screen and (max-width: 768px) {
+  .hero h2 span {
+    font-weight: 900;
+    -webkit-text-stroke-width: 1px;
+  }
+}
+.hero h2 .web {
+  background-image: linear-gradient(270deg, #df5b40 0%, #df5b40 50%, transparent 50.1%);
+  background-position: right;
+}
+.hero h2 .web-1 {
+  animation: hero-sub-text 10s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
+}
+.hero h2 .web-2 {
+  animation: hero-sub-text-2 10.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
+}
+.hero h2 .site {
+  background-image: linear-gradient(90deg, #df5b40 0%, #df5b40 50%, transparent 50.1%);
+  background-position: left;
+}
+.hero h2 .site-1 {
+  animation: hero-sub-text-2 10s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
+}
+.hero h2 .site-2 {
+  animation: hero-sub-text 10.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
 }
 .hero h3 {
   opacity: 0;
@@ -582,9 +696,6 @@ section:first-of-type {
   translate: 0 -24%;
   width: 64rem;
   height: 48rem;
-  opacity: 0;
-  pointer-events: none;
-  animation: appear 0.5s ease 1s forwards;
 }
 @media screen and (max-width: 1440px) {
   .hero-img {
@@ -613,6 +724,12 @@ section:first-of-type {
 .hero-img .graphic-person-1 {
   width: 30rem;
   translate: calc(-50% - 10.6rem) -50%;
+  opacity: 0;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  animation: appear 0.4s ease 1.6s forwards;
+  transition: 1.6s cubic-bezier(0.08, 1.07, 0.76, 1.16);
 }
 @media screen and (max-width: 768px) {
   .hero-img .graphic-person-1 {
@@ -629,6 +746,12 @@ section:first-of-type {
 .hero-img .graphic-person-2 {
   width: 22rem;
   translate: calc(-50% + 10.6rem) -50%;
+  opacity: 0;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  animation: appear 0.4s ease 1.6s forwards;
+  transition: 1.6s cubic-bezier(0.08, 1.07, 0.76, 1.16);
 }
 @media screen and (max-width: 768px) {
   .hero-img .graphic-person-2 {
@@ -657,6 +780,10 @@ section:first-of-type {
   width: 20rem;
   height: 20rem;
   translate: -100% -10%;
+  z-index: 1;
+  opacity: 0;
+  scale: 0.6;
+  animation: scale 0.6s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.7s forwards;
 }
 @media screen and (max-width: 768px) {
   .hero-img .bubble-1 {
@@ -675,6 +802,9 @@ section:first-of-type {
   width: 30rem;
   height: 30rem;
   translate: -45% -75%;
+  opacity: 0;
+  scale: 0.6;
+  animation: scale 0.75s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.8s forwards;
 }
 @media screen and (max-width: 768px) {
   .hero-img .bubble-2 {
@@ -693,6 +823,10 @@ section:first-of-type {
   width: 20rem;
   height: 20rem;
   translate: 22% -25%;
+  z-index: -1;
+  opacity: 0;
+  scale: 0.6;
+  animation: scale 0.9s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.9s forwards;
 }
 @media screen and (max-width: 768px) {
   .hero-img .bubble-3 {

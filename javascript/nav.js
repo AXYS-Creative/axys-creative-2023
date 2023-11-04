@@ -55,10 +55,10 @@ for (let link of sectionLinks) {
 
     // Smoothly scroll to the target section using gsap
     gsap.to(window, {
-      duration: 0.6,
+      duration: 1,
       delay: 0.8,
       scrollTo: { y: targetPosition, autoKill: false },
-      ease: "back.inOut(0.6)",
+      ease: "back.inOut(0.4)",
     });
   });
 }
