@@ -1,0 +1,21 @@
+$white: #fafafa;
+$black: #232323;
+$coral: #df5b40;
+$slategrey: #825E86;
+$blue: #7EC1D4;
+$yellow: #FBE144;
+$grey: #D9D9D9;
+
+$body-padding: 4rem;
+$body-padding-small: calc($body-padding / 2);
+$section-inner-padding: 4rem;
+$section-inner-padding-small: calc($section-inner-padding / 2);
+
+$cubic-ease: cubic-bezier(1,.2,0,.84);
+$cubic-ease-title: cubic-bezier(.08,1.07,.76,1.16);
+$cubic-ease-back: cubic-bezier(.12,.64,.61,1.15);
+$cubic-ease-gentle: cubic-bezier(0,0,0,1);
+
+$width-constraint: 1920px;
+
+$test: 1px dashed black;

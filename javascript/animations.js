@@ -32,6 +32,18 @@ export const nonGsapAnimations = () => {
       distanceFromCenterX * ratio
     }px, ${distanceFromCenterY * ratio}px)`;
   });
+
+  // Hero Parallax
+  window.addEventListener("scroll", function () {
+    let scrollPosition = window.scrollY;
+    const bubble1 = document.querySelector(".bubble-1");
+    const bubble2 = document.querySelector(".bubble-2");
+    const bubble3 = document.querySelector(".bubble-3");
+
+    bubble1.style.translate = `-100% calc(${scrollPosition * -0.18}px - 10%)`;
+    bubble2.style.translate = `-45% calc(${scrollPosition * -0.32}px - 75%)`;
+    bubble3.style.translate = `22% calc(${scrollPosition * -0.05}px - 25%)`;
+  });
 };
 
 export const gsapAnimations = () => {

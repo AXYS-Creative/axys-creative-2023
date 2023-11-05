@@ -323,12 +323,9 @@ section:first-of-type {
   top: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   z-index: -1;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   pointer-events: none;
 }
 
@@ -548,6 +545,9 @@ section:first-of-type {
     -webkit-background-size: 220% 100%;
   }
 }
+.hero {
+  scroll-margin-top: 0;
+}
 .hero-bg {
   height: 0;
   animation: hero-bg-animation 0.5s ease 0.5s forwards;
@@ -621,10 +621,6 @@ section:first-of-type {
     margin-left: 2rem;
     font-size: 5.4rem;
     width: 58rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .hero h2 {
     padding: 2rem 0 4rem;
   }
 }
@@ -657,20 +653,20 @@ section:first-of-type {
   background-position: right;
 }
 .hero h2 .web-1 {
-  animation: hero-sub-text 10s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
+  animation: hero-sub-text 6s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
 }
 .hero h2 .web-2 {
-  animation: hero-sub-text-2 10.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
+  animation: hero-sub-text-2 6.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
 }
 .hero h2 .site {
   background-image: linear-gradient(90deg, #df5b40 0%, #df5b40 50%, transparent 50.1%);
   background-position: left;
 }
 .hero h2 .site-1 {
-  animation: hero-sub-text-2 10s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
+  animation: hero-sub-text-2 6s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
 }
 .hero h2 .site-2 {
-  animation: hero-sub-text 10.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
+  animation: hero-sub-text 6.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
 }
 .hero h3 {
   opacity: 0;
@@ -733,7 +729,7 @@ section:first-of-type {
   opacity: 0;
   pointer-events: none;
   animation: appear 0.4s ease 1.6s forwards;
-  transition: 1.6s cubic-bezier(0.08, 1.07, 0.76, 1.16);
+  transition: 1s cubic-bezier(0.08, 1.07, 0.76, 1.16);
 }
 @media screen and (max-width: 768px) {
   .hero-img .graphic-person-1 {
@@ -755,7 +751,7 @@ section:first-of-type {
   opacity: 0;
   pointer-events: none;
   animation: appear 0.4s ease 1.6s forwards;
-  transition: 1.6s cubic-bezier(0.08, 1.07, 0.76, 1.16);
+  transition: 1s cubic-bezier(0.08, 1.07, 0.76, 1.16);
 }
 @media screen and (max-width: 768px) {
   .hero-img .graphic-person-2 {
@@ -773,10 +769,16 @@ section:first-of-type {
   position: absolute;
   border-radius: 50%;
   border: 2px solid #232323;
+  transition: 0.5s cubic-bezier(0, 0, 0, 1);
 }
 @media screen and (max-width: 768px) {
   .hero-img .bubble {
     border: 1px solid #232323;
+  }
+}
+@media screen and (max-width: 480px) {
+  .hero-img .bubble {
+    transition: none;
   }
 }
 .hero-img .bubble-1 {
@@ -1566,46 +1568,25 @@ section:first-of-type {
     gap: unset;
   }
 }
-.footer .location {
-  font-size: max(12px, 2rem);
-  position: relative;
-  color: #fafafa;
-  line-height: normal;
+.footer .social-icons {
+  display: flex;
+  gap: 2rem;
 }
 @media screen and (max-width: 768px) {
-  .footer .location {
+  .footer .social-icons {
     position: absolute;
-    right: 4rem;
+    right: 0;
   }
 }
-@media screen and (max-width: 768px) {
-  .footer .location {
-    font-size: 10px;
-    right: 1.2rem;
-  }
+.footer .social-icons a {
+  transition: 0.4s cubic-bezier(0.12, 0.64, 0.61, 1.15);
 }
-.footer .location svg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  translate: 64% -26%;
-  width: max(24px, 4.4rem);
+.footer .social-icons a:hover {
+  scale: 1.2;
+  rotate: 5deg;
 }
-@media screen and (max-width: 1440px) {
-  .footer .location svg {
-    translate: 64% -30%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .footer .location svg {
-    translate: 64% -34%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .footer .location svg {
-    translate: 56% -34%;
-    scale: 0.6;
-  }
+.footer .social-icons img {
+  width: 4rem;
 }
 .footer-logo {
   position: absolute;

@@ -1,29 +1,10 @@
-$white: #fafafa;
-$black: #232323;
-$coral: #df5b40;
-$slategrey: #825E86;
-$blue: #7EC1D4;
-$yellow: #FBE144;
-$grey: #D9D9D9;
-
-$body-padding: 4rem;
-$body-padding-small: calc($body-padding / 2);
-$section-inner-padding: 4rem;
-$section-inner-padding-small: calc($section-inner-padding / 2);
-
-$cubic-ease: cubic-bezier(1,.2,0,.84);
-$cubic-ease-title: cubic-bezier(.08,1.07,.76,1.16);
-$cubic-ease-back: cubic-bezier(.12,.64,.61,1.15);
-
-$width-constraint: 1920px;
-
-$test: 1px dashed black;
-
 @import './mixins',
+'./variables',
 './globals',
 './animations';
 
 .hero {
+    scroll-margin-top: 0;
     // scale: 1.5;
     // animation: hero-animation 0.5s ease 0.5s forwards;
 
@@ -101,9 +82,6 @@ $test: 1px dashed black;
             // width: 60rem; // Plus Jakarta Sans
             font-size: 5.4rem; // Mukta
             width: 58rem; // Mukta
-        }
-        
-        @include mq-max('md') {
             padding: 2rem 0 4rem;
         }
 
@@ -135,26 +113,30 @@ $test: 1px dashed black;
             background-image: linear-gradient(270deg, $coral 0%, $coral 50%, transparent 50.1%);
             background-position: right;
         }
-    
         .web-1 {
-            animation: hero-sub-text 10s $cubic-ease-title 1.2s infinite alternate;
+            animation: hero-sub-text 6s $cubic-ease-title 1.2s infinite alternate;
+            // background-position: bottom right;
+            // animation: hero-text-web-1 4s linear 2.5s infinite;
         }
-        
         .web-2 {
-            animation: hero-sub-text-2 10.2s $cubic-ease-title 1s infinite alternate;
+            animation: hero-sub-text-2 6.2s $cubic-ease-title 1s infinite alternate;
+            // background-position: top right;
+            // animation: hero-text-web-2 4s linear 2.5s infinite;
         }
 
         .site {
             background-image: linear-gradient(90deg, $coral 0%, $coral 50%, transparent 50.1%);
             background-position: left;
         }
-    
         .site-1 {
-            animation: hero-sub-text-2 10s $cubic-ease-title 1.2s infinite alternate;
+            animation: hero-sub-text-2 6s $cubic-ease-title 1.2s infinite alternate;
+            // background-position: bottom left;
+            // animation: hero-text-site-1 4s linear 2.5s infinite;
         }
-        
         .site-2 {
-            animation: hero-sub-text 10.2s $cubic-ease-title 1s infinite alternate;
+            animation: hero-sub-text 6.2s $cubic-ease-title 1s infinite alternate;
+            // background-position: top left;
+            // animation: hero-text-site-2 4s linear 2.5s infinite;
         }
     }
 
@@ -222,7 +204,7 @@ $test: 1px dashed black;
             opacity: 0;
             z-index: 2;
             @include appear(0.4s, 1.6s);
-            transition: 1.6s $cubic-ease-title;
+            transition: 1s $cubic-ease-title;
             
             @include mq-max('md') {
                 width: 24rem;
@@ -241,7 +223,7 @@ $test: 1px dashed black;
             opacity: 0;
             z-index: 2;
             @include appear(0.4s, 1.6s);
-            transition: 1.6s $cubic-ease-title;
+            transition: 1s $cubic-ease-title;
             
             @include mq-max('md') {
                 width: 18rem;
@@ -258,9 +240,14 @@ $test: 1px dashed black;
             position: absolute;
             border-radius: 50%;
             border: 2px solid $black;
+            transition: 0.5s $cubic-ease-gentle;
             
             @include mq-max('md') {
                 border: 1px solid $black;
+            }
+ 
+            @include mq-max('sm') {
+                transition: none;
             }
         }
 
@@ -438,7 +425,6 @@ $test: 1px dashed black;
     }
     
     .perks-person {
-        // border: $test;
         position: absolute;
         bottom: 6%;
         right: 6%;
@@ -1084,41 +1070,64 @@ $test: 1px dashed black;
         gap: unset;
     }
 
-    .location {
-        font-size: max(12px, 2rem);
-        position: relative;
-        color: $white;
-        line-height: normal;
+    // .location {
+    //     font-size: max(12px, 2rem);
+    //     position: relative;
+    //     color: $white;
+    //     line-height: normal;
+
+    //     @include mq-max('md') {
+    //         position: absolute;
+    //         right: 4rem;
+    //     }
+
+    //     @include mq-max('md') {
+    //         font-size: 10px;
+    //         right: 1.2rem;
+    //     }
+
+    //     svg {
+    //         position: absolute;
+    //         top: 0;
+    //         right: 0;
+    //         translate: 64% -26%;
+    //         width: max(24px, 4.4rem);
+            
+    //         @include mq-max('xxl') {
+    //             translate: 64% -30%;
+    //         }
+
+    //         @include mq-max('lg') {
+    //             translate: 64% -34%;
+    //         }
+            
+    //         @include mq-max('sm') {
+    //             translate: 56% -34%;
+    //             scale: 0.6;
+    //         }
+    //     }
+    // }
+
+    .social-icons {
+        display: flex;
+        gap: 2rem;
 
         @include mq-max('md') {
             position: absolute;
-            right: 4rem;
-        }
-
-        @include mq-max('md') {
-            font-size: 10px;
-            right: 1.2rem;
-        }
-
-        svg {
-            position: absolute;
-            top: 0;
             right: 0;
-            translate: 64% -26%;
-            width: max(24px, 4.4rem);
-            
-            @include mq-max('xxl') {
-                translate: 64% -30%;
-            }
+        }
 
-            @include mq-max('lg') {
-                translate: 64% -34%;
+        a {
+            transition: 0.4s $cubic-ease-back;
+
+            &:hover {
+                scale: 1.2;
+                rotate: 5deg;
             }
-            
-            @include mq-max('sm') {
-                translate: 56% -34%;
-                scale: 0.6;
-            }
+        }
+
+        img {
+            width: 4rem;
         }
     }
 
