@@ -310,13 +310,14 @@
 }
 
 .work {
+    // border: $test;
     height: unset !important;
-    overflow: hidden;
 
     &-title {
         // See _global.scss for full styles
         color: $white;
         margin-left: unset;
+        overflow: hidden;
         
         @include mq-min('md') {
             margin-left: unset;
@@ -328,6 +329,16 @@
             @include mq-max('md') {
                 display: inline;
             }
+        }
+    }
+
+    &-wrapper {
+        // border: $test;
+
+        .work-item {
+            width: 12rem;
+            height: 12rem;
+            background: lightblue;
         }
     }
 }
@@ -585,12 +596,30 @@
             li {
                 color: $black;
                 position: relative;
-                font-size: max(0px, 2rem);
+                font-size: max(14px, 2rem);
                 margin-bottom: 1rem;
                 
                 @include mq-max('sm') {
-                    margin-bottom: 1.2rem;
                     padding: 0.2rem;
+                }
+
+                &:nth-of-type(3),
+                &:nth-of-type(4) {
+
+                    .tooltip {
+                        @include mq-max('sm') {
+                            width: 106%;
+                        }
+                    }
+                }
+
+                &:nth-of-type(5) {
+
+                    .tooltip {
+                        @include mq-max('sm') {
+                            width: 70%;
+                        }
+                    }
                 }
             }
 
@@ -650,10 +679,17 @@
                     opacity: 1;
                     pointer-events: all;
                 }
-                    
+
+                @include mq-max('lg') {
+                    width: 18rem;
+                }
+
+                @include mq-max('md') {
+                    width: 28rem;
+                }
+
                 @include mq-max('sm') {
-                    width: 16rem;
-                //     width: 80%;
+                    width: 64%;
                 }
 
                 a {
@@ -947,7 +983,7 @@
         }
 
         @include mq-max('md') {
-            top: 64%;
+            top: 70%;
         }
 
         @include mq-max('sm') {
@@ -1117,6 +1153,10 @@
             right: 0;
         }
 
+        @include mq-max('sm') {
+            gap: 1rem;
+        }
+
         a {
             transition: 0.4s $cubic-ease-back;
 
@@ -1128,6 +1168,10 @@
 
         img {
             width: 4rem;
+
+            @include mq-max('sm') {
+                width: 2.8rem;
+            }
         }
     }
 

@@ -849,11 +849,11 @@ section:first-of-type {
 
 .work {
   height: unset !important;
-  overflow: hidden;
 }
 .work-title {
   color: #fafafa;
   margin-left: unset;
+  overflow: hidden;
 }
 @media screen and (min-width: 769px) {
   .work-title {
@@ -867,6 +867,11 @@ section:first-of-type {
   .work-title .word-wrapper {
     display: inline;
   }
+}
+.work-wrapper .work-item {
+  width: 12rem;
+  height: 12rem;
+  background: lightblue;
 }
 
 .perks-title {
@@ -1097,13 +1102,22 @@ section:first-of-type {
 .membership-card ul li {
   color: #232323;
   position: relative;
-  font-size: max(0px, 2rem);
+  font-size: max(14px, 2rem);
   margin-bottom: 1rem;
 }
 @media screen and (max-width: 480px) {
   .membership-card ul li {
-    margin-bottom: 1.2rem;
     padding: 0.2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership-card ul li:nth-of-type(3) .tooltip, .membership-card ul li:nth-of-type(4) .tooltip {
+    width: 106%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership-card ul li:nth-of-type(5) .tooltip {
+    width: 70%;
   }
 }
 .membership-card ul .tooltip-indicator {
@@ -1157,9 +1171,19 @@ section:first-of-type {
   opacity: 1;
   pointer-events: all;
 }
+@media screen and (max-width: 1024px) {
+  .membership-card ul .tooltip {
+    width: 18rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .membership-card ul .tooltip {
+    width: 28rem;
+  }
+}
 @media screen and (max-width: 480px) {
   .membership-card ul .tooltip {
-    width: 16rem;
+    width: 64%;
   }
 }
 .membership-card ul .tooltip a {
@@ -1445,7 +1469,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   .pre-footer figure {
-    top: 64%;
+    top: 70%;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1578,6 +1602,11 @@ section:first-of-type {
     right: 0;
   }
 }
+@media screen and (max-width: 480px) {
+  .footer .social-icons {
+    gap: 1rem;
+  }
+}
 .footer .social-icons a {
   transition: 0.4s cubic-bezier(0.12, 0.64, 0.61, 1.15);
 }
@@ -1587,6 +1616,11 @@ section:first-of-type {
 }
 .footer .social-icons img {
   width: 4rem;
+}
+@media screen and (max-width: 480px) {
+  .footer .social-icons img {
+    width: 2.8rem;
+  }
 }
 .footer-logo {
   position: absolute;

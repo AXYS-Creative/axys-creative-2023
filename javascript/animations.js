@@ -41,8 +41,8 @@ export const nonGsapAnimations = () => {
     const bubble3 = document.querySelector(".bubble-3");
 
     bubble1.style.translate = `-100% calc(${scrollPosition * -0.18}px - 10%)`;
-    bubble2.style.translate = `-45% calc(${scrollPosition * -0.32}px - 75%)`;
-    bubble3.style.translate = `22% calc(${scrollPosition * -0.05}px - 25%)`;
+    bubble2.style.translate = `-45% calc(${scrollPosition * -0.26}px - 75%)`;
+    bubble3.style.translate = `22% calc(${scrollPosition * -0.1}px - 25%)`;
   });
 };
 
@@ -59,7 +59,7 @@ export const gsapAnimations = () => {
     (context) => {
       let { screenMD, screenLG } = context.conditions;
 
-      // Description - Pinning Section
+      // Description - Pinning Work Section
       gsap.to(".work", {
         scrollTrigger: {
           trigger: ".work",
@@ -76,11 +76,69 @@ export const gsapAnimations = () => {
     }
   );
 
-  // Shift Title Text. Large screens onlyl***
-  const animateTitleShift = (selector, startTranslateX, endTrigger) => {
+  // Query for large screen animations
+  mm.add("(min-width: 768px)", () => {
+    // Shift Title Text. Large screens only***
+    // const animateTitleShift = (selector, startTranslateX, endTrigger) => {
+    //   gsap.fromTo(
+    //     selector,
+    //     { translateX: startTranslateX },
+    //     {
+    //       translateX: 0,
+    //       ease: "ease",
+    //       scrollTrigger: {
+    //         trigger: ".work",
+    //         scrub: 1,
+    //         start: "top 25%",
+    //         end: endTrigger,
+    //       },
+    //     }
+    //   );
+    // };
+    // // Shifting Title Text "Selected"
+    // animateTitleShift(".word-selected", "38%", "+400%");
+
+    // // Shifting Title Text "Work"
+    // animateTitleShift(".word-work", "59%", "+640%");
+
+    let selectedTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".work",
+        scrub: 1,
+        start: "top 25%",
+        end: "+400%",
+      },
+    });
+
+    selectedTL
+      .fromTo(
+        ".word-selected",
+        { translateX: "38%" },
+        {
+          translateX: 0,
+          ease: "ease",
+        }
+      )
+      .to();
+
+    // gsap.fromTo(
+    //   ".word-selected",
+    //   { translateX: "38%" },
+    //   {
+    //     translateX: 0,
+    //     ease: "ease",
+    //     scrollTrigger: {
+    //       trigger: ".work",
+    //       scrub: 1,
+    //       start: "top 25%",
+    //       end: "+400%",
+    //     },
+    //   }
+    // );
+
     gsap.fromTo(
-      selector,
-      { translateX: startTranslateX },
+      ".word-work",
+      { translateX: "59%" },
       {
         translateX: 0,
         ease: "ease",
@@ -88,19 +146,10 @@ export const gsapAnimations = () => {
           trigger: ".work",
           scrub: 1,
           start: "top 25%",
-          end: endTrigger,
+          end: "+640%",
         },
       }
     );
-  };
-
-  // Query for large screen animations
-  mm.add("(min-width: 768px)", () => {
-    // Shifting Title Text "Selected"
-    animateTitleShift(".word-selected", "38%", "+400%");
-
-    // Shifting Title Text "Work"
-    animateTitleShift(".word-work", "59%", "+640%");
   });
 
   const animateTitleCharacters = (selector, triggerSelector, end, markers) => {
