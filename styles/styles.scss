@@ -775,16 +775,39 @@
         text-align: left;
         margin-right: 0;
         margin-left: $body-padding;
+
+        @include mq-max('sm') {
+            width: 100%;
+            font-size: 11.4vw;
+            margin: auto;
+        }
     }
 
     .questions-details {
         display: flex;
         position: relative;
+        
+        @include mq-max('md') {
+            padding-bottom: 34rem;
+        }
+        
+        @include mq-max('sm') {
+            padding-bottom: 30rem;
+        }
+
+        button {
+            color: $black;
+        }
 
         .questions-content {
             padding: 4rem 0 4rem $body-padding;
             width: 46%;
             cursor: pointer;
+            color: black;
+
+            @include mq-max('md') {
+                width: 90%;
+            }
     
             .question {
                 display: flex;
@@ -836,8 +859,27 @@
             top: 10%;
             right: 24%;
 
+            @include mq-max('md') {
+                top: auto;
+                bottom: 2%;
+                right: auto;
+                left: 8%;
+            }
+
+            @include mq-max('sm') {
+                bottom: 6%;
+            }
+
             img {
                 width: 24rem;
+
+                @include mq-max('md') {
+                    width: 18rem;
+                }
+
+                @include mq-max('sm') {
+                    width: 14rem;
+                }
             }
         }
 
@@ -850,17 +892,36 @@
             gap: 2rem;
             width: 22rem;
             align-self: flex-end;
-    
+
+            @include mq-max('md') {
+                top: auto;
+                bottom: 10%;
+                right: 14%;
+            }
+
+            @include mq-max('sm') {
+                right: 2%;
+            }
+ 
             p {
                 font-size: 2.4rem;
                 line-height: 3rem;
                 color: black;
                 text-transform: uppercase;
+                
+                @include mq-max(sm) {
+                    font-size: 3rem;
+                }
             }
-
+            
             a {
                 display: flex;
                 justify-content: center;
+                
+                @include mq-max('sm') {
+                    font-size: 3rem;
+                    width: 84%;
+                }
             }
         }
     }
