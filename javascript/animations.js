@@ -49,15 +49,30 @@ export const nonGsapAnimations = () => {
 export const gsapAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
 
+  // Detailed markers for debugging
+
+  let whiteMarkers = {
+    startColor: "white",
+    endColor: "white",
+    indent: 128,
+  };
+
+  let navyMarkers = {
+    startColor: "navy",
+    endColor: "navy",
+    indent: 24,
+  };
+
   let mm = gsap.matchMedia();
 
   mm.add(
     {
+      screenSm: "(max-width: 480px)",
       screenMD: "(max-width: 768px)",
       screenLG: "(min-width: 769px)",
     },
     (context) => {
-      let { screenMD, screenLG } = context.conditions;
+      let { screenSm, screenMD, screenLG } = context.conditions;
 
       // Description - Pinning Work Section
       gsap.to(".work", {
@@ -73,85 +88,98 @@ export const gsapAnimations = () => {
           // },
         },
       });
+
+      // Description - Shifting project images in Work Section
+      const animateWorkItem = (
+        itemClass,
+        startXLarge,
+        startXMedium,
+        startXSmall,
+        endXLarge,
+        endXMedium,
+        endXSmall,
+        scrubValue
+      ) => {
+        gsap.fromTo(
+          itemClass,
+          {
+            x: screenLG ? startXLarge : screenSm ? startXSmall : startXMedium,
+          },
+          {
+            x: screenLG ? endXLarge : screenSm ? endXSmall : endXMedium,
+            scrollTrigger: {
+              trigger: ".work",
+              scrub: scrubValue,
+              ease: "none",
+              start: "top 25%",
+              end: "+1200%",
+            },
+          }
+        );
+      };
+
+      animateWorkItem(
+        ".work-item-1",
+        "40vw",
+        "50vw",
+        "120vw",
+        "-180vw",
+        "-200vw",
+        "-320vw",
+        0.4
+      );
+      animateWorkItem(
+        ".work-item-2",
+        "70vw",
+        "100vw",
+        "200vw",
+        "-150vw",
+        "-150vw",
+        "-240vw",
+        0.5
+      );
+      animateWorkItem(
+        ".work-item-3",
+        "100vw",
+        "150vw",
+        "280vw",
+        "-120vw",
+        "-100vw",
+        "-160vw",
+        0.6
+      );
+
+      // END
     }
   );
 
   // Query for large screen animations
   mm.add("(min-width: 768px)", () => {
     // Shift Title Text. Large screens only***
-    // const animateTitleShift = (selector, startTranslateX, endTrigger) => {
-    //   gsap.fromTo(
-    //     selector,
-    //     { translateX: startTranslateX },
-    //     {
-    //       translateX: 0,
-    //       ease: "ease",
-    //       scrollTrigger: {
-    //         trigger: ".work",
-    //         scrub: 1,
-    //         start: "top 25%",
-    //         end: endTrigger,
-    //       },
-    //     }
-    //   );
-    // };
-    // // Shifting Title Text "Selected"
-    // animateTitleShift(".word-selected", "38%", "+400%");
-
-    // // Shifting Title Text "Work"
-    // animateTitleShift(".word-work", "59%", "+640%");
-
-    let selectedTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".work",
-        scrub: 1,
-        start: "top 25%",
-        end: "+400%",
-      },
-    });
-
-    selectedTL
-      .fromTo(
-        ".word-selected",
-        { translateX: "38%" },
+    const animateTitleShift = (selector, startTranslateX, endTrigger) => {
+      gsap.fromTo(
+        selector,
+        { translateX: startTranslateX },
         {
           translateX: 0,
           ease: "ease",
+          scrollTrigger: {
+            trigger: ".work",
+            scrub: 1,
+            start: "top 25%",
+            end: endTrigger,
+          },
         }
-      )
-      .to();
+      );
+    };
+    // Shifting Title Text "Selected"
+    animateTitleShift(".word-selected", "38%", "+400%");
 
-    // gsap.fromTo(
-    //   ".word-selected",
-    //   { translateX: "38%" },
-    //   {
-    //     translateX: 0,
-    //     ease: "ease",
-    //     scrollTrigger: {
-    //       trigger: ".work",
-    //       scrub: 1,
-    //       start: "top 25%",
-    //       end: "+400%",
-    //     },
-    //   }
-    // );
-
-    gsap.fromTo(
-      ".word-work",
-      { translateX: "59%" },
-      {
-        translateX: 0,
-        ease: "ease",
-        scrollTrigger: {
-          trigger: ".work",
-          scrub: 1,
-          start: "top 25%",
-          end: "+640%",
-        },
-      }
-    );
+    // Shifting Title Text "Work"
+    animateTitleShift(".word-work", "59%", "+640%");
   });
 
+  // Description - Animating the letters of each Section Title
   const animateTitleCharacters = (selector, triggerSelector, end, markers) => {
     const titleCharacters = document.querySelectorAll(selector);
 
@@ -176,25 +204,19 @@ export const gsapAnimations = () => {
     });
   };
 
-  // Animate work title characters.
   animateTitleCharacters(".work-title-character", ".work", "+1200% top");
-
-  // Animate perks title characters.
-  animateTitleCharacters(".perks-title-character", ".perks", "50% 32%");
-
-  // Animate membership title characters.
+  animateTitleCharacters(
+    ".perks-title-character",
+    ".perks",
+    "50% 32%"
+    // whiteMarkers
+  );
   animateTitleCharacters(
     ".membership-title-character",
     ".membership",
     "50% 32%"
+    // navyMarkers
   );
-
-  // For Markers ... Pass as the fourth argument to the function above or below
-  // {
-  //   startColor: "navy",
-  //   endColor: "navy",
-  //   indent: 128,
-  // }
 };
 
 nonGsapAnimations();

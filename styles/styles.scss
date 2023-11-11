@@ -312,6 +312,11 @@
 .work {
     // border: $test;
     height: unset !important;
+    position: relative;
+
+    @include mq-min('sm') {
+        @include appear(0.6s, 0.2s);
+    }
 
     &-title {
         // See _global.scss for full styles
@@ -319,9 +324,9 @@
         margin-left: unset;
         overflow: hidden;
         
-        @include mq-min('md') {
-            margin-left: unset;
-        }
+        // @include mq-min('md') {
+        //     margin-left: unset;
+        // }
         
         .word-wrapper {
             height: min(12vw, 22rem);
@@ -332,15 +337,64 @@
         }
     }
 
-    &-wrapper {
-        // border: $test;
+    .work-item {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        translate: 0 -132%;
+        width: 48rem;
+        height: 36rem;
+        background: $black;
+        z-index: -1;
+        
+        @include mq-max('xxl') {
+            translate: 0 -120%;
+        }
 
-        .work-item {
-            width: 12rem;
-            height: 12rem;
-            background: lightblue;
+        @include mq-max('md') {
+            translate: 0 46%;
+        }
+
+        @include mq-max('sm') {
+            width: 32rem;
+            height: 24rem;
+            translate: 0 0;
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        figcaption {
+            color: $white;
         }
     }
+
+    // &-wrapper {
+    //     border: $test;
+    //     position: absolute;
+    //     top: 50%;
+    //     right: 0;
+    //     translate: 0 -46%;
+    //     display: flex;
+    //     gap: 24px;
+
+    //     .work-item {
+    //         width: 48rem;
+    //         height: 36rem;
+    //         background: $black;
+
+    //         img {
+    //             height: 100%;
+    //             object-fit: cover;
+    //         }
+
+    //         figcaption {
+    //             color: $white;
+    //         }
+    //     }
+    // }
 }
 
 .perks {

@@ -1,5 +1,5 @@
 import { toggleNav, closeNav } from "./nav.js";
-// import { gsapAnimations } from "./animations.js";
+import { gsapAnimations } from "./animations.js";
 import { questions } from "./questions.js";
 import { smoothScroll } from "./lenis.js";
 

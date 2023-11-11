@@ -34,6 +34,7 @@ body {
     padding: $body-padding;
     transition: 0.6s linear 0.4s;
     transform-origin: left center;
+    overflow: hidden;
     
     @include mq-max('sm') {
         padding: $body-padding-small;
@@ -326,9 +327,9 @@ section {
     height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
     scroll-margin-top: $body-padding;
 
-    @include mq-min('xxxl') {
-        height: calc(100vh - $body-padding * 2);
-    }
+    // @include mq-min('xxxl') {
+    //     height: calc(100vh - $body-padding * 2);
+    // }
 
     @include mq-max('xxl') {
         height: clamp(580px, calc(100vh - $body-padding * 2), calc(768px - $body-padding));

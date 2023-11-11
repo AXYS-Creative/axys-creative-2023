@@ -38,6 +38,7 @@ body {
   padding: 4rem;
   transition: 0.6s linear 0.4s;
   transform-origin: left center;
+  overflow: hidden;
 }
 @media screen and (max-width: 480px) {
   .main-content {
@@ -287,11 +288,6 @@ section {
   height: clamp(768px, 100vh - 8rem, 1024px - 4rem);
   scroll-margin-top: 4rem;
 }
-@media screen and (min-width: 1921px) {
-  section {
-    height: calc(100vh - 8rem);
-  }
-}
 @media screen and (max-width: 1440px) {
   section {
     height: clamp(580px, 100vh - 8rem, 768px - 4rem);
@@ -323,12 +319,9 @@ section:first-of-type {
   top: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   z-index: -1;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   pointer-events: none;
 }
 
@@ -852,16 +845,19 @@ section:first-of-type {
 
 .work {
   height: unset !important;
+  position: relative;
+}
+@media screen and (min-width: 481px) {
+  .work {
+    opacity: 0;
+    pointer-events: none;
+    animation: appear 0.6s ease 0.2s forwards;
+  }
 }
 .work-title {
   color: #fafafa;
   margin-left: unset;
   overflow: hidden;
-}
-@media screen and (min-width: 769px) {
-  .work-title {
-    margin-left: unset;
-  }
 }
 .work-title .word-wrapper {
   height: min(12vw, 22rem);
@@ -871,10 +867,39 @@ section:first-of-type {
     display: inline;
   }
 }
-.work-wrapper .work-item {
-  width: 12rem;
-  height: 12rem;
-  background: lightblue;
+.work .work-item {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  translate: 0 -132%;
+  width: 48rem;
+  height: 36rem;
+  background: #232323;
+  z-index: -1;
+}
+@media screen and (max-width: 1440px) {
+  .work .work-item {
+    translate: 0 -120%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .work .work-item {
+    translate: 0 46%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .work .work-item {
+    width: 32rem;
+    height: 24rem;
+    translate: 0 0;
+  }
+}
+.work .work-item img {
+  height: 100%;
+  object-fit: cover;
+}
+.work .work-item figcaption {
+  color: #fafafa;
 }
 
 .perks-title {
