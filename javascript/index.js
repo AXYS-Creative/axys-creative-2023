@@ -1,3 +1,4 @@
+import { customCursorHandler } from "./custom-cursor.js";
 import { toggleNav, closeNav } from "./nav.js";
 import { gsapAnimations } from "./animations.js";
 import { questions } from "./questions.js";

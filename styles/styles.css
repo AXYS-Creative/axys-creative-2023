@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Plus Jakarta Sans", sans-serif;
   line-height: 100%;
+  cursor: none !important;
 }
 
 html {
@@ -52,12 +53,10 @@ body {
 
 a {
   text-decoration: none;
-  cursor: pointer;
   color: #232323;
 }
 
 button {
-  cursor: pointer;
   background: none;
   border: none;
 }
@@ -461,6 +460,15 @@ section:first-of-type {
   }
 }
 
+.custom-cursor {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  z-index: 25;
+  pointer-events: none;
+}
+
 @keyframes appear {
   to {
     opacity: 1;
@@ -545,12 +553,12 @@ section:first-of-type {
   scroll-margin-top: 0;
 }
 .hero-bg {
-  height: 0;
-  animation: hero-bg-animation 0.5s ease 0.5s forwards;
+  scale: 1.25;
+  animation: hero-bg-animation 0.6s ease 0.6s forwards;
 }
 @keyframes hero-bg-animation {
   to {
-    height: 100%;
+    scale: 1;
   }
 }
 .hero .section-title.active p:nth-of-type(1) span, .hero-title.active p:nth-of-type(1) span {
@@ -1153,7 +1161,6 @@ section:first-of-type {
   margin-left: 0.4rem;
   width: 2rem;
   height: 2rem;
-  cursor: help;
 }
 .membership-card ul .tooltip-indicator:hover ~ .tooltip, .membership-card ul .tooltip-indicator:focus ~ .tooltip {
   opacity: 1;
@@ -1321,8 +1328,7 @@ section:first-of-type {
 }
 .questions .questions-details .questions-content {
   padding: 4rem 0 4rem 4rem;
-  width: 46%;
-  cursor: pointer;
+  width: max(78rem, 46%);
   color: black;
 }
 @media screen and (max-width: 768px) {
@@ -1330,42 +1336,74 @@ section:first-of-type {
     width: 90%;
   }
 }
-.questions .questions-details .questions-content .question {
-  display: flex;
-  flex-direction: column;
-  font-size: 2.4rem;
-  font-weight: 300;
+.questions .questions-details .questions-content .faq-item {
+  transition: 0.3s ease;
+  height: 6rem;
+  margin-bottom: 1rem;
   border-bottom: 2px solid #232323;
+}
+.questions .questions-details .questions-content .faq-item.active {
+  height: 14rem;
+}
+.questions .questions-details .questions-content .faq-item-xl.active {
+  height: 24rem;
+}
+.questions .questions-details .questions-content .faq-item-lg.active {
+  height: 20rem;
+}
+.questions .questions-details .questions-content .faq-item-md.active {
+  height: 18rem;
+}
+.questions .questions-details .questions-content .question {
+  font-size: 2.4rem;
   width: 100%;
   text-align: left;
-}
-.questions .questions-details .questions-content .question span {
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 2rem 0;
 }
-.questions .questions-details .questions-content .question span h3 {
-  font-size: 2.4rem;
-  font-weight: 300;
-  flex-grow: 1;
-  padding-left: 1rem;
+.questions .questions-details .questions-content .question-indicator {
+  font-weight: 700;
+  width: 2.8rem;
 }
-.questions .questions-details .questions-content .question span .angle-arrow {
+.questions .questions-details .questions-content .question h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  flex-grow: 1;
+}
+.questions .questions-details .questions-content .question .angle-arrow {
   width: 2.6rem;
   transition: 0.3s cubic-bezier(0.12, 0.64, 0.61, 1.15);
 }
-.questions .questions-details .questions-content .question span .angle-arrow.active {
+.questions .questions-details .questions-content .question .angle-arrow.active {
   rotate: 180deg;
 }
 .questions .questions-details .questions-content .answer {
-  display: none;
+  display: flex;
+  gap: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  translate: 0 -16px;
   font-size: 2rem;
-  font-weight: 300;
-  padding: 2rem 0 2rem 4rem;
+  padding-bottom: 2rem;
+  transition: 0.2s ease 0s;
 }
 .questions .questions-details .questions-content .answer.active {
-  display: block;
+  opacity: 1;
+  pointer-events: all;
+  translate: 0 0;
+  transition: 0.3s ease 0.12s;
+}
+.questions .questions-details .questions-content .answer-indicator {
+  font-size: 2.4rem;
+  display: inline-block;
+  font-weight: 700;
+  width: 4rem;
+}
+.questions .questions-details .questions-content .answer p {
+  vertical-align: middle;
+  line-height: 150%;
 }
 .questions .questions-details .questions-person {
   position: absolute;
@@ -1679,6 +1717,7 @@ section:first-of-type {
   align-items: center;
   max-width: 1920px;
   margin: auto;
+  padding: 4rem;
 }
 @media screen and (max-width: 768px) {
   .footer {
@@ -1688,6 +1727,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .footer {
+    padding: 2rem;
     padding-bottom: 4rem;
     gap: unset;
   }

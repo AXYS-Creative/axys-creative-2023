@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 100%;
+    cursor: none !important;
 }
 
 html {
@@ -48,12 +49,12 @@ body {
 
 a {
     text-decoration: none;
-    cursor: pointer;
+    // cursor: pointer;
     color: $black;
 }
 
 button {
-    cursor: pointer;
+    // cursor: pointer;
     background: none;
     border: none;
 }
@@ -498,4 +499,13 @@ section {
     @include mq-max('sm') {
         display: block;
     }
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    z-index: 25;
+    pointer-events: none;
 }
