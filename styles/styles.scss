@@ -344,24 +344,43 @@
         position: absolute;
         top: 50%;
         right: 0;
-        translate: 0 -132%;
         width: 48rem;
         height: 36rem;
         background: $black;
         z-index: -1;
-        
-        @include mq-max('xxl') {
-            translate: 0 -120%;
-        }
-
-        @include mq-max('md') {
-            translate: 0 46%;
-        }
 
         @include mq-max('sm') {
             width: 32rem;
             height: 24rem;
             translate: 0 0;
+        }
+        
+        &-1,
+        &-2,
+        &-3 {
+            translate: 0 -132%;
+
+            @include mq-max('xxl') {
+                translate: 0 -120%;
+            }
+    
+            @include mq-max('md') {
+                translate: 0 46%;
+            }
+        }
+
+        &-4,
+        &-5,
+        &-6 {
+            translate: 0 -20%;
+
+            @include mq-max('xxl') {
+                translate: 0 -8%;
+            }
+    
+            @include mq-max('md') {
+                translate: 0 0;
+            }
         }
 
         img {

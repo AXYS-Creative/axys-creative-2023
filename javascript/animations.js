@@ -98,7 +98,8 @@ const gsapAnimations = () => {
         endXLarge,
         endXMedium,
         endXSmall,
-        scrubValue
+        scrubValue,
+        endTransition
       ) => {
         gsap.fromTo(
           itemClass,
@@ -112,7 +113,9 @@ const gsapAnimations = () => {
               scrub: scrubValue,
               ease: "none",
               start: "top 25%",
-              end: "+1200%",
+              // end: "+1200%",
+              // end: "+600%",
+              end: endTransition,
             },
           }
         );
@@ -123,30 +126,72 @@ const gsapAnimations = () => {
         "40vw",
         "50vw",
         "120vw",
-        "-180vw",
+        // "-180vw",
+        "-70vw",
         "-200vw",
         "-320vw",
-        0.4
+        0.4,
+        "+600%"
       );
       animateWorkItem(
         ".work-item-2",
         "70vw",
         "100vw",
         "200vw",
-        "-150vw",
+        // "-150vw",
+        "-40vw",
         "-150vw",
         "-240vw",
-        0.5
+        0.5,
+        "+600%"
       );
       animateWorkItem(
         ".work-item-3",
         "100vw",
         "150vw",
         "280vw",
-        "-120vw",
+        // "-120vw",
+        "-10vw",
         "-100vw",
         "-160vw",
-        0.6
+        0.6,
+        "+600%"
+      );
+      animateWorkItem(
+        ".work-item-4",
+        "40vw",
+        "50vw",
+        "120vw",
+        // "-180vw",
+        "-70vw",
+        "-200vw",
+        "-320vw",
+        0.7,
+        "+900%"
+      );
+      animateWorkItem(
+        ".work-item-5",
+        "70vw",
+        "100vw",
+        "200vw",
+        // "-150vw",
+        "-40vw",
+        "-150vw",
+        "-240vw",
+        0.8,
+        "+900%"
+      );
+      animateWorkItem(
+        ".work-item-6",
+        "100vw",
+        "150vw",
+        "280vw",
+        // "-120vw",
+        "-10vw",
+        "-100vw",
+        "-160vw",
+        0.9,
+        "+900%"
       );
 
       // END
