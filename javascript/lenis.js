@@ -1,12 +1,8 @@
-export const smoothScroll = () => {
-  const lenis = new Lenis();
+const lenis = new Lenis();
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
+function raf(time) {
+  lenis.raf(time);
   requestAnimationFrame(raf);
-};
+}
 
-smoothScroll();
+requestAnimationFrame(raf);

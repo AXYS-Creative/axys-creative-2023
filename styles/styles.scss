@@ -205,7 +205,8 @@
             opacity: 0;
             z-index: 2;
             @include appear(0.4s, 1.6s);
-            transition: 1s $cubic-ease-title;
+            // transition: 1s $cubic-ease-title;
+            transition: 1s cubic-bezier(0,0,.2,1.25);
             
             @include mq-max('md') {
                 width: 24rem;
@@ -224,7 +225,8 @@
             opacity: 0;
             z-index: 2;
             @include appear(0.4s, 1.6s);
-            transition: 1s $cubic-ease-title;
+            // transition: 1s $cubic-ease-title;
+            transition: 1s cubic-bezier(0,0,.2,1.25);
             
             @include mq-max('md') {
                 width: 18rem;
@@ -949,6 +951,10 @@
                 p {
                     vertical-align: middle;
                     line-height: 150%;
+                }
+
+                .page-link {
+                    text-decoration: underline;
                 }
             }
         }

@@ -1,8 +1,8 @@
-import { customCursorHandler } from "./custom-cursor.js";
-import { toggleNav, closeNav } from "./nav.js";
-import { gsapAnimations } from "./animations.js";
-import { questions } from "./questions.js";
-import { smoothScroll } from "./lenis.js";
+import "./custom-cursor.js";
+import "./nav.js";
+import "./animations.js";
+import "./questions.js";
+import "./lenis.js";
 
 // Refresh page on browser resize at 768
 (function () {

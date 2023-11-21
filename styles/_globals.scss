@@ -29,6 +29,7 @@ html {
 
 body {
     background: $coral;
+    cursor: none !important;
 }
 
 .main-content {
@@ -508,4 +509,5 @@ section {
     width: 16px;
     z-index: 25;
     pointer-events: none;
+    // transition: 0.1s $cubic-ease-gentle;
 }

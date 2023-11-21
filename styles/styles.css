@@ -33,6 +33,7 @@ html {
 
 body {
   background: #df5b40;
+  cursor: none !important;
 }
 
 .main-content {
@@ -733,7 +734,7 @@ section:first-of-type {
   opacity: 0;
   pointer-events: none;
   animation: appear 0.4s ease 1.6s forwards;
-  transition: 1s cubic-bezier(0.08, 1.07, 0.76, 1.16);
+  transition: 1s cubic-bezier(0, 0, 0.2, 1.25);
 }
 @media screen and (max-width: 768px) {
   .hero-img .graphic-person-1 {
@@ -755,7 +756,7 @@ section:first-of-type {
   opacity: 0;
   pointer-events: none;
   animation: appear 0.4s ease 1.6s forwards;
-  transition: 1s cubic-bezier(0.08, 1.07, 0.76, 1.16);
+  transition: 1s cubic-bezier(0, 0, 0.2, 1.25);
 }
 @media screen and (max-width: 768px) {
   .hero-img .graphic-person-2 {
@@ -1404,6 +1405,9 @@ section:first-of-type {
 .questions .questions-details .questions-content .answer p {
   vertical-align: middle;
   line-height: 150%;
+}
+.questions .questions-details .questions-content .answer .page-link {
+  text-decoration: underline;
 }
 .questions .questions-details .questions-person {
   position: absolute;

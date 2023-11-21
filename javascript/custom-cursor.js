@@ -1,8 +1,7 @@
 const customCursor = document.querySelector(".custom-cursor");
 const cursorImg = document.querySelector(".custom-cursor img");
-const hoverElements = document.querySelectorAll("a, button");
 
-export const customCursorHandler = () => {
+const customCursorHandler = () => {
   // Custom Mouse Cursor
   document.addEventListener("mousemove", (event) => {
     const viewportWidth = window.innerWidth;

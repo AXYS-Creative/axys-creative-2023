@@ -2,12 +2,6 @@ import { updateHoverElements } from "./custom-cursor.js";
 
 const questionsData = [
   {
-    question: "Are there limits to your services?",
-    answer:
-      "Yes. 😔 We currently don't offer development work for social media type applications that required large data bases. We also don't develop mobile apps of any kind.",
-    answerLength: "md",
-  },
-  {
     question: "Why wouldn't I just hire a full-time creator?",
     answer:
       "To save money. 💰 The average salary for senior level designers & developers well exceeds 100k, & that's not including any benefits.\n \n With the monthly plan, you're simply paying for what you need. You can pause or resume anytime you're low on work.",
@@ -16,50 +10,61 @@ const questionsData = [
   {
     question: "Do I have a limited number of requests?",
     answer:
-      "No. 🎉 Once you become a member, you can add as many design or development requests as you'd like. Keep in mind that they are worked on & delivered one by one.",
+      "Nope. 🎉 Once you become a member, you can add as many design or development requests as you'd like. Keep in mind that they are worked on & delivered one after the other.",
     answerLength: "md",
   },
   {
-    question: "How quickly can we move from concept to launch?",
+    question: "What if I only have a single request?",
     answer:
-      "This depends on the size of the project. 🤔 Most single page, static sites can be go through the entire process of design to production launch in about two weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
+      "This is where the pause feture shines. ⏸️ Anytime the workload becomes light, you can pause your plan which stops all charges. Then you can easliy start up again when you do need the services.",
+    answerLength: "md",
+  },
+  {
+    question: "How quickly do you deliver?",
+    answer:
+      "This depends on the size and complexity of the project. 🤔 Most single page, static sites can move from wireframe to launch in about two weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
+    answerLength: "lg",
+  },
+  {
+    question: "How do I make a request & track progress?",
+    answer:
+      "This is done with <a class='page-link' href='https://trello.com/' target='_blank'>Trello</a>; a user-friendly managing tool that makes communication & collaboration simple. In addition to describing the work needed you can also upload images, videos, documents, or links to other resources.",
     answerLength: "lg",
   },
   {
     question: "Who are the designers & developers?",
     answer:
-      "AXYS Creative is run by just two people: Aaron & Bailey Garcia. We each handle the design & development aspect of the work.",
+      "AXYS Creative is driven by only two people: Aaron & Bailey Garcia. ✌️ This helps with quick decision making & promotes swift turn around. We can each handle the design & development aspect of the work.",
+    answerLength: "md",
+  },
+  {
+    question: "Are there limits to your services?",
+    answer:
+      "Yes. 🙃 We currently don't offer development for social media type applications that required large data bases. We also don't develop mobile apps of any kind. Possibly in the future though!",
+    answerLength: "md",
+  },
+  {
+    question: "What if I'm unsatisfied with the work?",
+    answer:
+      "We'll continue to revise until you're happy and proud of the work. 😎 Simply put in a request and we'll get started on it.",
     answerLength: "",
   },
   {
-    question: "How do I request a design & track progress?",
+    question: "Do you offer refunds?",
     answer:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    answerLength: "",
-  },
-  {
-    question: "What if I'm unsatisfied with the design?",
-    answer:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
-    answerLength: "",
-  },
-  {
-    question: "What if I only have a single request?",
-    answer:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, dolorem?",
+      "No, we don't offer any refunds. The only exception would be if within the first 24 hours of signing up we hadn't started on any work.",
     answerLength: "",
   },
 ];
 
-export function renderQuestions() {
-  const questionsContent = document.querySelector(".questions-content");
+const questionsContent = document.querySelector(".questions-content");
 
-  let htmlString = "";
+let htmlString = "";
 
-  questionsData.forEach(({ question, answer, answerLength }, index) => {
-    const formattedAnswer = answer.replace(/\n/g, "<br>");
+questionsData.forEach(({ question, answer, answerLength }, index) => {
+  const formattedAnswer = answer.replace(/\n/g, "<br>");
 
-    htmlString += `
+  htmlString += `
               <div class="faq-item faq-item-${answerLength}">
                 <button class="question page-link">
                     <h3>
@@ -76,37 +81,30 @@ export function renderQuestions() {
                 </div>
               </div>
           `;
-  });
+});
 
-  questionsContent.innerHTML = htmlString;
+questionsContent.innerHTML = htmlString;
 
-  updateHoverElements();
-}
+updateHoverElements();
 
-renderQuestions();
+const faqItems = document.querySelectorAll(".faq-item");
 
-export function questions() {
-  const faqItems = document.querySelectorAll(".faq-item");
+faqItems.forEach((item, index) => {
+  const questionButton = item.querySelector(".question");
+  const answerDiv = item.querySelector(".answer");
+  const angleArrow = item.querySelector(".angle-arrow");
 
-  faqItems.forEach((item, index) => {
-    const questionButton = item.querySelector(".question");
-    const answerDiv = item.querySelector(".answer");
-    const angleArrow = item.querySelector(".angle-arrow");
-
-    questionButton.addEventListener("click", () => {
-      faqItems.forEach((otherItem, otherIndex) => {
-        if (otherIndex !== index) {
-          otherItem.querySelector(".answer").classList.remove("active");
-          otherItem.querySelector(".angle-arrow").classList.remove("active");
-          otherItem.classList.remove("active");
-        }
-      });
-
-      item.classList.toggle("active");
-      answerDiv.classList.toggle("active");
-      angleArrow.classList.toggle("active");
+  questionButton.addEventListener("click", () => {
+    faqItems.forEach((otherItem, otherIndex) => {
+      if (otherIndex !== index) {
+        otherItem.querySelector(".answer").classList.remove("active");
+        otherItem.querySelector(".angle-arrow").classList.remove("active");
+        otherItem.classList.remove("active");
+      }
     });
-  });
-}
 
-questions();
+    item.classList.toggle("active");
+    answerDiv.classList.toggle("active");
+    angleArrow.classList.toggle("active");
+  });
+});

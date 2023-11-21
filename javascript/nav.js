@@ -2,9 +2,10 @@ const mainContent = document.querySelector(".main-content");
 const navMenu = document.querySelector(".nav-menu");
 
 const menuBtn = document.querySelector(".menu-btn");
-const sectionLinks = document.querySelectorAll(".section-link");
+const menuNavlinks = document.querySelectorAll(".menu-nav-link");
+const pageNavLinks = document.querySelectorAll(".page-nav-link");
 
-export const toggleNav = () => {
+const toggleNav = () => {
   menuBtn.classList.toggle("active");
   const navLinks = navMenu.querySelectorAll("a");
   const pageLinks = document.querySelectorAll(".page-link");
@@ -27,44 +28,48 @@ export const toggleNav = () => {
   });
 };
 
-export const closeNav = () => {
+const closeNav = () => {
   mainContent.classList.remove("active");
   navMenu.classList.remove("active");
   menuBtn.classList.remove("active");
 };
 
-sectionLinks.forEach((link) => {
+menuNavlinks.forEach((link) => {
   link.addEventListener("click", closeNav);
 });
 
 menuBtn.addEventListener("click", toggleNav);
 
-// Page scroll tweaking
+// Page scroll behavior (tweak with gsap)
+function smoothScrollTo(targetId, delay = 0) {
+  const targetElement = document.querySelector(targetId);
+  const targetPosition =
+    targetElement.getBoundingClientRect().top + window.scrollY - 40;
 
-// Add click event listeners to these links
-for (let link of sectionLinks) {
-  link.addEventListener("click", function (event) {
-    // Prevent the default jump-to-section behavior
-    event.preventDefault();
-
-    // Get the target section's top offset
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-    const targetPosition =
-      targetElement.getBoundingClientRect().top + (scrollY - 40);
-
-    // Smoothly scroll to the target section using gsap
-    gsap.to(window, {
-      duration: 1,
-      delay: 0.8,
-      scrollTo: { y: targetPosition, autoKill: false },
-      ease: "back.inOut(0.4)",
-    });
+  // Using GSAP for smooth scrolling
+  gsap.to(window, {
+    duration: 1,
+    delay: delay,
+    scrollTo: { y: targetPosition, autoKill: false },
+    ease: "back.inOut(0.4)",
   });
 }
 
-// Hide menu button when reaching the bottom of the page
+// Event handler for both menu and page nav links
+function triggerPageScroll(links, delay) {
+  for (const link of links) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute("href");
+      smoothScrollTo(targetId, delay);
+    });
+  }
+}
 
+triggerPageScroll(menuNavlinks, 0.8); // 0.8s delay for menu nav links
+triggerPageScroll(pageNavLinks); // No delay for page nav links
+
+// Hide menu button when reaching the bottom of the page
 window.addEventListener("scroll", function () {
   const scrolledFromTop = window.scrollY;
   const scrollHeight = document.documentElement.scrollHeight - 128;

@@ -1,4 +1,4 @@
-export const nonGsapAnimations = () => {
+const nonGsapAnimations = () => {
   const graphicPerson1 = document.querySelector(".graphic-person-1");
   const graphicPerson2 = document.querySelector(".graphic-person-2");
 
@@ -19,18 +19,18 @@ export const nonGsapAnimations = () => {
     const distanceFromCenterX = mouseX - centerX;
     const distanceFromCenterY = mouseY - centerY;
 
-    // Apply a ratio to reduce the movement effect
-    const ratio = 0.01; // Adjust the ratio as needed for the "nudge" effect
-    const negativeRatio = -0.01; // Adjust the ratio as needed for the "nudge" effect
-
     // Update the element's position
     graphicPerson1.style.transform = `translate(${
-      distanceFromCenterX * negativeRatio
-    }px, ${distanceFromCenterY * negativeRatio}px)`;
+      distanceFromCenterX * -0.01
+    }px, ${distanceFromCenterY * -0.01}px) rotate(${
+      distanceFromCenterX * -0.0025
+    }deg)`;
 
     graphicPerson2.style.transform = `translate(${
-      distanceFromCenterX * ratio
-    }px, ${distanceFromCenterY * ratio}px)`;
+      distanceFromCenterX * 0.01
+    }px, ${distanceFromCenterY * 0.01}px) rotate(${
+      distanceFromCenterX * -0.0025
+    }deg)`;
   });
 
   // Hero Parallax
@@ -46,7 +46,7 @@ export const nonGsapAnimations = () => {
   });
 };
 
-export const gsapAnimations = () => {
+const gsapAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // Detailed markers for debugging
