@@ -1,3 +1,4 @@
+import "./page-loading.js";
 import "./custom-cursor.js";
 import "./nav.js";
 import "./animations.js";

@@ -36,6 +36,11 @@ body {
   cursor: none !important;
 }
 
+.prevent-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 .main-content {
   padding: 4rem;
   transition: 0.6s linear 0.4s;
@@ -469,6 +474,29 @@ section:first-of-type {
   z-index: 25;
   pointer-events: none;
 }
+@media screen and (max-width: 480px) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.page-loader-status {
+  font-size: min(6vw, 164px);
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
 @keyframes appear {
   to {
@@ -555,12 +583,7 @@ section:first-of-type {
 }
 .hero-bg {
   scale: 1.25;
-  animation: hero-bg-animation 0.6s ease 0.6s forwards;
-}
-@keyframes hero-bg-animation {
-  to {
-    scale: 1;
-  }
+  transition: scale 0.6s ease;
 }
 .hero .section-title.active p:nth-of-type(1) span, .hero-title.active p:nth-of-type(1) span {
   animation: title-text 0.25s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s forwards;
@@ -617,9 +640,10 @@ section:first-of-type {
   width: 63.5rem;
   margin-left: 4rem;
   padding: 0 0 2rem;
-  opacity: 0;
-  pointer-events: none;
-  animation: appear 0.5s ease 1.6s forwards;
+}
+.hero h2.active {
+  opacity: 1;
+  pointer-events: all;
 }
 @media screen and (max-width: 768px) {
   .hero h2 {

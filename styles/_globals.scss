@@ -32,6 +32,11 @@ body {
     cursor: none !important;
 }
 
+.prevent-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
 .main-content {
     padding: $body-padding;
     transition: 0.6s linear 0.4s;
@@ -510,4 +515,25 @@ section {
     z-index: 25;
     pointer-events: none;
     // transition: 0.1s $cubic-ease-gentle;
+
+    @include mq-max('sm') {
+        display: none;
+    }
+}
+
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    @include row-center;
+    display: none;
+
+    &-status {
+        font-size: min(6vw, 164px);
+        font-weight: 900;
+        text-transform: uppercase;
+    }
 }

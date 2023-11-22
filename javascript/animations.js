@@ -2,7 +2,7 @@ const nonGsapAnimations = () => {
   const graphicPerson1 = document.querySelector(".graphic-person-1");
   const graphicPerson2 = document.querySelector(".graphic-person-2");
 
-  // Animate Hero Graphics
+  // Animate Hero Graphics based on the mouse position
   document.addEventListener("mousemove", (event) => {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -33,7 +33,7 @@ const nonGsapAnimations = () => {
     }deg)`;
   });
 
-  // Hero Parallax
+  // Hero Parallax for bubbles
   window.addEventListener("scroll", function () {
     let scrollPosition = window.scrollY;
     const bubble1 = document.querySelector(".bubble-1");
@@ -79,13 +79,8 @@ const gsapAnimations = () => {
         scrollTrigger: {
           trigger: ".work",
           start: screenLG ? "top 25%" : "top 16%",
-          end: "+1200%",
+          end: "+600%",
           pin: true,
-          // markers: {
-          //   startColor: "navy",
-          //   endColor: "navy",
-          //   indent: 128,
-          // },
         },
       });
 
@@ -113,8 +108,6 @@ const gsapAnimations = () => {
               scrub: scrubValue,
               ease: "none",
               start: "top 25%",
-              // end: "+1200%",
-              // end: "+600%",
               end: endTransition,
             },
           }
@@ -126,8 +119,8 @@ const gsapAnimations = () => {
         "40vw",
         "50vw",
         "120vw",
-        // "-180vw",
-        "-70vw",
+        "-180vw",
+        // "-70vw",
         "-200vw",
         "-320vw",
         0.4,
@@ -138,8 +131,8 @@ const gsapAnimations = () => {
         "70vw",
         "100vw",
         "200vw",
-        // "-150vw",
-        "-40vw",
+        "-150vw",
+        // "-40vw",
         "-150vw",
         "-240vw",
         0.5,
@@ -150,8 +143,8 @@ const gsapAnimations = () => {
         "100vw",
         "150vw",
         "280vw",
-        // "-120vw",
-        "-10vw",
+        "-120vw",
+        // "-10vw",
         "-100vw",
         "-160vw",
         0.6,
@@ -162,8 +155,8 @@ const gsapAnimations = () => {
         "40vw",
         "50vw",
         "120vw",
-        // "-180vw",
-        "-70vw",
+        "-180vw",
+        // "-70vw",
         "-200vw",
         "-320vw",
         0.7,
@@ -174,8 +167,8 @@ const gsapAnimations = () => {
         "70vw",
         "100vw",
         "200vw",
-        // "-150vw",
-        "-40vw",
+        "-150vw",
+        // "-40vw",
         "-150vw",
         "-240vw",
         0.8,
@@ -186,8 +179,8 @@ const gsapAnimations = () => {
         "100vw",
         "150vw",
         "280vw",
-        // "-120vw",
-        "-10vw",
+        "-120vw",
+        // "-10vw",
         "-100vw",
         "-160vw",
         0.9,
@@ -200,7 +193,7 @@ const gsapAnimations = () => {
 
   // Query for large screen animations
   mm.add("(min-width: 768px)", () => {
-    // Shift Title Text. Large screens only***
+    // Shift Title Text for Work Section. Large screens only***
     const animateTitleShift = (selector, startTranslateX, endTrigger) => {
       gsap.fromTo(
         selector,
@@ -225,10 +218,10 @@ const gsapAnimations = () => {
   });
 
   // Description - Animating the letters of each Section Title
-  const animateTitleCharacters = (selector, triggerSelector, end, markers) => {
-    const titleCharacters = document.querySelectorAll(selector);
+  const animateTitleLetters = (selector, triggerSelector, end, markers) => {
+    const titleLetters = document.querySelectorAll(selector);
 
-    titleCharacters.forEach((letter, index) => {
+    titleLetters.forEach((letter, index) => {
       gsap.fromTo(
         letter,
         { y: "100%" },
@@ -249,19 +242,9 @@ const gsapAnimations = () => {
     });
   };
 
-  animateTitleCharacters(".work-title-character", ".work", "+1200% top");
-  animateTitleCharacters(
-    ".perks-title-character",
-    ".perks",
-    "50% 32%"
-    // whiteMarkers
-  );
-  animateTitleCharacters(
-    ".membership-title-character",
-    ".membership",
-    "50% 32%"
-    // navyMarkers
-  );
+  animateTitleLetters(".work-title-letter", ".work", "+600% top");
+  animateTitleLetters(".perks-title-letter", ".perks", "50% 32%");
+  animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
 };
 
 nonGsapAnimations();

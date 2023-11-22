@@ -17,14 +17,14 @@
     &-bg {
         // See ".section-bg" in _globals.scss
         scale: 1.25;
-        // animation: hero-bg-animation 0.5s ease 0.5s forwards;
-        animation: hero-bg-animation 0.6s ease 0.6s forwards;
+        transition: scale 0.6s ease;
+        // animation: hero-bg-animation 0.6s ease 0.6s forwards;
 
-        @keyframes hero-bg-animation {
-            to {
-                scale: 1;
-            }
-        }
+        // @keyframes hero-bg-animation {
+        //     to {
+        //         scale: 1;
+        //     }
+        // }
     }
 
     .section-title,
@@ -75,7 +75,12 @@
         margin-left: $section-inner-padding;
         // padding: 2rem 0 4rem; // Plus Jakarta Sans
         padding: 0 0 2rem; // Mukta
-        @include appear(0.5s, 1.6s);
+        // @include appear(0.5s, 1.6s);
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
 
         @include mq-max('md') {
             margin-left: $section-inner-padding-small;
