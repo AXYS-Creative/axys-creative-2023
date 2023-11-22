@@ -16,7 +16,7 @@ const questionsData = [
   {
     question: "What if I only have a single request?",
     answer:
-      "This is where the pause feture shines. ⏸️ Anytime the workload becomes light, you can pause your plan which stops all charges. Then you can easliy start up again when you do need the services.",
+      "This is where the pause feature shines. ⏸️ Anytime the workload becomes light, you can pause your plan which stops all charges. Then you can easliy start up again when you do need the services.",
     answerLength: "md",
   },
   {
