@@ -324,9 +324,12 @@ section:first-of-type {
   top: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: -1;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   pointer-events: none;
 }
 
@@ -944,7 +947,8 @@ section:first-of-type {
 }
 .work .work-item img {
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .work .work-item figcaption {
   color: #fafafa;

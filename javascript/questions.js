@@ -20,6 +20,11 @@ const questionsData = [
     answerLength: "md",
   },
   {
+    question: "How does the pause feature work?",
+    answer: "Billing cycles are based on a 31 day period. For example; if you sign up and use the service for 21 days, and then decide to pause your subscription, the billing cycle will be paused and you will have 10 days left of service remaining to be used anytime in the future.",
+    answerLength: "lg",
+  },
+  {
     question: "How quickly do you deliver?",
     answer:
       "This depends on the size and complexity of the project. 🤔 Most single page, static sites can move from wireframe to launch in about two weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
@@ -52,7 +57,7 @@ const questionsData = [
   {
     question: "Do you offer refunds?",
     answer:
-      "No, we don't offer any refunds. The only exception would be if within the first 24 hours of signing up we hadn't started on any work.",
+      "No, we don't offer any refunds.",
     answerLength: "",
   },
 ];
