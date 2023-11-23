@@ -65,17 +65,17 @@
         }
     }
 
-    h2 {
+    &-sub-title {
         font-family: 'mukta';
         text-transform: uppercase;
         font-size: max(20px, 6rem);
         text-align: justify;
-        // width: 72rem; // Plus Jakarta Sans
-        width: 63.5rem; // Mukta
+        width: 63.5rem;
         margin-left: $section-inner-padding;
-        // padding: 2rem 0 4rem; // Plus Jakarta Sans
-        padding: 0 0 2rem; // Mukta
+        padding: 0 0 2rem;
         // @include appear(0.5s, 1.6s);
+        opacity: 0;
+        transition: opacity 0.5s ease 1.6s;
 
         &.active {
             opacity: 1;
@@ -84,18 +84,15 @@
 
         @include mq-max('md') {
             margin-left: $section-inner-padding-small;
-            // font-size: 5rem; // Plus Jakarta Sans
-            // width: 60rem; // Plus Jakarta Sans
-            font-size: 5.4rem; // Mukta
-            width: 58rem; // Mukta
+            font-size: 5.4rem;
+            width: 58rem;
             padding: 2rem 0 4rem;
         }
 
         @include mq-max('sm') {
             padding: 0 0 2rem;
             font-size: 4.8rem;
-            // width: 30.8rem; // Plus Jakarta Sans
-            width: 33.3rem; // Mukta
+            width: 33.3rem;
         }
 
         span {
@@ -146,9 +143,16 @@
         }
     }
 
-    h3 {
+    &-description {
         // See ".section-description" in _globals.scss
-        @include appear(0.5s, 1.6s);
+        // @include appear(0.5s, 1.6s);
+        opacity: 0;
+        transition: opacity 0.5s ease 1.6s;
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 
     &-btns {
@@ -157,7 +161,14 @@
         left: $section-inner-padding;
         display: flex;
         gap: 2rem;
-        @include appear(0.5s, 2s);
+        // @include appear(0.5s, 2s);
+        opacity: 0;
+        transition: opacity 0.5s ease 2s;
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
 
         @include mq-max('md') {
             left: $section-inner-padding-small;

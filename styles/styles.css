@@ -635,7 +635,7 @@ section:first-of-type {
     translate: 0 0;
   }
 }
-.hero h2 {
+.hero-sub-title {
   font-family: "mukta";
   text-transform: uppercase;
   font-size: max(20px, 6rem);
@@ -643,13 +643,15 @@ section:first-of-type {
   width: 63.5rem;
   margin-left: 4rem;
   padding: 0 0 2rem;
+  opacity: 0;
+  transition: opacity 0.5s ease 1.6s;
 }
-.hero h2.active {
+.hero-sub-title.active {
   opacity: 1;
   pointer-events: all;
 }
 @media screen and (max-width: 768px) {
-  .hero h2 {
+  .hero-sub-title {
     margin-left: 2rem;
     font-size: 5.4rem;
     width: 58rem;
@@ -657,13 +659,13 @@ section:first-of-type {
   }
 }
 @media screen and (max-width: 480px) {
-  .hero h2 {
+  .hero-sub-title {
     padding: 0 0 2rem;
     font-size: 4.8rem;
     width: 33.3rem;
   }
 }
-.hero h2 span {
+.hero-sub-title span {
   font-family: "mukta";
   color: #df5b40;
   -webkit-text-fill-color: transparent;
@@ -675,35 +677,38 @@ section:first-of-type {
   -webkit-transition: 0.4s cubic-bezier(0.6, -0.06, 0.33, 1.31);
 }
 @media screen and (max-width: 768px) {
-  .hero h2 span {
+  .hero-sub-title span {
     font-weight: 900;
     -webkit-text-stroke-width: 1px;
   }
 }
-.hero h2 .web {
+.hero-sub-title .web {
   background-image: linear-gradient(270deg, #df5b40 0%, #df5b40 50%, transparent 50.1%);
   background-position: right;
 }
-.hero h2 .web-1 {
+.hero-sub-title .web-1 {
   animation: hero-sub-text 6s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
 }
-.hero h2 .web-2 {
+.hero-sub-title .web-2 {
   animation: hero-sub-text-2 6.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
 }
-.hero h2 .site {
+.hero-sub-title .site {
   background-image: linear-gradient(90deg, #df5b40 0%, #df5b40 50%, transparent 50.1%);
   background-position: left;
 }
-.hero h2 .site-1 {
+.hero-sub-title .site-1 {
   animation: hero-sub-text-2 6s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1.2s infinite alternate;
 }
-.hero h2 .site-2 {
+.hero-sub-title .site-2 {
   animation: hero-sub-text 6.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
 }
-.hero h3 {
+.hero-description {
   opacity: 0;
-  pointer-events: none;
-  animation: appear 0.5s ease 1.6s forwards;
+  transition: opacity 0.5s ease 1.6s;
+}
+.hero-description.active {
+  opacity: 1;
+  pointer-events: all;
 }
 .hero-btns {
   position: absolute;
@@ -712,8 +717,11 @@ section:first-of-type {
   display: flex;
   gap: 2rem;
   opacity: 0;
-  pointer-events: none;
-  animation: appear 0.5s ease 2s forwards;
+  transition: opacity 0.5s ease 2s;
+}
+.hero-btns.active {
+  opacity: 1;
+  pointer-events: all;
 }
 @media screen and (max-width: 768px) {
   .hero-btns {
