@@ -10,18 +10,19 @@ const questionsData = [
   {
     question: "Do I have a limited number of requests?",
     answer:
-      "Nope. 🎉 Once you become a member, you can add as many design or development requests as you'd like. Keep in mind that they are worked on & delivered one after the other.",
+      "Nope. 🎉 Once you become a member, you can add as many design or development requests as you'd like. Keep in mind that they are worked on & delivered one by one.",
     answerLength: "md",
   },
   {
     question: "What if I only have a single request?",
     answer:
-      "This is where the pause feature shines. ⏸️ Anytime the workload becomes light, you can pause your plan which stops all charges. Then you can easliy start up again when you do need the services.",
+      "This is where the pause feature shines. ⏸️ Anytime the workload becomes light, you can pause your plan which stops all charges. Then you can easily start up again when you do need our services.",
     answerLength: "md",
   },
   {
     question: "How does the pause feature work?",
-    answer: "Billing cycles are based on a 31 day period. For example; if you sign up and use the service for 21 days, and then decide to pause your subscription, the billing cycle will be paused and you will have 10 days left of service remaining to be used anytime in the future.",
+    answer:
+      "Billing cycles are based on a 31 day period 🗓️. Let's say you sign up and use the service for 21 days, and then decide to pause your subscription, the billing cycle will be paused and you will have 10 days left of service remaining to be used anytime in the future. 🤗",
     answerLength: "lg",
   },
   {
@@ -56,9 +57,8 @@ const questionsData = [
   },
   {
     question: "Do you offer refunds?",
-    answer:
-      "No, we don't offer any refunds.",
-    answerLength: "",
+    answer: "No. At this time we don't offer any refunds.",
+    answerLength: "sm",
   },
 ];
 

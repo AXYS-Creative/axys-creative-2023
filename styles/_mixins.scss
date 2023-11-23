@@ -22,9 +22,8 @@
   animation: appear $duration ease $delay forwards;
 }
 
-@mixin scale($scale, $duration, $delay) {
+@mixin scale($duration, $delay) {
   opacity: 0;
-  scale: $scale;
   animation: scale $duration $cubic-ease-back $delay forwards;
 }
 

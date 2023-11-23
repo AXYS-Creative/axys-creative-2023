@@ -69,61 +69,68 @@ img {
     width: 100%;
 }
     
-.menu-btn {
+
+.menu-btn-wrapper {
     position: fixed;
     bottom: $body-padding;
     right: $body-padding;
-    background: $black;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    color: $white;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    box-shadow: 4px 4px 8px rgba($black, 0.5);
     z-index: 5;
-    transition: background 0.6s $cubic-ease, 
-        scale 0.25s ease, 
-        translate 0.4s ease, 
-        opacity 0.4s linear;
-
-    &:hover,
-    &:focus {
-        scale: 1.12;
-    }
-
-    &.hide-menu-btn {
-        translate: 200% 0;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    &.active {
-        translate: 0 0;
-        opacity: 1;
-        pointer-events: all;
-        background: $coral;
-        transition: background 0.6s $cubic-ease 0.4s, scale 0.25s ease;
-    }
 
     @include mq-min('xxxl') {
         bottom: $body-padding;
         right: calc(50% - 92rem);
     }
 
-    @include mq-max('md') {
-        width: 68px;
-        height: 68px;
-        font-size: 14px;
+    .menu-btn {
+        background: $black;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        box-shadow: 4px 4px 8px rgba($black, 0.5);
+        
+        transition: background 0.6s $cubic-ease, 
+            scale 0.25s ease, 
+            translate 0.75s $cubic-ease-back,
+            rotate 0.75s $cubic-ease-back, 
+            opacity 0.4s linear;
+    
+        &:hover,
+        &:focus {
+            scale: 1.12;
+        }
+    
+        &.hide-menu-btn {
+            translate: 200% 0;
+            rotate: 90deg;
+            opacity: 0;
+            pointer-events: none;
+        }
+    
+        &.active {
+            translate: 0 0;
+            opacity: 1;
+            pointer-events: all;
+            background: $coral;
+            transition: background 0.6s $cubic-ease 0.4s, scale 0.25s ease;
+        }
+    
+        @include mq-max('md') {
+            width: 68px;
+            height: 68px;
+            font-size: 14px;
+        }
+    
+        @include mq-max('sm') {
+            bottom: $body-padding-small;
+            right: $body-padding-small;
+        }
+    
     }
-
-    @include mq-max('sm') {
-        bottom: $body-padding-small;
-        right: $body-padding-small;
-    }
-
 }
 
 .nav-menu {
@@ -515,6 +522,12 @@ section {
     z-index: 25;
     pointer-events: none;
     // transition: 0.1s $cubic-ease-gentle;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &.active {
+        opacity: 1;
+    }
 
     @include mq-max('sm') {
         display: none;

@@ -20,6 +20,8 @@ const customCursorHandler = () => {
     const distanceFromCenterY = mouseY - centerY;
 
     customCursor.style.transform = `translate(${distanceFromCenterX}px, ${distanceFromCenterY}px)`;
+
+    customCursor.classList.add("active");
   });
 
   // Hide and show custom mouse cursor when leaving and returning to the document
