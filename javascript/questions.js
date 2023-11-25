@@ -22,7 +22,7 @@ const questionsData = [
   {
     question: "How does the pause feature work?",
     answer:
-      "Since memberships are billed monthly, 🗓️ if you use the service for only 21 days then decide to pause your subscription; the billing cycle will be paused & the remaining amount of days in the month will be the amount of days you're able to make requests in the future.",
+      "When your workload becomes light, we can put a stop to your subscription, preventing all charges. Since memberships are billed monthly, we'll still be able to provide services for however many days were left when you paused. These remaining days are acceptable anytime in the future!",
     answerLength: "lg",
   },
   {

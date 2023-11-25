@@ -449,6 +449,7 @@ section {
 }
 
 .section-description {
+    color: $black;
     font-size: max(20px, 2.8rem);
     font-weight: 400;
     margin-left: $section-inner-padding;
@@ -469,8 +470,10 @@ section {
     box-shadow: 3px 3px 0 $black;
     transition: 0.4s ease;
 
-    &:hover {
-        box-shadow: 2px 2px 0 rgba($black, 0);
+    &:hover,
+    &:focus {
+        scale: 1.025;
+        rotate: 1deg;
     }
 }
 

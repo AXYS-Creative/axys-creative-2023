@@ -51,6 +51,7 @@
     }
 
     &-sub-title {
+        color: $black;
         text-transform: uppercase;
         font-size: max(20px, 6rem);
         font-weight: 800;
@@ -516,7 +517,6 @@
         .plans-btn {
             // See _globals.scss for cta styles
             background-color: $coral;
-            color: $black;
         }
 
         // .work-btn {
@@ -1043,8 +1043,6 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            width: 22rem;
-            align-self: flex-end;
 
             @include mq-max('md') {
                 top: auto;
@@ -1066,19 +1064,8 @@
                     font-size: 3rem;
                 }
             }
-            
-            a {
-                display: flex;
-                justify-content: center;
-                
-                @include mq-max('sm') {
-                    font-size: 3rem;
-                    width: 84%;
-                }
-            }
         }
     }
-
 }
 
 .pre-footer {
