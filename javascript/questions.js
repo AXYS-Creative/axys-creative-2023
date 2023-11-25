@@ -4,7 +4,7 @@ const questionsData = [
   {
     question: "Why wouldn't I just hire a full-time creator?",
     answer:
-      "To save money. 💰 The average salary for senior level designers & developers well exceeds 100k, & that's not including any benefits.\n \n With the monthly plan, you're simply paying for what you need. You can pause or resume anytime you're low on work.",
+      "To save money. 💰 The average salary for senior level designers & developers well exceeds 100k, & that's without including any benefits.\n \n With the monthly plan, you're simply paying for what you need. You can pause or resume anytime you're low on work.",
     answerLength: "xl",
   },
   {
@@ -22,13 +22,13 @@ const questionsData = [
   {
     question: "How does the pause feature work?",
     answer:
-      "Billing cycles are based on a 31 day period 🗓️. Let's say you sign up and use the service for 21 days, and then decide to pause your subscription, the billing cycle will be paused and you will have 10 days left of service remaining to be used anytime in the future. 🤗",
+      "Since memberships are billed monthly, 🗓️ if you use the service for only 21 days then decide to pause your subscription; the billing cycle will be paused & the remaining amount of days in the month will be the amount of days you're able to make requests in the future.",
     answerLength: "lg",
   },
   {
     question: "How quickly do you deliver?",
     answer:
-      "This depends on the size and complexity of the project. 🤔 Most single page, static sites can move from wireframe to launch in about two weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
+      "This depends on the size & complexity of the project. 🤔 Most single page, static sites can move from wireframe to launch in about two weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
     answerLength: "lg",
   },
   {
@@ -52,13 +52,13 @@ const questionsData = [
   {
     question: "What if I'm unsatisfied with the work?",
     answer:
-      "We'll continue to revise until you're happy and proud of the work. 😎 Simply put in a request and we'll get started on it.",
-    answerLength: "",
+      "We'll continue to revise until you're happy & proud of the work. 😎 Simply put in a request & we'll get started on it.",
+    answerLength: "sm",
   },
   {
     question: "Do you offer refunds?",
     answer: "No. At this time we don't offer any refunds.",
-    answerLength: "sm",
+    answerLength: "xs",
   },
 ];
 

@@ -36,11 +36,11 @@ const customCursorHandler = () => {
   // Handle hover/ image swap
   const changeCursorOnHover = () => {
     cursorImg.src = "./assets/graphics/alt-cursor-hover.svg";
-    customCursor.style.width = "20px";
+    customCursor.style.width = "24px";
   };
   const revertCursorOnLeave = () => {
     cursorImg.src = "./assets/graphics/alt-cursor.svg";
-    customCursor.style.width = "16px";
+    customCursor.style.width = "20px";
   };
 
   const updateHoverElements = () => {

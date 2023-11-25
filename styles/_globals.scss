@@ -2,9 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Archivo', sans-serif;
     line-height: 100%;
     cursor: none !important;
+}
+
+*::selection {
+    background: $purplegrey;
+    color: $white;
 }
 
 html {
@@ -28,7 +33,7 @@ html {
 }
 
 body {
-    background: $coral;
+    background: $blue;
     cursor: none !important;
 }
 
@@ -44,7 +49,7 @@ body {
     overflow: hidden;
     
     @include mq-max('sm') {
-        padding: $body-padding-small;
+        padding: $body-padding-small / 2;
     }
 
     &.active {
@@ -67,18 +72,32 @@ button {
 
 img {
     width: 100%;
-}
-    
+}   
 
 .menu-btn-wrapper {
     position: fixed;
     bottom: $body-padding;
     right: $body-padding;
     z-index: 5;
+    translate: 200% 0;
+    rotate: 90deg;
+    opacity: 0;
+    pointer-events: none;
+    transition: translate 0.75s $cubic-ease-back 2.2s,
+        rotate 0.75s $cubic-ease-back 2.2s, 
+        opacity 0.4s linear 2.2s;
+
 
     @include mq-min('xxxl') {
         bottom: $body-padding;
         right: calc(50% - 92rem);
+    }
+
+    &.active {
+        translate: 0 0;
+        rotate: 0deg;
+        opacity: 1;
+        pointer-events: all;
     }
 
     .menu-btn {
@@ -180,11 +199,10 @@ img {
         align-items: flex-start;
 
         a {
-            font-family: 'Mukta', sans-serif;
             margin: 0.6rem 0;
             padding-bottom: 0.4rem;
             font-size: 8rem;
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
             -webkit-text-stroke: 2px $white;
             -webkit-text-fill-color: transparent;
@@ -233,11 +251,11 @@ img {
                 }
             }
             &:nth-of-type(4) {
-                background-image: linear-gradient(135deg, $slategrey 0%, $slategrey 50%, transparent 50.1%);
+                background-image: linear-gradient(135deg, $purplegrey 0%, $purplegrey 50%, transparent 50.1%);
 
                 &:hover,
                 &:focus {
-                    -webkit-text-stroke-color: $slategrey;
+                    -webkit-text-stroke-color: $purplegrey;
                 }
             }
             &:nth-of-type(5) {
@@ -334,6 +352,8 @@ img {
 }
 
 section {
+    border: $section-border;
+    border-radius: $section-border-radius;
     isolation: isolate;
     position: relative;
     max-width: $width-constraint;
@@ -341,23 +361,26 @@ section {
     height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
     scroll-margin-top: $body-padding;
 
-    // @include mq-min('xxxl') {
-    //     height: calc(100vh - $body-padding * 2);
-    // }
+    @include mq-min('xxxl') {
+        min-height: 768px;
+        height: calc(100vh - $body-padding * 2);
+    }
 
     @include mq-max('xxl') {
         height: clamp(580px, calc(100vh - $body-padding * 2), calc(768px - $body-padding));
     }
 
     @include mq-max('xl') {
-        height: 600px;
+        height: 820px;
     }
 
     @include mq-max('lg') {
-        height: 560px;
+        height: 768px;
     }
 
     @include mq-max('sm') {
+        // border-width: 3px;
+        // border-radius: 8px;
         height: 70rem;
         min-height: 420px;
         margin: $body-padding-small auto;
@@ -369,6 +392,7 @@ section {
 }
 
 .section-bg {
+    border-radius: calc($section-border-radius / 4);
     position: absolute;
     top: 0;
     width: 100%;
@@ -380,53 +404,53 @@ section {
 }
 
 .section-title {
-    // border: $test;
     padding-left: $section-inner-padding;
     padding-top: $section-inner-padding-small;
-    font-size: min(11.5vw, 224px); // Plus Jakarta Sans
-    // font-size: min(12.8vw, 264px); // Mukta
-    // line-height: 80%; // Muktaa
-    font-weight: 900;
+    font-size: min(10.6vw, 212px);
     text-transform: uppercase;
-    filter: drop-shadow(0.4vw 0.4vw 0 rgba($black, 0.25));
+    filter: drop-shadow(0.2vw 0.2vw 0 $black);
+    -webkit-text-stroke: 4px $black;
+    color: $white;
     
-    @include mq-max('lg') {
-        font-size: 10.8vw; // Plus Jakarta Sans
-        // font-size: 12.2vw; // Mukta
-    }
-    
-    @include mq-min('lg') {
-        filter: drop-shadow(0.5rem 0.5rem 0 rgba($black, 0.25));
+    @include mq-min('xxl') {
+        filter: drop-shadow(0.5rem 0.5rem 0 $black);
     }
 
+    @include mq-max('lg') {
+        font-size: 10vw;
+        -webkit-text-stroke: 3px $black;
+    }
+    
     @include mq-max('md') {
+        font-size: 14vw;
+        -webkit-text-stroke: 2px $black;
         padding-left: $section-inner-padding-small;
-        padding-top: calc($section-inner-padding-small / 2);
+        padding-top: calc($section-inner-padding-small / 1.5);
     }
 
     @include mq-max('sm') {
         line-height: 0%;
-        font-size: 16vw; // Plus Jakarta Sans
-        // font-size: 18vw; // Mukta
+        font-size: 14.2vw;
         letter-spacing: 2px;
-        filter: drop-shadow(2px 2px 0 rgba($black, 0.25));
+        filter: drop-shadow(2px 2px 0 $black);
         margin-bottom: 2rem;
     }
 
     p {
-        // border: $test;
         overflow: hidden;
         display: inline-block;
         
         span {
+            // font-family: 'Arimo', sans-serif;
             display: block;
+            font-weight: 800;
         }
     }
 }
 
 .section-description {
-    font-size: 2.8rem;
-    font-weight: 300;
+    font-size: max(20px, 2.8rem);
+    font-weight: 400;
     margin-left: $section-inner-padding;
 
     @include mq-max('md') {
@@ -435,16 +459,18 @@ section {
 }
 
 .cta-1 {
-    padding: 1.6rem 3.2rem;
+    padding: 2rem 5.2rem;
     text-transform: uppercase;
-    font-size: 2.4rem;
-    background-color: $black;
+    font-size: 2.8rem;
+    background-color: $purplegrey;
     color: $white;
-    transition: opacity 0.4s ease;
-    box-shadow: 4px 4px 0 rgba($black, 0.25);
+    border: 3px solid $black;
+    border-radius: 4px;
+    box-shadow: 3px 3px 0 $black;
+    transition: 0.4s ease;
 
     &:hover {
-        opacity: 0.75;
+        box-shadow: 2px 2px 0 rgba($black, 0);
     }
 }
 
@@ -518,7 +544,7 @@ section {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 16px;
+    width: 20px;
     z-index: 25;
     pointer-events: none;
     // transition: 0.1s $cubic-ease-gentle;

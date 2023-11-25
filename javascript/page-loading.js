@@ -1,7 +1,7 @@
 const html = document.querySelector("html"),
   body = document.querySelector("body"),
   pageLoader = document.querySelector("#page-loader"),
-  heroBg = document.querySelector(".hero-bg"),
+  hero = document.querySelector(".hero"),
   heroTitle = document.querySelector(".hero-title"),
   heroSubTitle = document.querySelector(".hero-sub-title"),
   heroDescription = document.querySelector(".hero-description"),
@@ -10,9 +10,10 @@ const html = document.querySelector("html"),
   bubble2 = document.querySelector(".bubble-2"),
   bubble3 = document.querySelector(".bubble-3"),
   graphicPerson1 = document.querySelector(".graphic-person-1"),
-  graphicPerson2 = document.querySelector(".graphic-person-2");
+  graphicPerson2 = document.querySelector(".graphic-person-2"),
+  menuBtnWrapper = document.querySelector(".menu-btn-wrapper");
 
-const heroElements = [
+const loadElements = [
   heroTitle,
   heroSubTitle,
   heroDescription,
@@ -22,20 +23,22 @@ const heroElements = [
   bubble3,
   graphicPerson1,
   graphicPerson2,
+  menuBtnWrapper,
 ];
 
 document.onreadystatechange = function () {
   html.className += " prevent-scroll";
   body.className += " prevent-scroll";
   pageLoader.style.display = "flex";
+  hero.style.scale = "1.2";
 
   function finishLoading() {
     html.classList.remove("prevent-scroll");
     body.classList.remove("prevent-scroll");
     pageLoader.style.display = "none";
-    heroBg.style.scale = "1";
+    hero.style.scale = "1";
 
-    heroElements.forEach((elem) => {
+    loadElements.forEach((elem) => {
       elem.classList.add("active");
     });
   }

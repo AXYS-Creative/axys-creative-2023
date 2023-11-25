@@ -211,10 +211,10 @@ const gsapAnimations = () => {
       );
     };
     // Shifting Title Text "Selected"
-    animateTitleShift(".word-selected", "38%", "+400%");
+    animateTitleShift(".word-selected", "35%", "+400%");
 
     // Shifting Title Text "Work"
-    animateTitleShift(".word-work", "59%", "+640%");
+    animateTitleShift(".word-work", "60%", "+640%");
   });
 
   // Description - Animating the letters of each Section Title
@@ -245,6 +245,7 @@ const gsapAnimations = () => {
   animateTitleLetters(".work-title-letter", ".work", "+600% top");
   animateTitleLetters(".perks-title-letter", ".perks", "50% 32%");
   animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
+  animateTitleLetters(".questions-title-letter", ".questions", "50% 32%");
 };
 
 nonGsapAnimations();
