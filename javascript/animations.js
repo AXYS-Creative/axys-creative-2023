@@ -246,6 +246,61 @@ const gsapAnimations = () => {
   animateTitleLetters(".perks-title-letter", ".perks", "50% 32%");
   animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
   animateTitleLetters(".questions-title-letter", ".questions", "50% 32%");
+
+  // Description - Perks Section Animations
+  // Perks List
+  gsap.to(".perks-columns", {
+    scrollTrigger: {
+      trigger: ".perks",
+      start: "top center",
+      end: "50% 26%",
+      onEnter: () =>
+        document.querySelector(".perks-columns").classList.add("active"),
+      onLeave: () =>
+        document.querySelector(".perks-columns").classList.remove("active"),
+      onEnterBack: () =>
+        document.querySelector(".perks-columns").classList.add("active"),
+      onLeaveBack: () =>
+        document.querySelector(".perks-columns").classList.remove("active"),
+    },
+  });
+  // Perks Description
+  gsap.fromTo(
+    ".perks-description",
+    {
+      opacity: 0,
+      x: -24,
+    },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.75,
+      ease: "elastic.out(1, 0.5)",
+      scrollTrigger: {
+        trigger: ".perks",
+        start: "top 40%",
+        end: "50% 22%",
+        toggleActions: "restart reverse restart reverse",
+      },
+    }
+  );
+  // Perks CTA-1
+  gsap.to(".plans-btn-perks", {
+    scrollTrigger: {
+      trigger: ".perks",
+      start: "top 16%",
+      end: "50% 6%",
+      // markers: navyMarkers,
+      onEnter: () =>
+        document.querySelector(".plans-btn-perks").classList.add("active"),
+      onLeave: () =>
+        document.querySelector(".plans-btn-perks").classList.remove("active"),
+      onEnterBack: () =>
+        document.querySelector(".plans-btn-perks").classList.add("active"),
+      onLeaveBack: () =>
+        document.querySelector(".plans-btn-perks").classList.remove("active"),
+    },
+  });
 };
 
 nonGsapAnimations();

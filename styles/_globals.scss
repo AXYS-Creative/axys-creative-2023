@@ -33,7 +33,7 @@ html {
 }
 
 body {
-    background: $blue;
+    background: $coral;
     cursor: none !important;
 }
 
@@ -360,6 +360,7 @@ section {
     margin: 8rem auto;
     height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
     scroll-margin-top: $body-padding;
+    box-shadow: 4px 4px 0 $black;
 
     @include mq-min('xxxl') {
         min-height: 768px;
@@ -468,7 +469,7 @@ section {
     border: 3px solid $black;
     border-radius: 4px;
     box-shadow: 3px 3px 0 $black;
-    transition: 0.4s ease;
+    transition: scale 0.4s ease, rotate 0.4s ease;
 
     &:hover,
     &:focus {
@@ -506,6 +507,22 @@ section {
         width: 2.4rem;
         height: 2.4rem;
     }
+}
+
+.bubble {
+    @include absolute-center;
+    border: 3px solid $black;
+    border-radius: 50%;
+    transition: 0.5s $cubic-ease-gentle;
+    filter: drop-shadow(2px 2px 0 $black);
+    
+    @include mq-max('md') {
+        border-width: 1px;
+    }
+
+    // @include mq-max('sm') {
+    //     transition: none; // EXCESS STYLE Clean up in hero
+    // }
 }
 
 .sr-only {

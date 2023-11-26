@@ -1,6 +1,5 @@
 $white: #fafafa;
-// $black: #232323;
-$black: #353535;
+$black: #232323;
 $coral: #FF9973;
 $purplegrey: #825E86;
 $blue: #7EC1D4;
@@ -12,11 +11,12 @@ $body-padding-small: calc($body-padding / 2);
 $section-inner-padding: 4rem;
 $section-inner-padding-small: calc($section-inner-padding / 2);
 $section-border: 4px solid $black;
-$section-border-radius: 4px;
+$section-border-radius: 6px;
 
 $cubic-ease: cubic-bezier(1,.2,0,.84);
 $cubic-ease-title: cubic-bezier(.08,1.07,.76,1.16);
 $cubic-ease-back: cubic-bezier(.12,.64,.61,1.15);
+$cubic-ease-back-dramatic: cubic-bezier(.65,-0.5,.35,2.5);
 $cubic-ease-gentle: cubic-bezier(0,0,0,1);
 
 $width-constraint: 1920px;
