@@ -1,8 +1,9 @@
 const nonGsapAnimations = () => {
-  const graphicPerson1 = document.querySelector(".graphic-person-1");
-  const graphicPerson2 = document.querySelector(".graphic-person-2");
+  const graphicPerson1 = document.querySelector(".graphic-person-1"),
+    graphicPerson2 = document.querySelector(".graphic-person-2"),
+    perksPerson = document.querySelector(".perks-person");
 
-  // Animate Hero Graphics based on the mouse position
+  // Animating Section graphics based on the mouse position
   document.addEventListener("mousemove", (event) => {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -31,18 +32,43 @@ const nonGsapAnimations = () => {
     }px, ${distanceFromCenterY * 0.01}px) rotate(${
       distanceFromCenterX * -0.0025
     }deg)`;
+
+    perksPerson.style.transform = `translate(${distanceFromCenterX * 0.01}px, ${
+      distanceFromCenterY * 0.01
+    }px) rotate(${distanceFromCenterX * -0.0025}deg)`;
   });
 
-  // Hero Parallax for bubbles
+  // Parallax for bubbles
   window.addEventListener("scroll", function () {
     let scrollPosition = window.scrollY;
-    const bubble1 = document.querySelector(".bubble-1");
-    const bubble2 = document.querySelector(".bubble-2");
-    const bubble3 = document.querySelector(".bubble-3");
+    const bubble1 = document.querySelector(".bubble-1"),
+      bubble2 = document.querySelector(".bubble-2"),
+      bubble3 = document.querySelector(".bubble-3"),
+      perksBubble1 = document.querySelector(".perks-bubble-1"),
+      perksBubble2 = document.querySelector(".perks-bubble-2");
 
     bubble1.style.translate = `-100% calc(${scrollPosition * -0.18}px - 10%)`;
     bubble2.style.translate = `-45% calc(${scrollPosition * -0.26}px - 75%)`;
     bubble3.style.translate = `22% calc(${scrollPosition * -0.1}px - 25%)`;
+
+    // Description - Responsive parallax: Perks Bubbles
+    let mediaQuerySm = window.matchMedia("(max-width: 480px)");
+
+    if (mediaQuerySm.matches) {
+      perksBubble1.style.translate = `-72% calc(${
+        scrollPosition * -0.14
+      }px + 56%)`;
+      perksBubble2.style.translate = `-16% calc(${
+        scrollPosition * -0.18
+      }px + 40%)`;
+    } else {
+      perksBubble1.style.translate = `-72% calc(${
+        scrollPosition * -0.18
+      }px + 56%)`;
+      perksBubble2.style.translate = `-16% calc(${
+        scrollPosition * -0.26
+      }px + 40%)`;
+    }
   });
 };
 
@@ -247,23 +273,36 @@ const gsapAnimations = () => {
   animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
   animateTitleLetters(".questions-title-letter", ".questions", "50% 32%");
 
-  // Description - Perks Section Animations
+  // Description - Function to toggle the '.active' css class
+  // Used in Perks Section,
+  const toggleClassActive = (selector, trigger, start, end, markers) => {
+    gsap.to(selector, {
+      scrollTrigger: {
+        trigger: trigger,
+        start: start,
+        end: end,
+        markers: markers,
+        onEnter: () => document.querySelector(selector).classList.add("active"),
+        onLeave: () =>
+          document.querySelector(selector).classList.remove("active"),
+        onEnterBack: () =>
+          document.querySelector(selector).classList.add("active"),
+        onLeaveBack: () =>
+          document.querySelector(selector).classList.remove("active"),
+      },
+    });
+  };
+
   // Perks List
-  gsap.to(".perks-columns", {
-    scrollTrigger: {
-      trigger: ".perks",
-      start: "top center",
-      end: "50% 26%",
-      onEnter: () =>
-        document.querySelector(".perks-columns").classList.add("active"),
-      onLeave: () =>
-        document.querySelector(".perks-columns").classList.remove("active"),
-      onEnterBack: () =>
-        document.querySelector(".perks-columns").classList.add("active"),
-      onLeaveBack: () =>
-        document.querySelector(".perks-columns").classList.remove("active"),
-    },
-  });
+  toggleClassActive(".perks-columns", ".perks", "top center", "50% 26%", false);
+  // Perks CTA-1
+  toggleClassActive(".perks-cta-1", ".perks", "top 16%", "50% 6%", false);
+  // Perks Person
+  toggleClassActive(".perks-img", ".perks", "top center", "50% top");
+  // Perks Bubbles
+  toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
+  toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
+
   // Perks Description
   gsap.fromTo(
     ".perks-description",
@@ -284,23 +323,6 @@ const gsapAnimations = () => {
       },
     }
   );
-  // Perks CTA-1
-  gsap.to(".plans-btn-perks", {
-    scrollTrigger: {
-      trigger: ".perks",
-      start: "top 16%",
-      end: "50% 6%",
-      // markers: navyMarkers,
-      onEnter: () =>
-        document.querySelector(".plans-btn-perks").classList.add("active"),
-      onLeave: () =>
-        document.querySelector(".plans-btn-perks").classList.remove("active"),
-      onEnterBack: () =>
-        document.querySelector(".plans-btn-perks").classList.add("active"),
-      onLeaveBack: () =>
-        document.querySelector(".plans-btn-perks").classList.remove("active"),
-    },
-  });
 };
 
 nonGsapAnimations();

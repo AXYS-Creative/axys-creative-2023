@@ -86,8 +86,8 @@
             background-clip: text;
             -webkit-background-clip: text;
             background-repeat: no-repeat;
-            transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
-            -webkit-transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
+            transition: background 0.4s cubic-bezier(.6,-0.06,.33,1.31);
+            -webkit-transition: background 0.4s cubic-bezier(.6,-0.06,.33,1.31);
 
             @include mq-max('md') {
                 -webkit-text-stroke-width: 1px;
@@ -175,6 +175,7 @@
 
         @include mq-max('md') {
             width: 36rem;
+            translate: 0 -16%;
         }
 
         @include mq-max('sm') {
@@ -461,8 +462,6 @@
 
         ul {
             list-style: none;
-            // list-style-type: "\26AC";
-            // list-style-position: inside;
         }
 
         li {
@@ -476,8 +475,10 @@
             // transition: 0.25s ease 0.4s;
             transition: 0.25s ease;
 
+            @include mq-max('xl') {
+                font-size: 3rem;
+            }
             @include mq-max('md') {
-                font-size: 2.8rem;
                 margin-bottom: 0;
             }
 
@@ -499,6 +500,10 @@
                 background-color: $black;
                 // transition: 0.25s ease 0.4s;
                 transition: 0.25s ease;
+
+                @include mq-max('xl') {
+                    height: 3px;
+                }
 
                 @include mq-max('md') {
                     height: 2px;
@@ -617,7 +622,7 @@
             bottom: $body-padding-small;
         }
 
-        .plans-btn-perks {
+        .perks-cta-1 {
             // See _globals.scss for cta styles
             background-color: $coral;
             translate: 0 4rem;
@@ -639,7 +644,7 @@
             }
         }
 
-        // .work-btn-perks {
+        // .perks-cta-1 {
         //     // See _globals.scss for cta styles
         // }
     }
@@ -650,6 +655,17 @@
         bottom: 6%;
         right: 6%;
         width: clamp(0px, 28%, 28rem);
+        rotate: 5deg;
+        opacity: 0;
+        transition: rotate 1s $cubic-ease-back-dramatic, 
+           opacity 0.4s ease 0.4s;
+
+        &.active {
+            rotate: 0deg;
+            opacity: 1;
+            transition: rotate 1s $cubic-ease-back-dramatic, 
+            opacity 0.4s ease 0s;
+        }
         
         @include mq-max('lg') {
             bottom: -5%;
@@ -667,9 +683,9 @@
             width: 12rem;
         }
 
-        // .graphic-person-3 {
-        //     z-index: 0;
-        // }
+        .perks-person {
+            transition: 1s cubic-bezier(0,0,.2,1.25);
+        }
 
         .bubble-1 {
             background-color: $yellow; 
@@ -677,11 +693,14 @@
             height: 16rem;
             translate: -68% -28%;
             z-index: -1;
-            // opacity: 0;
-
-            // &.active {
-            //     animation: scale 0.6s $cubic-ease-back 0.7s forwards;
-            // }
+            opacity: 0;
+            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
+            
+            &.active {
+                opacity: 1;
+                scale: 1;
+                transition: opacity 0.6s ease 0.5s, scale 0.8s $cubic-ease-back 0.5s;
+            }
 
             @include mq-max('md') {
                 width: 10rem;
@@ -699,15 +718,18 @@
             height: 20rem;
             translate: -20% -80%;
             z-index: -2;
-            // opacity: 0;
-
-            // &.active {
-            //     animation: scale 0.6s $cubic-ease-back 0.7s forwards;
-            // }
+            opacity: 0;
+            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
+            
+            &.active {
+                opacity: 1;
+                scale: 1;
+                transition: opacity 0.6s ease 0.6s, scale 0.8s $cubic-ease-back 0.6s;
+            }
 
             @include mq-max('md') {
-                width: 10rem;
-                height: 10rem;
+                width: 14rem;
+                height: 14rem;
             }
 
             @include mq-max('sm') {
