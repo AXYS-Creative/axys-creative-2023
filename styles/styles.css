@@ -54,6 +54,11 @@ body {
   transform-origin: left center;
   overflow: hidden;
 }
+@media screen and (max-width: 768px) {
+  .main-content {
+    padding: 1.8rem;
+  }
+}
 @media screen and (max-width: 480px) {
   .main-content {
     padding: 0.9rem;
@@ -78,10 +83,14 @@ img {
   width: 100%;
 }
 
+i {
+  color: #825E86;
+}
+
 .menu-btn-wrapper {
   position: fixed;
-  bottom: 1.8rem;
-  right: 1.8rem;
+  bottom: 3.6rem;
+  right: 3.6rem;
   z-index: 5;
   translate: 200% 0;
   rotate: 90deg;
@@ -590,6 +599,7 @@ section:first-of-type {
   display: none;
 }
 .page-loader-status {
+  color: #313131;
   font-size: min(6vw, 164px);
   font-weight: 900;
   text-transform: uppercase;
@@ -821,27 +831,21 @@ section:first-of-type {
     bottom: 1.8rem;
   }
 }
-.hero-btns .hero-cta-1 {
+.hero-btns .hero-cta-1,
+.hero-btns .hero-cta-2 {
   translate: 0 4rem;
   opacity: 0;
   pointer-events: none;
   transition: scale 0.4s ease, rotate 0.4s ease, translate 0.6s cubic-bezier(0.65, -0.5, 0.35, 2.5) 1.5s, opacity 0.24s ease 1.6s;
 }
-.hero-btns .hero-cta-1.active {
+.hero-btns .hero-cta-1.active,
+.hero-btns .hero-cta-2.active {
   translate: 0 0;
   opacity: 1;
   pointer-events: all;
 }
 .hero-btns .hero-cta-2 {
-  translate: 0 4rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: scale 0.4s ease, rotate 0.4s ease, translate 0.6s cubic-bezier(0.65, -0.5, 0.35, 2.5) 1.6s, opacity 0.24s ease 1.7s;
-}
-.hero-btns .hero-cta-2.active {
-  translate: 0 0;
-  opacity: 1;
-  pointer-events: all;
+  transition: translate 0.6s cubic-bezier(0.65, -0.5, 0.35, 2.5) 1.6s, opacity 0.24s ease 1.7s;
 }
 .hero-img {
   position: absolute;
@@ -1005,7 +1009,6 @@ section:first-of-type {
   height: unset;
   border: none;
   box-shadow: none;
-  display: none;
 }
 @media screen and (min-width: 481px) {
   .work {
@@ -1300,7 +1303,6 @@ section:first-of-type {
   background-color: #FBFAA2;
   width: 16rem;
   height: 16rem;
-  translate: -68% -28%;
   z-index: -1;
   opacity: 0;
   transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
@@ -1326,7 +1328,6 @@ section:first-of-type {
   background-color: #D9D9D9;
   width: 20rem;
   height: 20rem;
-  translate: -20% -80%;
   z-index: -2;
   opacity: 0;
   transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
@@ -1385,7 +1386,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   .membership .section-description {
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 }
 .membership-options {
@@ -1431,6 +1432,9 @@ section:first-of-type {
   .membership-card {
     width: calc(100% - 1.8rem);
   }
+}
+.membership-card h3, .membership-card h4, .membership-card h5 {
+  color: #313131;
 }
 .membership-card h3 {
   font-size: max(0px, 6.4rem);
@@ -1487,10 +1491,17 @@ section:first-of-type {
   }
 }
 .membership-card ul .tooltip-indicator {
+  position: relative;
   vertical-align: middle;
   margin-left: 0.4rem;
   width: 2rem;
   height: 2rem;
+}
+.membership-card ul .tooltip-indicator:hover i:first-of-type, .membership-card ul .tooltip-indicator:focus i:first-of-type {
+  opacity: 0;
+}
+.membership-card ul .tooltip-indicator:hover i:last-of-type, .membership-card ul .tooltip-indicator:focus i:last-of-type {
+  opacity: 1;
 }
 .membership-card ul .tooltip-indicator:hover ~ .tooltip, .membership-card ul .tooltip-indicator:focus ~ .tooltip {
   opacity: 1;
@@ -1502,27 +1513,26 @@ section:first-of-type {
     height: 1.8rem;
   }
 }
-.membership-card ul .tooltip-indicator svg {
-  width: 2rem;
-  height: 2rem;
+.membership-card ul .tooltip-indicator i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 20px;
+  transition: 0.3s ease;
 }
-@media screen and (max-width: 480px) {
-  .membership-card ul .tooltip-indicator svg {
-    width: 1.6rem;
-    height: 1.6rem;
-  }
-}
-.membership-card ul .tooltip-indicator svg path {
-  fill: #313131;
+.membership-card ul .tooltip-indicator i:last-of-type {
+  opacity: 0;
 }
 .membership-card ul .tooltip {
   position: absolute;
   top: 0;
   right: 0;
   translate: calc(100% - 4px) calc(-100% + 4px);
-  background: #313131;
+  background: #825E86;
   color: #fafafa;
-  font-size: 14px;
+  font-size: 15px;
+  letter-spacing: 1px;
   line-height: 140%;
   padding: 1.2rem;
   border-radius: 0.4rem;
@@ -1571,6 +1581,11 @@ section:first-of-type {
   width: 12rem;
   z-index: 1;
 }
+@media screen and (max-width: 1440px) {
+  .membership .ribbon {
+    top: 4%;
+  }
+}
 @media screen and (max-width: 1200px) {
   .membership .ribbon {
     right: 2%;
@@ -1578,7 +1593,8 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   .membership .ribbon {
-    right: 22%;
+    top: 5.8%;
+    right: 18%;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1593,14 +1609,16 @@ section:first-of-type {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
+  width: 100%;
 }
 .membership .ribbon figcaption {
   position: absolute;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  font-size: 12px;
-  font-weight: 700;
+  color: #313131;
+  font-size: 13px;
+  font-weight: 800;
   text-transform: uppercase;
   text-align: center;
 }

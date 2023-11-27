@@ -53,6 +53,9 @@ body {
     transform-origin: left center;
     overflow: hidden;
     
+    @include mq-max('md') {
+        padding: $body-padding-small;
+    }
     @include mq-max('sm') {
         padding: calc($body-padding-small / 2);
     }
@@ -79,10 +82,14 @@ img {
     width: 100%;
 }   
 
+i {
+    color: $purplegrey;
+}
+
 .menu-btn-wrapper {
     position: fixed;
-    bottom: $body-padding-small;
-    right: $body-padding-small;
+    bottom: $body-padding;
+    right: $body-padding;
     z-index: 5;
     translate: 200% 0;
     rotate: 90deg;
@@ -649,6 +656,7 @@ section {
     display: none;
 
     &-status {
+        color: $black;
         font-size: min(6vw, 164px);
         font-weight: 900;
         text-transform: uppercase;

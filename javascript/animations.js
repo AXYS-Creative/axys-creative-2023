@@ -57,8 +57,8 @@ const nonGsapAnimations = () => {
     handleParallax(bubble1, "-100%", -0.18, "10%");
     handleParallax(bubble2, "-45%", -0.26, "75%");
     handleParallax(bubble3, "22%", -0.1, "25%");
-    handleParallax(perksBubble1, "-72%", -0.18, "-56%");
-    handleParallax(perksBubble2, "-16%", -0.26, "-40%");
+    handleParallax(perksBubble1, "-72%", -0.18, "-480%");
+    handleParallax(perksBubble2, "-16%", -0.26, "-480%");
 
     // Description - Media Queries for parallax effect
     let mediaQuerySm = window.matchMedia("(max-width: 480px)");
@@ -271,8 +271,7 @@ const gsapAnimations = () => {
   animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
   animateTitleLetters(".questions-title-letter", ".questions", "50% 32%");
 
-  // Description - Function to toggle the '.active' css class
-  // Used in Perks Section,
+  // Description - Function to toggle the '.active' css class. Used in Perks Section, Membership Section, ...
   const toggleClassActive = (selector, trigger, start, end, markers) => {
     gsap.to(selector, {
       scrollTrigger: {
@@ -291,7 +290,6 @@ const gsapAnimations = () => {
     });
   };
 
-  // Perks List
   toggleClassActive(".perks-columns", ".perks", "top center", "50% 26%");
   toggleClassActive(".perks-cta-1", ".perks", "top 16%", "50% 6%");
   toggleClassActive(".perks-cta-2", ".perks", "top 16%", "50% 6%");
@@ -299,26 +297,57 @@ const gsapAnimations = () => {
   toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
   toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
 
-  // Perks Description
-  gsap.fromTo(
-    ".perks-description",
-    {
-      opacity: 0,
-      x: -24,
-    },
-    {
-      opacity: 1,
-      x: 0,
-      duration: 0.75,
-      ease: "elastic.out(1, 0.5)",
-      scrollTrigger: {
-        trigger: ".perks",
-        start: "top 40%",
-        end: "50% 12%",
-        toggleActions: "restart reverse restart reverse",
+  // Description - Function to handle Section Description animation. Used in Perks Section, Membership Section, ...
+  const animateSectionDescription = (selector, trigger) => {
+    gsap.fromTo(
+      selector,
+      {
+        opacity: 0,
+        x: -24,
       },
-    }
-  );
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.75,
+        ease: "elastic.out(1, 0.5)",
+        scrollTrigger: {
+          trigger: trigger,
+          start: "top 40%",
+          end: "50% 12%",
+          toggleActions: "restart reverse restart reverse",
+        },
+      }
+    );
+  };
+
+  animateSectionDescription(".perks-description", ".perks");
+  animateSectionDescription(".membership-description", ".membership");
+
+  const animateMembershipCards = (selector, trigger, delay) => {
+    gsap.fromTo(
+      selector,
+      {
+        opacity: 0,
+        x: 200,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.25,
+        delay: delay,
+        ease: "elastic.out(1, 0.4)",
+        scrollTrigger: {
+          trigger: trigger,
+          start: "top 40%",
+          end: "50% 12%",
+          toggleActions: "restart reverse restart reverse",
+        },
+      }
+    );
+  };
+
+  animateMembershipCards(".membership-card-1", ".membership", 0);
+  animateMembershipCards(".membership-card-2", ".membership", 0.25);
 };
 
 nonGsapAnimations();

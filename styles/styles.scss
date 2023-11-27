@@ -148,7 +148,8 @@
             bottom: $body-padding-small;
         }
 
-        .hero-cta-1 {
+        .hero-cta-1,
+        .hero-cta-2 {
             // See _globals.scss for cta styles
             translate: 0 4rem;
             opacity: 0;
@@ -167,19 +168,7 @@
     
         .hero-cta-2 {
             // See _globals.scss for cta styles
-            translate: 0 4rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: scale 0.4s ease, 
-                rotate 0.4s ease, 
-                translate 0.6s $cubic-ease-back-dramatic 1.6s,
-                opacity 0.24s ease 1.7s;
-
-            &.active {
-                translate: 0 0;
-                opacity: 1;
-                pointer-events: all;
-            }
+            transition: translate 0.6s $cubic-ease-back-dramatic 1.6s, opacity 0.24s ease 1.7s;
         }
     }
 
@@ -346,7 +335,6 @@
     height: unset;
     border: none;
     box-shadow: none;
-    display: none;
 
     @include mq-min('sm') {
         @include appear(0.6s, 0.2s);
@@ -727,7 +715,7 @@
             background-color: $yellow; 
             width: 16rem;
             height: 16rem;
-            translate: -68% -28%;
+            // translate: -68% -28%;
             z-index: -1;
             opacity: 0;
             transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
@@ -752,7 +740,7 @@
             background-color: $grey; 
             width: 20rem;
             height: 20rem;
-            translate: -20% -80%;
+            // translate: -20% -80%;
             z-index: -2;
             opacity: 0;
             transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
@@ -814,7 +802,7 @@
         width: 84%;
 
         @include mq-max('md') {
-            margin-top: 2rem;
+            margin-top: 4rem;
         }
     }
 
@@ -858,9 +846,9 @@
             width: calc(100% - $body-padding-small);
         }
 
-        // & * {
-        //     color: $white;
-        // }
+        h3, h4, h5 {
+            color: $black;
+        }
 
         h3 {
             font-size: max(0px, 6.4rem);
@@ -931,11 +919,25 @@
             }
 
             .tooltip-indicator {
+                position: relative;
                 vertical-align: middle;
                 margin-left: 0.4rem;
                 width: 2rem;
                 height: 2rem;
                 // cursor: help;
+
+                &:hover,
+                &:focus {
+
+                    i {
+                        &:first-of-type {
+                            opacity: 0;
+                        }
+                        &:last-of-type {
+                            opacity: 1;
+                        }
+                    }
+                }
 
                 &:hover ~ .tooltip,
                 &:focus ~ .tooltip {
@@ -948,17 +950,13 @@
                     height: 1.8rem;
                 }
 
-                svg {
-                    width: 2rem;
-                    height: 2rem;
+                i {
+                    @include absolute-center;
+                    font-size: 20px;
+                    transition: 0.3s ease;
 
-                    @include mq-max('sm') {
-                        width: 1.6rem;
-                        height: 1.6rem;
-                    }
-
-                    path {
-                        fill: $black;
+                    &:last-of-type {
+                        opacity: 0;
                     }
                 }
             }
@@ -968,9 +966,10 @@
                 top: 0;
                 right: 0;
                 translate: calc(100% - 4px) calc(-100% + 4px);
-                background: $black;
+                background: $purplegrey;
                 color: $white;
-                font-size: 14px;
+                font-size: 15px;
+                letter-spacing: 1px;
                 line-height: 140%;
                 // translate: 100% -100%;
                 padding: 1.2rem;
@@ -1025,12 +1024,17 @@
         width: 12rem;
         z-index: 1;
 
+        @include mq-max('xxl') {
+            top: 4%;
+        }
+
         @include mq-max('xl') {
             right: 2%;
         }
 
         @include mq-max('md') {
-            right: 22%;
+            top: 5.8%;
+            right: 18%;
         }
 
         @include mq-max('sm') {
@@ -1041,12 +1045,14 @@
 
         svg {
             @include absolute-center;
+            width: 100%;
         }
         
         figcaption {
             @include absolute-center;
-            font-size: 12px;
-            font-weight: 700;
+            color: $black;
+            font-size: 13px;
+            font-weight: 800;
             text-transform: uppercase;
             text-align: center;
 
