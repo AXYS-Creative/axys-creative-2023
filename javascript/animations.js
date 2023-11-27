@@ -39,7 +39,7 @@ const nonGsapAnimations = () => {
   });
 
   // Parallax for bubbles
-  window.addEventListener("scroll", function () {
+  window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
     const bubble1 = document.querySelector(".bubble-1"),
       bubble2 = document.querySelector(".bubble-2"),
@@ -47,27 +47,25 @@ const nonGsapAnimations = () => {
       perksBubble1 = document.querySelector(".perks-bubble-1"),
       perksBubble2 = document.querySelector(".perks-bubble-2");
 
-    bubble1.style.translate = `-100% calc(${scrollPosition * -0.18}px - 10%)`;
-    bubble2.style.translate = `-45% calc(${scrollPosition * -0.26}px - 75%)`;
-    bubble3.style.translate = `22% calc(${scrollPosition * -0.1}px - 25%)`;
+    // Description - Function for reusable parallax
+    const handleParallax = (element, xValue, scrollMultiplier, yOffset) => {
+      element.style.translate = `${xValue} calc(${
+        scrollPosition * scrollMultiplier
+      }px - ${yOffset})`;
+    };
 
-    // Description - Responsive parallax: Perks Bubbles
+    handleParallax(bubble1, "-100%", -0.18, "10%");
+    handleParallax(bubble2, "-45%", -0.26, "75%");
+    handleParallax(bubble3, "22%", -0.1, "25%");
+    handleParallax(perksBubble1, "-72%", -0.18, "-56%");
+    handleParallax(perksBubble2, "-16%", -0.26, "-40%");
+
+    // Description - Media Queries for parallax effect
     let mediaQuerySm = window.matchMedia("(max-width: 480px)");
 
     if (mediaQuerySm.matches) {
-      perksBubble1.style.translate = `-72% calc(${
-        scrollPosition * -0.14
-      }px + 56%)`;
-      perksBubble2.style.translate = `-16% calc(${
-        scrollPosition * -0.18
-      }px + 40%)`;
-    } else {
-      perksBubble1.style.translate = `-72% calc(${
-        scrollPosition * -0.18
-      }px + 56%)`;
-      perksBubble2.style.translate = `-16% calc(${
-        scrollPosition * -0.26
-      }px + 40%)`;
+      handleParallax(perksBubble1, "-72%", -0.14, "-56%");
+      handleParallax(perksBubble2, "-16%", -0.18, "-40%");
     }
   });
 };
@@ -294,12 +292,10 @@ const gsapAnimations = () => {
   };
 
   // Perks List
-  toggleClassActive(".perks-columns", ".perks", "top center", "50% 26%", false);
-  // Perks CTA-1
-  toggleClassActive(".perks-cta-1", ".perks", "top 16%", "50% 6%", false);
-  // Perks Person
+  toggleClassActive(".perks-columns", ".perks", "top center", "50% 26%");
+  toggleClassActive(".perks-cta-1", ".perks", "top 16%", "50% 6%");
+  toggleClassActive(".perks-cta-2", ".perks", "top 16%", "50% 6%");
   toggleClassActive(".perks-img", ".perks", "top center", "50% top");
-  // Perks Bubbles
   toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
   toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
 
@@ -318,7 +314,7 @@ const gsapAnimations = () => {
       scrollTrigger: {
         trigger: ".perks",
         start: "top 40%",
-        end: "50% 22%",
+        end: "50% 12%",
         toggleActions: "restart reverse restart reverse",
       },
     }

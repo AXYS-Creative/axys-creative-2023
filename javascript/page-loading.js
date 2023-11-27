@@ -5,7 +5,8 @@ const html = document.querySelector("html"),
   heroTitle = document.querySelector(".hero-title"),
   heroSubTitle = document.querySelector(".hero-sub-title"),
   heroDescription = document.querySelector(".hero-description"),
-  heroBtns = document.querySelector(".hero-btns"),
+  heroCta1 = document.querySelector(".hero-cta-1"),
+  heroCta2 = document.querySelector(".hero-cta-2"),
   bubble1 = document.querySelector(".bubble-1"),
   bubble2 = document.querySelector(".bubble-2"),
   bubble3 = document.querySelector(".bubble-3"),
@@ -17,7 +18,8 @@ const loadElements = [
   heroTitle,
   heroSubTitle,
   heroDescription,
-  heroBtns,
+  heroCta1,
+  heroCta2,
   bubble1,
   bubble2,
   bubble3,
@@ -49,5 +51,5 @@ document.onreadystatechange = function () {
     } else {
       window.addEventListener("load", finishLoading());
     }
-  }, 2500);
+  }, 1000);
 };

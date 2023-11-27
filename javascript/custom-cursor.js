@@ -2,7 +2,7 @@ const customCursor = document.querySelector(".custom-cursor");
 const cursorImg = document.querySelector(".custom-cursor img");
 
 const customCursorHandler = () => {
-  // Custom Mouse Cursor
+  // Description - Tracking mouse movement & positioning in the center
   document.addEventListener("mousemove", (event) => {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -33,14 +33,23 @@ const customCursorHandler = () => {
     customCursor.style.display = "block";
   });
 
+  let mediaQueryLg = window.matchMedia("(max-width: 1024px)");
   // Handle hover/ image swap
   const changeCursorOnHover = () => {
     cursorImg.src = "./assets/graphics/alt-cursor-hover.svg";
     customCursor.style.width = "24px";
+
+    if (mediaQueryLg.matches) {
+      customCursor.style.width = "16px";
+    }
   };
   const revertCursorOnLeave = () => {
     cursorImg.src = "./assets/graphics/alt-cursor.svg";
     customCursor.style.width = "20px";
+
+    if (mediaQueryLg.matches) {
+      customCursor.style.width = "12px";
+    }
   };
 
   const updateHoverElements = () => {

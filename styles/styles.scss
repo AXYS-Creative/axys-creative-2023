@@ -59,10 +59,13 @@
         width: 79rem;
         margin-left: $section-inner-padding;
         padding: 0 0 2rem;
+        translate: -24px 0;
         opacity: 0;
-        transition: opacity 0.5s ease 1.6s;
+        pointer-events: none;
+        transition: opacity 0.5s ease 0.6s, translate 0.4s $cubic-ease-back-dramatic 0.6s;
 
         &.active {
+            translate: 0 0;
             opacity: 1;
             pointer-events: all;
         }
@@ -121,11 +124,13 @@
 
     &-description {
         // See ".section-description" in _globals.scss
-        // @include appear(0.5s, 1.6s);
+        translate: -24px 0;
         opacity: 0;
-        transition: opacity 0.5s ease 1.6s;
+        pointer-events: none;
+        transition: opacity 0.5s ease 0.7s, translate 0.4s $cubic-ease-back-dramatic 0.7s;
 
         &.active {
+            translate: 0 0;
             opacity: 1;
             pointer-events: all;
         }
@@ -137,27 +142,45 @@
         left: $section-inner-padding;
         display: flex;
         gap: 2rem;
-        // @include appear(0.5s, 2s);
-        opacity: 0;
-        transition: opacity 0.5s ease 2s;
-
-        &.active {
-            opacity: 1;
-            pointer-events: all;
-        }
 
         @include mq-max('md') {
             left: $section-inner-padding-small;
             bottom: $body-padding-small;
         }
 
-        // .plans-btn {
-        //     // See _globals.scss for cta styles
-        // }
+        .hero-cta-1 {
+            // See _globals.scss for cta styles
+            translate: 0 4rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: scale 0.4s ease, 
+                rotate 0.4s ease, 
+                translate 0.6s $cubic-ease-back-dramatic 1.5s,
+                opacity 0.24s ease 1.6s;
+
+            &.active {
+                translate: 0 0;
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
     
-        // .learn-btn {
-        //     // See _globals.scss for cta styles
-        // }
+        .hero-cta-2 {
+            // See _globals.scss for cta styles
+            translate: 0 4rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: scale 0.4s ease, 
+                rotate 0.4s ease, 
+                translate 0.6s $cubic-ease-back-dramatic 1.6s,
+                opacity 0.24s ease 1.7s;
+
+            &.active {
+                translate: 0 0;
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
     }
 
     &-img {
@@ -644,9 +667,22 @@
             }
         }
 
-        // .perks-cta-1 {
-        //     // See _globals.scss for cta styles
-        // }
+        .perks-cta-2 {
+            // See _globals.scss for cta styles
+            translate: 0 4rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.24s ease 0.38s,
+                translate 0.75s $cubic-ease-back-dramatic 0.12s;
+
+            &.active {
+                translate: 0 0;
+                opacity: 1;
+                pointer-events: all;
+                transition: opacity 0.24s ease 0.32s,
+                    translate 0.75s $cubic-ease-back-dramatic 0.12s;
+            }
+        }
     }
     
     &-img {
@@ -1078,10 +1114,19 @@
             }
 
             .faq-item {
-                transition: 0.3s ease;
                 height: 6rem;
                 margin-bottom: 1rem;
-                border-bottom: 2px solid $black;
+                border-bottom: 4px solid $black;
+                transition: border 0.4s $cubic-ease-back-dramatic, height 0.3s $cubic-ease-back;
+
+                &:hover,
+                &:focus {
+                    border-bottom: 8px solid $black;
+                    
+                    @include mq-max('xxl') {
+                        border-bottom: 6px solid $black;
+                    }
+                }
 
                 // 5 lines - 6 lines
                 &-xl {

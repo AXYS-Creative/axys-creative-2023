@@ -72,7 +72,7 @@ triggerPageScroll(pageNavLinks); // No delay for page nav links
 // Hide menu button when reaching the bottom of the page
 window.addEventListener("scroll", function () {
   const scrolledFromTop = window.scrollY;
-  const scrollHeight = document.documentElement.scrollHeight - 128;
+  const scrollHeight = document.documentElement.scrollHeight - 96;
   const viewHeight = window.innerHeight;
 
   if (scrolledFromTop + viewHeight >= scrollHeight) {

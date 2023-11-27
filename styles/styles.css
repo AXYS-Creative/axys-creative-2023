@@ -11,6 +11,7 @@
 *::selection {
   background: #825E86;
   color: #fafafa;
+  -webkit-text-stroke-color: #fafafa;
 }
 
 html {
@@ -79,8 +80,8 @@ img {
 
 .menu-btn-wrapper {
   position: fixed;
-  bottom: 3.6rem;
-  right: 3.6rem;
+  bottom: 1.8rem;
+  right: 1.8rem;
   z-index: 5;
   translate: 200% 0;
   rotate: 90deg;
@@ -101,7 +102,8 @@ img {
   pointer-events: all;
 }
 .menu-btn-wrapper .menu-btn {
-  background: #313131;
+  border: 3px solid #313131;
+  background: #825E86;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -110,7 +112,7 @@ img {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
-  box-shadow: 4px 4px 8px rgba(49, 49, 49, 0.5);
+  box-shadow: 3px 3px 0 #313131;
   transition: background 0.6s cubic-bezier(1, 0.2, 0, 0.84), scale 0.25s ease, translate 0.75s cubic-bezier(0.12, 0.64, 0.61, 1.15), rotate 0.75s cubic-bezier(0.12, 0.64, 0.61, 1.15), opacity 0.4s linear;
 }
 .menu-btn-wrapper .menu-btn:hover, .menu-btn-wrapper .menu-btn:focus {
@@ -326,6 +328,11 @@ section {
     height: clamp(580px, 100vh - 7.2rem, 768px - 3.6rem);
   }
 }
+@media screen and (max-width: 768px) {
+  section {
+    box-shadow: 3px 3px 0 #313131;
+  }
+}
 @media screen and (max-width: 480px) {
   section {
     height: 70rem;
@@ -373,6 +380,7 @@ section:first-of-type {
   .section-title {
     line-height: 0%;
     font-size: 14vw;
+    filter: drop-shadow(0.6rem 0.6rem 0 #313131);
     -webkit-text-stroke: 2px #313131;
     padding-left: 2rem;
     padding-top: 1.3333333333rem;
@@ -422,6 +430,11 @@ section:first-of-type {
   scale: 1.025;
   rotate: 1deg;
 }
+@media screen and (max-width: 768px) {
+  .cta-1 {
+    box-shadow: 2px 2px 0 #313131;
+  }
+}
 
 .cta-2 {
   display: flex;
@@ -430,6 +443,7 @@ section:first-of-type {
   position: relative;
   gap: 1rem;
   font-size: 2.4rem;
+  font-weight: 700;
   text-transform: uppercase;
 }
 @media screen and (max-width: 480px) {
@@ -442,18 +456,46 @@ section:first-of-type {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 84%;
-  height: 3px;
+  width: calc(100% + 32px);
+  height: 4px;
   background: #313131;
+  transition: 0.4s cubic-bezier(0.65, -0.5, 0.35, 2.5);
 }
 @media screen and (max-width: 768px) {
   .cta-2::after {
     height: 2px;
   }
 }
-.cta-2 svg {
-  width: 2.4rem;
-  height: 2.4rem;
+.cta-2 i {
+  color: #313131;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  translate: 28px -50%;
+  transition: 0.25s ease;
+}
+.cta-2 i:nth-of-type(2) {
+  opacity: 0;
+}
+.cta-2 i.fa-lightbulb-on {
+  translate: 34px -50%;
+}
+.cta-2:hover::after, .cta-2:focus::after {
+  height: 8px;
+}
+@media screen and (max-width: 1440px) {
+  .cta-2:hover::after, .cta-2:focus::after {
+    height: 6px;
+  }
+}
+.cta-2:hover i, .cta-2:focus i {
+  rotate: 8deg;
+}
+.cta-2:hover i:nth-of-type(1), .cta-2:focus i:nth-of-type(1) {
+  opacity: 0;
+}
+.cta-2:hover i:nth-of-type(2), .cta-2:focus i:nth-of-type(2) {
+  opacity: 1;
 }
 
 .bubble {
@@ -523,6 +565,11 @@ section:first-of-type {
 }
 .custom-cursor.active {
   opacity: 1;
+}
+@media screen and (max-width: 1024px) {
+  .custom-cursor {
+    width: 12px;
+  }
 }
 @media screen and (max-width: 480px) {
   .custom-cursor {
@@ -691,10 +738,13 @@ section:first-of-type {
   width: 79rem;
   margin-left: 4rem;
   padding: 0 0 2rem;
+  translate: -24px 0;
   opacity: 0;
-  transition: opacity 0.5s ease 1.6s;
+  pointer-events: none;
+  transition: opacity 0.5s ease 0.6s, translate 0.4s cubic-bezier(0.65, -0.5, 0.35, 2.5) 0.6s;
 }
 .hero-sub-title.active {
+  translate: 0 0;
   opacity: 1;
   pointer-events: all;
 }
@@ -748,10 +798,13 @@ section:first-of-type {
   animation: hero-sub-text 6.2s cubic-bezier(0.08, 1.07, 0.76, 1.16) 1s infinite alternate;
 }
 .hero-description {
+  translate: -24px 0;
   opacity: 0;
-  transition: opacity 0.5s ease 1.6s;
+  pointer-events: none;
+  transition: opacity 0.5s ease 0.7s, translate 0.4s cubic-bezier(0.65, -0.5, 0.35, 2.5) 0.7s;
 }
 .hero-description.active {
+  translate: 0 0;
   opacity: 1;
   pointer-events: all;
 }
@@ -761,18 +814,34 @@ section:first-of-type {
   left: 4rem;
   display: flex;
   gap: 2rem;
-  opacity: 0;
-  transition: opacity 0.5s ease 2s;
-}
-.hero-btns.active {
-  opacity: 1;
-  pointer-events: all;
 }
 @media screen and (max-width: 768px) {
   .hero-btns {
     left: 2rem;
     bottom: 1.8rem;
   }
+}
+.hero-btns .hero-cta-1 {
+  translate: 0 4rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: scale 0.4s ease, rotate 0.4s ease, translate 0.6s cubic-bezier(0.65, -0.5, 0.35, 2.5) 1.5s, opacity 0.24s ease 1.6s;
+}
+.hero-btns .hero-cta-1.active {
+  translate: 0 0;
+  opacity: 1;
+  pointer-events: all;
+}
+.hero-btns .hero-cta-2 {
+  translate: 0 4rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: scale 0.4s ease, rotate 0.4s ease, translate 0.6s cubic-bezier(0.65, -0.5, 0.35, 2.5) 1.6s, opacity 0.24s ease 1.7s;
+}
+.hero-btns .hero-cta-2.active {
+  translate: 0 0;
+  opacity: 1;
+  pointer-events: all;
 }
 .hero-img {
   position: absolute;
@@ -1177,6 +1246,18 @@ section:first-of-type {
   opacity: 1;
   pointer-events: all;
   transition: scale 0.4s ease, rotate 0.4s ease, translate 0.75s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.24s ease 0.2s;
+}
+.perks-btns .perks-cta-2 {
+  translate: 0 4rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease 0.38s, translate 0.75s cubic-bezier(0.65, -0.5, 0.35, 2.5) 0.12s;
+}
+.perks-btns .perks-cta-2.active {
+  translate: 0 0;
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.24s ease 0.32s, translate 0.75s cubic-bezier(0.65, -0.5, 0.35, 2.5) 0.12s;
 }
 .perks-img {
   isolation: isolate;
@@ -1583,10 +1664,18 @@ section:first-of-type {
   }
 }
 .questions .questions-details .questions-content .faq-item {
-  transition: 0.3s ease;
   height: 6rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #313131;
+  border-bottom: 4px solid #313131;
+  transition: border 0.4s cubic-bezier(0.65, -0.5, 0.35, 2.5), height 0.3s cubic-bezier(0.12, 0.64, 0.61, 1.15);
+}
+.questions .questions-details .questions-content .faq-item:hover, .questions .questions-details .questions-content .faq-item:focus {
+  border-bottom: 8px solid #313131;
+}
+@media screen and (max-width: 1440px) {
+  .questions .questions-details .questions-content .faq-item:hover, .questions .questions-details .questions-content .faq-item:focus {
+    border-bottom: 6px solid #313131;
+  }
 }
 .questions .questions-details .questions-content .faq-item-xl.active {
   height: 24rem;
