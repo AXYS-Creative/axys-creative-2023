@@ -42,16 +42,23 @@ menuBtn.addEventListener("click", toggleNav);
 
 // Page scroll behavior (tweak with gsap)
 function smoothScrollTo(targetId, delay = 0) {
+  // console.log(targetId);
   const targetElement = document.querySelector(targetId);
-  const targetPosition =
+  let targetSection =
     targetElement.getBoundingClientRect().top + window.scrollY - 40;
+
+  // Adjust scroll-margin-top (offset) depending on the section. In this case we adjust it for the work section.
+  if (targetId === "#work") {
+    targetSection =
+      targetElement.getBoundingClientRect().top + window.scrollY - 300;
+  }
 
   // Using GSAP for smooth scrolling
   gsap.to(window, {
-    duration: 1,
+    duration: 2,
     delay: delay,
-    scrollTo: { y: targetPosition, autoKill: false },
-    ease: "back.inOut(0.4)",
+    scrollTo: { y: targetSection, autoKill: false },
+    ease: "back.inOut(1)",
   });
 }
 

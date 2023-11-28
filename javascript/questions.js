@@ -4,7 +4,7 @@ const questionsData = [
   {
     question: "Why wouldn't I just hire a full-time creator?",
     answer:
-      "To save money. 💰 The average salary for senior level designers & developers well exceeds 100k, & that's without including any benefits.\n \n With the monthly plan, you're simply paying for what you need. You can pause or resume anytime you're low on work.",
+      "To save money. 💰 The average annual salary for senior level designers & developers well exceeds 100k, & that's without including any benefits.\n \n With the monthly plan, you're simply paying for what you need. You can pause or resume anytime you're low on work.",
     answerLength: "xl",
   },
   {
@@ -22,7 +22,7 @@ const questionsData = [
   {
     question: "How does the pause feature work?",
     answer:
-      "When your workload becomes light, we can put a stop to your subscription, preventing all charges. Since memberships are billed monthly, we'll still be able to provide services for however many days were left when you paused. These remaining days are acceptable anytime in the future!",
+      "When your workload becomes light, we can put a stop to your subscription, preventing all charges. Since memberships are billed monthly, we'll still be able to provide services for however many days were left in the month when you paused. These remaining days are acceptable anytime in the future!",
     answerLength: "lg",
   },
   {
