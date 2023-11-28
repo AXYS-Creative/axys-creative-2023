@@ -958,6 +958,10 @@
                     &:last-of-type {
                         opacity: 0;
                     }
+
+                    @include mq-max('xxl') {
+                        font-size: 16px;
+                    }
                 }
             }
 
@@ -1056,19 +1060,30 @@
             text-transform: uppercase;
             text-align: center;
 
-            @include mq-max('xl') {
+            @include mq-max('xxl') {
                 font-size: 10px;
             }
         }
     }
 
-    .membership-person {
-        // border: $test;
+    &-img {
+        isolation: isolate;
         position: absolute;
         bottom: 8%;
         left: 2%;
         width: clamp(8rem, 12%, 20rem);
         z-index: 2;
+        rotate: -5deg;
+        opacity: 0;
+        transition: rotate 1s $cubic-ease-back-dramatic, 
+           opacity 0.4s ease 0.4s;
+
+        &.active {
+            rotate: 0deg;
+            opacity: 1;
+            transition: rotate 1s $cubic-ease-back-dramatic, 
+            opacity 0.4s ease 0s;
+        }
         
         @include mq-max('md') {
             bottom: auto;
@@ -1082,6 +1097,62 @@
         @include mq-max('sm') {
             top: 37%;
             width: 20%;
+        }
+
+        .membership-person {
+            // opacity: 0.25;
+            transition: 1s cubic-bezier(0,0,.2,1.25);
+        }
+
+        .bubble-1 {
+            background-color: $coral; 
+            width: 16rem;
+            height: 16rem;
+            translate: -16% -100%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
+            
+            &.active {
+                opacity: 1;
+                scale: 1;
+                transition: opacity 0.6s ease 0.5s, scale 0.8s $cubic-ease-back 0.5s;
+            }
+
+            @include mq-max('md') {
+                width: 10rem;
+                height: 10rem;
+            }
+
+            @include mq-max('sm') {
+                width: 5.6rem;
+                height: 5.6rem;
+            }
+        }
+        .bubble-2 {
+            background-color: $yellow; 
+            width: 20rem;
+            height: 20rem;
+            translate: -60% -28%;
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
+            
+            &.active {
+                opacity: 1;
+                scale: 1;
+                transition: opacity 0.6s ease 0.6s, scale 0.8s $cubic-ease-back 0.6s;
+            }
+
+            @include mq-max('md') {
+                width: 14rem;
+                height: 14rem;
+            }
+
+            @include mq-max('sm') {
+                width: 5.6rem;
+                height: 5.6rem;
+            }
         }
     }
 }
@@ -1532,44 +1603,6 @@
         padding-bottom: $body-padding;
         gap: unset;
     }
-
-    // .location {
-    //     font-size: max(12px, 2rem);
-    //     position: relative;
-    //     color: $white;
-    //     line-height: normal;
-
-    //     @include mq-max('md') {
-    //         position: absolute;
-    //         right: 4rem;
-    //     }
-
-    //     @include mq-max('md') {
-    //         font-size: 10px;
-    //         right: 1.2rem;
-    //     }
-
-    //     svg {
-    //         position: absolute;
-    //         top: 0;
-    //         right: 0;
-    //         translate: 64% -26%;
-    //         width: max(24px, 4.4rem);
-            
-    //         @include mq-max('xxl') {
-    //             translate: 64% -30%;
-    //         }
-
-    //         @include mq-max('lg') {
-    //             translate: 64% -34%;
-    //         }
-            
-    //         @include mq-max('sm') {
-    //             translate: 56% -34%;
-    //             scale: 0.6;
-    //         }
-    //     }
-    // }
 
     .social-icons {
         display: flex;

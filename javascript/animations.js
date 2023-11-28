@@ -297,8 +297,28 @@ const gsapAnimations = () => {
   toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
   toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
 
+  toggleClassActive(".membership-img", ".membership", "top center", "50% top");
+  toggleClassActive(
+    ".membership-bubble-1",
+    ".membership",
+    "top center",
+    "40% 5%"
+  );
+  toggleClassActive(
+    ".membership-bubble-2",
+    ".membership",
+    "top center",
+    "40% 5%"
+  );
+
   // Description - Function to handle Section Description animation. Used in Perks Section, Membership Section, ...
-  const animateSectionDescription = (selector, trigger) => {
+  const animateSectionDescription = (
+    selector,
+    trigger,
+    start,
+    end,
+    markers
+  ) => {
     gsap.fromTo(
       selector,
       {
@@ -312,16 +332,27 @@ const gsapAnimations = () => {
         ease: "elastic.out(1, 0.5)",
         scrollTrigger: {
           trigger: trigger,
-          start: "top 40%",
-          end: "50% 12%",
+          start: start,
+          end: end,
+          markers: markers,
           toggleActions: "restart reverse restart reverse",
         },
       }
     );
   };
 
-  animateSectionDescription(".perks-description", ".perks");
-  animateSectionDescription(".membership-description", ".membership");
+  animateSectionDescription(
+    ".perks-description",
+    ".perks",
+    "top 35%",
+    "center 12%"
+  );
+  animateSectionDescription(
+    ".membership-description",
+    ".membership",
+    "top 45%",
+    "center 25%"
+  );
 
   const animateMembershipCards = (selector, trigger, delay) => {
     gsap.fromTo(
@@ -339,7 +370,7 @@ const gsapAnimations = () => {
         scrollTrigger: {
           trigger: trigger,
           start: "top 40%",
-          end: "50% 12%",
+          end: "75% top",
           toggleActions: "restart reverse restart reverse",
         },
       }

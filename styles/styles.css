@@ -1524,6 +1524,11 @@ section:first-of-type {
 .membership-card ul .tooltip-indicator i:last-of-type {
   opacity: 0;
 }
+@media screen and (max-width: 1440px) {
+  .membership-card ul .tooltip-indicator i {
+    font-size: 16px;
+  }
+}
 .membership-card ul .tooltip {
   position: absolute;
   top: 0;
@@ -1622,20 +1627,29 @@ section:first-of-type {
   text-transform: uppercase;
   text-align: center;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1440px) {
   .membership .ribbon figcaption {
     font-size: 10px;
   }
 }
-.membership .membership-person {
+.membership-img {
+  isolation: isolate;
   position: absolute;
   bottom: 8%;
   left: 2%;
   width: clamp(8rem, 12%, 20rem);
   z-index: 2;
+  rotate: -5deg;
+  opacity: 0;
+  transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0.4s;
+}
+.membership-img.active {
+  rotate: 0deg;
+  opacity: 1;
+  transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0s;
 }
 @media screen and (max-width: 768px) {
-  .membership .membership-person {
+  .membership-img {
     bottom: auto;
     left: auto;
     top: 8%;
@@ -1645,9 +1659,64 @@ section:first-of-type {
   }
 }
 @media screen and (max-width: 480px) {
-  .membership .membership-person {
+  .membership-img {
     top: 37%;
     width: 20%;
+  }
+}
+.membership-img .membership-person {
+  transition: 1s cubic-bezier(0, 0, 0.2, 1.25);
+}
+.membership-img .bubble-1 {
+  background-color: #FF9973;
+  width: 16rem;
+  height: 16rem;
+  translate: -16% -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
+}
+.membership-img .bubble-1.active {
+  opacity: 1;
+  scale: 1;
+  transition: opacity 0.6s ease 0.5s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.5s;
+}
+@media screen and (max-width: 768px) {
+  .membership-img .bubble-1 {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership-img .bubble-1 {
+    width: 5.6rem;
+    height: 5.6rem;
+  }
+}
+.membership-img .bubble-2 {
+  background-color: #FBFAA2;
+  width: 20rem;
+  height: 20rem;
+  translate: -60% -28%;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
+}
+.membership-img .bubble-2.active {
+  opacity: 1;
+  scale: 1;
+  transition: opacity 0.6s ease 0.6s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.6s;
+}
+@media screen and (max-width: 768px) {
+  .membership-img .bubble-2 {
+    width: 14rem;
+    height: 14rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership-img .bubble-2 {
+    width: 5.6rem;
+    height: 5.6rem;
   }
 }
 
