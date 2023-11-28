@@ -1268,7 +1268,7 @@ section:first-of-type {
   bottom: 6%;
   right: 6%;
   width: clamp(0px, 28%, 28rem);
-  rotate: 5deg;
+  rotate: 2.5deg;
   opacity: 0;
   transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0.4s;
 }
@@ -1639,7 +1639,7 @@ section:first-of-type {
   left: 2%;
   width: clamp(8rem, 12%, 20rem);
   z-index: 2;
-  rotate: -5deg;
+  rotate: -2.5deg;
   opacity: 0;
   transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0.4s;
 }

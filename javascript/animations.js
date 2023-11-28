@@ -1,10 +1,12 @@
 const nonGsapAnimations = () => {
-  const graphicPerson1 = document.querySelector(".graphic-person-1"),
-    graphicPerson2 = document.querySelector(".graphic-person-2"),
-    perksPerson = document.querySelector(".perks-person");
-
-  // Animating Section graphics based on the mouse position
+  // Description - Animating Section graphics based on mouse position
   document.addEventListener("mousemove", (event) => {
+    const graphicPerson1 = document.querySelector(".graphic-person-1"),
+      graphicPerson2 = document.querySelector(".graphic-person-2"),
+      perksPerson = document.querySelector(".perks-person"),
+      membershipPerson = document.querySelector(".membership-person");
+
+    // Logic for mouse tracking
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
@@ -21,24 +23,21 @@ const nonGsapAnimations = () => {
     const distanceFromCenterY = mouseY - centerY;
 
     // Update the element's position
-    graphicPerson1.style.transform = `translate(${
-      distanceFromCenterX * -0.01
-    }px, ${distanceFromCenterY * -0.01}px) rotate(${
-      distanceFromCenterX * -0.0025
-    }deg)`;
+    const handleMouseTrack = (element, xOffset = 0.01, yOffset = 0.01) => {
+      element.style.transform = `translate(${
+        distanceFromCenterX * xOffset
+      }px, ${distanceFromCenterY * yOffset}px) rotate(${
+        distanceFromCenterX * 0.0015
+      }deg)`;
+    };
 
-    graphicPerson2.style.transform = `translate(${
-      distanceFromCenterX * 0.01
-    }px, ${distanceFromCenterY * 0.01}px) rotate(${
-      distanceFromCenterX * -0.0025
-    }deg)`;
-
-    perksPerson.style.transform = `translate(${distanceFromCenterX * 0.01}px, ${
-      distanceFromCenterY * 0.01
-    }px) rotate(${distanceFromCenterX * -0.0025}deg)`;
+    handleMouseTrack(graphicPerson1, -0.01, -0.01);
+    handleMouseTrack(graphicPerson2);
+    handleMouseTrack(perksPerson);
+    handleMouseTrack(membershipPerson);
   });
 
-  // Parallax for bubbles
+  // Description - Parallax for bubbles
   window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
     const bubble1 = document.querySelector(".bubble-1"),
