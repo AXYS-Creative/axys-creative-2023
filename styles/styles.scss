@@ -248,15 +248,9 @@
             }
         }
         
-        .bubble {
-            // See _globals.css for .bubble styles
-            scale: 0.6;
-            transition: 0.5s $cubic-ease-gentle;
- 
-            @include mq-max('sm') {
-                transition: none;
-            }
-        }
+        // .bubble {
+        //     // See _globals.css for .bubble styles
+        // }
 
         .bubble-1 {
             background-color: $blue; 
@@ -654,17 +648,6 @@
         bottom: 6%;
         right: 6%;
         width: clamp(0px, 28%, 28rem);
-        rotate: 2.5deg;
-        opacity: 0;
-        transition: rotate 1s $cubic-ease-back-dramatic, 
-           opacity 0.4s ease 0.4s;
-
-        &.active {
-            rotate: 0deg;
-            opacity: 1;
-            transition: rotate 1s $cubic-ease-back-dramatic, 
-            opacity 0.4s ease 0s;
-        }
         
         @include mq-max('lg') {
             bottom: -5%;
@@ -682,24 +665,17 @@
             width: 12rem;
         }
 
-        .perks-person {
-            transition: 1s cubic-bezier(0,0,.2,1.25);
-        }
+        // .person-wrapper {
+        //     // see _globals.scss for styles
+        // }
 
         .bubble-1 {
             background-color: $yellow; 
             width: 16rem;
             height: 16rem;
-            // translate: -68% -28%;
             z-index: -1;
-            opacity: 0;
-            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
-            
-            &.active {
-                opacity: 1;
-                scale: 1;
-                transition: opacity 0.6s ease 0.5s, scale 0.8s $cubic-ease-back 0.5s;
-            }
+            // translate: -68% -28%;
+            // animations handled in _globals.scss
 
             @include mq-max('md') {
                 width: 10rem;
@@ -713,27 +689,20 @@
         }
         .bubble-2 {
             background-color: $grey; 
-            width: 20rem;
-            height: 20rem;
-            // translate: -20% -80%;
+            width: 22rem;
+            height: 22rem;
             z-index: -2;
-            opacity: 0;
-            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
-            
-            &.active {
-                opacity: 1;
-                scale: 1;
-                transition: opacity 0.6s ease 0.6s, scale 0.8s $cubic-ease-back 0.6s;
-            }
+            // translate: -20% -80%;
+            // animations handled in _globals.scss
 
             @include mq-max('md') {
-                width: 14rem;
-                height: 14rem;
+                width: 16rem;
+                height: 16rem;
             }
 
             @include mq-max('sm') {
-                width: 5.6rem;
-                height: 5.6rem;
+                width: 6.2rem;
+                height: 6.2rem;
             }
         }
     }
@@ -1048,17 +1017,6 @@
         left: 2%;
         width: clamp(8rem, 12%, 20rem);
         z-index: 2;
-        rotate: -2.5deg;
-        opacity: 0;
-        transition: rotate 1s $cubic-ease-back-dramatic, 
-           opacity 0.4s ease 0.4s;
-
-        &.active {
-            rotate: 0deg;
-            opacity: 1;
-            transition: rotate 1s $cubic-ease-back-dramatic, 
-            opacity 0.4s ease 0s;
-        }
         
         @include mq-max('md') {
             bottom: auto;
@@ -1074,25 +1032,16 @@
             width: 20%;
         }
 
-        .membership-person {
-            // opacity: 0.25;
-            transition: 1s cubic-bezier(0,0,.2,1.25);
+        .person-wrapper {
+            rotate: -2.5deg;
         }
 
         .bubble-1 {
             background-color: $coral; 
             width: 16rem;
             height: 16rem;
-            translate: -16% -100%;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
-            
-            &.active {
-                opacity: 1;
-                scale: 1;
-                transition: opacity 0.6s ease 0.5s, scale 0.8s $cubic-ease-back 0.5s;
-            }
+            // translate: -16% -100%;
+            // animations handled in _globals.scss
 
             @include mq-max('md') {
                 width: 10rem;
@@ -1104,20 +1053,14 @@
                 height: 5.6rem;
             }
         }
+
         .bubble-2 {
             background-color: $yellow; 
             width: 20rem;
             height: 20rem;
-            translate: -60% -28%;
+            // translate: -60% -28%;
             z-index: -2;
-            opacity: 0;
-            transition: opacity 0.6s ease 0.4s, scale 0.8s $cubic-ease-back 0.3s;
-            
-            &.active {
-                opacity: 1;
-                scale: 1;
-                transition: opacity 0.6s ease 0.6s, scale 0.8s $cubic-ease-back 0.6s;
-            }
+            // animations handled in _globals.scss
 
             @include mq-max('md') {
                 width: 14rem;
@@ -1135,10 +1078,11 @@
 .questions {
     height: unset;
 
-    // &-title {
+    &-title {
         // See ".section-title" in _globals.scss
         // Feel free to make unique style changes here though.
-    // }
+        color: $grey;
+    }
 
     .questions-details {
         display: flex;
@@ -1327,16 +1271,10 @@
             @include mq-max('sm') {
                 right: 2%;
             }
- 
-            p {
-                font-size: 2.4rem;
-                line-height: 3rem;
-                color: black;
-                text-transform: uppercase;
-                
-                @include mq-max(sm) {
-                    font-size: 3rem;
-                }
+
+            .cta-1 {
+                background-color: $grey;
+                color: $black;
             }
         }
     }

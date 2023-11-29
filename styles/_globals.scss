@@ -9,12 +9,12 @@
     // &:focus {
     //     outline: none;
     // }
-}
 
-*::selection {
-    background: $purplegrey;
-    color: $white;
-    -webkit-text-stroke-color: $white;
+    &::selection {
+        background: $purplegrey;
+        color: $white;
+        -webkit-text-stroke-color: $white;
+    }
 }
 
 html {
@@ -40,11 +40,6 @@ html {
 body {
     background: $coral;
     cursor: none !important;
-}
-
-.prevent-scroll {
-    height: 100%;
-    overflow: hidden;
 }
 
 .main-content {
@@ -571,22 +566,70 @@ section {
     }
 }
 
+// Animated
+
+.person-wrapper {
+    rotate: 2.5deg;
+    opacity: 0;
+    transition: rotate 0.8s $cubic-ease-back-dramatic 0s, 
+       opacity 0.4s ease 0.2s;
+
+    &.active {
+        rotate: 0deg !important;
+        opacity: 1;
+        transition: rotate 0.8s $cubic-ease-back-dramatic 0.3s, 
+        opacity 0.5s ease 0.4s;
+    }
+
+    .graphic-person {
+        transition: 1s cubic-bezier(0,0,.2,1.25);
+    }
+}
+
 .bubble {
     @include absolute-center;
     border: 3px solid $black;
     border-radius: 50%;
-    scale: 0.6;
+    scale: 0.5;
     transition: 0.5s $cubic-ease-gentle;
     filter: drop-shadow(2px 2px 0 $black);
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+        scale: 1;
+    }
     
     @include mq-max('md') {
         border-width: 1px;
     }
 
-    // @include mq-max('sm') {
-    //     transition: none; // EXCESS STYLE Clean up in hero
-    // }
+    @include mq-max('sm') {
+        transition: none;
+    }
 }
+
+.bubble-1 {
+    transition: opacity 0.3s ease 0.2s, 
+        scale 0.5s $cubic-ease-back 0s;
+    
+    &.active {
+        transition: opacity 0.4s ease 0s, 
+            scale 0.6s $cubic-ease-back 0.1s;
+    }
+}
+
+.bubble-2 {
+    transition: opacity 0.4s ease 0.3s, 
+        scale 0.6s $cubic-ease-back 0.1s;
+    
+    &.active {
+        transition: opacity 0.5s ease 0.1s, 
+            scale 0.7s $cubic-ease-back 0.2s;
+    }
+}
+
+// Utility
 
 .sr-only {
     position: absolute;
@@ -623,6 +666,13 @@ section {
     }
 }
 
+// Custom Features
+
+.prevent-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
 .custom-cursor {
     position: fixed;
     top: 50%;
@@ -653,7 +703,6 @@ section {
     height: 100vh;
     height: 100dvh;
     @include row-center;
-    display: none;
 
     &-status {
         color: $black;

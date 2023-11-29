@@ -44,7 +44,9 @@ const nonGsapAnimations = () => {
       bubble2 = document.querySelector(".bubble-2"),
       bubble3 = document.querySelector(".bubble-3"),
       perksBubble1 = document.querySelector(".perks-bubble-1"),
-      perksBubble2 = document.querySelector(".perks-bubble-2");
+      perksBubble2 = document.querySelector(".perks-bubble-2"),
+      membershipBubble1 = document.querySelector(".membership-bubble-1"),
+      membershipBubble2 = document.querySelector(".membership-bubble-2");
 
     // Description - Function for reusable parallax
     const handleParallax = (element, xValue, scrollMultiplier, yOffset) => {
@@ -56,8 +58,10 @@ const nonGsapAnimations = () => {
     handleParallax(bubble1, "-100%", -0.18, "10%");
     handleParallax(bubble2, "-45%", -0.26, "75%");
     handleParallax(bubble3, "22%", -0.1, "25%");
-    handleParallax(perksBubble1, "-72%", -0.18, "-480%");
-    handleParallax(perksBubble2, "-16%", -0.26, "-480%");
+    handleParallax(perksBubble1, "-72%", -0.14, "-340%");
+    handleParallax(perksBubble2, "-16%", -0.2, "-320%");
+    handleParallax(membershipBubble1, "-16%", -0.14, "-380%");
+    handleParallax(membershipBubble2, "-60%", -0.2, "-520%");
 
     // Description - Media Queries for parallax effect
     let mediaQuerySm = window.matchMedia("(max-width: 480px)");
@@ -292,11 +296,16 @@ const gsapAnimations = () => {
   toggleClassActive(".perks-columns", ".perks", "top center", "50% 26%");
   toggleClassActive(".perks-cta-1", ".perks", "top 16%", "50% 6%");
   toggleClassActive(".perks-cta-2", ".perks", "top 16%", "50% 6%");
-  toggleClassActive(".perks-img", ".perks", "top center", "50% top");
+  toggleClassActive(".perks-person-wrapper", ".perks", "top center", "50% top");
   toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
   toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
 
-  toggleClassActive(".membership-img", ".membership", "top center", "50% top");
+  toggleClassActive(
+    ".membership-person-wrapper",
+    ".membership",
+    "top center",
+    "50% top"
+  );
   toggleClassActive(
     ".membership-bubble-1",
     ".membership",

@@ -7,7 +7,6 @@
   line-height: 100%;
   cursor: none !important;
 }
-
 *::selection {
   background: #825E86;
   color: #fafafa;
@@ -41,11 +40,6 @@ html {
 body {
   background: #FF9973;
   cursor: none !important;
-}
-
-.prevent-scroll {
-  height: 100%;
-  overflow: hidden;
 }
 
 .main-content {
@@ -507,6 +501,20 @@ section:first-of-type {
   opacity: 1;
 }
 
+.person-wrapper {
+  rotate: 2.5deg;
+  opacity: 0;
+  transition: rotate 0.8s cubic-bezier(0.65, -0.5, 0.35, 2.5) 0s, opacity 0.4s ease 0.2s;
+}
+.person-wrapper.active {
+  rotate: 0deg !important;
+  opacity: 1;
+  transition: rotate 0.8s cubic-bezier(0.65, -0.5, 0.35, 2.5) 0.3s, opacity 0.5s ease 0.4s;
+}
+.person-wrapper .graphic-person {
+  transition: 1s cubic-bezier(0, 0, 0.2, 1.25);
+}
+
 .bubble {
   position: absolute;
   top: 50%;
@@ -514,14 +522,38 @@ section:first-of-type {
   translate: -50% -50%;
   border: 3px solid #313131;
   border-radius: 50%;
-  scale: 0.6;
+  scale: 0.5;
   transition: 0.5s cubic-bezier(0, 0, 0, 1);
   filter: drop-shadow(2px 2px 0 #313131);
+  opacity: 0;
+}
+.bubble.active {
+  opacity: 1;
+  scale: 1;
 }
 @media screen and (max-width: 768px) {
   .bubble {
     border-width: 1px;
   }
+}
+@media screen and (max-width: 480px) {
+  .bubble {
+    transition: none;
+  }
+}
+
+.bubble-1 {
+  transition: opacity 0.3s ease 0.2s, scale 0.5s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0s;
+}
+.bubble-1.active {
+  transition: opacity 0.4s ease 0s, scale 0.6s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.1s;
+}
+
+.bubble-2 {
+  transition: opacity 0.4s ease 0.3s, scale 0.6s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.1s;
+}
+.bubble-2.active {
+  transition: opacity 0.5s ease 0.1s, scale 0.7s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.2s;
 }
 
 .sr-only {
@@ -562,6 +594,11 @@ section:first-of-type {
   }
 }
 
+.prevent-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 .custom-cursor {
   position: fixed;
   top: 50%;
@@ -596,7 +633,6 @@ section:first-of-type {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
 }
 .page-loader-status {
   color: #313131;
@@ -924,15 +960,6 @@ section:first-of-type {
   .hero-img .graphic-person-2 {
     width: 12rem;
     translate: calc(-50% + 5.2rem) -50%;
-  }
-}
-.hero-img .bubble {
-  scale: 0.6;
-  transition: 0.5s cubic-bezier(0, 0, 0, 1);
-}
-@media screen and (max-width: 480px) {
-  .hero-img .bubble {
-    transition: none;
   }
 }
 .hero-img .bubble-1 {
@@ -1268,14 +1295,6 @@ section:first-of-type {
   bottom: 6%;
   right: 6%;
   width: clamp(0px, 28%, 28rem);
-  rotate: 2.5deg;
-  opacity: 0;
-  transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0.4s;
-}
-.perks-img.active {
-  rotate: 0deg;
-  opacity: 1;
-  transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0s;
 }
 @media screen and (max-width: 1024px) {
   .perks-img {
@@ -1296,21 +1315,11 @@ section:first-of-type {
     width: 12rem;
   }
 }
-.perks-img .perks-person {
-  transition: 1s cubic-bezier(0, 0, 0.2, 1.25);
-}
 .perks-img .bubble-1 {
   background-color: #FBFAA2;
   width: 16rem;
   height: 16rem;
   z-index: -1;
-  opacity: 0;
-  transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
-}
-.perks-img .bubble-1.active {
-  opacity: 1;
-  scale: 1;
-  transition: opacity 0.6s ease 0.5s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.5s;
 }
 @media screen and (max-width: 768px) {
   .perks-img .bubble-1 {
@@ -1326,27 +1335,20 @@ section:first-of-type {
 }
 .perks-img .bubble-2 {
   background-color: #D9D9D9;
-  width: 20rem;
-  height: 20rem;
+  width: 22rem;
+  height: 22rem;
   z-index: -2;
-  opacity: 0;
-  transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
-}
-.perks-img .bubble-2.active {
-  opacity: 1;
-  scale: 1;
-  transition: opacity 0.6s ease 0.6s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.6s;
 }
 @media screen and (max-width: 768px) {
   .perks-img .bubble-2 {
-    width: 14rem;
-    height: 14rem;
+    width: 16rem;
+    height: 16rem;
   }
 }
 @media screen and (max-width: 480px) {
   .perks-img .bubble-2 {
-    width: 5.6rem;
-    height: 5.6rem;
+    width: 6.2rem;
+    height: 6.2rem;
   }
 }
 
@@ -1639,14 +1641,6 @@ section:first-of-type {
   left: 2%;
   width: clamp(8rem, 12%, 20rem);
   z-index: 2;
-  rotate: -2.5deg;
-  opacity: 0;
-  transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0.4s;
-}
-.membership-img.active {
-  rotate: 0deg;
-  opacity: 1;
-  transition: rotate 1s cubic-bezier(0.65, -0.5, 0.35, 2.5), opacity 0.4s ease 0s;
 }
 @media screen and (max-width: 768px) {
   .membership-img {
@@ -1664,22 +1658,13 @@ section:first-of-type {
     width: 20%;
   }
 }
-.membership-img .membership-person {
-  transition: 1s cubic-bezier(0, 0, 0.2, 1.25);
+.membership-img .person-wrapper {
+  rotate: -2.5deg;
 }
 .membership-img .bubble-1 {
   background-color: #FF9973;
   width: 16rem;
   height: 16rem;
-  translate: -16% -100%;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
-}
-.membership-img .bubble-1.active {
-  opacity: 1;
-  scale: 1;
-  transition: opacity 0.6s ease 0.5s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.5s;
 }
 @media screen and (max-width: 768px) {
   .membership-img .bubble-1 {
@@ -1697,15 +1682,7 @@ section:first-of-type {
   background-color: #FBFAA2;
   width: 20rem;
   height: 20rem;
-  translate: -60% -28%;
   z-index: -2;
-  opacity: 0;
-  transition: opacity 0.6s ease 0.4s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.3s;
-}
-.membership-img .bubble-2.active {
-  opacity: 1;
-  scale: 1;
-  transition: opacity 0.6s ease 0.6s, scale 0.8s cubic-bezier(0.12, 0.64, 0.61, 1.15) 0.6s;
 }
 @media screen and (max-width: 768px) {
   .membership-img .bubble-2 {
@@ -1722,6 +1699,9 @@ section:first-of-type {
 
 .questions {
   height: unset;
+}
+.questions-title {
+  color: #D9D9D9;
 }
 .questions .questions-details {
   display: flex;
@@ -1884,16 +1864,9 @@ section:first-of-type {
     right: 2%;
   }
 }
-.questions .questions-details .questions-cta p {
-  font-size: 2.4rem;
-  line-height: 3rem;
-  color: black;
-  text-transform: uppercase;
-}
-@media screen and (max-width: 480px) {
-  .questions .questions-details .questions-cta p {
-    font-size: 3rem;
-  }
+.questions .questions-details .questions-cta .cta-1 {
+  background-color: #D9D9D9;
+  color: #313131;
 }
 
 .pre-footer {
