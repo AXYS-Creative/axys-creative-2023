@@ -34,7 +34,7 @@ const questionsData = [
   {
     question: "How do I make a request & track progress?",
     answer:
-      "This is done with <a class='page-link' href='https://trello.com/' target='_blank'>Trello</a>; a user-friendly managing tool that makes communication & collaboration simple. In addition to describing the work needed you can also upload images, videos, documents, or links to other resources.",
+      "This is done with <a class='page-link faq-inner-link' href='https://trello.com/' target='_blank'>Trello</a>; a user-friendly managing tool that makes communication & collaboration simple. In addition to describing the work needed you can also upload images, videos, documents, or links to other resources.",
     answerLength: "lg",
   },
   {

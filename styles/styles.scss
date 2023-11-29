@@ -1113,11 +1113,13 @@
                 height: 6rem;
                 margin-bottom: 1rem;
                 border-bottom: 4px solid $black;
-                transition: border 0.4s $cubic-ease-back-dramatic, height 0.3s $cubic-ease-back;
+                transition: all 0.3s $cubic-ease-back, border 0.4s $cubic-ease-back-dramatic;
 
                 &:hover,
-                &:focus {
-                    border-bottom: 8px solid $black;
+                &:focus,
+                &:focus-within {
+                    translate: 1.2rem 0;
+                    border-bottom: 7px solid $black;
                     
                     @include mq-max('xxl') {
                         border-bottom: 6px solid $black;
@@ -1504,7 +1506,7 @@
     @include row-between;
     max-width: $width-constraint;
     margin: auto;
-    padding: $body-padding;
+    padding: calc($body-padding * 2);
 
     @include mq-max('md') {
         flex-direction: column;
@@ -1533,17 +1535,19 @@
         a {
             transition: 0.4s $cubic-ease-back;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 scale: 1.2;
-                rotate: 5deg;
+                rotate: 2deg;
             }
         }
 
-        img {
-            width: 4rem;
+        i {
+            font-size: 4rem;
+            color: $white;
 
             @include mq-max('sm') {
-                width: 2.8rem;
+                font-size: 3.2rem;
             }
         }
     }
