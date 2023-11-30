@@ -1231,6 +1231,7 @@
             position: absolute;
             top: 10%;
             right: 24%;
+            display: none;
 
             @include mq-max('md') {
                 top: auto;
@@ -1256,12 +1257,11 @@
             }
         }
 
-        .questions-cta {
+        .questions-btns {
             position: absolute;
-            top: 48%;
-            right: 10%;
+            top: 48rem;
+            right: 12rem;
             display: flex;
-            flex-direction: column;
             gap: 2rem;
 
             @include mq-max('md') {
