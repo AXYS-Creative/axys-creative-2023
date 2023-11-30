@@ -1,10 +1,10 @@
 const nonGsapAnimations = () => {
   // Description - Animating Section graphics based on mouse position
   document.addEventListener("mousemove", (event) => {
-    const graphicPerson1 = document.querySelector(".graphic-person-1"),
-      graphicPerson2 = document.querySelector(".graphic-person-2"),
-      perksPerson = document.querySelector(".perks-person"),
-      membershipPerson = document.querySelector(".membership-person");
+    const heroPeep1 = document.querySelector(".hero-peep-1"),
+      heroPeep2 = document.querySelector(".hero-peep-2"),
+      perksPeep = document.querySelector(".perks-peep"),
+      membershipPeep = document.querySelector(".membership-peep");
 
     // Logic for mouse tracking
     const viewportWidth = window.innerWidth;
@@ -31,10 +31,10 @@ const nonGsapAnimations = () => {
       }deg)`;
     };
 
-    handleMouseTrack(graphicPerson1, -0.01, -0.01);
-    handleMouseTrack(graphicPerson2);
-    handleMouseTrack(perksPerson);
-    handleMouseTrack(membershipPerson);
+    handleMouseTrack(heroPeep1, -0.01, -0.01);
+    handleMouseTrack(heroPeep2);
+    handleMouseTrack(perksPeep);
+    handleMouseTrack(membershipPeep);
   });
 
   // Description - Parallax for bubbles
@@ -296,12 +296,12 @@ const gsapAnimations = () => {
   toggleClassActive(".perks-columns", ".perks", "top center", "50% 26%");
   toggleClassActive(".perks-cta-1", ".perks", "top 16%", "50% 6%");
   toggleClassActive(".perks-cta-2", ".perks", "top 16%", "50% 6%");
-  toggleClassActive(".perks-person-wrapper", ".perks", "top center", "50% top");
+  toggleClassActive(".perks-peep-wrapper", ".perks", "top center", "50% top");
   toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
   toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
 
   toggleClassActive(
-    ".membership-person-wrapper",
+    ".membership-peep-wrapper",
     ".membership",
     "top center",
     "50% top"
@@ -318,6 +318,25 @@ const gsapAnimations = () => {
     "top center",
     "40% 5%"
   );
+
+  toggleClassActive(
+    ".questions-peep-wrapper",
+    ".questions",
+    "top center",
+    "50% top"
+  );
+  // toggleClassActive(
+  //   ".questions-bubble-1",
+  //   ".questions",
+  //   "top center",
+  //   "40% 5%"
+  // );
+  // toggleClassActive(
+  //   ".questions-bubble-2",
+  //   ".questions",
+  //   "top center",
+  //   "40% 5%"
+  // );
 
   // Description - Function to handle Section Description animation. Used in Perks Section, Membership Section, ...
   const animateSectionDescription = (

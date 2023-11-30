@@ -10,8 +10,8 @@ const html = document.querySelector("html"),
   bubble1 = document.querySelector(".bubble-1"),
   bubble2 = document.querySelector(".bubble-2"),
   bubble3 = document.querySelector(".bubble-3"),
-  graphicPerson1 = document.querySelector(".graphic-person-1"),
-  graphicPerson2 = document.querySelector(".graphic-person-2"),
+  heroPeep1 = document.querySelector(".hero-peep-1"),
+  heroPeep2 = document.querySelector(".hero-peep-2"),
   menuBtnWrapper = document.querySelector(".menu-btn-wrapper");
 
 const loadElements = [
@@ -23,8 +23,8 @@ const loadElements = [
   bubble1,
   bubble2,
   bubble3,
-  graphicPerson1,
-  graphicPerson2,
+  heroPeep1,
+  heroPeep2,
   menuBtnWrapper,
 ];
 

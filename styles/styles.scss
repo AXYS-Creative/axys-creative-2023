@@ -201,7 +201,7 @@
             @include absolute-center;
         }
 
-        .graphic-person-1 {
+        .hero-peep-1 {
             width: 30rem;
             translate: calc(-50% - 10.6rem) -50%;
             opacity: 0;
@@ -225,7 +225,7 @@
             }
         }
         
-        .graphic-person-2 {
+        .hero-peep-2 {
             width: 22rem;
             translate: calc(-50% + 10.6rem) -50%;
             opacity: 0;
@@ -1227,7 +1227,7 @@
             }
         }
     
-        .questions-person {
+        .questions-peep {
             position: absolute;
             top: 10%;
             right: 24%;
@@ -1416,7 +1416,7 @@
         }
     }
 
-    &-person-1 { 
+    &-peep-1 { 
         left: $body-padding;
         
         @include mq-max('md') {
@@ -1463,7 +1463,7 @@
         }
     }
 
-    &-person-2 {
+    &-peep-2 {
         right: $body-padding;
         
         @include mq-max('md') {

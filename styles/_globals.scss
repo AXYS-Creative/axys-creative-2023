@@ -574,7 +574,7 @@ section {
 
 // Animated
 
-.person-wrapper {
+.peep-wrapper {
     rotate: 2.5deg;
     opacity: 0;
     transition: rotate 0.8s $cubic-ease-back-dramatic 0s, 
@@ -587,7 +587,7 @@ section {
         opacity 0.3s ease 0.4s;
     }
 
-    .graphic-person {
+    .peep {
         transition: 1s cubic-bezier(0,0,.2,1.25);
     }
 }
