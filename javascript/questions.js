@@ -62,7 +62,7 @@ const questionsData = [
   },
 ];
 
-const questionsContent = document.querySelector(".questions-content");
+const questionsList = document.querySelector(".questions-list");
 
 let htmlString = "";
 
@@ -88,7 +88,7 @@ questionsData.forEach(({ question, answer, answerLength }, index) => {
           `;
 });
 
-questionsContent.innerHTML = htmlString;
+questionsList.innerHTML = htmlString;
 
 updateHoverElements();
 

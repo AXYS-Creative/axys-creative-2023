@@ -325,18 +325,18 @@ const gsapAnimations = () => {
     "top center",
     "50% top"
   );
-  // toggleClassActive(
-  //   ".questions-bubble-1",
-  //   ".questions",
-  //   "top center",
-  //   "40% 5%"
-  // );
-  // toggleClassActive(
-  //   ".questions-bubble-2",
-  //   ".questions",
-  //   "top center",
-  //   "40% 5%"
-  // );
+  toggleClassActive(
+    ".questions-bubble-1",
+    ".questions",
+    "top center",
+    "40% 5%"
+  );
+  toggleClassActive(
+    ".questions-bubble-2",
+    ".questions",
+    "top center",
+    "40% 5%"
+  );
 
   // Description - Function to handle Section Description animation. Used in Perks Section, Membership Section, ...
   const animateSectionDescription = (
@@ -377,6 +377,12 @@ const gsapAnimations = () => {
   animateSectionDescription(
     ".membership-description",
     ".membership",
+    "top 45%",
+    "center 25%"
+  );
+  animateSectionDescription(
+    ".questions-description",
+    ".questions",
     "top 45%",
     "center 25%"
   );
