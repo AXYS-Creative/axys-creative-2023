@@ -60,8 +60,8 @@ const nonGsapAnimations = () => {
     handleParallax(bubble3, "22%", -0.1, "25%");
     handleParallax(perksBubble1, "-72%", -0.14, "-340%");
     handleParallax(perksBubble2, "-16%", -0.2, "-320%");
-    handleParallax(membershipBubble1, "-16%", -0.14, "-380%");
-    handleParallax(membershipBubble2, "-60%", -0.2, "-520%");
+    handleParallax(membershipBubble1, "-24%", -0.14, "-360%");
+    handleParallax(membershipBubble2, "-60%", -0.2, "-540%");
 
     // Description - Media Queries for parallax effect
     let mediaQuerySm = window.matchMedia("(max-width: 480px)");
@@ -380,12 +380,13 @@ const gsapAnimations = () => {
     "top 45%",
     "center 25%"
   );
-  animateSectionDescription(
-    ".questions-description",
-    ".questions",
-    "top 45%",
-    "center 25%"
-  );
+  // animateSectionDescription(
+  //   ".questions-description",
+  //   ".questions",
+  //   "top 20%",
+  //   "75% 10%"
+  //   // navyMarkers
+  // );
 
   const animateMembershipCards = (selector, trigger, delay) => {
     gsap.fromTo(

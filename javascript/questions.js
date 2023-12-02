@@ -22,8 +22,8 @@ const questionsData = [
   {
     question: "How does the pause feature work?",
     answer:
-      "When your workload becomes light, we can put a stop to your subscription, preventing all charges. Since memberships are billed monthly, we'll still be able to provide services for however many days were left in the month when you paused. These remaining days are acceptable anytime in the future!",
-    answerLength: "lg",
+      "When your workload becomes light, we can freeze your subscription and prevent all charges. Since memberships are billed monthly, we'll still be able to provide services for however many remaining days were left in the month when you paused. These days are acceptable for service anytime in the future!",
+    answerLength: "xl",
   },
   {
     question: "How quickly do you deliver?",
@@ -33,8 +33,7 @@ const questionsData = [
   },
   {
     question: "How do I make a request & track progress?",
-    answer:
-      "This is done with <a class='page-link faq-inner-link' href='https://trello.com/' target='_blank'>Trello</a>; a user-friendly managing tool that makes communication & collaboration simple. In addition to describing the work needed you can also upload images, videos, documents, or links to other resources.",
+    answer: `This is done with <a class='page-link faq-inner-link' href='https://trello.com/' target='_blank'>Trello <i class="fa-brands fa-trello"></i></a>, a user-friendly managing tool that makes communication & collaboration simple. In addition to describing the work needed you can also upload images, videos, documents, or links to other resources.`,
     answerLength: "lg",
   },
   {
@@ -57,7 +56,8 @@ const questionsData = [
   },
   {
     question: "Do you offer refunds?",
-    answer: "No. At this time we don't offer any refunds.",
+    answer:
+      "No. 🙅‍♂️ Please be aware that we don't offer any refunds at this time.",
     answerLength: "xs",
   },
 ];

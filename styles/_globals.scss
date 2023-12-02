@@ -215,24 +215,35 @@ i {
             font-size: 8rem;
             font-weight: 900;
             text-transform: uppercase;
+            background-clip: text;
+            background-repeat: no-repeat;
             -webkit-text-stroke: 2px $white;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             -webkit-background-clip: text;
-            background-repeat: no-repeat;
 
             background-size: 0 100%;
             -webkit-background-size: 0 100%;
 
-            transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
-            -webkit-transition: 0.4s cubic-bezier(.6,-0.06,.33,1.31);
+            transition: 0.48s ease 0.16s;
+            -webkit-transition: 0.48s ease 0.16s;
 
             background-image: linear-gradient(135deg, $white 0%, $white 50%, transparent 50.1%);
+            
+            @include allow-motion {
+                animation: nav-link-base 0.5s $cubic-ease-gentle forwards;
+            }
 
             &:hover,
             &:focus {
                 background-size: 220% 100%;
                 -webkit-background-size: 220% 100%;
+                
+                @include allow-motion {
+                    animation: nav-link-hover 0.5s $cubic-ease-gentle forwards;
+                }
+            }
+            &:active {
+                scale: 0.9;
             }
 
             @include mq-max('md') {
@@ -262,6 +273,8 @@ i {
                 }
             }
             &:nth-of-type(4) {
+                transition-duration: 0.64s;
+                -webkit-transition-duration: 0.64s;
                 background-image: linear-gradient(135deg, $blue 0%, $blue 50%, transparent 50.1%);
 
                 &:hover,
@@ -270,11 +283,13 @@ i {
                 }
             }
             &:nth-of-type(5) {
-                background-image: linear-gradient(135deg, $grey 0%, $grey 50%, transparent 50.1%);
+                transition-duration: 0.56s;
+                -webkit-transition-duration: 0.56s;
+                background-image: linear-gradient(135deg, $green 0%, $green 50%, transparent 50.1%);
 
                 &:hover,
                 &:focus {
-                    -webkit-text-stroke-color: $grey;
+                    -webkit-text-stroke-color: $green;
                 }
             }
         }
@@ -424,11 +439,11 @@ section {
 .section-title {
     padding-left: $section-inner-padding;
     padding-top: $section-inner-padding-small;
+    color: $white;
     font-size: min(10.6vw, 212px);
     text-transform: uppercase;
     filter: drop-shadow(0.2vw 0.2vw 0 $black);
     -webkit-text-stroke: 4px $black;
-    color: $white;
     
     @include mq-min('xxl') {
         filter: drop-shadow(0.5rem 0.5rem 0 $black);
@@ -440,20 +455,18 @@ section {
     }
     
     @include mq-max('md') {
-        line-height: 0%;
+        padding-left: $section-inner-padding-small;
         font-size: 14vw;
+        line-height: 0%;
         filter: drop-shadow(0.6rem 0.6rem 0 $black);
         -webkit-text-stroke: 2px $black;
-        padding-left: $section-inner-padding-small;
-        padding-top: calc($section-inner-padding-small / 1.5);
     }
 
     @include mq-max('sm') {
-        // line-height: 0%;
+        margin-bottom: 2rem;
         font-size: 14.2vw;
         letter-spacing: 2px;
         filter: drop-shadow(2px 2px 0 $black);
-        margin-bottom: 2rem;
     }
 
     p {
@@ -499,7 +512,8 @@ section {
         scale: 0.9;
     }
 
-    @include mq-max('md') {
+    @include mq-max('lg') {
+        border-width: 2px;
         box-shadow: 2px 2px 0 $black;
     }
 }
@@ -525,6 +539,10 @@ section {
         height: 4px;
         background: $black;
         transition: 0.4s $cubic-ease-back-dramatic;
+
+        @include mq-max('lg') {
+            height: 3px;
+        }
 
         @include mq-max('md') {
             height: 2px;
@@ -606,6 +624,10 @@ section {
         scale: 1;
     }
     
+    @include mq-max('lg') {
+        border-width: 2px;
+    }
+
     @include mq-max('md') {
         border-width: 1px;
     }
@@ -648,7 +670,15 @@ section {
     border: 0;
 }
 
-.large-screen-only {
+.large-screen-and-up {
+    display: none;
+
+    @include mq-min('lg') {
+        display: block;
+    }
+}
+
+.large-screen-and-below {
     display: none;
 
     @include mq-max('lg') {
@@ -656,7 +686,7 @@ section {
     }
 }
 
-.medium-screen-only {
+.medium-screen-and-below {
     display: none;
 
     @include mq-max('md') {

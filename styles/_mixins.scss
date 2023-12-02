@@ -75,3 +75,14 @@ $min-breakpoints: (
     @warn "Unknown breakpoint: #{$breakpoint}.";
   }
 }
+
+@mixin allow-motion {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+@mixin no-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

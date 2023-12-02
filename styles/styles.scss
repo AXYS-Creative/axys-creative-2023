@@ -299,7 +299,7 @@
         }
 
         .bubble-3 {
-            background-color: $coral; 
+            background-color: $green; 
             width: 20rem;
             height: 20rem;
             translate: 22% -25%;
@@ -423,17 +423,15 @@
     // }
 
     &-columns {
-        // border: $test;
         display: flex;
         flex-direction: row;
-        padding-left: $body-padding;
         gap: 6rem;
-        margin: 2rem 0 6rem;
+        margin: 2rem $section-inner-padding 6rem;
         
         @include mq-max('md') {
-            padding-left: $body-padding-small;      
             flex-direction: column;
             gap: 0;
+            margin-left: $section-inner-padding-small;
         }
         
         @include mq-max('sm') {
@@ -444,6 +442,64 @@
             list-style: none;
         }
 
+        .column {
+            width: 48rem;
+
+            @include mq-max('xl') {
+                width: 32%;
+            }
+            
+            @include mq-max('lg') {
+                width: 40%;
+            }
+
+            @include mq-max('md') {
+                width: max(64rem, 64%);
+            }
+
+            @include mq-max('sm') {
+                width: calc(100% - $body-padding-small);
+            }
+        }
+
+        .column-2 {
+            
+            @include mq-max('md') {
+            
+                li {
+                    transition-delay: 0.4s;
+                    
+                    &::after {
+                        transition-delay: 0.4s;
+                    }
+
+                    &:nth-of-type(2) {
+                        transition-delay: 0.5s;
+        
+                        &::after {
+                            transition-delay: 0.5s;
+                        }
+                    }
+
+                    &:nth-of-type(3) {
+                        transition-delay: 0.6s;
+        
+                        &::after {
+                            transition-delay: 0.6s;
+                        }
+                    }
+
+                    &:nth-of-type(4) {
+                        transition-delay: 0.7s;
+        
+                        &::after {
+                            transition-delay: 0.7s;
+                        }
+                    }
+                }
+            }
+        }
+
         li {
             position: relative;
             font-size: max(24px, 3.2rem);
@@ -452,7 +508,6 @@
             margin-bottom: 1rem;
             color: transparent;
             translate: -12px 0;
-            // transition: 0.25s ease 0.4s;
             transition: 0.25s ease;
 
             @include mq-max('xl') {
@@ -519,64 +574,6 @@
             }
         }
 
-        .column {
-            width: 30%;
-
-            @include mq-max('xl') {
-                width: 32%;
-            }
-            
-            @include mq-max('lg') {
-                width: 40%;
-            }
-
-            @include mq-max('md') {
-                width: max(64rem, 64%);
-            }
-
-            @include mq-max('sm') {
-                width: calc(100% - $body-padding-small);
-            }
-        }
-
-        .column-2 {
-            
-            @include mq-max('md') {
-            
-                li {
-                    transition-delay: 0.4s;
-                    
-                    &::after {
-                        transition-delay: 0.4s;
-                    }
-
-                    &:nth-of-type(2) {
-                        transition-delay: 0.5s;
-        
-                        &::after {
-                            transition-delay: 0.5s;
-                        }
-                    }
-
-                    &:nth-of-type(3) {
-                        transition-delay: 0.6s;
-        
-                        &::after {
-                            transition-delay: 0.6s;
-                        }
-                    }
-
-                    &:nth-of-type(4) {
-                        transition-delay: 0.7s;
-        
-                        &::after {
-                            transition-delay: 0.7s;
-                        }
-                    }
-                }
-            }
-        }
-
         &.active {
 
             li {
@@ -592,14 +589,14 @@
 
     &-btns {
         position: absolute;
-        bottom: 4rem;
+        bottom: $section-inner-padding;
         left: $section-inner-padding;
         display: flex;
         gap: 2rem;
 
         @include mq-max('md') {
-            left: $body-padding-small;
-            bottom: $body-padding-small;
+            bottom: $section-inner-padding-small;
+            left: $section-inner-padding-small;
         }
 
         .perks-cta-1 {
@@ -650,14 +647,14 @@
         width: clamp(0px, 28%, 28rem);
         
         @include mq-max('lg') {
-            bottom: -5%;
+            bottom: $section-inner-padding;
             right: 10%;
             width: max(23rem, 18%);
         }
 
         @include mq-max('md') {
             bottom: 18%;
-            right: 2%;
+            right: 6%;
         }
 
         @include mq-max('sm') {
@@ -732,11 +729,10 @@
         @include mq-max('md') {
             font-size: 11.6vw;
             width: 100%;
-            padding-left: $body-padding-small;
+            padding-left: $section-inner-padding-small;
         }
 
         @include mq-max('sm') {
-            width: 100%;
             font-size: 11.4vw;
         }
     }
@@ -755,17 +751,17 @@
         align-items: stretch;
         width: 84%;
         gap: 2rem;
-        padding-right: $body-padding;
-        margin-bottom: calc($body-padding + 2rem);
+        padding-right: $section-inner-padding;
+        margin-bottom: calc($section-inner-padding + 2rem);
         
         @include mq-max('xxl') {
-            margin-bottom: $body-padding;
+            margin-bottom: $section-inner-padding;
         }
 
         @include mq-max('md') {
             flex-direction: column;
             padding-right: unset;
-            padding-left: $body-padding-small;
+            padding-left: $section-inner-padding-small;
         }
         @include mq-max('sm') {
             width: 100%;
@@ -781,9 +777,12 @@
         border-radius: 6px;
         box-shadow: 0.4rem 0.4rem 0 $black;
         
+        @include mq-max('lg') {
+            border-width: 3px;
+        }
+
         @include mq-max('md') {
             width: max(66rem, 92%);
-            // overflow: hidden;
         }
 
         @include mq-max('sm') {
@@ -1055,9 +1054,9 @@
         }
 
         .bubble-2 {
-            background-color: $yellow; 
-            width: 20rem;
-            height: 20rem;
+            background-color: $green; 
+            width: 18rem;
+            height: 18rem;
             // translate: -60% -28%;
             z-index: -2;
             // animations handled in _globals.scss
@@ -1078,19 +1077,22 @@
 .questions {
     height: unset;
 
+    @include mq-max('lg') {
+        padding-bottom: 46rem;
+    }
+
     &-title {
         // See ".section-title" in _globals.scss
         // Feel free to make unique style changes here though.
         color: $green;
-    }
 
-    &-body-content {
-        display: flex;
-        justify-content: space-between;
-        padding: 4rem $body-padding;
-        
         @include mq-max('md') {
-            flex-direction: column;
+            font-size: 11.6vw;
+            width: 100%;
+        }
+
+        @include mq-max('sm') {
+            font-size: 11.4vw;
         }
     }
 
@@ -1098,14 +1100,15 @@
         display: flex;
         flex-direction: column;
         width: max(78rem, 46%);
+        margin: 2rem $section-inner-padding 4rem;
         
-        @include mq-max('md') {
-            width: 90%;
-            padding-bottom: 34rem;
+        @include mq-max('lg') {
+            width: 74%;
         }
-        
-        @include mq-max('sm') {
-            padding-bottom: 30rem;
+
+        @include mq-max('md') {
+            width: calc(100% - $section-inner-padding);
+            margin-left: $section-inner-padding-small;
         }
 
         .faq-item {
@@ -1115,58 +1118,62 @@
             border-bottom: 4px solid $black;
             transition: all 0.3s $cubic-ease-back, border 0.4s $cubic-ease-back-dramatic;
 
+            @include mq-max('lg') {
+                height: 8rem;
+                border-width: 3px;
+            }
+
             &:hover,
-            &:focus,
-            &:focus-within {
+            &:focus {
                 translate: 1.2rem 0;
-                border-bottom: 7px solid $black;
+                border-width: 7px;
                 
                 @include mq-max('xxl') {
-                    border-bottom: 6px solid $black;
+                    border-width: 6px;
+                }
+
+                @include mq-max('lg') {
+                    border-width: 5px;
                 }
             }
 
             // 5 lines - 6 lines
             &-xl {
                 &.active {
-                    height: 24rem;
+                    height: max(200px, 24rem);
                 }
             }
 
             // 3 lines - 4 lines
             &-lg {
                 &.active {
-                    height: 20rem;
+                    height: max(164px, 20rem);
                 }
             }
 
             // 3 lines
             &-md {
                 &.active {
-                    height: 18rem;
+                    height: max(140px, 18rem);
                 }
             }
 
             // 2 lines
             &-sm {
                 &.active {
-                    height: 14rem;
+                    height: max(120px, 14rem);
                 }
             }
-
+            
             // 1 line
             &-xs {
                 &.active {
-                    height: 12rem;
+                    height: max(80px, 12rem);
                 }
             }
         }
 
         .question {
-            color: $black;
-            font-size: 2.4rem;
-            width: 100%;
-            text-align: left;
             display: flex;
             justify-content: space-between;
             width: 100%;
@@ -1178,8 +1185,10 @@
             }
 
             h3 {
-                font-size: 2.4rem;
+                color: $black;
+                font-size: max(18px, 2.4rem);
                 font-weight: 500;
+                text-align: left;
                 flex-grow: 1;
             }
             
@@ -1195,11 +1204,11 @@
 
         .answer {
             display: flex;
-            gap: 1.2rem;
+            justify-content: space-between;
             opacity: 0;
             pointer-events: none;
             translate: 0 -16px;
-            font-size: 2rem;
+            font-size: max(16px, 2rem);
             padding-bottom: 2rem;
             transition: 0.2s ease 0s;
             
@@ -1211,41 +1220,60 @@
             }
 
             &-indicator {
+                padding: 2px;
                 font-size: 2.4rem;
-                display: inline-block;
                 font-weight: 700;
-                width: 4rem;
             }
 
             p {
+                width: 96%;
                 vertical-align: middle;
                 line-height: 150%;
             }
 
-            .page-link {
+            .faq-inner-link {
                 text-decoration: underline;
+
+                i {
+                    color: $black;
+                }
             }
         }
     }
 
-    &-focal-point {
-        // border: $test;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 8rem;
-        padding-top: 16rem;
-    }
-
     &-description {
         margin-left: unset;
+        position: absolute;
+        top: 46rem;
+        right: 5vw;
+        width: calc(10rem + 24vw);
 
-        span {
-            display: block;
+        @include mq-min('xxxl') {
+            width: 56rem;
+            right: calc($section-inner-padding * 4);
+        }
+
+        @include mq-max('lg') {
+            width: 72rem;
+            top: auto;
+            bottom: calc($section-inner-padding-small * 10);
+            left: $section-inner-padding;
+        }
+        
+        @include mq-max('md') {
+            width: calc(16rem + 50vw);
+            bottom: calc($section-inner-padding-small * 10);
+            left: $section-inner-padding-small;
+        }
+
+        h3 {
             font-size: max(32px, 4.2rem);
             font-weight: 700;
             text-transform: uppercase;
-            line-height: 16px;
+            margin-bottom: 2rem;
+        }
+        p {
+            line-height: 120%;
         }
     }
 
@@ -1253,33 +1281,113 @@
         // border: $test;
         isolation: isolate;
         position: absolute;
-        top: 16rem;
-        left: -50%;
-        width: clamp(0px, 28%, 28rem);
+        top: 22rem;
+        right: 4vw;
+        width: clamp(0px, 12%, 28rem);
+        height: 50rem;
+        display: flex;
+        align-items: flex-end;
+        
+        @include mq-min('xxxl') {
+            right: calc($section-inner-padding * 4);
+        }
+
+        @include mq-max('lg') {
+            top: unset;
+            height: unset;
+            bottom: $section-inner-padding-small;
+            right: calc($section-inner-padding * 2);
+            width: 16%;
+        }
 
         // .peep-wrapper {
-    
+        //     // see _globals.scss for styles
         // }
+
+        .bubble-1 {
+            background-color: $purplegrey; 
+            width: 18rem;
+            height: 18rem;
+            translate: -46% -90%;
+            z-index: -2;
+            // animations handled in _globals.scss
+
+            @include mq-max('xxl') {
+                width: 14rem;
+                height: 14rem;
+            }
+
+            @include mq-max('md') {
+                width: 8rem;
+                height: 8rem;
+            }
+
+            @include mq-max('sm') {
+                width: 3.6rem;
+                height: 3.6rem;
+            }
+        }
+
+        .bubble-2 {
+            background-color: $yellow; 
+            width: 14rem;
+            height: 14rem;
+            translate: 0% -46%;
+
+            // animations handled in _globals.scss
+
+            @include mq-max('xxl') {
+                width: 10rem;
+                height: 10rem;
+            }
+
+            @include mq-max('sm') {
+                width: 4.8rem;
+                height: 4.8rem;
+            }
+        }
     }
 
     &-btns {
+        position: absolute;
+        top: 76rem;
+        right: 5vw;
+        width: calc(10rem + 24vw);
         display: flex;
         gap: 2rem;
 
-        @include mq-max('md') {
-            top: auto;
-            bottom: 10%;
-            right: 14%;
+        @include mq-min('xxxl') {
+            width: 56rem;
+            right: calc($section-inner-padding * 4);
         }
 
-        @include mq-max('sm') {
-            right: 2%;
+        @include mq-max('lg') {
+            width: unset;
+            top: auto;
+            bottom: $section-inner-padding;
+            left: $section-inner-padding;
+        }
+
+        @include mq-max('md') {
+            bottom: $section-inner-padding-small;
+            left: $section-inner-padding-small;
         }
 
         .cta-1 {
             background-color: $green;
             color: $black;
         }
+    }
+
+    &-smart-break {
+
+        @include mq-max('lg') {
+            display: none;
+        }
+
+        // @include mq-max('md') {
+        //     display: block;
+        // }
     }
 }
 
