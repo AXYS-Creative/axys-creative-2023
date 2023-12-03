@@ -430,7 +430,7 @@
         }
         
         @include mq-max('sm') {
-            margin: 0 0 2rem;
+            margin: 0 $section-inner-padding-small 2rem;
         }
 
         ul {
@@ -453,7 +453,7 @@
             }
 
             @include mq-max('sm') {
-                width: calc(100% - $body-padding-small);
+                width: 100%;
             }
         }
 
@@ -670,8 +670,8 @@
             // animations handled in _globals.scss
 
             @include mq-max('md') {
-                width: 10rem;
-                height: 10rem;
+                width: 14rem;
+                height: 14rem;
             }
 
             @include mq-max('sm') {
@@ -679,6 +679,7 @@
                 height: 5.6rem;
             }
         }
+
         .bubble-2 {
             background-color: $grey; 
             width: 22rem;
@@ -1313,7 +1314,7 @@
             z-index: -2;
             // animations handled in _globals.scss
 
-            @include mq-max('xxl') {
+            @include mq-max('lg') {
                 width: 14rem;
                 height: 14rem;
             }
@@ -1337,7 +1338,7 @@
 
             // animations handled in _globals.scss
 
-            @include mq-max('xxl') {
+            @include mq-max('lg') {
                 width: 10rem;
                 height: 10rem;
             }

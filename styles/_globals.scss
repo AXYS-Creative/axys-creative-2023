@@ -101,6 +101,11 @@ i {
         right: calc(50% - 92rem);
     }
 
+    @include mq-max('sm') {
+        bottom: $body-padding-small;
+        right: $body-padding-small;
+    }
+
     &.active {
         translate: 0 0;
         rotate: 0deg;
@@ -158,13 +163,9 @@ i {
             width: 68px;
             height: 68px;
             font-size: 14px;
+            border-width: 2px;
+            box-shadow: 2px 2px 0 $black;
         }
-    
-        @include mq-max('sm') {
-            bottom: $body-padding-small;
-            right: $body-padding-small;
-        }
-    
     }
 }
 
@@ -252,7 +253,7 @@ i {
             }
 
             @include mq-max('md') {
-                // font-size: 8rem;
+                font-size: 6.4rem;
                 -webkit-text-stroke-width: 1px;
 
                 &:hover,
@@ -316,6 +317,10 @@ i {
         @include mq-max('md') {
             flex-direction: column;
             align-items: flex-start;
+            gap: 1.6rem;
+        }
+
+        @include mq-max('sm') {
             gap: 1rem;
         }
 
@@ -399,7 +404,7 @@ section {
     }
 
     @include mq-max('xxl') {
-        height: clamp(580px, calc(100vh - $body-padding * 2), calc(768px - $body-padding));
+        height: clamp(640px, calc(100vh - $body-padding * 2), calc(768px - $body-padding));
     }
 
     @include mq-max('xl') {
@@ -521,6 +526,10 @@ section {
         border-width: 2px;
         box-shadow: 2px 2px 0 $black;
     }
+
+    @include mq-max('sm') {
+        padding: 2rem 2.8rem;
+    }
 }
 
 .cta-2 {
@@ -623,6 +632,8 @@ section {
     filter: drop-shadow(2px 2px 0 $black);
     scale: 0.5;
     opacity: 0;
+    DISPLAY: NONE !IMPORTANT;
+    // DELETE ME WHEN DONE WITH RESPONSIVENESS
 
     &.active {
         opacity: 1;

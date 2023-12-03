@@ -64,12 +64,12 @@ const questionsData = [
 
 const questionsList = document.querySelector(".questions-list");
 
-let htmlString = "";
+let htmlStringFaq = "";
 
 questionsData.forEach(({ question, answer, answerLength }, index) => {
   const formattedAnswer = answer.replace(/\n/g, "<br>");
 
-  htmlString += `
+  htmlStringFaq += `
               <div class="faq-item faq-item-${answerLength}">
                 <button class="question page-link">
                     <h3>
@@ -88,7 +88,7 @@ questionsData.forEach(({ question, answer, answerLength }, index) => {
           `;
 });
 
-questionsList.innerHTML = htmlString;
+questionsList.innerHTML = htmlStringFaq;
 
 updateHoverElements();
 
