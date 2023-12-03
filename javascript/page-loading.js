@@ -7,9 +7,9 @@ const html = document.querySelector("html"),
   heroDescription = document.querySelector(".hero-description"),
   heroCta1 = document.querySelector(".hero-cta-1"),
   heroCta2 = document.querySelector(".hero-cta-2"),
-  bubble1 = document.querySelector(".bubble-1"),
-  bubble2 = document.querySelector(".bubble-2"),
-  bubble3 = document.querySelector(".bubble-3"),
+  heroBubble1 = document.querySelector(".hero-bubble-1"),
+  heroBubble2 = document.querySelector(".hero-bubble-2"),
+  heroBubble3 = document.querySelector(".hero-bubble-3"),
   heroPeep1 = document.querySelector(".hero-peep-1"),
   heroPeep2 = document.querySelector(".hero-peep-2"),
   menuBtnWrapper = document.querySelector(".menu-btn-wrapper");
@@ -20,9 +20,9 @@ const loadElements = [
   heroDescription,
   heroCta1,
   heroCta2,
-  bubble1,
-  bubble2,
-  bubble3,
+  heroBubble1,
+  heroBubble2,
+  heroBubble3,
   heroPeep1,
   heroPeep2,
   menuBtnWrapper,
@@ -51,5 +51,5 @@ document.onreadystatechange = function () {
     } else {
       window.addEventListener("load", finishLoading());
     }
-  }, 1000);
+  }, 500);
 };

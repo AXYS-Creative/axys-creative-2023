@@ -1,18 +1,9 @@
 const nonGsapAnimations = () => {
   // Description - Animating Section graphics based on mouse position
   document.addEventListener("mousemove", (event) => {
-    const heroPeep1 = document.querySelector(".hero-peep-1"),
-      heroPeep2 = document.querySelector(".hero-peep-2"),
-      perksPeep = document.querySelector(".perks-peep"),
-      membershipPeep = document.querySelector(".membership-peep");
-
-    // Logic for mouse tracking
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-
     // Calculate the center of the screen
-    const centerX = viewportWidth / 2;
-    const centerY = viewportHeight / 2;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
 
     // Get the mouse position
     const mouseX = event.clientX;
@@ -22,53 +13,51 @@ const nonGsapAnimations = () => {
     const distanceFromCenterX = mouseX - centerX;
     const distanceFromCenterY = mouseY - centerY;
 
-    // Update the element's position
+    // Description - Function to select and update the element position
     const handleMouseTrack = (element, xOffset = 0.01, yOffset = 0.01) => {
-      element.style.transform = `translate(${
+      document.querySelector(element).style.transform = `translate(${
         distanceFromCenterX * xOffset
       }px, ${distanceFromCenterY * yOffset}px) rotate(${
         distanceFromCenterX * 0.0015
       }deg)`;
     };
 
-    handleMouseTrack(heroPeep1, -0.01, -0.01);
-    handleMouseTrack(heroPeep2);
-    handleMouseTrack(perksPeep);
-    handleMouseTrack(membershipPeep);
+    handleMouseTrack(".hero-peep-1", -0.01, -0.01);
+    handleMouseTrack(".hero-peep-2");
+    handleMouseTrack(".perks-peep");
+    handleMouseTrack(".membership-peep");
+    handleMouseTrack(".questions-peep");
+    handleMouseTrack(".pre-footer-img-1-peep");
+    handleMouseTrack(".pre-footer-img-2-peep", -0.01, -0.01);
   });
 
   // Description - Parallax for bubbles
   window.addEventListener("scroll", () => {
     let scrollPosition = window.scrollY;
-    const bubble1 = document.querySelector(".bubble-1"),
-      bubble2 = document.querySelector(".bubble-2"),
-      bubble3 = document.querySelector(".bubble-3"),
-      perksBubble1 = document.querySelector(".perks-bubble-1"),
-      perksBubble2 = document.querySelector(".perks-bubble-2"),
-      membershipBubble1 = document.querySelector(".membership-bubble-1"),
-      membershipBubble2 = document.querySelector(".membership-bubble-2");
 
     // Description - Function for reusable parallax
     const handleParallax = (element, xValue, scrollMultiplier, yOffset) => {
-      element.style.translate = `${xValue} calc(${
+      document.querySelector(element).style.translate = `${xValue} calc(${
         scrollPosition * scrollMultiplier
       }px - ${yOffset})`;
     };
 
-    handleParallax(bubble1, "-100%", -0.18, "10%");
-    handleParallax(bubble2, "-45%", -0.26, "75%");
-    handleParallax(bubble3, "22%", -0.1, "25%");
-    handleParallax(perksBubble1, "-72%", -0.14, "-340%");
-    handleParallax(perksBubble2, "-16%", -0.2, "-320%");
-    handleParallax(membershipBubble1, "-24%", -0.14, "-360%");
-    handleParallax(membershipBubble2, "-60%", -0.2, "-540%");
+    handleParallax(".hero-bubble-1", "-100%", -0.18, "10%");
+    handleParallax(".hero-bubble-2", "-45%", -0.26, "75%");
+    handleParallax(".hero-bubble-3", "22%", -0.1, "25%");
+    handleParallax(".perks-bubble-1", "-72%", -0.14, "-340%");
+    handleParallax(".perks-bubble-2", "-16%", -0.2, "-320%");
+    handleParallax(".membership-bubble-1", "-24%", -0.2, "-600%");
+    handleParallax(".membership-bubble-2", "-60%", -0.1, "-280%");
+    handleParallax(".questions-bubble-1", "-46%", -0.1, "-320%");
+    handleParallax(".questions-bubble-2", "0%", -0.2, "-840%");
 
     // Description - Media Queries for parallax effect
     let mediaQuerySm = window.matchMedia("(max-width: 480px)");
 
     if (mediaQuerySm.matches) {
-      handleParallax(perksBubble1, "-72%", -0.14, "-56%");
-      handleParallax(perksBubble2, "-16%", -0.18, "-40%");
+      handleParallax(".perks-bubble-1", "-72%", -0.14, "-56%");
+      handleParallax(".perks-bubble-2", "-16%", -0.18, "-40%");
     }
   });
 };
@@ -213,8 +202,7 @@ const gsapAnimations = () => {
         0.9,
         "+900%"
       );
-
-      // END
+      // END - Shifting project images
     }
   );
 
@@ -274,7 +262,7 @@ const gsapAnimations = () => {
   animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
   animateTitleLetters(".questions-title-letter", ".questions", "50% 32%");
 
-  // Description - Function to toggle the '.active' css class. Used in Perks Section, Membership Section, ...
+  // Description - Function to toggle the '.active' css class. Used in Perks, Membership, & Questions Section.
   const toggleClassActive = (selector, trigger, start, end, markers) => {
     gsap.to(selector, {
       scrollTrigger: {
@@ -300,6 +288,7 @@ const gsapAnimations = () => {
   toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
   toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
 
+  // Membership Section
   toggleClassActive(
     ".membership-peep-wrapper",
     ".membership",
@@ -318,7 +307,11 @@ const gsapAnimations = () => {
     "top center",
     "40% 5%"
   );
+  toggleClassActive(".ribbon", ".membership", "top center", "40% 5%");
 
+  // Questions Section
+  toggleClassActive(".questions-cta-1", ".questions", "top 16%", "75% 6%");
+  toggleClassActive(".questions-cta-2", ".questions", "top 16%", "75% 6%");
   toggleClassActive(
     ".questions-peep-wrapper",
     ".questions",
@@ -338,7 +331,51 @@ const gsapAnimations = () => {
     "40% 5%"
   );
 
-  // Description - Function to handle Section Description animation. Used in Perks Section, Membership Section, ...
+  // Pre Footer
+  toggleClassActive(
+    ".pre-footer-img-1-peep-wrapper",
+    ".pre-footer",
+    "top center",
+    "50% top"
+  );
+  toggleClassActive(
+    ".pre-footer-img-1-bubble-1",
+    ".pre-footer",
+    "top 35%",
+    "40% 5%"
+  );
+  toggleClassActive(
+    ".pre-footer-img-1-bubble-2",
+    ".pre-footer",
+    "top 35%",
+    "40% 5%"
+  );
+  toggleClassActive(
+    ".pre-footer-img-1-bubble-3",
+    ".pre-footer",
+    "top 35%",
+    "40% 5%"
+  );
+  toggleClassActive(
+    ".pre-footer-img-2-peep-wrapper",
+    ".pre-footer",
+    "top center",
+    "50% top"
+  );
+  toggleClassActive(
+    ".pre-footer-img-2-bubble-1",
+    ".pre-footer",
+    "top 35%",
+    "40% 5%"
+  );
+  toggleClassActive(
+    ".pre-footer-img-2-bubble-2",
+    ".pre-footer",
+    "top 35%",
+    "40% 5%"
+  );
+
+  // Description - Function to handle Section Description animation. Used in Perks, Membership, & Questions Section.
   const animateSectionDescription = (
     selector,
     trigger,
@@ -380,13 +417,12 @@ const gsapAnimations = () => {
     "top 45%",
     "center 25%"
   );
-  // animateSectionDescription(
-  //   ".questions-description",
-  //   ".questions",
-  //   "top 20%",
-  //   "75% 10%"
-  //   // navyMarkers
-  // );
+  animateSectionDescription(
+    ".questions-description",
+    ".questions",
+    "top 20%",
+    "60% 10%"
+  );
 
   const animateMembershipCards = (selector, trigger, delay) => {
     gsap.fromTo(
@@ -413,6 +449,27 @@ const gsapAnimations = () => {
 
   animateMembershipCards(".membership-card-1", ".membership", 0);
   animateMembershipCards(".membership-card-2", ".membership", 0.25);
+
+  // Description - Question List animation, be mindful it may clash with hover state.
+  gsap.fromTo(
+    ".faq-item",
+    {
+      x: -48,
+      opacity: 0,
+    },
+    {
+      x: 0,
+      opacity: 1,
+      stagger: 0.08,
+      ease: "back.out(2)",
+      scrollTrigger: {
+        trigger: ".questions",
+        start: "top center",
+        end: "center top",
+        toggleActions: "restart reverse restart reverse",
+      },
+    }
+  );
 };
 
 nonGsapAnimations();

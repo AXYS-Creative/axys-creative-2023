@@ -1,8 +1,8 @@
 import "./page-loading.js";
 import "./custom-cursor.js";
 import "./nav.js";
-import "./animations.js";
 import "./questions.js";
+import "./animations.js";
 import "./lenis.js";
 
 // Refresh page on browser resize at 768

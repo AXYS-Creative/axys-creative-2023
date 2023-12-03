@@ -173,7 +173,6 @@
     }
 
     &-img {
-        // border: $test;
         position: absolute;
         top: 50%;
         right: 6%;
@@ -248,17 +247,17 @@
             }
         }
         
-        // .bubble {
-        //     // See _globals.css for .bubble styles
-        // }
+        .bubble {
+            // See _globals.css for .bubble styles
+            opacity: 0;
+        }
 
-        .bubble-1 {
+        .hero-bubble-1 {
             background-color: $blue; 
             width: 20rem;
             height: 20rem;
             translate: -100% -10%;
             z-index: 1;
-            opacity: 0;
 
             &.active {
                 animation: scale 0.6s $cubic-ease-back 0.7s forwards;
@@ -275,13 +274,11 @@
             }
         }
 
-        .bubble-2 {
+        .hero-bubble-2 {
             background-color: $yellow; 
             width: 30rem;
             height: 30rem;
             translate: -45% -75%;
-            // @include scale(0.75s, 0.8s);
-            opacity: 0;
 
             &.active {
                 animation: scale 0.75s $cubic-ease-back 0.8s forwards;
@@ -298,14 +295,12 @@
             }
         }
 
-        .bubble-3 {
+        .hero-bubble-3 {
             background-color: $green; 
             width: 20rem;
             height: 20rem;
             translate: 22% -25%;
             z-index: -1;
-            // @include scale(0.9s, 0.9s);
-            opacity: 0;
 
             &.active {
                 animation: scale 0.9s $cubic-ease-back 0.9s forwards;
@@ -967,9 +962,19 @@
         position: absolute;
         top: 5.6%;
         right: 5%;
-        rotate: 12deg;
         width: 12rem;
         z-index: 1;
+        opacity: 0;
+        rotate: 36deg;
+        scale: 0.8;
+        transition: 0.8s $cubic-ease-back-dramatic 0.8s;
+        
+        &.active {
+            opacity: 1;
+            rotate: 12deg;
+            scale: 1;
+        }
+
 
         @include mq-max('xxl') {
             top: 4%;
@@ -1125,7 +1130,7 @@
 
             &:hover,
             &:focus {
-                translate: 1.2rem 0;
+                margin-left: 8px; // To avoid clashing with gsap animations 'translate'
                 border-width: 7px;
                 
                 @include mq-max('xxl') {
@@ -1143,28 +1148,24 @@
                     height: max(200px, 24rem);
                 }
             }
-
             // 3 lines - 4 lines
             &-lg {
                 &.active {
                     height: max(164px, 20rem);
                 }
             }
-
             // 3 lines
             &-md {
                 &.active {
                     height: max(140px, 18rem);
                 }
             }
-
             // 2 lines
             &-sm {
                 &.active {
                     height: max(120px, 14rem);
                 }
-            }
-            
+            }            
             // 1 line
             &-xs {
                 &.active {
@@ -1308,7 +1309,7 @@
             background-color: $purplegrey; 
             width: 18rem;
             height: 18rem;
-            translate: -46% -90%;
+            // translate: -46% -90%;
             z-index: -2;
             // animations handled in _globals.scss
 
@@ -1332,7 +1333,7 @@
             background-color: $yellow; 
             width: 14rem;
             height: 14rem;
-            translate: 0% -46%;
+            // translate: 0% -46%;
 
             // animations handled in _globals.scss
 
@@ -1376,6 +1377,40 @@
         .cta-1 {
             background-color: $green;
             color: $black;
+
+            translate: 0 4rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: scale 0.4s ease, 
+                rotate 0.4s ease, 
+                translate 0.75s $cubic-ease-back-dramatic,
+                opacity 0.24s ease 0.26s;
+
+            &.active {
+                translate: 0 0;
+                opacity: 1;
+                pointer-events: all;
+                transition: scale 0.4s ease, 
+                    rotate 0.4s ease, 
+                    translate 0.75s $cubic-ease-back-dramatic,
+                    opacity 0.24s ease 0.2s;
+            }
+        }
+
+        .cta-2 {
+            translate: 0 4rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.24s ease 0.38s,
+                translate 0.75s $cubic-ease-back-dramatic 0.12s;
+
+            &.active {
+                translate: 0 0;
+                opacity: 1;
+                pointer-events: all;
+                transition: opacity 0.24s ease 0.32s,
+                    translate 0.75s $cubic-ease-back-dramatic 0.12s;
+            }
         }
     }
 
@@ -1392,7 +1427,7 @@
 }
 
 .pre-footer {
-    padding: $body-padding-small $body-padding-small 12rem;
+    padding: $body-padding $body-padding 12rem;
     height: unset;
     border: none;
     box-shadow: none;
@@ -1504,7 +1539,7 @@
         position: absolute;
         top: 50%;
         translate: 0 -50%;
-        width: min(12vw, 22rem);
+        width: min(8vw, 16rem);
         z-index: -1;
         
         @include mq-max('xxl') {
@@ -1519,92 +1554,94 @@
             top: 80%;
             scale: 1.25;
         }
-
-        .bubble {
-            z-index: -1;
-        }
     }
 
-    &-peep-1 { 
-        left: $body-padding;
+    &-img-1 { 
+        left: calc($body-padding * 2);
         
         @include mq-max('md') {
             left: $body-padding-small;
         }
 
+        .peep-wrapper {
+            rotate: -2.5deg;
+        }
+
         .bubble-1 {
             background: $blue;
-            width: min(14vw, 27rem);
-            height: min(14vw, 27rem);
-            translate: -44% -80%;
+            width: min(12vw, 24rem);
+            height: min(12vw, 24rem);
+            translate: -50% -80%;
 
             @include mq-max('xxl') {
-                width: 12vw;
-                height: 12vw;
+                width: 10vw;
+                height: 10vw;
             }
             
         }
 
         .bubble-2 {
             background: $yellow;
-            width: min(9.4vw, 18rem);
-            height: min(9.4vw, 18rem);
+            width: min(8.2vw, 16rem);
+            height: min(8.2vw, 16rem);
             translate: -88% 0;
 
             @include mq-max('xxl') {
-                width: 7.4vw;
-                height: 7.4vw;
+                width: 6.4vw;
+                height: 6.4vw;
             }
             
         }
 
         .bubble-3 {
             background: $grey;
-            width: min(9.4vw, 18rem);
-            height: min(9.4vw, 18rem);
-            translate: 16% -20%;
+            width: min(7.6vw, 15rem);
+            height: min(7.6vw, 15rem);
+            translate: 0% -20%;
 
             @include mq-max('xxl') {
-                width: 7.4vw;
-                height: 7.4vw;
+                width: 6vw;
+                height: 6vw;
             }
             
         }
     }
 
-    &-peep-2 {
-        right: $body-padding;
+    &-img-2 {
+        position: relative;
+        right: calc($body-padding * 2);
         
         @include mq-max('md') {
             right: $body-padding-small;
         }
 
-        img {
-            width: 120%;
-            translate: -5%;
+        .peep-wrapper {
+            // See _globals.scss for the rest
+            @include absolute-center;
+            width: 24rem;
         }
 
         .bubble-1 {
             background: $purplegrey;
-            width: min(14vw, 28rem);
-            height: min(14vw, 28rem);
+            width: min(12vw, 24rem);
+            height: min(12vw, 24rem);
             translate: -60% -20%;
 
             @include mq-max('xxl') {
-                width: 12vw;
-                height: 12vw;
+                width: 10vw;
+                height: 10vw;
             }
         }
 
         .bubble-2 {
             background: $blue;
-            width: min(10vw, 18rem);
-            height: min(10vw, 18rem);
+            width: min(8vw, 16rem);
+            height: min(8vw, 16rem);
             translate: -12% -100%;
 
             @include mq-max('xxl') {
-                width: 8vw;
-                height: 8vw;
+                width: 6.4vw;
+                height: 6.4vw;
             }
         }
     }

@@ -73,7 +73,7 @@ function triggerPageScroll(links, delay) {
   }
 }
 
-triggerPageScroll(menuNavlinks, 0.8); // 0.8s delay for menu nav links
+triggerPageScroll(menuNavlinks, 0.6); // Delay for menu nav links
 triggerPageScroll(pageNavLinks); // No delay for page nav links
 
 // Hide menu button when reaching the bottom of the page

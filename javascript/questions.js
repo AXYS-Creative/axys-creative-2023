@@ -22,13 +22,13 @@ const questionsData = [
   {
     question: "How does the pause feature work?",
     answer:
-      "When your workload becomes light, we can freeze your subscription and prevent all charges. Since memberships are billed monthly, we'll still be able to provide services for however many remaining days were left in the month when you paused. These days are acceptable for service anytime in the future!",
+      "When your workload becomes light, we can freeze your subscription & prevent all charges. Since memberships are billed monthly, we'll still be able to provide services for however many remaining days were left in the month when you paused. These days are acceptable for service anytime in the future!",
     answerLength: "xl",
   },
   {
     question: "How quickly do you deliver?",
     answer:
-      "This depends on the size & complexity of the project. 🤔 Most single page, static sites can move from wireframe to launch in about two weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
+      "This depends on the size & complexity of the project. 🤔 Most single page, static sites can move from wireframe to launch in about four weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
     answerLength: "lg",
   },
   {
