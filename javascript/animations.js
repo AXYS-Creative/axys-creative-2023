@@ -1,4 +1,8 @@
 const nonGsapAnimations = () => {
+  // Description - Media Query Declarations
+  let mediaQueryMd = window.matchMedia("(max-width: 768px)");
+  let mediaQuerySm = window.matchMedia("(max-width: 480px)");
+
   // Description - Animating Section graphics based on mouse position
   document.addEventListener("mousemove", (event) => {
     // Calculate the center of the screen
@@ -14,11 +18,16 @@ const nonGsapAnimations = () => {
     const distanceFromCenterY = mouseY - centerY;
 
     // Description - Function to select and update the element position
-    const handleMouseTrack = (element, xOffset = 0.01, yOffset = 0.01) => {
+    const handleMouseTrack = (
+      element,
+      xOffset = 0.01,
+      yOffset = 0.01,
+      rotate = 0.0015
+    ) => {
       document.querySelector(element).style.transform = `translate(${
         distanceFromCenterX * xOffset
       }px, ${distanceFromCenterY * yOffset}px) rotate(${
-        distanceFromCenterX * 0.0015
+        distanceFromCenterX * rotate
       }deg)`;
     };
 
@@ -29,6 +38,10 @@ const nonGsapAnimations = () => {
     handleMouseTrack(".questions-peep");
     handleMouseTrack(".pre-footer-img-1-peep");
     handleMouseTrack(".pre-footer-img-2-peep", -0.01, -0.01);
+
+    if (mediaQueryMd.matches) {
+      handleMouseTrack(".membership-peep", -0.01, 0.01, -0.0015);
+    }
   });
 
   // Description - Parallax for bubbles
@@ -51,10 +64,6 @@ const nonGsapAnimations = () => {
     handleParallax(".membership-bubble-2", "-60%", -0.1, "-280%");
     handleParallax(".questions-bubble-1", "-46%", -0.1, "-320%");
     handleParallax(".questions-bubble-2", "0%", -0.2, "-840%");
-
-    // Description - Media Queries for parallax effect
-    let mediaQueryMd = window.matchMedia("(max-width: 768px)");
-    let mediaQuerySm = window.matchMedia("(max-width: 480px)");
 
     // Don't worry about altering these media queries until the work section is done
     if (mediaQueryMd.matches) {
@@ -91,17 +100,17 @@ const gsapAnimations = () => {
   mm.add(
     {
       screenSm: "(max-width: 480px)",
-      screenMD: "(max-width: 768px)",
-      screenLG: "(min-width: 769px)",
+      screenMd: "(max-width: 768px)",
+      screenLg: "(min-width: 769px)",
     },
     (context) => {
-      let { screenSm, screenMD, screenLG } = context.conditions;
+      let { screenSm, screenMd, screenLg } = context.conditions;
 
       // Description - Pinning Work Section
       gsap.to(".work", {
         scrollTrigger: {
           trigger: ".work",
-          start: screenLG ? "top 25%" : "top 16%",
+          start: screenLg ? "top 25%" : "top 16%",
           end: "+600%",
           pin: true,
         },
@@ -122,10 +131,10 @@ const gsapAnimations = () => {
         gsap.fromTo(
           itemClass,
           {
-            x: screenLG ? startXLarge : screenSm ? startXSmall : startXMedium,
+            x: screenLg ? startXLarge : screenSm ? startXSmall : startXMedium,
           },
           {
-            x: screenLG ? endXLarge : screenSm ? endXSmall : endXMedium,
+            x: screenLg ? endXLarge : screenSm ? endXSmall : endXMedium,
             scrollTrigger: {
               trigger: ".work",
               scrub: scrubValue,
@@ -210,6 +219,54 @@ const gsapAnimations = () => {
         "+900%"
       );
       // END - Shifting project images
+
+      // Descriptiion - Animatte the membership prcing cards
+      const animateMembershipCards = (selector, trigger, delay) => {
+        gsap.fromTo(
+          selector,
+          {
+            opacity: 0,
+            x: screenMd ? 120 : 200,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1.25,
+            delay: delay,
+            ease: screenMd ? "elastic.out(1, 0.75)" : "elastic.out(1, 0.4)",
+            scrollTrigger: {
+              trigger: trigger,
+              start: "top 40%",
+              end: "75% top",
+              toggleActions: "restart reverse restart reverse",
+            },
+          }
+        );
+      };
+
+      animateMembershipCards(".membership-card-1", ".membership", 0);
+      animateMembershipCards(".membership-card-2", ".membership", 0.25);
+
+      // Description - Question List animation, be mindful it may clash with hover state.
+      gsap.fromTo(
+        ".faq-item",
+        {
+          x: screenMd ? -24 : -48,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.08,
+          ease: screenMd ? "back.out(1)" : "back.out(2)",
+          scrollTrigger: {
+            trigger: ".questions",
+            start: "top center",
+            end: "center top",
+            toggleActions: "restart reverse restart reverse",
+          },
+        }
+      );
     }
   );
 
@@ -267,7 +324,9 @@ const gsapAnimations = () => {
   animateTitleLetters(".work-title-letter", ".work", "+600% top");
   animateTitleLetters(".perks-title-letter", ".perks", "50% 32%");
   animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
+  animateTitleLetters(".membership-title-letter-sm", ".membership", "50% 32%");
   animateTitleLetters(".questions-title-letter", ".questions", "50% 32%");
+  animateTitleLetters(".questions-title-letter-sm", ".questions", "50% 32%");
 
   // Description - Function to toggle the '.active' css class. Used in Perks, Membership, & Questions Section.
   const toggleClassActive = (selector, trigger, start, end, markers) => {
@@ -429,53 +488,6 @@ const gsapAnimations = () => {
     ".questions",
     "top 20%",
     "60% 10%"
-  );
-
-  const animateMembershipCards = (selector, trigger, delay) => {
-    gsap.fromTo(
-      selector,
-      {
-        opacity: 0,
-        x: 200,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1.25,
-        delay: delay,
-        ease: "elastic.out(1, 0.4)",
-        scrollTrigger: {
-          trigger: trigger,
-          start: "top 40%",
-          end: "75% top",
-          toggleActions: "restart reverse restart reverse",
-        },
-      }
-    );
-  };
-
-  animateMembershipCards(".membership-card-1", ".membership", 0);
-  animateMembershipCards(".membership-card-2", ".membership", 0.25);
-
-  // Description - Question List animation, be mindful it may clash with hover state.
-  gsap.fromTo(
-    ".faq-item",
-    {
-      x: -48,
-      opacity: 0,
-    },
-    {
-      x: 0,
-      opacity: 1,
-      stagger: 0.08,
-      ease: "back.out(2)",
-      scrollTrigger: {
-        trigger: ".questions",
-        start: "top center",
-        end: "center top",
-        toggleActions: "restart reverse restart reverse",
-      },
-    }
   );
 };
 

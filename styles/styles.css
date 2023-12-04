@@ -339,10 +339,10 @@ i {
 }
 
 section {
-  border: 4px solid #313131;
-  border-radius: 6px;
   isolation: isolate;
   position: relative;
+  border: 4px solid #313131;
+  border-radius: 6px;
   max-width: 1920px;
   margin: 8rem auto;
   height: clamp(768px, 100vh - 7.2rem, 1024px - 3.6rem);
@@ -367,9 +367,11 @@ section {
 }
 @media screen and (max-width: 480px) {
   section {
-    height: 70rem;
+    border-width: 3px;
+    border-radius: 4px;
     min-height: 420px;
     margin: 1.8rem auto;
+    box-shadow: 2px 2px 0 #313131;
   }
 }
 section:first-of-type {
@@ -413,7 +415,7 @@ section:first-of-type {
     padding-left: 2rem;
     font-size: 14vw;
     line-height: 0%;
-    filter: drop-shadow(0.6rem 0.6rem 0 #313131);
+    filter: drop-shadow(0.5rem 0.5rem 0 #313131);
     -webkit-text-stroke: 2px #313131;
   }
 }
@@ -1137,7 +1139,6 @@ section:first-of-type {
   }
 }
 .work-title {
-  color: #fafafa;
   margin-left: unset;
   overflow: hidden;
 }
@@ -1217,7 +1218,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .perks-columns {
-    margin: 0 2rem 2rem;
+    margin: 0 2rem 4rem;
   }
 }
 .perks-columns ul {
@@ -1391,19 +1392,19 @@ section:first-of-type {
   .perks-img {
     bottom: 4rem;
     right: 10%;
-    width: max(23rem, 18%);
+    width: max(20rem, 18%);
   }
 }
 @media screen and (max-width: 768px) {
   .perks-img {
-    bottom: 18%;
-    right: 6%;
+    bottom: 10%;
+    right: 2rem;
   }
 }
 @media screen and (max-width: 480px) {
   .perks-img {
-    bottom: 58%;
-    width: 12rem;
+    bottom: 2rem;
+    width: 10rem;
   }
 }
 .perks-img .bubble-1 {
@@ -1462,15 +1463,18 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   .membership-title {
-    font-size: 11.6vw;
+    font-size: 12.2vw;
     width: 100%;
     padding-left: 2rem;
   }
 }
 @media screen and (max-width: 480px) {
   .membership-title {
-    font-size: 11.4vw;
+    display: none;
   }
+}
+.membership-title-small-screen {
+  color: #7EC1D4;
 }
 .membership .section-description {
   margin-bottom: 4rem;
@@ -1479,6 +1483,11 @@ section:first-of-type {
 @media screen and (max-width: 768px) {
   .membership .section-description {
     margin-top: 4rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .membership .section-description {
+    margin: 1rem 0 4rem 2rem;
   }
 }
 .membership-options {
@@ -1572,19 +1581,25 @@ section:first-of-type {
   font-size: max(14px, 2rem);
   margin-bottom: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .membership-card ul li {
+    margin-bottom: 2rem;
+  }
+}
 @media screen and (max-width: 480px) {
   .membership-card ul li {
     padding: 0.2rem;
+    margin-bottom: 1rem;
   }
 }
 @media screen and (max-width: 480px) {
   .membership-card ul li:nth-of-type(3) .tooltip, .membership-card ul li:nth-of-type(4) .tooltip {
-    width: 106%;
+    width: 112%;
   }
 }
 @media screen and (max-width: 480px) {
   .membership-card ul li:nth-of-type(5) .tooltip {
-    width: 70%;
+    width: 76%;
   }
 }
 .membership-card ul .tooltip-indicator {
@@ -1656,11 +1671,17 @@ section:first-of-type {
 @media screen and (max-width: 768px) {
   .membership-card ul .tooltip {
     width: 28rem;
+    font-size: 14px;
+    letter-spacing: 0;
+    top: -2px;
+    right: -2px;
   }
 }
 @media screen and (max-width: 480px) {
   .membership-card ul .tooltip {
-    width: 64%;
+    width: 72%;
+    top: 0;
+    right: 0;
   }
 }
 .membership-card ul .tooltip a {
@@ -1709,9 +1730,8 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .membership .ribbon {
-    right: -2%;
-    top: -6%;
-    width: 9.6rem;
+    right: 2%;
+    width: 8.6rem;
   }
 }
 .membership .ribbon svg {
@@ -1749,7 +1769,7 @@ section:first-of-type {
   .membership-img {
     bottom: auto;
     left: auto;
-    top: 8%;
+    top: 24%;
     right: 4%;
     transform: scaleX(-1);
     width: 16%;
@@ -1757,8 +1777,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .membership-img {
-    top: 37%;
-    width: 20%;
+    display: none;
   }
 }
 .membership-img .peep-wrapper {
@@ -1813,14 +1832,17 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   .questions-title {
-    font-size: 11.6vw;
+    font-size: 12.6vw;
     width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
   .questions-title {
-    font-size: 11.4vw;
+    display: none;
   }
+}
+.questions-title-small-screen {
+  color: #A4D1A2;
 }
 .questions-list {
   display: flex;
@@ -1839,6 +1861,11 @@ section:first-of-type {
     margin-left: 2rem;
   }
 }
+@media screen and (max-width: 480px) {
+  .questions-list {
+    margin: 4rem 2rem;
+  }
+}
 .questions-list .faq-item {
   color: #313131;
   height: 6rem;
@@ -1853,8 +1880,10 @@ section:first-of-type {
   }
 }
 .questions-list .faq-item:hover, .questions-list .faq-item:focus {
-  margin-left: 8px;
   border-width: 7px;
+}
+.questions-list .faq-item:hover .question h3, .questions-list .faq-item:focus .question h3 {
+  translate: 8px 0;
 }
 @media screen and (max-width: 1440px) {
   .questions-list .faq-item:hover, .questions-list .faq-item:focus {
@@ -1867,7 +1896,12 @@ section:first-of-type {
   }
 }
 .questions-list .faq-item-xl.active {
-  height: max(200px, 24rem);
+  height: max(220px, 24rem);
+}
+@media screen and (max-width: 480px) {
+  .questions-list .faq-item-xl.active {
+    height: 280px;
+  }
 }
 .questions-list .faq-item-lg.active {
   height: max(164px, 20rem);
@@ -1892,11 +1926,14 @@ section:first-of-type {
   width: 2.8rem;
 }
 .questions-list .question h3 {
+  display: flex;
+  gap: 0.8rem;
   color: #313131;
   font-size: max(18px, 2.4rem);
   font-weight: 500;
   text-align: left;
   flex-grow: 1;
+  transition: 0.3s cubic-bezier(0.12, 0.64, 0.61, 1.15);
 }
 .questions-list .question .angle-arrow {
   width: 2.6rem;
@@ -1907,12 +1944,12 @@ section:first-of-type {
 }
 .questions-list .answer {
   display: flex;
-  justify-content: space-between;
+  gap: 1.2rem;
   opacity: 0;
   pointer-events: none;
   translate: 0 -16px;
   font-size: max(16px, 2rem);
-  padding-bottom: 2rem;
+  padding: 0 0 2rem 2px;
   transition: 0.2s ease 0s;
 }
 .questions-list .answer.active {
@@ -1921,15 +1958,11 @@ section:first-of-type {
   translate: 0 0;
   transition: 0.3s ease 0.12s;
 }
-.questions-list .answer-indicator {
-  padding: 2px;
-  font-size: 2.4rem;
-  font-weight: 700;
-}
 .questions-list .answer p {
-  width: 96%;
-  vertical-align: middle;
   line-height: 150%;
+}
+.questions-list .answer-indicator {
+  font-weight: 700;
 }
 .questions-list .answer .faq-inner-link {
   text-decoration: underline;

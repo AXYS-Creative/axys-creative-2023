@@ -388,10 +388,10 @@ i {
 }
 
 section {
-    border: $section-border;
-    border-radius: $section-border-radius;
     isolation: isolate;
     position: relative;
+    border: $section-border;
+    border-radius: $section-border-radius;
     max-width: $width-constraint;
     margin: 8rem auto;
     height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
@@ -422,11 +422,12 @@ section {
     }
 
     @include mq-max('sm') {
-        // border-width: 3px;
-        // border-radius: 8px;
-        height: 70rem;
+        border-width: 3px;
+        border-radius: 4px;
+        // height: 70rem;
         min-height: 420px;
         margin: $body-padding-small auto;
+        box-shadow: 2px 2px 0 $black;
     }
 
     &:first-of-type {
@@ -468,7 +469,7 @@ section {
         padding-left: $section-inner-padding-small;
         font-size: 14vw;
         line-height: 0%;
-        filter: drop-shadow(0.6rem 0.6rem 0 $black);
+        filter: drop-shadow(0.5rem 0.5rem 0 $black);
         -webkit-text-stroke: 2px $black;
     }
 
@@ -484,7 +485,6 @@ section {
         display: inline-block;
         
         span {
-            // font-family: 'Arimo', sans-serif;
             display: block;
             font-weight: 800;
         }

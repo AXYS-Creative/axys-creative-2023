@@ -331,7 +331,7 @@
 
     &-title {
         // See _global.scss for full styles
-        color: $white;
+        // color: $yellow;
         margin-left: unset;
         overflow: hidden;
         
@@ -430,7 +430,7 @@
         }
         
         @include mq-max('sm') {
-            margin: 0 $section-inner-padding-small 2rem;
+            margin: 0 $section-inner-padding-small 4rem;
         }
 
         ul {
@@ -644,17 +644,17 @@
         @include mq-max('lg') {
             bottom: $section-inner-padding;
             right: 10%;
-            width: max(23rem, 18%);
+            width: max(20rem, 18%);
         }
 
         @include mq-max('md') {
-            bottom: 18%;
-            right: 6%;
+            bottom: 10%;
+            right: $section-inner-padding-small;
         }
 
         @include mq-max('sm') {
-            bottom: 58%;
-            width: 12rem;
+            bottom: $section-inner-padding-small;
+            width: 10rem;
         }
 
         // .peep-wrapper {
@@ -723,14 +723,17 @@
         width: 84.6%;
 
         @include mq-max('md') {
-            font-size: 11.6vw;
+            font-size: 12.2vw;
             width: 100%;
             padding-left: $section-inner-padding-small;
         }
 
         @include mq-max('sm') {
-            font-size: 11.4vw;
+            display: none;
         }
+    }
+    &-title-small-screen {
+        color: $blue;
     }
 
     .section-description {
@@ -739,6 +742,10 @@
 
         @include mq-max('md') {
             margin-top: 4rem;
+        }
+
+        @include mq-max('sm') {
+            margin: 1rem 0 4rem $section-inner-padding-small;
         }
     }
 
@@ -833,8 +840,12 @@
                 font-size: max(14px, 2rem);
                 margin-bottom: 1rem;
                 
+                @include mq-max('md') {
+                    margin-bottom: 2rem;
+                }
                 @include mq-max('sm') {
                     padding: 0.2rem;
+                    margin-bottom: 1rem;
                 }
 
                 &:nth-of-type(3),
@@ -842,7 +853,7 @@
 
                     .tooltip {
                         @include mq-max('sm') {
-                            width: 106%;
+                            width: 112%;
                         }
                     }
                 }
@@ -851,7 +862,7 @@
 
                     .tooltip {
                         @include mq-max('sm') {
-                            width: 70%;
+                            width: 76%;
                         }
                     }
                 }
@@ -935,10 +946,16 @@
 
                 @include mq-max('md') {
                     width: 28rem;
+                    font-size: 14px;
+                    letter-spacing: 0;
+                    top: -2px;
+                    right: -2px
                 }
 
                 @include mq-max('sm') {
-                    width: 64%;
+                    width: 72%;
+                    top: 0;
+                    right: 0;
                 }
 
                 a {
@@ -991,9 +1008,8 @@
         }
 
         @include mq-max('sm') {
-            right: -2%;
-            top: -6%;
-            width: 9.6rem;
+            right: 2%;
+            width: 8.6rem;
         }
 
         svg {
@@ -1026,15 +1042,16 @@
         @include mq-max('md') {
             bottom: auto;
             left: auto;
-            top: 8%;
+            top: 24%;
             right: 4%;
             transform: scaleX(-1);
             width: 16%;
         }
 
         @include mq-max('sm') {
-            top: 37%;
-            width: 20%;
+            display: none;
+            // top: 37%;
+            // width: 20%;
         }
 
         .peep-wrapper {
@@ -1093,13 +1110,16 @@
         color: $green;
 
         @include mq-max('md') {
-            font-size: 11.6vw;
+            font-size: 12.6vw;
             width: 100%;
         }
 
         @include mq-max('sm') {
-            font-size: 11.4vw;
+            display: none;
         }
+    }
+    &-title-small-screen {
+        color: $green;
     }
 
     &-list {
@@ -1116,7 +1136,10 @@
             width: calc(100% - $section-inner-padding);
             margin-left: $section-inner-padding-small;
         }
-
+        @include mq-max('sm') {
+            margin: 4rem $section-inner-padding-small;
+        }
+        
         .faq-item {
             color: $black;
             height: 6rem;
@@ -1131,8 +1154,14 @@
 
             &:hover,
             &:focus {
-                margin-left: 8px; // To avoid clashing with gsap animations 'translate'
                 border-width: 7px;
+
+                .question {
+                    
+                    h3 {
+                        translate: 8px 0;
+                    }
+                }
                 
                 @include mq-max('xxl') {
                     border-width: 6px;
@@ -1146,7 +1175,11 @@
             // 5 lines - 6 lines
             &-xl {
                 &.active {
-                    height: max(200px, 24rem);
+                    height: max(220px, 24rem);
+
+                    @include mq-max('sm') {
+                        height: 280px;
+                    }
                 }
             }
             // 3 lines - 4 lines
@@ -1180,18 +1213,21 @@
             justify-content: space-between;
             width: 100%;
             padding: 2rem 0;
-
+            
             &-indicator {
                 font-weight: 700;
                 width: 2.8rem;
             }
-
+            
             h3 {
+                display: flex;
+                gap: 0.8rem;
                 color: $black;
                 font-size: max(18px, 2.4rem);
                 font-weight: 500;
                 text-align: left;
                 flex-grow: 1;
+                transition: 0.3s $cubic-ease-back;
             }
             
             .angle-arrow {
@@ -1206,12 +1242,12 @@
 
         .answer {
             display: flex;
-            justify-content: space-between;
+            gap: 1.2rem;
             opacity: 0;
             pointer-events: none;
             translate: 0 -16px;
             font-size: max(16px, 2rem);
-            padding-bottom: 2rem;
+            padding: 0 0 2rem 2px;
             transition: 0.2s ease 0s;
             
             &.active {
@@ -1221,16 +1257,12 @@
                 transition: 0.3s ease 0.12s;
             }
 
-            &-indicator {
-                padding: 2px;
-                font-size: 2.4rem;
-                font-weight: 700;
+            p {
+                line-height: 150%;
             }
 
-            p {
-                width: 96%;
-                vertical-align: middle;
-                line-height: 150%;
+            &-indicator {
+                font-weight: 700;
             }
 
             .faq-inner-link {

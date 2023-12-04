@@ -81,7 +81,7 @@ questionsData.forEach(({ question, answer, answerLength }, index) => {
                     </svg>
                 </button>
                 <div class="answer" id="answer-${index}">
-                  <span class="answer-indicator">A.</span>
+                  <p class="answer-indicator">A.</p>
                   <p>${formattedAnswer}</p>
                 </div>
               </div>
