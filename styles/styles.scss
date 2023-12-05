@@ -1133,7 +1133,6 @@
                 }
             }
 
-
             &:hover {
 
                 &::after {
@@ -1155,16 +1154,28 @@
             &.active {
                 grid-template-rows: 1fr;
                 padding-top: 6rem;
+                
+                @include mq-max('lg') {
+                    padding-top: 8rem;
+                }
+            }
+
+            @include mq-max('lg') {
+                padding-top: 6rem;
             }
         }
 
         .question {
             position: absolute;
-            top: 0rem;
+            top: 0;
             display: flex;
             justify-content: space-between;
             width: 100%;
             padding: 2rem 0;
+
+            @include mq-max('lg') {
+                padding: 4rem 0;
+            }
             
             &-indicator {
                 font-weight: 700;
@@ -1186,6 +1197,7 @@
                 transition: 0.3s $cubic-ease-back;
                 
                 @include mq-max('sm') {
+                    gap: 12px;
                     font-weight: 600;
                 }
             }
@@ -1223,7 +1235,7 @@
             }
 
             @include mq-max('sm') {
-                gap: 0rem;
+                gap: 4px;
             }
 
             p {
