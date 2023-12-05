@@ -159,7 +159,7 @@ i {
                 rotate 0.75s $cubic-ease-back;
         }
     
-        @include mq-max('md') {
+        @include mq-max('lg') {
             width: 68px;
             height: 68px;
             font-size: 14px;
@@ -502,6 +502,50 @@ section {
     }
 }
 
+.section-cta-wrapper {
+    position: absolute;
+    bottom: $section-inner-padding;
+    left: $section-inner-padding;
+    display: flex;
+    gap: 2rem;
+
+    @include mq-max('md') {
+        // bottom: $section-inner-padding-small;
+        left: $section-inner-padding-small;
+    }
+
+    .cta-1,
+    .cta-2 {
+        translate: 0 4rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: scale 0.4s ease, 
+        rotate 0.4s ease, 
+        translate 0.75s $cubic-ease-back-dramatic,
+        opacity 0.24s ease 0.26s;
+        
+        &.active {
+            translate: 0 0;
+            opacity: 1;
+            pointer-events: all;
+            transition: scale 0.4s ease, 
+                rotate 0.4s ease, 
+                translate 0.75s $cubic-ease-back-dramatic,
+                opacity 0.24s ease 0.2s;
+        }
+    }
+
+    .cta-2 {
+        transition: opacity 0.24s ease 0.38s,
+            translate 0.75s $cubic-ease-back-dramatic 0.12s;
+
+        &.active {
+            transition: opacity 0.24s ease 0.32s,
+                translate 0.75s $cubic-ease-back-dramatic 0.12s;
+        }
+    }
+}
+
 .cta-1 {
     padding: 2rem 5.2rem;
     text-transform: uppercase;
@@ -576,7 +620,7 @@ section {
         }
 
         &.fa-lightbulb-on {
-            translate: 34px -50%;
+            translate: calc(28px + 0.8rem) -50%;
         }
     }
 
@@ -604,6 +648,7 @@ section {
     }
 }
 
+//
 // Animated
 
 .peep-wrapper {
@@ -632,7 +677,7 @@ section {
     filter: drop-shadow(2px 2px 0 $black);
     scale: 0.5;
     opacity: 0;
-    DISPLAY: NONE !IMPORTANT;
+    // DISPLAY: NONE !IMPORTANT;
     // DELETE ME WHEN DONE WITH RESPONSIVENESS
 
     &.active {
@@ -683,18 +728,8 @@ section {
     }
 }
 
+//
 // Utility
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
 
 .large-screen-and-up {
     display: none;
@@ -728,6 +763,18 @@ section {
     }
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+//
 // Custom Features
 
 .prevent-scroll {

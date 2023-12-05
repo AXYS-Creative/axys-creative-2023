@@ -5,60 +5,50 @@ const questionsData = [
     question: "Why wouldn't I just hire a full-time creator?",
     answer:
       "To save money. 💰 The average annual salary for senior level designers & developers well exceeds 100k, & that's without including any benefits.\n \n With the monthly plan, you're simply paying for what you need. You can pause or resume anytime you're low on work.",
-    answerLength: "xl",
   },
   {
     question: "Do I have a limited number of requests?",
     answer:
       "Nope. 🎉 Once you become a member, you can add as many design or development requests as you'd like. Keep in mind that they are worked on & delivered one by one.",
-    answerLength: "md",
   },
   {
     question: "What if I only have a single request?",
     answer:
       "This is where the pause feature shines. ⏸️ Anytime the workload becomes light, you can pause your plan which stops all charges. Then you can easily start up again when you do need our services.",
-    answerLength: "md",
   },
   {
     question: "How does the pause feature work?",
     answer:
       "When your workload becomes light, we can freeze your subscription & prevent all charges. Since memberships are billed monthly, we'll still be able to provide services for however many remaining days were left in the month when you paused. These days are acceptable for service anytime in the future!",
-    answerLength: "xl",
   },
   {
     question: "How quickly do you deliver?",
     answer:
       "This depends on the size & complexity of the project. 🤔 Most single page, static sites can move from wireframe to launch in about four weeks. Multiple page sites, online shops, or other ambitious projects can take anywhere from four to twelve weeks.",
-    answerLength: "lg",
   },
   {
     question: "How do I make a request & track progress?",
     answer: `This is done with <a class='page-link faq-inner-link' href='https://trello.com/' target='_blank'>Trello <i class="fa-brands fa-trello"></i></a>, a user-friendly managing tool that makes communication & collaboration simple. In addition to describing the work needed you can also upload images, videos, documents, or links to other resources.`,
-    answerLength: "lg",
   },
   {
     question: "Who are the designers & developers?",
     answer:
       "AXYS Creative is driven by only two people: Aaron & Bailey Garcia. ✌️ This helps with quick decision making & promotes swift turn around. We can each handle the design & development aspect of the work.",
-    answerLength: "md",
   },
   {
     question: "Are there limits to your services?",
     answer:
       "Yes. 🙃 We currently don't offer development for social media type applications that required large data bases. We also don't develop mobile apps of any kind. Possibly in the future though!",
-    answerLength: "md",
   },
   {
     question: "What if I'm unsatisfied with the work?",
     answer:
       "We'll continue to revise until you're happy & proud of the work. 😎 Simply put in a request & we'll get started on it.",
-    answerLength: "sm",
   },
   {
     question: "Do you offer refunds?",
     answer:
       "No. 🙅‍♂️ Please be aware that we don't offer any refunds at this time.",
-    answerLength: "xs",
   },
 ];
 
@@ -66,11 +56,11 @@ const questionsList = document.querySelector(".questions-list");
 
 let htmlStringFaq = "";
 
-questionsData.forEach(({ question, answer, answerLength }, index) => {
+questionsData.forEach(({ question, answer }, index) => {
   const formattedAnswer = answer.replace(/\n/g, "<br>");
 
   htmlStringFaq += `
-              <div class="faq-item faq-item-${answerLength}">
+              <div class="faq-item">
                 <button class="question page-link">
                     <h3>
                       <span class="question-indicator">Q.</span>

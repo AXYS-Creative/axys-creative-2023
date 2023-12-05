@@ -376,13 +376,23 @@ const gsapAnimations = () => {
   toggleClassActive(".ribbon", ".membership", "top center", "40% 5%");
 
   // Questions Section
-  toggleClassActive(".questions-cta-1", ".questions", "top 16%", "75% 6%");
-  toggleClassActive(".questions-cta-2", ".questions", "top 16%", "75% 6%");
+  toggleClassActive(
+    ".questions-cta-1",
+    ".questions-btns",
+    "top 95%",
+    "bottom 15%"
+  );
+  toggleClassActive(
+    ".questions-cta-2",
+    ".questions-btns",
+    "top 95%",
+    "bottom 15%"
+  );
   toggleClassActive(
     ".questions-peep-wrapper",
-    ".questions",
-    "top center",
-    "50% top"
+    ".questions-peep-wrapper",
+    "top 75%",
+    "center top"
   );
   toggleClassActive(
     ".questions-bubble-1",
@@ -485,9 +495,9 @@ const gsapAnimations = () => {
   );
   animateSectionDescription(
     ".questions-description",
-    ".questions",
-    "top 20%",
-    "60% 10%"
+    ".questions-description",
+    "top 80%",
+    "bottom 20%"
   );
 };
 

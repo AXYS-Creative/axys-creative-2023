@@ -137,33 +137,16 @@
     }
 
     &-btns {
-        position: absolute;
-        bottom: 4rem;
-        left: $section-inner-padding;
-        display: flex;
-        gap: 2rem;
+        // see ".section-cta-wrapper" in _globals.scss
 
-        @include mq-max('md') {
-            left: $section-inner-padding-small;
-            bottom: $body-padding-small;
-        }
 
         .hero-cta-1,
         .hero-cta-2 {
             // See _globals.scss for cta styles
-            translate: 0 4rem;
-            opacity: 0;
-            pointer-events: none;
             transition: scale 0.4s ease, 
                 rotate 0.4s ease, 
                 translate 0.6s $cubic-ease-back-dramatic 1.5s,
                 opacity 0.24s ease 1.6s;
-
-            &.active {
-                translate: 0 0;
-                opacity: 1;
-                pointer-events: all;
-            }
         }
     
         .hero-cta-2 {
@@ -214,7 +197,7 @@
 
             
             @include mq-max('md') {
-                width: 24rem;
+                width: 22rem;
                 translate: calc(-50% - 8.8rem) -50%;
             }
 
@@ -237,7 +220,7 @@
             }
             
             @include mq-max('md') {
-                width: 18rem;
+                width: 16rem;
                 translate: calc(-50% + 8.8rem) -50%;
             }
 
@@ -413,7 +396,7 @@
         color: $coral;
     }
 
-    // h3 {
+    // &-description {
         // See ".section-description" in _globals.scss
     // }
 
@@ -583,55 +566,16 @@
     }
 
     &-btns {
-        position: absolute;
-        bottom: $section-inner-padding;
-        left: $section-inner-padding;
-        display: flex;
-        gap: 2rem;
-
-        @include mq-max('md') {
-            bottom: $section-inner-padding-small;
-            left: $section-inner-padding-small;
-        }
+        // see ".section-cta-wrapper" in _globals.scss
 
         .perks-cta-1 {
             // See _globals.scss for cta styles
             background-color: $coral;
-            translate: 0 4rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: scale 0.4s ease, 
-                rotate 0.4s ease, 
-                translate 0.75s $cubic-ease-back-dramatic,
-                opacity 0.24s ease 0.26s;
-
-            &.active {
-                translate: 0 0;
-                opacity: 1;
-                pointer-events: all;
-                transition: scale 0.4s ease, 
-                    rotate 0.4s ease, 
-                    translate 0.75s $cubic-ease-back-dramatic,
-                    opacity 0.24s ease 0.2s;
-            }
         }
 
-        .perks-cta-2 {
-            // See _globals.scss for cta styles
-            translate: 0 4rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.24s ease 0.38s,
-                translate 0.75s $cubic-ease-back-dramatic 0.12s;
-
-            &.active {
-                translate: 0 0;
-                opacity: 1;
-                pointer-events: all;
-                transition: opacity 0.24s ease 0.32s,
-                    translate 0.75s $cubic-ease-back-dramatic 0.12s;
-            }
-        }
+        // .perks-cta-2 {
+        //     // see ".section-cta-wrapper > .cta-2" in globals.scss
+        // }
     }
     
     &-img {
@@ -702,6 +646,8 @@
 }
 
 .membership {
+    $membership-mq: 890px;
+
     height: unset;
     display: flex;
     flex-direction: column;
@@ -722,6 +668,11 @@
         padding-left: unset;
         width: 84.6%;
 
+        @media (max-width: $membership-mq) {
+            align-self: flex-start;
+            padding-left: $section-inner-padding;
+        }
+
         @include mq-max('md') {
             font-size: 12.2vw;
             width: 100%;
@@ -736,9 +687,13 @@
         color: $blue;
     }
 
-    .section-description {
+    &-description {
         margin-bottom: 4rem;
         width: 84%;
+
+        @media (max-width: $membership-mq) {
+            align-self: flex-start;
+        }
 
         @include mq-max('md') {
             margin-top: 4rem;
@@ -761,10 +716,17 @@
             margin-bottom: $section-inner-padding;
         }
 
+        @media (max-width: $membership-mq) {
+            align-self: flex-start;
+            padding-left: $section-inner-padding;
+            padding-right: unset;
+            width: calc(100% - $section-inner-padding);
+        }
+
         @include mq-max('md') {
             flex-direction: column;
-            padding-right: unset;
             padding-left: $section-inner-padding-small;
+            width: 84%;
         }
         @include mq-max('sm') {
             width: 100%;
@@ -784,8 +746,12 @@
             border-width: 3px;
         }
 
+        @media (max-width: $membership-mq) {
+            width: 100%;
+        }
+
         @include mq-max('md') {
-            width: max(66rem, 92%);
+            width: max(66rem, 86%);
         }
 
         @include mq-max('sm') {
@@ -925,7 +891,6 @@
                 font-size: 15px;
                 letter-spacing: 1px;
                 line-height: 140%;
-                // translate: 100% -100%;
                 padding: 1.2rem;
                 border-radius: 0.4rem;
                 opacity: 0;
@@ -941,10 +906,6 @@
                 }
 
                 @include mq-max('lg') {
-                    width: 18rem;
-                }
-
-                @include mq-max('md') {
                     width: 28rem;
                     font-size: 14px;
                     letter-spacing: 0;
@@ -976,57 +937,61 @@
         }
     }
 
-    .ribbon {
-        position: absolute;
-        top: 5.6%;
-        right: 5%;
-        width: 12rem;
+    &-card-1 {
         z-index: 1;
-        opacity: 0;
-        rotate: 36deg;
-        scale: 0.8;
-        transition: 0.8s $cubic-ease-back-dramatic 0.8s;
-        
-        &.active {
-            opacity: 1;
-            rotate: 12deg;
-            scale: 1;
-        }
 
-
-        @include mq-max('xxl') {
-            top: 4%;
-        }
-
-        @include mq-max('xl') {
-            right: 2%;
-        }
-
-        @include mq-max('md') {
-            top: 5.8%;
-            right: 18%;
-        }
-
-        @include mq-max('sm') {
-            right: 2%;
-            width: 8.6rem;
-        }
-
-        svg {
-            @include absolute-center;
-            width: 100%;
-        }
-        
-        figcaption {
-            @include absolute-center;
-            color: $black;
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-align: center;
-
+        .ribbon {
+            position: absolute;
+            top: 5.6%;
+            right: 5%;
+            width: 12rem;
+            z-index: 1;
+            opacity: 0;
+            rotate: 36deg;
+            scale: 0.8;
+            transition: 0.8s $cubic-ease-back-dramatic 0.8s;
+            
+            &.active {
+                opacity: 1;
+                rotate: 12deg;
+                scale: 1;
+            }
+    
+    
             @include mq-max('xxl') {
-                font-size: 10px;
+                top: 4%;
+            }
+    
+            @include mq-max('xl') {
+                right: 2%;
+            }
+    
+            @include mq-max('md') {
+                top: 5.8%;
+                right: 18%;
+            }
+    
+            @include mq-max('sm') {
+                right: 2%;
+                width: 8.6rem;
+            }
+    
+            svg {
+                @include absolute-center;
+                width: 100%;
+            }
+            
+            figcaption {
+                @include absolute-center;
+                color: $black;
+                font-size: 13px;
+                font-weight: 800;
+                text-transform: uppercase;
+                text-align: center;
+    
+                @include mq-max('xxl') {
+                    font-size: 10px;
+                }
             }
         }
     }
@@ -1038,8 +1003,13 @@
         left: 2%;
         width: clamp(8rem, 12%, 20rem);
         z-index: 2;
+
+        @media (max-width: $membership-mq) {
+            display: none;
+        }
         
         @include mq-max('md') {
+            display: block;
             bottom: auto;
             left: auto;
             top: 24%;
@@ -1141,74 +1111,56 @@
         }
         
         .faq-item {
+            position: relative;
             color: $black;
-            height: 6rem;
-            margin-bottom: 1rem;
-            border-bottom: 4px solid $black;
+            display: grid;
+            grid-template-rows: 0fr;
+            padding-top: 4rem;
             transition: all 0.3s $cubic-ease-back, border 0.4s $cubic-ease-back-dramatic;
 
-            @include mq-max('lg') {
-                height: 8rem;
-                border-width: 3px;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: 4px;
+                background-color: $black;
+                width: 100%;
+                transition: 0.3s $cubic-ease-back;
+
+                @include mq-max('lg') {
+                    height: 3px;
+                }
             }
 
-            &:hover,
-            &:focus {
-                border-width: 7px;
+
+            &:hover {
+
+                &::after {
+                    width: calc(100% - 8px);
+                }
 
                 .question {
                     
                     h3 {
                         translate: 8px 0;
-                    }
-                }
-                
-                @include mq-max('xxl') {
-                    border-width: 6px;
-                }
 
-                @include mq-max('lg') {
-                    border-width: 5px;
-                }
-            }
-
-            // 5 lines - 6 lines
-            &-xl {
-                &.active {
-                    height: max(220px, 24rem);
-
-                    @include mq-max('sm') {
-                        height: 280px;
+                        @include mq-max('sm') {
+                            translate: unset;
+                        }
                     }
                 }
             }
-            // 3 lines - 4 lines
-            &-lg {
-                &.active {
-                    height: max(164px, 20rem);
-                }
-            }
-            // 3 lines
-            &-md {
-                &.active {
-                    height: max(140px, 18rem);
-                }
-            }
-            // 2 lines
-            &-sm {
-                &.active {
-                    height: max(120px, 14rem);
-                }
-            }            
-            // 1 line
-            &-xs {
-                &.active {
-                    height: max(80px, 12rem);
-                }
+
+            &.active {
+                grid-template-rows: 1fr;
+                padding-top: 6rem;
             }
         }
 
         .question {
+            position: absolute;
+            top: 0rem;
             display: flex;
             justify-content: space-between;
             width: 100%;
@@ -1217,17 +1169,25 @@
             &-indicator {
                 font-weight: 700;
                 width: 2.8rem;
+
+                @include mq-max('sm') {
+                    width: 1rem;
+                }
             }
             
             h3 {
                 display: flex;
                 gap: 0.8rem;
                 color: $black;
-                font-size: max(18px, 2.4rem);
+                font-size: max(14px, 2.4rem);
                 font-weight: 500;
                 text-align: left;
                 flex-grow: 1;
                 transition: 0.3s $cubic-ease-back;
+                
+                @include mq-max('sm') {
+                    font-weight: 600;
+                }
             }
             
             .angle-arrow {
@@ -1237,6 +1197,10 @@
                 &.active {
                     rotate: 180deg;
                 }
+
+                @include mq-max('sm') {
+                    width: 2rem;
+                }
             }    
         }
 
@@ -1245,8 +1209,9 @@
             gap: 1.2rem;
             opacity: 0;
             pointer-events: none;
+            overflow: hidden;
             translate: 0 -16px;
-            font-size: max(16px, 2rem);
+            font-size: max(14px, 2rem);
             padding: 0 0 2rem 2px;
             transition: 0.2s ease 0s;
             
@@ -1255,6 +1220,10 @@
                 pointer-events: all;
                 translate: 0 0;
                 transition: 0.3s ease 0.12s;
+            }
+
+            @include mq-max('sm') {
+                gap: 0rem;
             }
 
             p {
@@ -1383,12 +1352,12 @@
     }
 
     &-btns {
-        position: absolute;
+        // see ".section-cta-wrapper" in _globals.scss
+        bottom: unset;
+        left: unset;
         top: 76rem;
         right: 5vw;
         width: calc(10rem + 24vw);
-        display: flex;
-        gap: 2rem;
 
         @include mq-min('xxxl') {
             width: 56rem;
@@ -1397,54 +1366,24 @@
 
         @include mq-max('lg') {
             width: unset;
-            top: auto;
+            top: unset;
+            right: unset;
             bottom: $section-inner-padding;
             left: $section-inner-padding;
         }
 
         @include mq-max('md') {
-            bottom: $section-inner-padding-small;
             left: $section-inner-padding-small;
         }
 
-        .cta-1 {
+        .questions-cta-1 {
             background-color: $green;
             color: $black;
-
-            translate: 0 4rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: scale 0.4s ease, 
-                rotate 0.4s ease, 
-                translate 0.75s $cubic-ease-back-dramatic,
-                opacity 0.24s ease 0.26s;
-
-            &.active {
-                translate: 0 0;
-                opacity: 1;
-                pointer-events: all;
-                transition: scale 0.4s ease, 
-                    rotate 0.4s ease, 
-                    translate 0.75s $cubic-ease-back-dramatic,
-                    opacity 0.24s ease 0.2s;
-            }
         }
 
-        .cta-2 {
-            translate: 0 4rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.24s ease 0.38s,
-                translate 0.75s $cubic-ease-back-dramatic 0.12s;
-
-            &.active {
-                translate: 0 0;
-                opacity: 1;
-                pointer-events: all;
-                transition: opacity 0.24s ease 0.32s,
-                    translate 0.75s $cubic-ease-back-dramatic 0.12s;
-            }
-        }
+        // .questions-cta-2 {
+        //     // see ".section-cta-wrapper > .cta-2" in globals.scss
+        // }
     }
 
     &-smart-break {
