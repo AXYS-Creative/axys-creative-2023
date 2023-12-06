@@ -482,7 +482,7 @@ section:first-of-type {
 }
 
 .cta-1 {
-  padding: 2rem 5.2rem;
+  padding: 2rem 4.8rem;
   text-transform: uppercase;
   font-size: 2.8rem;
   background-color: #825E86;
@@ -516,14 +516,13 @@ section:first-of-type {
   justify-content: center;
   align-items: center;
   position: relative;
-  gap: 1rem;
   font-size: 2.4rem;
   font-weight: 700;
   text-transform: uppercase;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .cta-2 {
-    display: none;
+    gap: 4rem;
   }
 }
 .cta-2::after {
@@ -536,6 +535,11 @@ section:first-of-type {
   background: #313131;
   transition: 0.4s cubic-bezier(0.65, -0.5, 0.35, 2.5);
 }
+@media screen and (max-width: 1200px) {
+  .cta-2::after {
+    width: calc(100% + 24px);
+  }
+}
 @media screen and (max-width: 1024px) {
   .cta-2::after {
     height: 3px;
@@ -546,6 +550,12 @@ section:first-of-type {
     height: 2px;
   }
 }
+@media screen and (max-width: 480px) {
+  .cta-2::after {
+    height: 4px;
+    width: calc(100% + 28px);
+  }
+}
 .cta-2 i {
   color: #313131;
   position: absolute;
@@ -554,11 +564,21 @@ section:first-of-type {
   translate: 28px -50%;
   transition: 0.25s ease;
 }
+@media screen and (max-width: 1200px) {
+  .cta-2 i {
+    translate: 20px -50%;
+  }
+}
 .cta-2 i:nth-of-type(2) {
   opacity: 0;
 }
 .cta-2 i.fa-lightbulb-on {
-  translate: calc(28px + 0.8rem) -50%;
+  translate: calc(28px + 0.6rem) -50%;
+}
+@media screen and (max-width: 1200px) {
+  .cta-2 i.fa-lightbulb-on {
+    translate: calc(20px + 0.6rem) -50%;
+  }
 }
 .cta-2:hover::after, .cta-2:focus::after {
   height: 8px;
@@ -711,9 +731,9 @@ section:first-of-type {
 .custom-cursor.active {
   opacity: 1;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1440px) {
   .custom-cursor {
-    width: 12px;
+    width: 14px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1379,8 +1399,9 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .perks-img {
-    bottom: 2rem;
-    width: 10rem;
+    bottom: unset;
+    top: 2rem;
+    width: 8.6rem;
   }
 }
 .perks-img .bubble-1 {
@@ -1687,9 +1708,23 @@ section:first-of-type {
   display: flex;
   gap: 2rem;
 }
+@media screen and (max-width: 480px) {
+  .membership-card .card-btns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .membership-card .card-btns .cta-1 {
-  padding: 2rem 4rem;
   background-color: #7EC1D4;
+  padding: 2rem 4rem;
+}
+@media screen and (max-width: 480px) {
+  .membership-card .card-btns .cta-2 {
+    padding: 16px 4px;
+    font-size: 16px;
+    width: 120px;
+    justify-content: flex-start;
+  }
 }
 .membership-card-1 {
   z-index: 1;
@@ -1856,7 +1891,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 1024px) {
   .questions-list {
-    width: 74%;
+    width: 70%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1867,41 +1902,34 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .questions-list {
-    margin: 4rem 2rem;
+    margin: 8rem 2rem 4rem;
   }
 }
 .questions-list .faq-item {
-  position: relative;
+  border-bottom: 4px solid #313131;
   color: #313131;
   display: grid;
   grid-template-rows: 0fr;
-  padding-top: 4rem;
-  transition: all 0.3s cubic-bezier(0.12, 0.64, 0.61, 1.15), border 0.4s cubic-bezier(0.65, -0.5, 0.35, 2.5);
-}
-.questions-list .faq-item::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 4px;
-  background-color: #313131;
-  width: 100%;
-  transition: 0.3s cubic-bezier(0.12, 0.64, 0.61, 1.15);
+  padding-top: 4.6rem;
+  transition: all 0.3s cubic-bezier(0.12, 0.64, 0.61, 1.15), margin 0.4s cubic-bezier(0.12, 0.64, 0.61, 1.15);
 }
 @media screen and (max-width: 1024px) {
-  .questions-list .faq-item::after {
-    height: 3px;
+  .questions-list .faq-item {
+    border-bottom-width: 3px;
+    padding-top: 6rem;
   }
 }
-.questions-list .faq-item:hover::after {
-  width: calc(100% - 8px);
+@media screen and (max-width: 480px) {
+  .questions-list .faq-item {
+    padding-top: 3.6rem;
+  }
 }
-.questions-list .faq-item:hover .question h3 {
-  translate: 8px 0;
+.questions-list .faq-item:hover {
+  margin-left: 1rem;
 }
 @media screen and (max-width: 480px) {
-  .questions-list .faq-item:hover .question h3 {
-    translate: unset;
+  .questions-list .faq-item:hover {
+    margin-left: unset;
   }
 }
 .questions-list .faq-item.active {
@@ -1913,9 +1941,9 @@ section:first-of-type {
     padding-top: 8rem;
   }
 }
-@media screen and (max-width: 1024px) {
-  .questions-list .faq-item {
-    padding-top: 6rem;
+@media screen and (max-width: 480px) {
+  .questions-list .faq-item.active {
+    padding-top: 5.2rem;
   }
 }
 .questions-list .question {
@@ -1931,6 +1959,11 @@ section:first-of-type {
     padding: 4rem 0;
   }
 }
+@media screen and (max-width: 480px) {
+  .questions-list .question {
+    padding: 2rem 0;
+  }
+}
 .questions-list .question-indicator {
   font-weight: 700;
   width: 2.8rem;
@@ -1944,7 +1977,7 @@ section:first-of-type {
   display: flex;
   gap: 0.8rem;
   color: #313131;
-  font-size: max(14px, 2.4rem);
+  font-size: max(16px, 2.4rem);
   font-weight: 500;
   text-align: left;
   flex-grow: 1;
@@ -1953,6 +1986,7 @@ section:first-of-type {
 @media screen and (max-width: 480px) {
   .questions-list .question h3 {
     gap: 12px;
+    font-size: 14px;
     font-weight: 600;
   }
 }
@@ -1975,7 +2009,7 @@ section:first-of-type {
   pointer-events: none;
   overflow: hidden;
   translate: 0 -16px;
-  font-size: max(14px, 2rem);
+  font-size: max(15px, 2rem);
   padding: 0 0 2rem 2px;
   transition: 0.2s ease 0s;
 }
@@ -1987,6 +2021,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .questions-list .answer {
+    font-size: 14px;
     gap: 4px;
   }
 }
@@ -2061,6 +2096,19 @@ section:first-of-type {
     bottom: 2rem;
     right: 8rem;
     width: 16%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .questions-img {
+    right: 4rem;
+    width: 18rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .questions-img {
+    bottom: unset;
+    top: 2rem;
+    width: 8rem;
   }
 }
 .questions-img .bubble-1 {

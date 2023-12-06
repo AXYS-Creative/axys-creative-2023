@@ -253,10 +253,12 @@ const gsapAnimations = () => {
         {
           x: screenMd ? -24 : -48,
           opacity: 0,
+          pointerEvents: "none",
         },
         {
           x: 0,
           opacity: 1,
+          pointerEvents: "all",
           stagger: 0.08,
           ease: screenMd ? "back.out(1)" : "back.out(2)",
           scrollTrigger: {

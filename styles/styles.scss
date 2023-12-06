@@ -597,8 +597,9 @@
         }
 
         @include mq-max('sm') {
-            bottom: $section-inner-padding-small;
-            width: 10rem;
+            bottom: unset;
+            top: $section-inner-padding-small;
+            width: 8.6rem;
         }
 
         // .peep-wrapper {
@@ -930,9 +931,24 @@
             display: flex;
             gap: 2rem;
 
+            @include mq-max('sm') {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .cta-1 {
-                padding: 2rem 4rem;
                 background-color: $blue;
+                padding: 2rem 4rem;
+            }
+
+            .cta-2 {
+                
+                @include mq-max('sm') {
+                    padding: 16px 4px;
+                    font-size: 16px;
+                    width: 120px;
+                    justify-content: flex-start;
+                }
             }
         }
     }
@@ -1099,7 +1115,7 @@
         margin: 2rem $section-inner-padding 4rem;
         
         @include mq-max('lg') {
-            width: 74%;
+            width: 70%;
         }
 
         @include mq-max('md') {
@@ -1107,47 +1123,31 @@
             margin-left: $section-inner-padding-small;
         }
         @include mq-max('sm') {
-            margin: 4rem $section-inner-padding-small;
+            margin: 8rem $section-inner-padding-small 4rem;
         }
         
         .faq-item {
-            position: relative;
+            border-bottom: 4px solid $black;
             color: $black;
             display: grid;
             grid-template-rows: 0fr;
-            padding-top: 4rem;
-            transition: all 0.3s $cubic-ease-back, border 0.4s $cubic-ease-back-dramatic;
+            padding-top: 4.6rem;
+            transition: all 0.3s $cubic-ease-back, margin 0.4s $cubic-ease-back;
 
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                height: 4px;
-                background-color: $black;
-                width: 100%;
-                transition: 0.3s $cubic-ease-back;
+            @include mq-max('lg') {
+                border-bottom-width: 3px;
+                padding-top: 6rem;
+            }
 
-                @include mq-max('lg') {
-                    height: 3px;
-                }
+            @include mq-max('sm') {
+                padding-top: 3.6rem;
             }
 
             &:hover {
+                margin-left: 1rem;
 
-                &::after {
-                    width: calc(100% - 8px);
-                }
-
-                .question {
-                    
-                    h3 {
-                        translate: 8px 0;
-
-                        @include mq-max('sm') {
-                            translate: unset;
-                        }
-                    }
+                @include mq-max('sm') {
+                    margin-left: unset;
                 }
             }
 
@@ -1158,10 +1158,10 @@
                 @include mq-max('lg') {
                     padding-top: 8rem;
                 }
-            }
 
-            @include mq-max('lg') {
-                padding-top: 6rem;
+                @include mq-max('sm') {
+                    padding-top: 5.2rem;
+                }
             }
         }
 
@@ -1175,6 +1175,10 @@
 
             @include mq-max('lg') {
                 padding: 4rem 0;
+            }
+
+            @include mq-max('sm') {
+                padding: 2rem 0;
             }
             
             &-indicator {
@@ -1190,7 +1194,7 @@
                 display: flex;
                 gap: 0.8rem;
                 color: $black;
-                font-size: max(14px, 2.4rem);
+                font-size: max(16px, 2.4rem);
                 font-weight: 500;
                 text-align: left;
                 flex-grow: 1;
@@ -1198,6 +1202,7 @@
                 
                 @include mq-max('sm') {
                     gap: 12px;
+                    font-size: 14px;
                     font-weight: 600;
                 }
             }
@@ -1223,7 +1228,7 @@
             pointer-events: none;
             overflow: hidden;
             translate: 0 -16px;
-            font-size: max(14px, 2rem);
+            font-size: max(15px, 2rem);
             padding: 0 0 2rem 2px;
             transition: 0.2s ease 0s;
             
@@ -1235,6 +1240,7 @@
             }
 
             @include mq-max('sm') {
+                font-size: 14px;
                 gap: 4px;
             }
 
@@ -1313,6 +1319,16 @@
             bottom: $section-inner-padding-small;
             right: calc($section-inner-padding * 2);
             width: 16%;
+        }
+
+        @include mq-max('md') {
+            right: $section-inner-padding;
+            width: 18rem;
+        }
+        @include mq-max('sm') {
+            bottom: unset;
+            top: $section-inner-padding-small;
+            width: 8rem;
         }
 
         // .peep-wrapper {

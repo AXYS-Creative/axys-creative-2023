@@ -33,22 +33,22 @@ const customCursorHandler = () => {
     customCursor.style.display = "block";
   });
 
-  let mediaQueryLg = window.matchMedia("(max-width: 1024px)");
+  let mediaQueryXxl = window.matchMedia("(max-width: 1440px)");
   // Handle hover/ image swap
   const changeCursorOnHover = () => {
     cursorImg.src = "./assets/graphics/alt-cursor-hover.svg";
     customCursor.style.width = "24px";
 
-    if (mediaQueryLg.matches) {
-      customCursor.style.width = "16px";
+    if (mediaQueryXxl.matches) {
+      customCursor.style.width = "18px";
     }
   };
   const revertCursorOnLeave = () => {
     cursorImg.src = "./assets/graphics/alt-cursor.svg";
     customCursor.style.width = "20px";
 
-    if (mediaQueryLg.matches) {
-      customCursor.style.width = "12px";
+    if (mediaQueryXxl.matches) {
+      customCursor.style.width = "14px";
     }
   };
 

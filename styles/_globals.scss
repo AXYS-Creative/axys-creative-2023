@@ -547,7 +547,7 @@ section {
 }
 
 .cta-1 {
-    padding: 2rem 5.2rem;
+    padding: 2rem 4.8rem;
     text-transform: uppercase;
     font-size: 2.8rem;
     background-color: $purplegrey;
@@ -579,15 +579,14 @@ section {
 .cta-2 {
     @include row-center;
     position: relative;
-    gap: 1rem;
     font-size: 2.4rem;
     font-weight: 700;
     text-transform: uppercase;
 
-    @include mq-max('sm') {
-        display: none;
+    @include mq-max('md') {
+        gap: 4rem;
     }
-
+    
     &::after {
         content: "";
         position: absolute;
@@ -597,13 +596,23 @@ section {
         height: 4px;
         background: $black;
         transition: 0.4s $cubic-ease-back-dramatic;
-
+        
+        @include mq-max('xl') {
+            width: calc(100% + 24px);
+        }
+        
         @include mq-max('lg') {
             height: 3px;
         }
-
+        
         @include mq-max('md') {
             height: 2px;
+        }
+        
+        @include mq-max('sm') {
+            height: 4px;
+            // bottom: 8px;
+            width: calc(100% + 28px);
         }
     }
 
@@ -615,12 +624,20 @@ section {
         translate: 28px -50%;
         transition: 0.25s ease;
 
+        @include mq-max('xl') {
+            translate: 20px -50%;
+        }
+
         &:nth-of-type(2) {
             opacity: 0;
         }
 
         &.fa-lightbulb-on {
-            translate: calc(28px + 0.8rem) -50%;
+            translate: calc(28px + 0.6rem) -50%;
+            
+            @include mq-max('xl') {
+                translate: calc(20px + 0.6rem) -50%;
+            }
         }
     }
 
@@ -796,8 +813,8 @@ section {
         opacity: 1;
     }
 
-    @include mq-max('lg') {
-        width: 12px;
+    @include mq-max('xxl') {
+        width: 14px;
     }
     @include mq-max('sm') {
         display: none;
