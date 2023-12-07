@@ -407,7 +407,7 @@ section:first-of-type {
 @media screen and (max-width: 1024px) {
   .section-title {
     font-size: 10vw;
-    -webkit-text-stroke: 3px #313131;
+    -webkit-text-stroke-width: 3px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -416,7 +416,7 @@ section:first-of-type {
     font-size: 14vw;
     line-height: 0%;
     filter: drop-shadow(0.5rem 0.5rem 0 #313131);
-    -webkit-text-stroke: 2px #313131;
+    -webkit-text-stroke-width: 2px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -424,7 +424,7 @@ section:first-of-type {
     margin-bottom: 2rem;
     font-size: 14.2vw;
     letter-spacing: 2px;
-    filter: drop-shadow(2px 2px 0 #313131);
+    filter: drop-shadow(1px 1px 0 #313131);
   }
 }
 .section-title p {
@@ -2270,8 +2270,10 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .pre-footer-main h2 {
-    font-size: 7.2rem;
-    width: 35.4rem;
+    font-size: 6.8em;
+    width: 37.4rem;
+    -webkit-text-stroke-width: 1px;
+    filter: drop-shadow(1px 1px 0 #313131);
   }
 }
 .pre-footer-main p {
@@ -2313,6 +2315,7 @@ section:first-of-type {
   .pre-footer-main a {
     padding: 2.8rem 3.6rem;
     font-size: 2.8rem;
+    box-shadow: 2px 2px 0 #313131;
   }
 }
 .pre-footer figure {
@@ -2443,8 +2446,7 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .footer {
-    padding: 1.8rem;
-    padding-bottom: 3.6rem;
+    padding: 7.2rem 1.8rem;
     gap: unset;
   }
 }
@@ -2460,7 +2462,6 @@ section:first-of-type {
 }
 @media screen and (max-width: 480px) {
   .footer .social-icons {
-    right: 3.6rem;
     gap: 1rem;
   }
 }
@@ -2511,8 +2512,6 @@ section:first-of-type {
 @media screen and (max-width: 480px) {
   .footer-logo {
     width: 10rem;
-    bottom: 3.6rem;
-    right: 3.6rem;
   }
 }
 .footer-nav {
@@ -2523,12 +2522,11 @@ section:first-of-type {
 @media screen and (max-width: 768px) {
   .footer-nav {
     justify-content: flex-start;
-    width: calc(100% - 1px);
+    width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
   .footer-nav {
-    width: 100%;
     gap: 2rem;
   }
 }

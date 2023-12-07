@@ -1494,10 +1494,12 @@
                 -webkit-text-stroke-width: 2px;
                 filter: drop-shadow(2px 2px 0 $black);
             }
-
+            
             @include mq-max('sm') {
-                font-size: 7.2rem;
-                width: 35.4rem;
+                font-size: 6.8em;
+                width: 37.4rem;
+                -webkit-text-stroke-width: 1px;
+                filter: drop-shadow(1px 1px 0 $black);
             }
         }
 
@@ -1533,10 +1535,11 @@
                 border-width: 2px;
                 box-shadow: 3px 3px 0 $black;
             }
-
+            
             @include mq-max('sm') {
                 padding: 2.8rem 3.6rem;
                 font-size: 2.8rem;
+                box-shadow: 2px 2px 0 $black;
             }
         }
     }
@@ -1672,8 +1675,7 @@
     }
     
     @include mq-max('sm') {
-        padding: $body-padding-small;
-        padding-bottom: $body-padding;
+        padding: calc($body-padding * 2) $body-padding-small;
         gap: unset;
     }
 
@@ -1687,7 +1689,6 @@
         }
         
         @include mq-max('sm') {
-            right: $body-padding;
             gap: 1rem;
         }
 
@@ -1734,8 +1735,6 @@
 
         @include mq-max('sm') {
             width: 10rem;
-            bottom: $body-padding;
-            right: $body-padding;
         }
     }
 
@@ -1746,11 +1745,10 @@
 
         @include mq-max('md') {
             justify-content: flex-start;
-            width: calc(100% - 1px);
+            width: 100%;
         }
  
         @include mq-max('sm') {
-            width: 100%;
             gap: 2rem;
         }
 

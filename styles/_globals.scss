@@ -462,7 +462,7 @@ section {
 
     @include mq-max('lg') {
         font-size: 10vw;
-        -webkit-text-stroke: 3px $black;
+        -webkit-text-stroke-width: 3px;
     }
     
     @include mq-max('md') {
@@ -470,14 +470,15 @@ section {
         font-size: 14vw;
         line-height: 0%;
         filter: drop-shadow(0.5rem 0.5rem 0 $black);
-        -webkit-text-stroke: 2px $black;
+        -webkit-text-stroke-width: 2px;
     }
 
     @include mq-max('sm') {
         margin-bottom: 2rem;
         font-size: 14.2vw;
         letter-spacing: 2px;
-        filter: drop-shadow(2px 2px 0 $black);
+        // -webkit-text-stroke-width: 2px;
+        filter: drop-shadow(1px 1px 0 $black);
     }
 
     p {
