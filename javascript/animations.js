@@ -1,5 +1,6 @@
 const nonGsapAnimations = () => {
   // Description - Media Query Declarations
+  let mediaQueryXxl = window.matchMedia("(min-width: 1921px)");
   let mediaQueryMd = window.matchMedia("(max-width: 768px)");
   let mediaQuerySm = window.matchMedia("(max-width: 480px)");
 
@@ -66,6 +67,11 @@ const nonGsapAnimations = () => {
     handleParallax(".questions-bubble-2", "0%", -0.2, "-840%");
 
     // Don't worry about altering these media queries until the work section is done
+    if (mediaQueryXxl.matches) {
+      handleParallax(".perks-bubble-1", "-72%", -0.14, "-720%");
+      handleParallax(".perks-bubble-2", "-16%", -0.18, "-620%");
+    }
+
     if (mediaQueryMd.matches) {
       handleParallax(".perks-bubble-1", "-72%", -0.14, "-320%");
       handleParallax(".perks-bubble-2", "-16%", -0.18, "-320%");

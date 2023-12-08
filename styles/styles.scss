@@ -184,7 +184,7 @@
         }
 
         .hero-peep-1 {
-            width: 30rem;
+            width: 46%;
             translate: calc(-50% - 10.6rem) -50%;
             opacity: 0;
             z-index: 2;
@@ -197,18 +197,16 @@
 
             
             @include mq-max('md') {
-                width: 22rem;
                 translate: calc(-50% - 8.8rem) -50%;
             }
 
             @include mq-max('sm') {
-                width: 14rem;
                 translate: calc(-50% - 5.2rem) -50%;
             }
         }
         
         .hero-peep-2 {
-            width: 22rem;
+            width: 36%;
             translate: calc(-50% + 10.6rem) -50%;
             opacity: 0;
             z-index: 2;
@@ -220,12 +218,10 @@
             }
             
             @include mq-max('md') {
-                width: 16rem;
                 translate: calc(-50% + 8.8rem) -50%;
             }
 
             @include mq-max('sm') {
-                width: 12rem;
                 translate: calc(-50% + 5.2rem) -50%;
             }
         }
@@ -585,6 +581,10 @@
         right: 6%;
         width: clamp(0px, 28%, 28rem);
         
+        @include mq-max('xxl') {
+            width: max(14rem, 14%);
+        }
+
         @include mq-max('lg') {
             bottom: $section-inner-padding;
             right: 10%;
@@ -1629,11 +1629,11 @@
             right: $body-padding-small;
         }
 
-        .peep-wrapper {
+        // .peep-wrapper {
             // See _globals.scss for the rest
             // @include absolute-center;
             // width: 24rem;
-        }
+        // }
 
         .bubble-1 {
             background: $purplegrey;

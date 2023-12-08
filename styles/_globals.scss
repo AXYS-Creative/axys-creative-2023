@@ -695,8 +695,6 @@ section {
     filter: drop-shadow(2px 2px 0 $black);
     scale: 0.5;
     opacity: 0;
-    DISPLAY: NONE !IMPORTANT;
-    // DELETE ME WHEN DONE WITH RESPONSIVENESS
 
     &.active {
         opacity: 1;

@@ -623,7 +623,6 @@ section:first-of-type {
   filter: drop-shadow(2px 2px 0 #313131);
   scale: 0.5;
   opacity: 0;
-  DISPLAY: NONE !important;
 }
 .bubble.active {
   opacity: 1;
@@ -1042,7 +1041,7 @@ section:first-of-type {
   translate: -50% -50%;
 }
 .hero-img .hero-peep-1 {
-  width: 30rem;
+  width: 46%;
   translate: calc(-50% - 10.6rem) -50%;
   opacity: 0;
   z-index: 2;
@@ -1054,18 +1053,16 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   .hero-img .hero-peep-1 {
-    width: 22rem;
     translate: calc(-50% - 8.8rem) -50%;
   }
 }
 @media screen and (max-width: 480px) {
   .hero-img .hero-peep-1 {
-    width: 14rem;
     translate: calc(-50% - 5.2rem) -50%;
   }
 }
 .hero-img .hero-peep-2 {
-  width: 22rem;
+  width: 36%;
   translate: calc(-50% + 10.6rem) -50%;
   opacity: 0;
   z-index: 2;
@@ -1077,13 +1074,11 @@ section:first-of-type {
 }
 @media screen and (max-width: 768px) {
   .hero-img .hero-peep-2 {
-    width: 16rem;
     translate: calc(-50% + 8.8rem) -50%;
   }
 }
 @media screen and (max-width: 480px) {
   .hero-img .hero-peep-2 {
-    width: 12rem;
     translate: calc(-50% + 5.2rem) -50%;
   }
 }
@@ -1383,6 +1378,11 @@ section:first-of-type {
   bottom: 6%;
   right: 6%;
   width: clamp(0px, 28%, 28rem);
+}
+@media screen and (max-width: 1440px) {
+  .perks-img {
+    width: max(14rem, 14%);
+  }
 }
 @media screen and (max-width: 1024px) {
   .perks-img {
