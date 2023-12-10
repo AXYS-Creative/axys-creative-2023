@@ -32,7 +32,7 @@ document.onreadystatechange = function () {
   html.className += " prevent-scroll";
   body.className += " prevent-scroll";
   pageLoader.style.display = "flex";
-  hero.style.scale = "1.2";
+  hero.style.scale = window.innerWidth > 1920 ? "2" : "1.25";
 
   function finishLoading() {
     html.classList.remove("prevent-scroll");
@@ -51,5 +51,5 @@ document.onreadystatechange = function () {
     } else {
       window.addEventListener("load", finishLoading());
     }
-  }, 500);
+  }, 1000);
 };

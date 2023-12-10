@@ -1,6 +1,7 @@
 const mainContent = document.querySelector(".main-content");
 const navMenu = document.querySelector(".nav-menu");
 
+const menuBtnWrapper = document.querySelector(".menu-btn-wrapper");
 const menuBtn = document.querySelector(".menu-btn");
 const menuNavlinks = document.querySelectorAll(".menu-nav-link");
 const pageNavLinks = document.querySelectorAll(".page-nav-link");
@@ -84,7 +85,9 @@ window.addEventListener("scroll", function () {
 
   if (scrolledFromTop + viewHeight >= scrollHeight) {
     menuBtn.classList.add("hide-menu-btn");
+    menuBtnWrapper.classList.add("hide-menu-btn-wrapper");
   } else {
     menuBtn.classList.remove("hide-menu-btn");
+    menuBtnWrapper.classList.remove("hide-menu-btn-wrapper");
   }
 });

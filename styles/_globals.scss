@@ -113,6 +113,10 @@ i {
         pointer-events: all;
     }
 
+    &.hide-menu-btn-wrapper {
+        pointer-events: none;
+    }
+
     .menu-btn {
         border: 3px solid $black;
         background: $purplegrey;
@@ -121,7 +125,7 @@ i {
         border-radius: 50%;
         color: $white;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
         letter-spacing: 1px;
         box-shadow: 3px 3px 0 $black;
@@ -135,9 +139,17 @@ i {
         &:hover,
         &:focus {
             scale: 1.12;
+
+            @include mq-max('sm') {
+                scale: unset;
+            }
         }
         &:active {
             scale: 0.9;
+
+            @include mq-max('sm') {
+                scale: 0.8;
+            }
         }
     
         &.hide-menu-btn {
@@ -159,12 +171,20 @@ i {
                 rotate 0.75s $cubic-ease-back;
         }
     
-        @include mq-max('lg') {
+        @include mq-max('xxl') {
             width: 68px;
             height: 68px;
             font-size: 14px;
             border-width: 2px;
             box-shadow: 2px 2px 0 $black;
+        }
+        
+        @include mq-max('md') {
+            width: 60px;
+            height: 60px;
+            font-size: 13px;
+            border-width: 1px;
+            box-shadow: 1px 1px 0 $black;
         }
     }
 }
@@ -324,35 +344,9 @@ i {
             gap: 1rem;
         }
 
-        a {
-            position: relative;
-            color: $white;
-            font-size: max(14px, 1.8rem);
-
-            &:hover,
-            &:focus {
-                &::after {
-                    width: 100%;
-                }
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                translate: 0 8px;
-                width: 0;
-                height: 2px;
-                background: $white;
-                transition: 0.3s ease;
-
-                @include mq-max('md') {
-                    translate: 0 4px;
-                    height: 1px;
-                }
-            }
-        }
+        // a.simple-link {
+        //     // See 'simple-link' class here in globals
+        // }
     }
 
     .abstract {
@@ -387,16 +381,45 @@ i {
     }
 }
 
+.simple-link {
+    position: relative;
+    color: $white;
+    font-size: max(14px, 1.8rem);
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        &::after {
+            width: 100%;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        translate: 0 8px;
+        width: 0;
+        height: 2px;
+        background: $white;
+        transition: 0.3s ease;
+
+        @include mq-max('md') {
+            translate: 0 4px;
+            height: 1px;
+        }
+    }
+}
+
 section {
+    @include section-border;
     isolation: isolate;
     position: relative;
-    border: $section-border;
-    border-radius: $section-border-radius;
     max-width: $width-constraint;
     margin: 8rem auto;
-    height: clamp(768px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
+    height: clamp(768px, calc(100vh - $body-padding * 2), calc(1200px - $body-padding));
     scroll-margin-top: $body-padding;
-    box-shadow: 4px 4px 0 $black;
 
     @include mq-min('xxxl') {
         min-height: 1024px;
@@ -404,27 +427,16 @@ section {
     }
 
     @include mq-max('xxl') {
-        height: clamp(640px, calc(100vh - $body-padding * 2), calc(768px - $body-padding));
+        height: clamp(600px, calc(100vh - $body-padding * 2), calc(1024px - $body-padding));
+        
     }
-
-    @include mq-max('xl') {
-        // height: 600px;
-        // height: 820px;
-    }
-
-    @include mq-max('lg') {
-        // height: 560px;
-        // height: 768px;
-    }
-
+    
     @include mq-max('md') {
-        box-shadow: 3px 3px 0 $black;
+        height: clamp(540px, calc(100vh - $body-padding), calc(1024px - $body-padding-small));
     }
 
     @include mq-max('sm') {
-        border-width: 3px;
-        border-radius: 4px;
-        // height: 70rem;
+        height: 72rem;
         min-height: 420px;
         margin: $body-padding-small auto;
         box-shadow: 2px 2px 0 $black;
@@ -436,7 +448,7 @@ section {
 }
 
 .section-bg {
-    border-radius: calc($section-border-radius / 4);
+    border-radius: 2px;
     position: absolute;
     top: 0;
     width: 100%;
@@ -445,40 +457,47 @@ section {
     z-index: -1;
     user-select: none;
     pointer-events: none;
+
+    @include mq-max('xxl') {
+        border-radius: 1px;
+    }
 }
 
 .section-title {
+    color: $white;
     padding-left: $section-inner-padding;
     padding-top: $section-inner-padding-small;
-    color: $white;
-    font-size: min(10.6vw, 212px);
+    font-size: min(10vw, 200px);
     text-transform: uppercase;
-    filter: drop-shadow(0.2vw 0.2vw 0 $black);
+    filter: drop-shadow(0.1vw 0.1vw 0 $black);
     -webkit-text-stroke: 4px $black;
     
     @include mq-min('xxl') {
-        filter: drop-shadow(0.5rem 0.5rem 0 $black);
+        filter: drop-shadow(0.4rem 0.4rem 0 $black);
+    }
+    
+    @include mq-max('xxl') {
+        filter: drop-shadow(0.2vw 0.2vw 0 $black);
+        -webkit-text-stroke-width: 3px;
     }
 
     @include mq-max('lg') {
-        font-size: 10vw;
-        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-width: 2px;
     }
     
     @include mq-max('md') {
         padding-left: $section-inner-padding-small;
         font-size: 14vw;
         line-height: 0%;
-        filter: drop-shadow(0.5rem 0.5rem 0 $black);
-        -webkit-text-stroke-width: 2px;
+        filter: drop-shadow(0.3vw 0.3vw 0 $black);
     }
 
     @include mq-max('sm') {
         margin-bottom: 2rem;
-        font-size: 14.2vw;
-        letter-spacing: 2px;
-        // -webkit-text-stroke-width: 2px;
-        filter: drop-shadow(1px 1px 0 $black);
+        font-size: 14.8vw;
+        letter-spacing: 1px;
+        -webkit-text-stroke-width: 1px;
+        filter: drop-shadow(2px 2px 0 $black);
     }
 
     p {
@@ -487,7 +506,11 @@ section {
         
         span {
             display: block;
-            font-weight: 800;
+            font-weight: 900;
+
+            // @include mq-max('md') {
+            //     font-weight: 900;
+            // }
         }
     }
 }
@@ -550,12 +573,12 @@ section {
 .cta-1 {
     padding: 2rem 4.8rem;
     text-transform: uppercase;
-    font-size: 2.8rem;
+    font-size: max(14px, 2.8rem);
     background-color: $purplegrey;
     color: $white;
     border: 3px solid $black;
     border-radius: 4px;
-    box-shadow: 3px 3px 0 $black;
+    box-shadow: 2px 2px 0 $black;
     transition: scale 0.4s ease, rotate 0.4s ease;
 
     &:hover,
@@ -567,13 +590,13 @@ section {
         scale: 0.9;
     }
 
-    @include mq-max('lg') {
+    @include mq-max('xxl') {
         border-width: 2px;
-        box-shadow: 2px 2px 0 $black;
     }
-
+    
     @include mq-max('sm') {
-        padding: 2rem 2.8rem;
+        border-width: 1px;
+        padding: 1.6rem 2.8rem;
     }
 }
 
@@ -598,12 +621,12 @@ section {
         background: $black;
         transition: 0.4s $cubic-ease-back-dramatic;
         
+        @include mq-max('xxl') {
+            height: 3px;
+        }
+
         @include mq-max('xl') {
             width: calc(100% + 24px);
-        }
-        
-        @include mq-max('lg') {
-            height: 3px;
         }
         
         @include mq-max('md') {
@@ -611,8 +634,7 @@ section {
         }
         
         @include mq-max('sm') {
-            height: 4px;
-            // bottom: 8px;
+            height: 3px;
             width: calc(100% + 28px);
         }
     }
@@ -701,14 +723,15 @@ section {
         scale: 1;
     }
     
-    @include mq-max('lg') {
+    @include mq-max('xxl') {
         border-width: 2px;
     }
 
     @include mq-max('md') {
         border-width: 1px;
+        filter: drop-shadow(1px 1px 0 $black);
     }
-
+    
     @include mq-max('sm') {
         transition: none;
     }

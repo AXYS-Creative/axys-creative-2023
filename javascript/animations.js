@@ -1,8 +1,8 @@
 const nonGsapAnimations = () => {
   // Description - Media Query Declarations
-  let mediaQueryXxl = window.matchMedia("(min-width: 1921px)");
-  let mediaQueryMd = window.matchMedia("(max-width: 768px)");
-  let mediaQuerySm = window.matchMedia("(max-width: 480px)");
+  let mqMinXxl = window.matchMedia("(min-width: 1921px)");
+  let mqMaxMd = window.matchMedia("(max-width: 768px)");
+  let mqMaxSm = window.matchMedia("(max-width: 480px)");
 
   // Description - Animating Section graphics based on mouse position
   document.addEventListener("mousemove", (event) => {
@@ -40,7 +40,7 @@ const nonGsapAnimations = () => {
     handleMouseTrack(".pre-footer-img-1-peep");
     handleMouseTrack(".pre-footer-img-2-peep", -0.01, -0.01);
 
-    if (mediaQueryMd.matches) {
+    if (mqMaxMd.matches) {
       handleMouseTrack(".membership-peep", -0.01, 0.01, -0.0015);
     }
   });
@@ -67,17 +67,17 @@ const nonGsapAnimations = () => {
     handleParallax(".questions-bubble-2", "0%", -0.2, "-840%");
 
     // Don't worry about altering these media queries until the work section is done
-    if (mediaQueryXxl.matches) {
+    if (mqMinXxl.matches) {
       handleParallax(".perks-bubble-1", "-72%", -0.14, "-720%");
       handleParallax(".perks-bubble-2", "-16%", -0.18, "-620%");
     }
 
-    if (mediaQueryMd.matches) {
+    if (mqMaxMd.matches) {
       handleParallax(".perks-bubble-1", "-72%", -0.14, "-320%");
       handleParallax(".perks-bubble-2", "-16%", -0.18, "-320%");
     }
 
-    if (mediaQuerySm.matches) {
+    if (mqMaxSm.matches) {
       handleParallax(".perks-bubble-1", "-72%", -0.14, "-56%");
       handleParallax(".perks-bubble-2", "-16%", -0.18, "-40%");
     }
