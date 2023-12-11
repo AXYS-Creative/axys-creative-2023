@@ -11,7 +11,7 @@
     // }
 
     &::selection {
-        background: $purplegrey;
+        background: $coral;
         color: $white;
         -webkit-text-stroke-color: $white;
     }
@@ -414,6 +414,9 @@ i {
 
 section {
     @include section-border;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     isolation: isolate;
     position: relative;
     max-width: $width-constraint;
@@ -464,20 +467,15 @@ section {
 }
 
 .section-title {
+    position: relative;
     color: $white;
     padding-left: $section-inner-padding;
     padding-top: $section-inner-padding-small;
     font-size: min(10vw, 200px);
     text-transform: uppercase;
-    filter: drop-shadow(0.1vw 0.1vw 0 $black);
     -webkit-text-stroke: 4px $black;
     
-    @include mq-min('xxl') {
-        filter: drop-shadow(0.4rem 0.4rem 0 $black);
-    }
-    
     @include mq-max('xxl') {
-        filter: drop-shadow(0.2vw 0.2vw 0 $black);
         -webkit-text-stroke-width: 3px;
     }
 
@@ -489,7 +487,6 @@ section {
         padding-left: $section-inner-padding-small;
         font-size: 14vw;
         line-height: 0%;
-        filter: drop-shadow(0.3vw 0.3vw 0 $black);
     }
 
     @include mq-max('sm') {
@@ -497,20 +494,97 @@ section {
         font-size: 14.8vw;
         letter-spacing: 1px;
         -webkit-text-stroke-width: 1px;
-        filter: drop-shadow(2px 2px 0 $black);
     }
 
     p {
         overflow: hidden;
         display: inline-block;
+        filter: drop-shadow(0.1vw 0.1vw 0 $black);
+
+        @include mq-min('xxl') {
+            filter: drop-shadow(0.4rem 0.4rem 0 $black);
+        }
+
+        @include mq-max('xxl') {
+            filter: drop-shadow(0.2vw 0.2vw 0 $black);
+        }
+
+        @include mq-max('md') {
+            filter: drop-shadow(0.3vw 0.3vw 0 $black);
+        }
+
+        @include mq-max('sm') {
+            filter: drop-shadow(2px 2px 0 $black);
+        }
         
         span {
             display: block;
             font-weight: 900;
+        }
+    }
 
-            // @include mq-max('md') {
-            //     font-weight: 900;
-            // }
+    .title-graphic-wrapper {
+        @include row-center;
+        position: absolute;
+        z-index: 1;
+        width: min(4.2vw, 64px);
+        height: min(4.2vw, 64px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.4s ease 1s;
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    
+        @include mq-max('xxl') {
+            width: max(20px, 3.6vw);
+            height: max(20px, 3.6vw);
+        }
+
+        &-1 {
+            top: 0;
+            left: 4%;
+
+            @include mq-max('md') {
+                top: 8%;
+            }
+            @include mq-max('sm') {
+                left: 8%;
+            }
+
+            .title-graphic {
+                animation: title-graphic-float 2s ease-in-out infinite alternate-reverse;
+            }
+
+            &-b {
+                translate: -75% 75%;
+                transition-delay: 1.24s;
+
+                .title-graphic {
+                    animation: title-graphic-float 2s ease-in-out 1s infinite alternate-reverse;
+                }
+            }
+        }
+
+        &-2 {
+            bottom: 2%;
+            right: 2%;
+            transition-delay: 1.12s;
+
+            .title-graphic {
+                animation: title-graphic-float 2s ease-in-out infinite alternate-reverse;
+            }
+
+            &-b {
+                translate: 80% -80%;
+                transition-delay: 1.36s;
+
+                .title-graphic {
+                    animation: title-graphic-float 2s ease-in-out 1s infinite alternate-reverse;
+                }
+            }
         }
     }
 }
@@ -635,7 +709,6 @@ section {
         
         @include mq-max('sm') {
             height: 3px;
-            width: calc(100% + 28px);
         }
     }
 
@@ -660,6 +733,10 @@ section {
             
             @include mq-max('xl') {
                 translate: calc(20px + 0.6rem) -50%;
+            }
+
+            @include mq-max('sm') {
+                translate: calc(20px + 0.4rem) -50%;
             }
         }
     }

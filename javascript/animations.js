@@ -361,6 +361,30 @@ const gsapAnimations = () => {
   toggleClassActive(".perks-peep-wrapper", ".perks", "top center", "50% top");
   toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
   toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
+  toggleClassActive(
+    "#perks-title-graphic-wrapper-1",
+    ".perks-title",
+    "top center",
+    "center top"
+  );
+  toggleClassActive(
+    "#perks-title-graphic-wrapper-1-b",
+    ".perks-title",
+    "top center",
+    "center top"
+  );
+  toggleClassActive(
+    "#perks-title-graphic-wrapper-2",
+    ".perks-title",
+    "top center",
+    "center top"
+  );
+  toggleClassActive(
+    "#perks-title-graphic-wrapper-2-b",
+    ".perks-title",
+    "top center",
+    "center top"
+  );
 
   // Membership Section
   toggleClassActive(
@@ -382,6 +406,18 @@ const gsapAnimations = () => {
     "40% 5%"
   );
   toggleClassActive(".ribbon", ".membership", "top center", "40% 5%");
+  toggleClassActive(
+    "#membership-title-graphic-wrapper-2",
+    ".membership-title",
+    "top center",
+    "center top"
+  );
+  toggleClassActive(
+    "#membership-title-graphic-wrapper-2-sm",
+    ".membership-title",
+    "top center",
+    "center top"
+  );
 
   // Questions Section
   toggleClassActive(

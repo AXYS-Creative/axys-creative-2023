@@ -316,6 +316,7 @@
         // color: $yellow;
         margin-left: unset;
         overflow: hidden;
+        width: 100%;
         
         // @include mq-min('md') {
         //     margin-left: unset;
@@ -402,6 +403,7 @@
     &-columns {
         display: flex;
         flex-direction: row;
+        width: 100%;
         gap: 6rem;
         margin: 2rem $section-inner-padding 6rem;
         
@@ -427,7 +429,7 @@
             }
             
             @include mq-max('lg') {
-                width: 40%;
+                width: 38%;
             }
 
             @include mq-max('md') {
@@ -435,7 +437,7 @@
             }
 
             @include mq-max('sm') {
-                width: 100%;
+                width: calc(100% - $section-inner-padding);
             }
         }
 
@@ -685,6 +687,13 @@
 
         @include mq-max('sm') {
             display: none;
+        }
+
+        .title-graphic-wrapper-2 {
+            bottom: 4%;
+            right: 6%;
+            width: min(6vw, 128px);
+            height: min(6vw, 128px);
         }
     }
     &-title-small-screen {
@@ -1429,6 +1438,7 @@
 }
 
 .pre-footer {
+    align-items: center;
     padding: $body-padding $body-padding 12rem;
     height: unset;
     border: none;

@@ -113,3 +113,12 @@
         translate: 0 0;
     }
 }
+
+@keyframes title-graphic-float {
+    from {
+        translate: 0 -10%;
+    }
+    to {
+        translate: 0 10%;
+    }
+}
