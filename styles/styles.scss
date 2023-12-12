@@ -695,10 +695,26 @@
             rotate: 4deg;
             width: min(8vw, 148px);
             height: min(8vw, 148px);
+
+            @include mq-max('md') {
+                width: 14vw;
+                height: 14vw;
+                bottom: -56%;
+                right: 0;
+                rotate: 8deg;
+            }
         }
     }
     &-title-small-screen {
         color: $blue;
+
+        .title-graphic-wrapper-2 {
+            bottom: 4%;
+            right: -18%;
+            // rotate: 12deg;
+            width: 22vw;
+            height: 22vw;
+        }
     }
 
     &-description {
@@ -1355,6 +1371,10 @@
             left: 0;
             translate: -28% -56%;
             transition: 1s $cubic-ease-back 1s;
+            
+            @include mq-max('sm') {
+                translate: -28% -48%;
+            }
 
             svg {
                 width: 100%;
@@ -1375,6 +1395,10 @@
 
             &.active {
                 translate: -42% -56%;
+
+                @include mq-max('sm') {
+                    translate: -42% -48%;
+                }
 
                 svg {
                     
