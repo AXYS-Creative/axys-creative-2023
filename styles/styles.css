@@ -888,10 +888,44 @@ section:first-of-type {
   align-items: center;
 }
 .page-loader-status {
+  display: flex;
+}
+.page-loader-status p {
   color: #313131;
   font-size: min(6vw, 164px);
   font-weight: 900;
   text-transform: uppercase;
+  overflow: hidden;
+  display: flex;
+}
+@media screen and (max-width: 480px) {
+  .page-loader-status p {
+    font-size: 10vw;
+  }
+}
+.page-loader-status p .loading-letter {
+  transition: 0.5s cubic-bezier(0.55, -0.46, 0.46, 1);
+}
+.page-loader-status p:nth-of-type(2) .loading-letter {
+  transition-delay: 0.05s;
+}
+.page-loader-status p:nth-of-type(3) .loading-letter {
+  transition-delay: 0.1s;
+}
+.page-loader-status p:nth-of-type(4) .loading-letter {
+  transition-delay: 0.15s;
+}
+.page-loader-status p:nth-of-type(5) .loading-letter {
+  transition-delay: 0.2s;
+}
+.page-loader-status p:nth-of-type(6) .loading-letter {
+  transition-delay: 0.25s;
+}
+.page-loader-status p:nth-of-type(7) .loading-letter {
+  transition-delay: 0.3s;
+}
+.page-loader.loading-done .page-loader-status p .loading-letter {
+  translate: 0 -100%;
 }
 
 @keyframes appear {
@@ -1008,6 +1042,14 @@ section:first-of-type {
   }
   to {
     translate: 0 10%;
+  }
+}
+@keyframes thought-cloud-float {
+  from {
+    translate: 0 -5%;
+  }
+  to {
+    translate: 0 5%;
   }
 }
 .hero {
@@ -1627,10 +1669,11 @@ section:first-of-type {
   }
 }
 .membership-title .title-graphic-wrapper-2 {
-  bottom: 4%;
+  bottom: -4%;
   right: 6%;
-  width: min(6vw, 128px);
-  height: min(6vw, 128px);
+  rotate: 4deg;
+  width: min(8vw, 148px);
+  height: min(8vw, 148px);
 }
 .membership-title-small-screen {
   color: #7EC1D4;
@@ -1856,7 +1899,8 @@ section:first-of-type {
   background: #825E86;
   color: #fafafa;
   font-size: 15px;
-  letter-spacing: 1px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
   line-height: 140%;
   padding: 1.2rem;
   border-radius: 0.4rem;
@@ -2292,6 +2336,61 @@ section:first-of-type {
     top: 2rem;
     width: 8rem;
   }
+}
+.questions-img .thought-cloud {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  translate: -28% -56%;
+  transition: 1s cubic-bezier(0.12, 0.64, 0.61, 1.15) 1s;
+}
+.questions-img .thought-cloud svg {
+  width: 100%;
+}
+.questions-img .thought-cloud svg .cloud {
+  opacity: 0;
+  scale: 0.6;
+  rotate: 12deg;
+  transform-origin: bottom right;
+  transition: 0.6s ease;
+}
+.questions-img .thought-cloud svg .cloud-dot {
+  opacity: 0;
+  transition: 0.6s ease;
+}
+.questions-img .thought-cloud.active {
+  translate: -42% -56%;
+}
+.questions-img .thought-cloud.active svg .cloud {
+  opacity: 1;
+  scale: 1;
+  rotate: 0deg;
+}
+.questions-img .thought-cloud.active svg .cloud-1 {
+  transition-delay: 1.04s;
+  animation: thought-cloud-float 2s ease-in-out infinite alternate-reverse;
+}
+.questions-img .thought-cloud.active svg .cloud-2 {
+  transition-delay: 0.92s;
+  animation: thought-cloud-float 2s ease-in-out 0.2s infinite alternate-reverse;
+}
+.questions-img .thought-cloud.active svg .cloud-3 {
+  transition-delay: 0.8s;
+  animation: thought-cloud-float 2s ease-in-out 0.4s infinite alternate-reverse;
+}
+.questions-img .thought-cloud.active svg .cloud-dot {
+  opacity: 1;
+  animation: thought-cloud-float 2s ease-in-out infinite alternate-reverse;
+}
+.questions-img .thought-cloud.active svg .cloud-dot-1 {
+  transition-delay: 1.4s;
+}
+.questions-img .thought-cloud.active svg .cloud-dot-2 {
+  transition-delay: 1.5s;
+}
+.questions-img .thought-cloud.active svg .cloud-dot-3 {
+  transition-delay: 1.6s;
 }
 .questions-img .bubble-1 {
   background-color: #825E86;

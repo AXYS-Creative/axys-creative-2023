@@ -930,9 +930,42 @@ section {
     @include row-center;
 
     &-status {
-        color: $black;
-        font-size: min(6vw, 164px);
-        font-weight: 900;
-        text-transform: uppercase;
+        display: flex;
+
+        p {
+            color: $black;
+            font-size: min(6vw, 164px);
+            font-weight: 900;
+            text-transform: uppercase;
+            overflow: hidden;
+            display: flex;
+
+            @include mq-max('sm') {
+                font-size: 10vw;
+            }
+
+            .loading-letter {
+                transition: 0.5s cubic-bezier(.55,-0.46,.46,1);
+            }
+
+            @for $i from 2 through 7 {
+                &:nth-of-type(#{$i}) .loading-letter {
+                    transition-delay: 0.05s * ($i - 1);
+                }
+            }        
+        }
+    }
+
+    &.loading-done {
+
+        .page-loader-status {
+
+            p {
+                
+                .loading-letter {
+                    translate: 0 -100%;
+                }
+            }
+        }
     }
 }

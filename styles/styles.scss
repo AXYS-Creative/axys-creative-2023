@@ -690,10 +690,11 @@
         }
 
         .title-graphic-wrapper-2 {
-            bottom: 4%;
+            bottom: -4%;
             right: 6%;
-            width: min(6vw, 128px);
-            height: min(6vw, 128px);
+            rotate: 4deg;
+            width: min(8vw, 148px);
+            height: min(8vw, 148px);
         }
     }
     &-title-small-screen {
@@ -908,7 +909,8 @@
                 background: $purplegrey;
                 color: $white;
                 font-size: 15px;
-                letter-spacing: 1px;
+                font-weight: 400;
+                letter-spacing: 0.5px;
                 line-height: 140%;
                 padding: 1.2rem;
                 border-radius: 0.4rem;
@@ -1345,6 +1347,77 @@
         // .peep-wrapper {
         //     // see _globals.scss for styles
         // }
+
+        .thought-cloud {
+            width: 80%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            translate: -28% -56%;
+            transition: 1s $cubic-ease-back 1s;
+
+            svg {
+                width: 100%;
+
+                .cloud {
+                    opacity: 0;
+                    scale: 0.6;
+                    rotate: 12deg;
+                    transform-origin: bottom right;
+                    transition: 0.6s ease;
+                }
+
+                .cloud-dot {
+                    opacity: 0;
+                    transition: 0.6s ease;
+                }
+            }
+
+            &.active {
+                translate: -42% -56%;
+
+                svg {
+                    
+                    .cloud {
+                        opacity: 1;
+                        scale: 1;
+                        rotate: 0deg;
+
+                        &-1 {
+                            transition-delay: 1.04s;
+                            animation: thought-cloud-float 2s ease-in-out infinite alternate-reverse;
+                        }
+
+                        &-2 {
+                            transition-delay: 0.92s;
+                            animation: thought-cloud-float 2s ease-in-out 0.2s infinite alternate-reverse;
+                        }
+
+                        &-3 {
+                            transition-delay: 0.8s;
+                            animation: thought-cloud-float 2s ease-in-out 0.4s infinite alternate-reverse;
+                        }
+                    }
+
+                    .cloud-dot {
+                        opacity: 1;
+                        animation: thought-cloud-float 2s ease-in-out infinite alternate-reverse;
+
+                        &-1 {
+                            transition-delay: 1.4s;
+                        }
+                        &-2 {
+                            transition-delay: 1.5s;
+                        }
+                        &-3 {
+                            transition-delay: 1.6s;
+                        }
+
+
+                    }
+                }
+            }
+        }
 
         .bubble-1 {
             background-color: $purplegrey; 

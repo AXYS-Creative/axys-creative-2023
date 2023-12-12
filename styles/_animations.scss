@@ -122,3 +122,12 @@
         translate: 0 10%;
     }
 }
+
+@keyframes thought-cloud-float {
+    from {
+        translate: 0 -5%;
+    }
+    to {
+        translate: 0 5%;
+    }
+}

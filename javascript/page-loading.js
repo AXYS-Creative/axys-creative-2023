@@ -35,14 +35,20 @@ document.onreadystatechange = function () {
   hero.style.scale = window.innerWidth > 1920 ? "2" : "1.25";
 
   function finishLoading() {
-    html.classList.remove("prevent-scroll");
-    body.classList.remove("prevent-scroll");
-    pageLoader.style.display = "none";
-    hero.style.scale = "1";
+    pageLoader.classList.add("loading-done");
 
-    loadElements.forEach((elem) => {
-      elem.classList.add("active");
-    });
+    setTimeout(() => {
+      loadElements.forEach((elem) => {
+        elem.classList.add("active");
+      });
+      html.classList.remove("prevent-scroll");
+      body.classList.remove("prevent-scroll");
+      hero.style.scale = "1";
+    }, 500);
+
+    setTimeout(() => {
+      pageLoader.remove();
+    }, 1000);
   }
 
   setTimeout(function () {
@@ -51,5 +57,5 @@ document.onreadystatechange = function () {
     } else {
       window.addEventListener("load", finishLoading());
     }
-  }, 1000);
+  }, 1200);
 };

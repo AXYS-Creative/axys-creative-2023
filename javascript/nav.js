@@ -59,7 +59,8 @@ function smoothScrollTo(targetId, delay = 0) {
     duration: 2,
     delay: delay,
     scrollTo: { y: targetSection, autoKill: false },
-    ease: "back.inOut(1)",
+    // ease: "back.inOut(1)",
+    ease: "power4.inOut",
   });
 }
 

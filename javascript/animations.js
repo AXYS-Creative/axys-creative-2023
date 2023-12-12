@@ -450,6 +450,12 @@ const gsapAnimations = () => {
     "top center",
     "40% 5%"
   );
+  toggleClassActive(
+    ".thought-cloud",
+    ".thought-cloud",
+    "top center",
+    "center top"
+  );
 
   // Pre Footer
   toggleClassActive(
