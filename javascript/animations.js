@@ -278,7 +278,7 @@ const gsapAnimations = () => {
     }
   );
 
-  // Query for large screen animations
+  // Query for large screen animations (Shift Work Title)
   mm.add("(min-width: 768px)", () => {
     // Shift Title Text for Work Section. Large screens only***
     const animateTitleShift = (selector, startTranslateX, endTrigger) => {
@@ -298,10 +298,10 @@ const gsapAnimations = () => {
       );
     };
     // Shifting Title Text "Selected"
-    animateTitleShift(".word-selected", "35%", "+400%");
+    animateTitleShift(".word-selected", "35%", "+360%");
 
     // Shifting Title Text "Work"
-    animateTitleShift(".word-work", "60%", "+640%");
+    animateTitleShift(".word-work", "60%", "+540%");
   });
 
   // Description - Animating the letters of each Section Title

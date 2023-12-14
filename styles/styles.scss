@@ -1370,7 +1370,7 @@
             top: 0;
             left: 0;
             translate: -28% -56%;
-            transition: 1s $cubic-ease-back 1s;
+            transition: 1s $cubic-ease-back 0.8s;
             
             @include mq-max('sm') {
                 translate: -28% -48%;
@@ -1408,17 +1408,17 @@
                         rotate: 0deg;
 
                         &-1 {
-                            transition-delay: 1.04s;
+                            transition-delay: 0.84s;
                             animation: thought-cloud-float 2s ease-in-out infinite alternate-reverse;
                         }
 
                         &-2 {
-                            transition-delay: 0.92s;
+                            transition-delay: 0.72s;
                             animation: thought-cloud-float 2s ease-in-out 0.2s infinite alternate-reverse;
                         }
 
                         &-3 {
-                            transition-delay: 0.8s;
+                            transition-delay: 0.6s;
                             animation: thought-cloud-float 2s ease-in-out 0.4s infinite alternate-reverse;
                         }
                     }

@@ -5,6 +5,7 @@ const questionsData = [
     question: "Why wouldn't I just hire a full-time creator?",
     answer:
       "To save money. 💰 The average annual salary for senior level designers & developers well exceeds 100k, & that's without including any benefits.\n \n With the monthly plan, you're simply paying for what you need. You can pause or resume anytime you're low on work.",
+    uniqueClass: "questions-first-link",
   },
   {
     question: "Do I have a limited number of requests?",
@@ -56,12 +57,12 @@ const questionsList = document.querySelector(".questions-list");
 
 let htmlStringFaq = "";
 
-questionsData.forEach(({ question, answer }, index) => {
+questionsData.forEach(({ question, answer, uniqueClass }, index) => {
   const formattedAnswer = answer.replace(/\n/g, "<br>");
 
   htmlStringFaq += `
               <div class="faq-item">
-                <button class="question page-link">
+                <button class="question page-link ${uniqueClass}">
                     <h3>
                       <span class="question-indicator">Q.</span>
                       ${question}

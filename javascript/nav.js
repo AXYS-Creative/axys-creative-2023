@@ -92,3 +92,72 @@ window.addEventListener("scroll", function () {
     menuBtnWrapper.classList.remove("hide-menu-btn-wrapper");
   }
 });
+
+// Adjusting the window position on tab
+let queryGrab = (element) => document.querySelector(element);
+let mqMaxXxl = window.matchMedia("(max-width: 1440px)");
+let mqMaxMd = window.matchMedia("(max-width: 768px)");
+
+const tabElements = [
+  {
+    element: queryGrab(".hero-cta-1"),
+    target: queryGrab(".hero-btns"),
+    offset: mqMaxMd.matches ? 12 : mqMaxXxl.matches ? 56 : 80,
+  },
+  {
+    element: queryGrab(".hero-cta-2"),
+    target: queryGrab(".hero-btns"),
+    offset: mqMaxMd.matches ? 12 : mqMaxXxl.matches ? 56 : 80,
+  },
+  {
+    element: queryGrab(".perks-cta-1"),
+    target: queryGrab(".perks-btns"),
+    offset: mqMaxMd.matches ? 42 : mqMaxXxl.matches ? 68 : 80,
+  },
+  {
+    element: queryGrab(".perks-cta-2"),
+    target: queryGrab(".perks-btns"),
+    offset: mqMaxMd.matches ? 42 : mqMaxXxl.matches ? 68 : 80,
+  },
+  {
+    element: queryGrab(".membership-first-link"),
+    target: queryGrab(".membership-options"),
+    offset: mqMaxMd.matches ? -400 : mqMaxXxl.matches ? 48 : 100,
+  },
+  {
+    element: queryGrab(".membership-last-link"),
+    target: queryGrab(".membership-options"),
+    offset: mqMaxMd.matches ? 64 : mqMaxXxl.matches ? 48 : 100,
+  },
+  {
+    element: queryGrab(".questions-first-link"),
+    target: queryGrab(".questions-list"),
+    offset: mqMaxMd.matches ? 24 : mqMaxXxl.matches ? -24 : 80,
+  },
+  {
+    element: queryGrab(".questions-cta-1"),
+    target: queryGrab(".questions-btns"),
+    offset: mqMaxMd.matches ? 64 : mqMaxXxl.matches ? 96 : 210,
+  },
+  {
+    element: queryGrab(".questions-cta-2"),
+    target: queryGrab(".questions-btns"),
+    offset: mqMaxMd.matches ? 64 : mqMaxXxl.matches ? 96 : 210,
+  },
+];
+
+tabElements.forEach((item) => {
+  item.element.addEventListener("focus", () =>
+    sectionTabbing(item.target, item.offset)
+  );
+});
+
+function sectionTabbing(triggerElement, offset) {
+  const elementPosition =
+    triggerElement.getBoundingClientRect().top + window.pageYOffset;
+  const viewportHeight = window.innerHeight;
+  const desiredPosition =
+    elementPosition - viewportHeight + triggerElement.offsetHeight + offset;
+
+  window.scrollTo({ top: desiredPosition, behavior: "smooth" });
+}
