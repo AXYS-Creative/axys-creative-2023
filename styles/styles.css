@@ -1053,6 +1053,118 @@ section:first-of-type {
     translate: 0 5%;
   }
 }
+@keyframes animate-up-1 {
+  0% {
+    translate: 0 0;
+  }
+  45% {
+    translate: 0 0;
+  }
+  55% {
+    translate: 0 -100%;
+  }
+  100% {
+    translate: 0 -100%;
+  }
+}
+@keyframes animate-up-2 {
+  0% {
+    translate: 0 100%;
+  }
+  45% {
+    translate: 0 100%;
+  }
+  55% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+@keyframes animate-right-1 {
+  0% {
+    translate: 0 0;
+  }
+  45% {
+    translate: 0 0;
+  }
+  55% {
+    translate: 100% 0%;
+  }
+  100% {
+    translate: 100% 0%;
+  }
+}
+@keyframes animate-right-2 {
+  0% {
+    translate: -100% 0;
+  }
+  45% {
+    translate: -100% 0;
+  }
+  55% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+@keyframes animate-down-1 {
+  0% {
+    translate: 0 0;
+  }
+  45% {
+    translate: 0 0;
+  }
+  55% {
+    translate: 0 100%;
+  }
+  100% {
+    translate: 0 100%;
+  }
+}
+@keyframes animate-down-2 {
+  0% {
+    translate: 0 -100%;
+  }
+  45% {
+    translate: 0 -100%;
+  }
+  55% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+@keyframes animate-left-1 {
+  0% {
+    translate: 0 0;
+  }
+  45% {
+    translate: 0 0;
+  }
+  55% {
+    translate: -100% 0%;
+  }
+  100% {
+    translate: -100% 0%;
+  }
+}
+@keyframes animate-left-2 {
+  0% {
+    translate: 100% 0;
+  }
+  45% {
+    translate: 100% 0;
+  }
+  55% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
 .hero {
   scroll-margin-top: 0;
   transition: scale 0.6s ease;
@@ -2505,10 +2617,14 @@ section:first-of-type {
 }
 .pre-footer-brands {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 70px;
   gap: 8rem;
   margin-bottom: 8rem;
+}
+@media screen and (max-width: 1440px) {
+  .pre-footer-brands {
+    height: 56px;
+  }
 }
 @media screen and (max-width: 1200px) {
   .pre-footer-brands {
@@ -2526,18 +2642,61 @@ section:first-of-type {
     margin: 4rem 0 8rem 0;
   }
 }
-.pre-footer-brands img {
+.pre-footer-brands .brand-wrapper {
+  overflow: hidden;
+  position: relative;
   width: 18rem;
 }
 @media screen and (max-width: 768px) {
-  .pre-footer-brands img {
+  .pre-footer-brands .brand-wrapper {
     width: 14rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .pre-footer-brands img {
+  .pre-footer-brands .brand-wrapper {
     width: 10rem;
   }
+}
+.pre-footer-brands .brand-wrapper .brand-img {
+  position: absolute;
+  animation-duration: 10s;
+  animation-timing-function: cubic-bezier(0.5, -0.25, 0.5, 1.25);
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+.pre-footer-brands .brand-wrapper-animate-up .brand-img {
+  animation-name: animate-up-1;
+}
+.pre-footer-brands .brand-wrapper-animate-up .brand-img:nth-of-type(2) {
+  animation-name: animate-up-2;
+}
+.pre-footer-brands .brand-wrapper-animate-right .brand-img {
+  animation-name: animate-right-1;
+  animation-delay: 0.24s;
+}
+.pre-footer-brands .brand-wrapper-animate-right .brand-img:nth-of-type(2) {
+  animation-name: animate-right-2;
+}
+.pre-footer-brands .brand-wrapper-animate-up-2 .brand-img {
+  animation-name: animate-up-1;
+  animation-delay: 0.48s;
+}
+.pre-footer-brands .brand-wrapper-animate-up-2 .brand-img:nth-of-type(2) {
+  animation-name: animate-up-2;
+}
+.pre-footer-brands .brand-wrapper-animate-down .brand-img {
+  animation-name: animate-down-1;
+  animation-delay: 0.72s;
+}
+.pre-footer-brands .brand-wrapper-animate-down .brand-img:nth-of-type(2) {
+  animation-name: animate-down-2;
+}
+.pre-footer-brands .brand-wrapper-animate-left .brand-img {
+  animation-name: animate-left-1;
+  animation-delay: 0.96s;
+}
+.pre-footer-brands .brand-wrapper-animate-left .brand-img:nth-of-type(2) {
+  animation-name: animate-left-2;
 }
 .pre-footer-main {
   display: flex;
@@ -2632,25 +2791,25 @@ section:first-of-type {
     box-shadow: 2px 2px 0 #313131;
   }
 }
-.pre-footer figure {
+.pre-footer-img {
   position: absolute;
   top: 50%;
   translate: 0 -50%;
   z-index: -1;
 }
 @media screen and (max-width: 1200px) {
-  .pre-footer figure {
+  .pre-footer-img {
     top: 80%;
   }
 }
 @media screen and (max-width: 480px) {
-  .pre-footer figure {
+  .pre-footer-img {
     top: 80%;
     scale: 1.25;
   }
 }
 @media screen and (max-width: 480px) {
-  .pre-footer figure .bubble {
+  .pre-footer-img .bubble {
     border-width: 0.5px;
   }
 }
@@ -2714,7 +2873,6 @@ section:first-of-type {
   }
 }
 .pre-footer-img-2 {
-  position: relative;
   right: 7.2rem;
   width: min(11vw, 20rem);
 }

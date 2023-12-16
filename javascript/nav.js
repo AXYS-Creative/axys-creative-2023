@@ -1,10 +1,14 @@
-const mainContent = document.querySelector(".main-content");
-const navMenu = document.querySelector(".nav-menu");
+const grab = (element) => document.querySelector(element);
+const grabAll = (array) => document.querySelectorAll(array);
+const mqMaxXxl = window.matchMedia("(max-width: 1440px)");
+const mqMaxMd = window.matchMedia("(max-width: 768px)");
 
-const menuBtnWrapper = document.querySelector(".menu-btn-wrapper");
-const menuBtn = document.querySelector(".menu-btn");
-const menuNavlinks = document.querySelectorAll(".menu-nav-link");
-const pageNavLinks = document.querySelectorAll(".page-nav-link");
+const mainContent = grab(".main-content"),
+  navMenu = grab(".nav-menu"),
+  menuBtnWrapper = grab(".menu-btn-wrapper"),
+  menuBtn = grab(".menu-btn"),
+  menuNavlinks = grabAll(".menu-nav-link"),
+  pageNavLinks = grabAll(".page-nav-link");
 
 const toggleNav = () => {
   menuBtn.classList.toggle("active");
@@ -45,13 +49,22 @@ menuBtn.addEventListener("click", toggleNav);
 function smoothScrollTo(targetId, delay = 0) {
   // console.log(targetId);
   const targetElement = document.querySelector(targetId);
+  let pageScrollOffset = mqMaxMd.matches ? 40 : mqMaxXxl.matches ? 32 : 40;
+
   let targetSection =
-    targetElement.getBoundingClientRect().top + window.scrollY - 40;
+    targetElement.getBoundingClientRect().top +
+    window.scrollY -
+    pageScrollOffset;
 
   // Adjust scroll-margin-top (offset) depending on the section. In this case we adjust it for the work section.
   if (targetId === "#work") {
+    let workSectionOffset = mqMaxMd.matches
+      ? 300
+      : mqMaxXxl.matches
+      ? 320
+      : 300;
     targetSection =
-      targetElement.getBoundingClientRect().top + window.scrollY - 300;
+      targetElement.getBoundingClientRect().top + window.scrollY - 320;
   }
 
   // Using GSAP for smooth scrolling
@@ -94,63 +107,53 @@ window.addEventListener("scroll", function () {
 });
 
 // Adjusting the window position on tab
-let queryGrab = (element) => document.querySelector(element);
-let mqMaxXxl = window.matchMedia("(max-width: 1440px)");
-let mqMaxMd = window.matchMedia("(max-width: 768px)");
-
 const tabElements = [
   {
-    element: queryGrab(".hero-cta-1"),
-    target: queryGrab(".hero-btns"),
+    element: grab(".hero-cta-1"),
+    target: grab(".hero-btns"),
     offset: mqMaxMd.matches ? 12 : mqMaxXxl.matches ? 56 : 80,
   },
   {
-    element: queryGrab(".hero-cta-2"),
-    target: queryGrab(".hero-btns"),
+    element: grab(".hero-cta-2"),
+    target: grab(".hero-btns"),
     offset: mqMaxMd.matches ? 12 : mqMaxXxl.matches ? 56 : 80,
   },
   {
-    element: queryGrab(".perks-cta-1"),
-    target: queryGrab(".perks-btns"),
+    element: grab(".perks-cta-1"),
+    target: grab(".perks-btns"),
     offset: mqMaxMd.matches ? 42 : mqMaxXxl.matches ? 68 : 80,
   },
   {
-    element: queryGrab(".perks-cta-2"),
-    target: queryGrab(".perks-btns"),
+    element: grab(".perks-cta-2"),
+    target: grab(".perks-btns"),
     offset: mqMaxMd.matches ? 42 : mqMaxXxl.matches ? 68 : 80,
   },
   {
-    element: queryGrab(".membership-first-link"),
-    target: queryGrab(".membership-options"),
+    element: grab(".membership-first-link"),
+    target: grab(".membership-options"),
     offset: mqMaxMd.matches ? -400 : mqMaxXxl.matches ? 48 : 100,
   },
   {
-    element: queryGrab(".membership-last-link"),
-    target: queryGrab(".membership-options"),
+    element: grab(".membership-last-link"),
+    target: grab(".membership-options"),
     offset: mqMaxMd.matches ? 64 : mqMaxXxl.matches ? 48 : 100,
   },
   {
-    element: queryGrab(".questions-first-link"),
-    target: queryGrab(".questions-list"),
+    element: grab(".questions-first-link"),
+    target: grab(".questions-list"),
     offset: mqMaxMd.matches ? 24 : mqMaxXxl.matches ? -24 : 80,
   },
   {
-    element: queryGrab(".questions-cta-1"),
-    target: queryGrab(".questions-btns"),
+    element: grab(".questions-cta-1"),
+    target: grab(".questions-btns"),
     offset: mqMaxMd.matches ? 64 : mqMaxXxl.matches ? 96 : 210,
   },
   {
-    element: queryGrab(".questions-cta-2"),
-    target: queryGrab(".questions-btns"),
+    element: grab(".questions-cta-2"),
+    target: grab(".questions-btns"),
     offset: mqMaxMd.matches ? 64 : mqMaxXxl.matches ? 96 : 210,
   },
 ];
-
-tabElements.forEach((item) => {
-  item.element.addEventListener("focus", () =>
-    sectionTabbing(item.target, item.offset)
-  );
-});
 
 function sectionTabbing(triggerElement, offset) {
   const elementPosition =
@@ -161,3 +164,9 @@ function sectionTabbing(triggerElement, offset) {
 
   window.scrollTo({ top: desiredPosition, behavior: "smooth" });
 }
+
+tabElements.forEach((item) => {
+  item.element.addEventListener("focus", () =>
+    sectionTabbing(item.target, item.offset)
+  );
+});

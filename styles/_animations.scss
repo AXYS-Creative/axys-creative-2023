@@ -131,3 +131,121 @@
         translate: 0 5%;
     }
 }
+
+// Pre-footer brands
+
+@keyframes animate-up-1 {
+    0% {
+        translate: 0 0;
+    }
+    45% {
+        translate: 0 0;
+    }
+    55% {
+        translate: 0 -100%
+    }
+    100% {
+        translate: 0 -100%
+    }
+}
+@keyframes animate-up-2 {
+    0% {
+        translate: 0 100%;
+    }
+    45% {
+        translate: 0 100%;
+    }
+    55% {
+        translate: 0 0;
+    }
+    100% {
+        translate: 0 0;
+    }
+}
+
+@keyframes animate-right-1 {
+    0% {
+        translate: 0 0;
+    }
+    45% {
+        translate: 0 0;
+    }
+    55% {
+        translate: 100% 0%;
+    }
+    100% {
+        translate: 100% 0%;
+    }
+}
+@keyframes animate-right-2 {
+    0% {
+        translate: -100% 0;
+    }
+    45% {
+        translate: -100% 0;
+    }
+    55% {
+        translate: 0 0;
+    }
+    100% {
+        translate: 0 0;
+    }
+}
+
+@keyframes animate-down-1 {
+    0% {
+        translate: 0 0;
+    }
+    45% {
+        translate: 0 0;
+    }
+    55% {
+        translate: 0 100%
+    }
+    100% {
+        translate: 0 100%
+    }
+}
+@keyframes animate-down-2 {
+    0% {
+        translate: 0 -100%;
+    }
+    45% {
+        translate: 0 -100%;
+    }
+    55% {
+        translate: 0 0;
+    }
+    100% {
+        translate: 0 0;
+    }
+}
+
+@keyframes animate-left-1 {
+    0% {
+        translate: 0 0;
+    }
+    45% {
+        translate: 0 0;
+    }
+    55% {
+        translate: -100% 0%;
+    }
+    100% {
+        translate: -100% 0%;
+    }
+}
+@keyframes animate-left-2 {
+    0% {
+        translate: 100% 0;
+    }
+    45% {
+        translate: 100% 0;
+    }
+    55% {
+        translate: 0 0;
+    }
+    100% {
+        translate: 0 0;
+    }
+}

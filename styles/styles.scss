@@ -1535,6 +1535,7 @@
 }
 
 .pre-footer {
+    // see 'section' in globals.scss for rest
     align-items: center;
     padding: $body-padding $body-padding 12rem;
     height: unset;
@@ -1542,10 +1543,14 @@
     box-shadow: none;
 
     &-brands {
-        @include row-center;
+        display: flex;
+        height: 70px;
         gap: 8rem;
         margin-bottom: 8rem;
         
+        @include mq-max('xxl') {
+            height: 56px;
+        }
         @include mq-max('xl') {
             gap: 4rem;
         }
@@ -1559,7 +1564,9 @@
             margin: 4rem 0 8rem 0;
         }
         
-        img {
+        .brand-wrapper {
+            overflow: hidden;
+            position: relative;
             width: 18rem;
             
             @include mq-max('md') {
@@ -1568,6 +1575,73 @@
 
             @include mq-max('sm') {
                 width: 10rem;
+            }
+
+            .brand-img {
+                position: absolute;
+                animation-duration: 10s;
+                animation-timing-function: $cubic-in-out;
+                animation-iteration-count: infinite;
+                animation-direction: alternate-reverse;
+            }
+
+            &-animate-up {
+
+                .brand-img {
+                    animation-name: animate-up-1;
+                    
+                    &:nth-of-type(2) {
+                        animation-name: animate-up-2;
+                    }
+                }
+            }
+
+            &-animate-right {
+
+                .brand-img {
+                    animation-name: animate-right-1;
+                    animation-delay: 0.24s;
+                    
+                    &:nth-of-type(2) {
+                        animation-name: animate-right-2;
+                    }
+                }
+            }
+
+            &-animate-up-2 {
+
+                .brand-img {
+                    animation-name: animate-up-1;
+                    animation-delay: 0.48s;
+                    
+                    &:nth-of-type(2) {
+                        animation-name: animate-up-2;
+                    }
+                }
+            }
+
+            &-animate-down {
+
+                .brand-img {
+                    animation-name: animate-down-1;
+                    animation-delay: 0.72s;
+                    
+                    &:nth-of-type(2) {
+                        animation-name: animate-down-2;
+                    }
+                }
+            }
+
+            &-animate-left {
+
+                .brand-img {
+                    animation-name: animate-left-1;
+                    animation-delay: 0.96s;
+                    
+                    &:nth-of-type(2) {
+                        animation-name: animate-left-2;
+                    }
+                }
             }
         }
     }
@@ -1658,7 +1732,7 @@
         }
     }
 
-    figure {
+    &-img {
         position: absolute;
         top: 50%;
         translate: 0 -50%;
@@ -1743,7 +1817,6 @@
     }
 
     &-img-2 {
-        position: relative;
         right: calc($body-padding * 2);
         width: min(11vw, 20rem);
 

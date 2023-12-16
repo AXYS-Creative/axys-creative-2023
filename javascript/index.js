@@ -26,3 +26,15 @@ import "./lenis.js";
 
   window.addEventListener("resize", checkWidthAndRefresh);
 })();
+
+// Clear focus from any element on mousemove (remove button :focus styles)
+(function clearFocusOnMouseMove() {
+  function removeFocus() {
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+  }
+  // Set up event listeners
+  document.addEventListener("mousemove", removeFocus);
+  window.addEventListener("scroll", removeFocus, true);
+})();
