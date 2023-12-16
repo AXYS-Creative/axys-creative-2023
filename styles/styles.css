@@ -2659,7 +2659,7 @@ section:first-of-type {
 }
 .pre-footer-brands .brand-wrapper .brand-img {
   position: absolute;
-  animation-duration: 10s;
+  animation-duration: 8s;
   animation-timing-function: cubic-bezier(0.5, -0.25, 0.5, 1.25);
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;

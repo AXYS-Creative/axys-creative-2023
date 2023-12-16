@@ -106,6 +106,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
+//
 // Adjusting the window position on tab
 const tabElements = [
   {
@@ -155,18 +156,35 @@ const tabElements = [
   },
 ];
 
-function sectionTabbing(triggerElement, offset) {
-  const elementPosition =
-    triggerElement.getBoundingClientRect().top + window.pageYOffset;
-  const viewportHeight = window.innerHeight;
-  const desiredPosition =
-    elementPosition - viewportHeight + triggerElement.offsetHeight + offset;
+// This includes logic tto differentiate between mouse(focus) and tab(focus)
+const smartTabbing = (() => {
+  let focusFromKeyboard = false;
 
-  window.scrollTo({ top: desiredPosition, behavior: "smooth" });
-}
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
+      focusFromKeyboard = true;
+    }
+  });
 
-tabElements.forEach((item) => {
-  item.element.addEventListener("focus", () =>
-    sectionTabbing(item.target, item.offset)
-  );
-});
+  document.addEventListener("click", () => {
+    focusFromKeyboard = false;
+  });
+
+  function sectionTabbing(triggerElement, offset) {
+    if (!focusFromKeyboard) return;
+
+    const elementPosition =
+      triggerElement.getBoundingClientRect().top + window.pageYOffset;
+    const viewportHeight = window.innerHeight;
+    const desiredPosition =
+      elementPosition - viewportHeight + triggerElement.offsetHeight + offset;
+
+    window.scrollTo({ top: desiredPosition, behavior: "smooth" });
+  }
+
+  tabElements.forEach((item) => {
+    item.element.addEventListener("focus", () =>
+      sectionTabbing(item.target, item.offset)
+    );
+  });
+})();
