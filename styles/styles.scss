@@ -303,7 +303,7 @@
 
 .work {
     position: relative;
-    height: unset;
+    // height: unset;
     border: none;
     box-shadow: none;
 
@@ -313,10 +313,11 @@
 
     &-title {
         // See _global.scss for full styles
+        // border: $test;
         // color: $yellow;
-        margin-left: unset;
         overflow: hidden;
         width: 100%;
+        height: 100%;
         
         // @include mq-min('md') {
         //     margin-left: unset;
@@ -332,46 +333,24 @@
     }
 
     .work-item {
+        opacity: 0.2;
         position: absolute;
         top: 50%;
         right: 0;
+        translate: 0 -50%;
         width: 48rem;
         height: 36rem;
         background: $black;
         z-index: -1;
 
+        @include mq-max('md') {
+            translate: 0 46%;
+        }
+
         @include mq-max('sm') {
             width: 32rem;
             height: 24rem;
             translate: 0 0;
-        }
-        
-        &-1,
-        &-2,
-        &-3 {
-            translate: 0 -132%;
-
-            @include mq-max('xxl') {
-                translate: 0 -120%;
-            }
-    
-            @include mq-max('md') {
-                translate: 0 46%;
-            }
-        }
-
-        &-4,
-        &-5,
-        &-6 {
-            translate: 0 -20%;
-
-            @include mq-max('xxl') {
-                translate: 0 -8%;
-            }
-    
-            @include mq-max('md') {
-                translate: 0 0;
-            }
         }
 
         img {
@@ -1556,12 +1535,15 @@
         }
 
         @include mq-max('md') {
-            gap: 2rem;
+            gap: 1.2rem;
+            height: 35px;
+            justify-content: center;
         }
 
         @include mq-max('sm') {
             flex-wrap: wrap;
             margin: 4rem 0 8rem 0;
+            height: 80px;
         }
         
         .brand-wrapper {

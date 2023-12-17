@@ -36,5 +36,5 @@ import "./lenis.js";
   }
   // Set up event listeners
   document.addEventListener("mousemove", removeFocus);
-  window.addEventListener("scroll", removeFocus, true);
+  // window.addEventListener("scroll", removeFocus, true); // Buggy with tabbing to new sections
 })();

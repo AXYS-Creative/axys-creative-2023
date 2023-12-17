@@ -156,7 +156,7 @@ const tabElements = [
   },
 ];
 
-// This includes logic tto differentiate between mouse(focus) and tab(focus)
+// This includes logic to differentiate between mouse(focus) and tab(focus)
 const smartTabbing = (() => {
   let focusFromKeyboard = false;
 
@@ -179,7 +179,8 @@ const smartTabbing = (() => {
     const desiredPosition =
       elementPosition - viewportHeight + triggerElement.offsetHeight + offset;
 
-    window.scrollTo({ top: desiredPosition, behavior: "smooth" });
+    // window.scrollTo({ top: desiredPosition, behavior: "smooth" });
+    window.scrollTo({ top: desiredPosition });
   }
 
   tabElements.forEach((item) => {
