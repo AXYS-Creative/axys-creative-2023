@@ -117,147 +117,88 @@ const gsapAnimations = () => {
         scrollTrigger: {
           trigger: ".work",
           start: screenLg ? "top 3%" : "top 16%",
-          end: "+600%",
+          end: "+480%",
           pin: true,
         },
       });
 
       // Description - Shifting project images in Work Section
-      const animateWorkItem = (
-        itemClass,
-        startXSmall,
-        startXMedium,
-        startXLarge,
-        endXSmall,
-        endXMedium,
-        endXLarge,
-        scrubValue,
-        endTransition
-      ) => {
-        gsap.fromTo(
-          itemClass,
-          {
-            x: screenSm ? startXSmall : screenMd ? startXMedium : startXLarge,
-          },
-          {
-            x: screenSm ? endXSmall : screenMd ? endXMedium : endXLarge,
-            scrollTrigger: {
-              trigger: ".work",
-              scrub: scrubValue,
-              ease: "none",
-              start: "top 25%",
-              end: endTransition,
-            },
-          }
-        );
-      };
 
-      // animateWorkItem(
-      //   ".work-item-1",
-      //   "40vw",
-      //   "50vw",
-      //   "120vw",
-      //   "-180vw",
-      //   // "-70vw",
-      //   "-200vw",
-      //   "-320vw",
-      //   0.4,
-      //   "+600%"
-      // );
-      // animateWorkItem(
-      //   ".work-item-2",
-      //   "70vw",
-      //   "100vw",
-      //   "200vw",
-      //   "-150vw",
-      //   // "-40vw",
-      //   "-150vw",
-      //   "-240vw",
-      //   0.5,
-      //   "+600%"
-      // );
-      // animateWorkItem(
-      //   ".work-item-3",
-      //   "100vw",
-      //   "150vw",
-      //   "280vw",
-      //   "-120vw",
-      //   // "-10vw",
-      //   "-100vw",
-      //   "-160vw",
-      //   0.6,
-      //   "+600%"
-      // );
-      // animateWorkItem(
-      //   ".work-item-4",
-      //   "40vw",
-      //   "50vw",
-      //   "120vw",
-      //   "-180vw",
-      //   // "-70vw",
-      //   "-200vw",
-      //   "-320vw",
-      //   0.7,
-      //   "+900%"
-      // );
-
-      const work1Timeline = gsap.timeline({
+      const workItem1TL = gsap.timeline({
         scrollTrigger: {
           trigger: ".work",
-          scrub: 1,
+          scrub: 0.12,
           start: "top 25%",
-          end: "+480%",
+          end: "+600%",
         },
       });
 
-      work1Timeline
-        .fromTo(
-          ".work-item-1",
-          {
-            x: "40vw",
-          },
-          {
-            x: "-68vw",
-          }
-        )
-        .to(".work-item-1", {
-          x: "-68vw",
-        })
-        // .to(".work-item-1", {
-        //   x: "-64vw",
-        // })
-        .to(".work-item-1", {
-          x: "-120vw",
-        });
+      workItem1TL.fromTo(
+        ".work-item-1",
+        {
+          x: "32vw",
+        },
+        {
+          x: "-200vw",
+        }
+      );
 
-      const work2Timeline = gsap.timeline({
+      const workItem2TL = gsap.timeline({
         scrollTrigger: {
           trigger: ".work",
-          scrub: 1.2,
+          scrub: 0.24,
           start: "top 25%",
-          end: "+480%",
+          end: "+600%",
         },
       });
 
-      work2Timeline
-        .fromTo(
-          ".work-item-2",
-          {
-            x: "64vw",
-          },
-          {
-            x: "-44vw",
-          }
-        )
-        .to(".work-item-2", {
-          x: "-44vw",
-        })
-        // .to(".work-item-2", {
-        //   x: "-64vw",
-        // })
-        .to(".work-item-2", {
-          x: "-96vw",
-        });
+      workItem2TL.fromTo(
+        ".work-item-2",
+        {
+          x: "59vw",
+        },
+        {
+          x: "-173vw",
+        }
+      );
+
+      const workItem3TL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".work",
+          scrub: 0.36,
+          start: "top 25%",
+          end: "+600%",
+        },
+      });
+
+      workItem3TL.fromTo(
+        ".work-item-3",
+        {
+          x: "86vw",
+        },
+        {
+          x: "-146vw",
+        }
+      );
+
+      const workItem4TL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".work",
+          scrub: 0.36,
+          start: "top 25%",
+          end: "+600%",
+        },
+      });
+
+      workItem4TL.fromTo(
+        ".work-item-4",
+        {
+          x: "113vw",
+        },
+        {
+          x: "-119vw",
+        }
+      );
       // END - Shifting project images
 
       // Descriptiion - Animate the membership prcing cards
@@ -315,25 +256,17 @@ const gsapAnimations = () => {
   // Query only for large screen animations (Shift Work Title)
   mm.add("(min-width: 768px)", () => {
     // Shift Title Text for Work Section. Large screens only***
-    const workTitleTimeline = gsap.timeline({
+    const shiftWorkTitle = gsap.timeline({
       scrollTrigger: {
         trigger: ".work",
         scrub: true,
         start: "top 25%",
-        end: "+560%",
+        end: "+640%",
       },
     });
 
-    workTitleTimeline
-      .fromTo(
-        ".word-selected",
-        {
-          translateY: 0,
-        },
-        {
-          translateY: 0,
-        }
-      )
+    shiftWorkTitle
+      // .fromTo(
       .fromTo(
         ".word-selected",
         {
@@ -341,35 +274,24 @@ const gsapAnimations = () => {
         },
         {
           translateX: 0,
+          duration: 0.2,
         }
       )
       .to(".word-selected", {
         translateX: 0,
-      })
-      .to(".word-selected", {
-        translateY: "50vh",
+        duration: 0.7,
       });
 
-    const workTitleTimeline2 = gsap.timeline({
+    const shiftWorkTitle2 = gsap.timeline({
       scrollTrigger: {
         trigger: ".work",
         scrub: true,
         start: "top 25%",
-        end: "+560%",
-        // markers: navyMarkers,
+        end: "+640%",
       },
     });
 
-    workTitleTimeline2
-      .fromTo(
-        ".word-work",
-        {
-          translateY: 0,
-        },
-        {
-          translateY: "50vh",
-        }
-      )
+    shiftWorkTitle2
       .fromTo(
         ".word-work",
         {
@@ -377,13 +299,11 @@ const gsapAnimations = () => {
         },
         {
           translateX: 0,
+          duration: 0.4,
         }
       )
-      .to(".word-work", {
+      .to(".word-selected", {
         translateX: 0,
-      })
-      .to(".word-work", {
-        translateY: "50vh",
       });
   });
 
@@ -412,7 +332,7 @@ const gsapAnimations = () => {
     });
   };
 
-  animateTitleLetters(".work-title-letter", ".work", "+600% top");
+  animateTitleLetters(".work-title-letter", ".work", "+480% top");
   animateTitleLetters(".perks-title-letter", ".perks", "50% 32%");
   animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
   animateTitleLetters(".membership-title-letter-sm", ".membership", "50% 32%");
