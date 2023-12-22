@@ -123,82 +123,36 @@ const gsapAnimations = () => {
       });
 
       // Description - Shifting project images in Work Section
+      function createWorkItemTimeline(itemNumber, scrubFactor, startX, endX) {
+        return gsap.timeline({
+          scrollTrigger: {
+            trigger: ".work",
+            scrub: scrubFactor,
+            start: "top 25%",
+            end: "+600%"
+          },
+        }).fromTo(
+          `.work-item-${itemNumber}`,
+          { x: startX },
+          { x: endX }
+        );
+      }
+      
+      const workItems = [
+        { startX: "-68vw", endX: "-200vw" },
+        { startX: "59vw", endX: "-173vw" },
+        { startX: "86vw", endX: "-146vw" },
+        { startX: "113vw", endX: "-119vw" },
+        { startX: "140vw", endX: "-92vw" },
+        { startX: "167vw", endX: "-65vw" },
+        { startX: "194vw", endX: "-38vw" },
+        { startX: "221vw", endX: "-11vw" }
+      ];
+      
+      workItems.forEach((item, index) => {
+        createWorkItemTimeline(index + 1, 0.12 * (index + 1), item.startX, item.endX);
+      });      
 
-      const workItem1TL = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".work",
-          scrub: 0.12,
-          start: "top 25%",
-          end: "+600%",
-        },
-      });
-
-      workItem1TL.fromTo(
-        ".work-item-1",
-        {
-          x: "32vw",
-        },
-        {
-          x: "-200vw",
-        }
-      );
-
-      const workItem2TL = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".work",
-          scrub: 0.24,
-          start: "top 25%",
-          end: "+600%",
-        },
-      });
-
-      workItem2TL.fromTo(
-        ".work-item-2",
-        {
-          x: "59vw",
-        },
-        {
-          x: "-173vw",
-        }
-      );
-
-      const workItem3TL = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".work",
-          scrub: 0.36,
-          start: "top 25%",
-          end: "+600%",
-        },
-      });
-
-      workItem3TL.fromTo(
-        ".work-item-3",
-        {
-          x: "86vw",
-        },
-        {
-          x: "-146vw",
-        }
-      );
-
-      const workItem4TL = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".work",
-          scrub: 0.36,
-          start: "top 25%",
-          end: "+600%",
-        },
-      });
-
-      workItem4TL.fromTo(
-        ".work-item-4",
-        {
-          x: "113vw",
-        },
-        {
-          x: "-119vw",
-        }
-      );
       // END - Shifting project images
 
       // Descriptiion - Animate the membership prcing cards
