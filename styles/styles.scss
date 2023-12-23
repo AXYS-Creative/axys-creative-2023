@@ -1987,10 +1987,10 @@
 
     &-logo {
         @include absolute-center;
-        width: 20rem;
+        width: 16rem;
 
         @include mq-max('md') {
-            width: 16rem;
+            width: 14rem;
             top: unset;
             left: unset;
             bottom: calc($body-padding * 2);
@@ -2000,11 +2000,11 @@
         
         @include mq-max('md') {
             right: $body-padding;
-            width: 12rem;
+            width: 10rem;
         }
 
         @include mq-max('sm') {
-            width: 10rem;
+            width: 8.6rem;
         }
     }
 
