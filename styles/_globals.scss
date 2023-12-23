@@ -794,7 +794,6 @@ section {
     filter: drop-shadow(2px 2px 0 $black);
     scale: 0.5;
     opacity: 0;
-    display: none;
 
     &.active {
         opacity: 1;

@@ -130,11 +130,14 @@ const gsapAnimations = () => {
               trigger: ".work",
               scrub: scrubFactor,
               start: "top 70%",
-              end: "+600%",
+              end: "+580%",
+              ease: "none",
               // markers: navyMarkers,
             },
           })
-          .to(`.work-item-${itemNumber}`, { x: "-96vw" });
+          .to(`.work-item-${itemNumber}`, {
+            x: screenSm ? "-539vw" : screenMd ? "-271vw" : "-113vw",
+          });
       }
 
       const workItems = document.querySelectorAll(".work-item");
@@ -205,7 +208,7 @@ const gsapAnimations = () => {
         trigger: ".work",
         scrub: true,
         start: "top 10%",
-        end: "+640%",
+        end: "+620%",
       },
     });
 
@@ -218,36 +221,27 @@ const gsapAnimations = () => {
         },
         {
           translateX: 0,
-          delay: 0.12,
         }
-      )
-      .to(".word-selected", {
-        translateX: 0,
-      });
+      );
 
     const shiftWorkTitle2 = gsap.timeline({
       scrollTrigger: {
         trigger: ".work",
         scrub: true,
         start: "top 10%",
-        end: "+640%",
+        end: "+620%",
       },
     });
 
-    shiftWorkTitle2
-      .fromTo(
-        ".word-work",
-        {
-          translateX: "60%",
-        },
-        {
-          translateX: 0,
-          delay: 0.12,
-        }
-      )
-      .to(".word-selected", {
+    shiftWorkTitle2.fromTo(
+      ".word-work",
+      {
+        translateX: "60%",
+      },
+      {
         translateX: 0,
-      });
+      }
+    );
   });
 
   // Description - Animating the letters of each Section Title

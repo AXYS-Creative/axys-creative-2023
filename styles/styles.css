@@ -757,7 +757,6 @@ section:first-of-type {
   filter: drop-shadow(2px 2px 0 #313131);
   scale: 0.5;
   opacity: 0;
-  display: none;
 }
 .bubble.active {
   opacity: 1;
@@ -1470,8 +1469,6 @@ section:first-of-type {
 .work-title {
   overflow: hidden;
   width: 100%;
-  user-select: none;
-  pointer-events: none;
 }
 .work-title .word-wrapper {
   height: min(12vw, 22rem);
@@ -1490,10 +1487,12 @@ section:first-of-type {
 .work .work-item {
   width: 48rem;
   height: 36rem;
-  z-index: -1;
 }
 .work .work-item:hover img {
-  scale: 1.04;
+  translate: 0 -24px;
+}
+.work .work-item:hover figcaption {
+  translate: 0 -100%;
 }
 @media screen and (max-width: 480px) {
   .work .work-item {
@@ -1501,14 +1500,33 @@ section:first-of-type {
     height: 24rem;
     translate: 0 0;
   }
+  .work .work-item:hover img {
+    translate: 0 0;
+  }
+  .work .work-item:hover figcaption {
+    translate: 0 0;
+  }
 }
 .work .work-item img {
+  border: 2px solid #313131;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px #313131;
   height: 100%;
   object-fit: cover;
   transition: 0.4s ease;
 }
 .work .work-item figcaption {
+  position: absolute;
   color: #fafafa;
+  font-size: max(14px, 1.6rem);
+  translate: 0 -200%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+@media screen and (max-width: 480px) {
+  .work .work-item figcaption {
+    translate: 0 40%;
+  }
 }
 
 .perks-title {
