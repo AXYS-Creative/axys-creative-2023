@@ -313,8 +313,6 @@
 
     &-title {
         // See _global.scss for full styles
-        // border: $test;
-        // color: $yellow;
         overflow: hidden;
         width: 100%;
         user-select: none;
@@ -333,10 +331,12 @@
         }
     }
 
+    .work-items-wrapper {
+        @include row-between;
+        gap: 24px;
+    }
+
     .work-item {
-        position: absolute;
-        top: 100%;
-        right: 0;
         width: 48rem;
         height: 36rem;
         z-index: -1;

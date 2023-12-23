@@ -123,35 +123,25 @@ const gsapAnimations = () => {
       });
 
       // Description - Shifting project images in Work Section
-      function createWorkItemTimeline(itemNumber, scrubFactor, startX, endX) {
-        return gsap.timeline({
-          scrollTrigger: {
-            trigger: ".work",
-            scrub: scrubFactor,
-            start: "top 25%",
-            end: "+600%"
-          },
-        }).fromTo(
-          `.work-item-${itemNumber}`,
-          { x: startX },
-          { x: endX }
-        );
+      function workItemTimeline(itemNumber, scrubFactor) {
+        return gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".work",
+              scrub: scrubFactor,
+              start: "top 70%",
+              end: "+600%",
+              // markers: navyMarkers,
+            },
+          })
+          .to(`.work-item-${itemNumber}`, { x: "-96vw" });
       }
-      
-      const workItems = [
-        { startX: "-68vw", endX: "-200vw" },
-        { startX: "59vw", endX: "-173vw" },
-        { startX: "86vw", endX: "-146vw" },
-        { startX: "113vw", endX: "-119vw" },
-        { startX: "140vw", endX: "-92vw" },
-        { startX: "167vw", endX: "-65vw" },
-        { startX: "194vw", endX: "-38vw" },
-        { startX: "221vw", endX: "-11vw" }
-      ];
-      
-      workItems.forEach((item, index) => {
-        createWorkItemTimeline(index + 1, 0.12 * (index + 1), item.startX, item.endX);
-      });      
+
+      const workItems = document.querySelectorAll(".work-item");
+
+      workItems.forEach((el, index) => {
+        workItemTimeline(index + 1, 0.12 * (index + 1));
+      });
 
       // END - Shifting project images
 
@@ -214,7 +204,7 @@ const gsapAnimations = () => {
       scrollTrigger: {
         trigger: ".work",
         scrub: true,
-        start: "top 25%",
+        start: "top 10%",
         end: "+640%",
       },
     });
@@ -228,19 +218,18 @@ const gsapAnimations = () => {
         },
         {
           translateX: 0,
-          duration: 0.2,
+          delay: 0.12,
         }
       )
       .to(".word-selected", {
         translateX: 0,
-        duration: 0.7,
       });
 
     const shiftWorkTitle2 = gsap.timeline({
       scrollTrigger: {
         trigger: ".work",
         scrub: true,
-        start: "top 25%",
+        start: "top 10%",
         end: "+640%",
       },
     });
@@ -253,7 +242,7 @@ const gsapAnimations = () => {
         },
         {
           translateX: 0,
-          duration: 0.4,
+          delay: 0.12,
         }
       )
       .to(".word-selected", {
