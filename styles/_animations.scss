@@ -22,6 +22,13 @@
     }
 }
 
+// For hero and pre-footer title letter animations
+@keyframes title-text {
+    to {
+        translate: 0 0;
+    }
+}
+
 @keyframes hero-sub-text {
     0% {
         background-size: 0 100%;
@@ -142,18 +149,18 @@
         translate: 0 0;
     }
     55% {
-        translate: 0 -100%
+        translate: 0 -125%
     }
     100% {
-        translate: 0 -100%
+        translate: 0 -125%
     }
 }
 @keyframes animate-up-2 {
     0% {
-        translate: 0 100%;
+        translate: 0 125%;
     }
     45% {
-        translate: 0 100%;
+        translate: 0 125%;
     }
     55% {
         translate: 0 0;
@@ -171,18 +178,18 @@
         translate: 0 0;
     }
     55% {
-        translate: 100% 0%;
+        translate: 125% 0%;
     }
     100% {
-        translate: 100% 0%;
+        translate: 125% 0%;
     }
 }
 @keyframes animate-right-2 {
     0% {
-        translate: -100% 0;
+        translate: -125% 0;
     }
     45% {
-        translate: -100% 0;
+        translate: -125% 0;
     }
     55% {
         translate: 0 0;
@@ -200,18 +207,18 @@
         translate: 0 0;
     }
     55% {
-        translate: 0 100%
+        translate: 0 125%
     }
     100% {
-        translate: 0 100%
+        translate: 0 125%
     }
 }
 @keyframes animate-down-2 {
     0% {
-        translate: 0 -100%;
+        translate: 0 -125%;
     }
     45% {
-        translate: 0 -100%;
+        translate: 0 -125%;
     }
     55% {
         translate: 0 0;
@@ -229,18 +236,18 @@
         translate: 0 0;
     }
     55% {
-        translate: -100% 0%;
+        translate: -125% 0%;
     }
     100% {
-        translate: -100% 0%;
+        translate: -125% 0%;
     }
 }
 @keyframes animate-left-2 {
     0% {
-        translate: 100% 0;
+        translate: 125% 0;
     }
     45% {
-        translate: 100% 0;
+        translate: 125% 0;
     }
     55% {
         translate: 0 0;

@@ -20,7 +20,7 @@ const questionsData = [
   {
     question: "How does the pause feature work?",
     answer:
-      "When your workload becomes light, we can freeze your subscription & prevent all charges. Since memberships are billed monthly, we'll still be able to provide services for however many remaining days were left in the month when you paused. These days are acceptable for service anytime in the future!",
+      "When your workload becomes light, we can freeze 🥶 your subscription & prevent all charges. Since memberships are billed monthly, we'll still be able to provide services for however many remaining days were left in the month when you paused. These days are acceptable for service anytime in the future!",
   },
   {
     question: "How quickly do you deliver?",

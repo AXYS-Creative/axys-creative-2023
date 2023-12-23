@@ -50,21 +50,56 @@ const nonGsapAnimations = () => {
     let scrollPosition = window.scrollY;
 
     // Description - Function for reusable parallax
-    const handleParallax = (element, xValue, scrollMultiplier, yOffset) => {
-      document.querySelector(element).style.translate = `${xValue} calc(${
-        scrollPosition * scrollMultiplier
-      }px - ${yOffset})`;
+    const handleParallax = (
+      element,
+      referenceElement,
+      xValue,
+      scrollMultiplier,
+      yOffset
+    ) => {
+      if (referenceElement) {
+        const elementTop =
+          document.querySelector(referenceElement).getBoundingClientRect().top +
+          window.scrollY;
+        const relativeScrollPosition = window.scrollY - elementTop;
+
+        document.querySelector(element).style.translate = `${xValue} calc(${
+          relativeScrollPosition * scrollMultiplier
+        }px - ${yOffset})`;
+      } else {
+        document.querySelector(element).style.translate = `${xValue} calc(${
+          scrollPosition * scrollMultiplier
+        }px - ${yOffset})`;
+      }
     };
 
-    handleParallax(".hero-bubble-1", "-100%", -0.18, "10%");
-    handleParallax(".hero-bubble-2", "-45%", -0.26, "75%");
-    handleParallax(".hero-bubble-3", "22%", -0.1, "25%");
-    handleParallax(".perks-bubble-1", "-72%", -0.14, "-340%");
-    handleParallax(".perks-bubble-2", "-16%", -0.2, "-320%");
-    handleParallax(".membership-bubble-1", "-24%", -0.2, "-600%");
-    handleParallax(".membership-bubble-2", "-60%", -0.1, "-280%");
-    handleParallax(".questions-bubble-1", "-46%", -0.1, "-320%");
-    handleParallax(".questions-bubble-2", "0%", -0.2, "-840%");
+    handleParallax(".hero-bubble-1", null, "-100%", -0.18, "10%");
+    handleParallax(".hero-bubble-2", null, "-45%", -0.26, "75%");
+    handleParallax(".hero-bubble-3", null, "22%", -0.1, "25%");
+    handleParallax(".perks-bubble-1", ".perks-img", "-64%", -0.14, "52%"); // Yellow Bubble
+    handleParallax(".perks-bubble-2", ".perks-img", "-24%", -0.2, "116%"); // Grey Bubble
+    handleParallax(
+      ".membership-bubble-1",
+      ".membership-img",
+      "-24%",
+      -0.2,
+      "86%"
+    ); // Orange Bubble
+    handleParallax(
+      ".membership-bubble-2",
+      ".membership-img",
+      "-64%",
+      -0.1,
+      "124%"
+    ); // Green Bubble
+    handleParallax(
+      ".questions-bubble-1",
+      ".questions-img",
+      "-46%",
+      -0.1,
+      "64%"
+    ); // Purple Bubble
+    handleParallax(".questions-bubble-2", ".questions-img", "0%", -0.2, "156%"); // Yellow Bubble
 
     // Don't worry about altering these media queries until the work section is done
     if (mqMinXxl.matches) {
@@ -131,7 +166,7 @@ const gsapAnimations = () => {
               scrub: scrubFactor,
               start: "top 70%",
               end: "+580%",
-              ease: "none",
+              ease: "linear",
               // markers: navyMarkers,
             },
           })
@@ -245,7 +280,12 @@ const gsapAnimations = () => {
   });
 
   // Description - Animating the letters of each Section Title
-  const animateTitleLetters = (selector, triggerSelector, end, markers) => {
+  const animateTitleLetters = (
+    selector,
+    triggerSelector,
+    end = "50% 32%",
+    markers
+  ) => {
     const titleLetters = document.querySelectorAll(selector);
 
     titleLetters.forEach((letter, index) => {
@@ -270,11 +310,11 @@ const gsapAnimations = () => {
   };
 
   animateTitleLetters(".work-title-letter", ".work", "+480% top");
-  animateTitleLetters(".perks-title-letter", ".perks", "50% 32%");
-  animateTitleLetters(".membership-title-letter", ".membership", "50% 32%");
-  animateTitleLetters(".membership-title-letter-sm", ".membership", "50% 32%");
-  animateTitleLetters(".questions-title-letter", ".questions", "50% 32%");
-  animateTitleLetters(".questions-title-letter-sm", ".questions", "50% 32%");
+  animateTitleLetters(".perks-title-letter", ".perks");
+  animateTitleLetters(".membership-title-letter", ".membership");
+  animateTitleLetters(".membership-title-letter-sm", ".membership");
+  animateTitleLetters(".questions-title-letter", ".questions");
+  animateTitleLetters(".questions-title-letter-sm", ".questions");
 
   // Description - Function to toggle the '.active' css class. Used in Perks, Membership, & Questions Section.
   const toggleClassActive = (selector, trigger, start, end, markers) => {
@@ -380,15 +420,15 @@ const gsapAnimations = () => {
   );
   toggleClassActive(
     ".questions-bubble-1",
-    ".questions",
-    "top center",
-    "40% 5%"
+    ".questions-peep-wrapper",
+    "top 75%",
+    "center top"
   );
   toggleClassActive(
     ".questions-bubble-2",
-    ".questions",
-    "top center",
-    "40% 5%"
+    ".questions-peep-wrapper",
+    "top 75%",
+    "center top"
   );
   toggleClassActive(
     ".thought-cloud",
@@ -399,10 +439,22 @@ const gsapAnimations = () => {
 
   // Pre Footer
   toggleClassActive(
+    ".pre-footer-title",
+    ".pre-footer",
+    "top 60%",
+    "bottom top"
+  );
+  toggleClassActive(
     ".pre-footer-img-1-peep-wrapper",
     ".pre-footer",
     "top center",
     "50% top"
+  );
+  toggleClassActive(
+    ".pre-footer-cta",
+    ".pre-footer-main",
+    "top 40%",
+    "bottom top"
   );
   toggleClassActive(
     ".pre-footer-img-1-bubble-1",
@@ -486,6 +538,12 @@ const gsapAnimations = () => {
   animateSectionDescription(
     ".questions-description",
     ".questions-description",
+    "top 80%",
+    "bottom 20%"
+  );
+  animateSectionDescription(
+    ".pre-footer-description",
+    ".pre-footer-description",
     "top 80%",
     "bottom 20%"
   );
