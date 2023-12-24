@@ -413,8 +413,8 @@ section {
 }
 @media screen and (max-width: 480px) {
   section {
-    height: 72rem;
-    min-height: 420px;
+    height: calc(100vh - 48px);
+    height: calc(100dvh - 1.8rem);
     margin: 1.8rem auto;
     box-shadow: 2px 2px 0 #313131;
   }
@@ -870,9 +870,9 @@ section:first-of-type {
     width: 14px;
   }
 }
-@media screen and (max-width: 480px) {
+@media (hover: none) {
   .custom-cursor {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -1250,6 +1250,11 @@ section:first-of-type {
     padding: 0 0 2rem;
     font-size: 4.2rem;
     width: 35.4rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  .hero-sub-title {
+    width: 55.6rem;
   }
 }
 .hero-sub-title span {
@@ -2023,6 +2028,11 @@ section:first-of-type {
     font-size: 16px;
   }
 }
+@media screen and (max-width: 480px) {
+  .membership-card ul .tooltip-indicator i {
+    font-size: 14px;
+  }
+}
 .membership-card ul .tooltip {
   position: absolute;
   top: 0;
@@ -2118,6 +2128,11 @@ section:first-of-type {
   .membership-card-1 .ribbon {
     right: 2%;
     width: 8.6rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  .membership-card-1 .ribbon {
+    width: 14rem;
   }
 }
 .membership-card-1 .ribbon svg {
@@ -2261,6 +2276,11 @@ section:first-of-type {
 @media screen and (max-width: 480px) {
   .questions-list {
     margin: 8rem 2rem 4rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  .questions-list {
+    margin: 4rem 2rem 12rem;
   }
 }
 .questions-list .faq-item {
@@ -2428,6 +2448,7 @@ section:first-of-type {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 2rem;
+  font-size: 24px;
 }
 .questions-description p {
   line-height: 120%;
@@ -2657,6 +2678,12 @@ section:first-of-type {
     -webkit-text-stroke-width: 1px;
   }
 }
+@media screen and (max-width: 380px) {
+  .pre-footer-title {
+    font-size: 6rem;
+    width: 54.4rem;
+  }
+}
 .pre-footer-title.active p:nth-of-type(1) span {
   translate: 0 0;
 }
@@ -2867,6 +2894,11 @@ section:first-of-type {
 @media screen and (max-width: 480px) {
   .pre-footer-brands .brand-wrapper {
     width: 10rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  .pre-footer-brands .brand-wrapper {
+    width: 16rem;
   }
 }
 .pre-footer-brands .brand-wrapper .brand-img {
