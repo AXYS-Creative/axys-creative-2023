@@ -66,18 +66,19 @@
         @include mq-max('md') {
             margin-left: $section-inner-padding-small;
             font-size: 4.8rem;
-            width: 64rem;
+            width: 63.6rem;
             padding: 2rem 0 4rem;
         }
 
         @include mq-max('sm') {
             padding: 0 0 2rem;
             font-size: 4.2rem;
-            width: 35.4rem;
+            width: 320px;
         }
 
         @include mq-max('xs') {
-            width: 55.6rem;
+            font-size: 20px;
+            width: 264px;
         }
 
         span {
@@ -157,23 +158,27 @@
         top: 50%;
         right: 6%;
         translate: 0 -24%;
-        width: 64rem;
-        height: 48rem;
-
+        width: min(32vw, 640px);
+        height: min(32vw, 640px);
+        
         @include mq-max('xxl') {
-            width: 56rem;
+            translate: 0 -32%;
+        }
+
+        @include mq-max('lg') {
+            width: 40vw;
+            height: 40vw;
         }
 
         @include mq-max('md') {
-            width: 36rem;
             translate: 0 -16%;
+            width: 48vw;
+            height: 48vw;
         }
-
+        
         @include mq-max('sm') {
-            translate: 0 -20%;
-            width: 14rem;
-            height: 32rem;
-            right: 18%;
+            width: 68vw;
+            height: 68vw;
         }
 
         > * {
@@ -181,8 +186,8 @@
         }
 
         .hero-peep-1 {
-            width: 46%;
-            translate: calc(-50% - 10.6rem) -50%;
+            width: 42%;
+            translate: calc(-50% - 5vw) -50%;
             opacity: 0;
             z-index: 2;
             transition: 1s cubic-bezier(0,0,.2,1.25), opacity 0.5s ease 1.6s;
@@ -193,20 +198,22 @@
             }
             
             
+            @include mq-max('lg') {
+                translate: calc(-50% - 7vw) -50%;
+            }
+
             @include mq-max('md') {
-                width: 58%;
-                translate: calc(-50% - 8rem) -50%;
+                translate: calc(-50% - 8vw) -50%;
             }
             
             @include mq-max('sm') {
-                width: 88%;
-                translate: calc(-50% - 4.8rem) -50%;
+                translate: calc(-50% - 10vw) -50%;
             }
         }
         
         .hero-peep-2 {
-            width: 36%;
-            translate: calc(-50% + 10.6rem) -50%;
+            width: 32%;
+            translate: calc(-50% + 5vw) -50%;
             opacity: 0;
             z-index: 2;
             transition: 1s cubic-bezier(0,0,.2,1.25), opacity 0.5s ease 1.6s;
@@ -216,14 +223,16 @@
                 pointer-events: all;
             }
             
+            @include mq-max('lg') {
+                translate: calc(-50% + 7vw) -50%;
+            }
+
             @include mq-max('md') {
-                width: 48%;
-                translate: calc(-50% + 8rem) -50%;
+                translate: calc(-50% + 8vw) -50%;
             }
             
             @include mq-max('sm') {
-                width: 72%;
-                translate: calc(-50% + 4.8rem) -50%;
+                translate: calc(-50% + 10vw) -50%;
             }
         }
         
@@ -234,66 +243,36 @@
 
         .hero-bubble-1 {
             background-color: $blue; 
-            width: 20rem;
-            height: 20rem;
-            translate: -100% -10%;
+            width: 32%;
+            height: 32%;
+            translate: -92% -16%;
             z-index: 1;
 
             &.active {
                 animation: scale 0.6s $cubic-ease-back 0.7s forwards;
             }
-
-            @include mq-max('md') {
-                width: 14rem;
-                height: 14rem;
-            }
-
-            @include mq-max('sm') {
-                width: 9.2rem;
-                height: 9.2rem;
-            }
         }
 
         .hero-bubble-2 {
             background-color: $yellow; 
-            width: 30rem;
-            height: 30rem;
-            translate: -45% -75%;
+            width: 48%;
+            height: 48%;
+            translate: -40% -75%;
 
             &.active {
                 animation: scale 0.75s $cubic-ease-back 0.8s forwards;
-            }
-
-            @include mq-max('md') {
-                width: 20rem;
-                height: 20rem;
-            }
-
-            @include mq-max('sm') {
-                width: 14rem;
-                height: 14rem;
             }
         }
 
         .hero-bubble-3 {
             background-color: $green; 
-            width: 20rem;
-            height: 20rem;
-            translate: 22% -25%;
+            width: 32%;
+            height: 32%;
+            translate: 24% -25%;
             z-index: -1;
 
             &.active {
                 animation: scale 0.9s $cubic-ease-back 0.9s forwards;
-            }
-
-            @include mq-max('md') {
-                width: 14rem;
-                height: 14rem;
-            }
-
-            @include mq-max('sm') {
-                width: 9.2rem;
-                height: 9.2rem;
             }
         }
     }
@@ -313,13 +292,13 @@
         // See _global.scss for full styles
         overflow: hidden;
         width: 100%;
-        
-        // @include mq-min('md') {
-            //     margin-left: unset;
-            // }
+
+        @include mq-max('sm') {
+            translate: 0 -12%;
+        }
             
-            .word-wrapper {
-                height: min(12vw, 22rem);
+        .word-wrapper {
+            height: min(12vw, 22rem);
             
             @include mq-max('md') {
                 display: inline;
@@ -329,16 +308,22 @@
 
     .work-items-wrapper {
         @include row-between;
-        gap: 24px;
+        gap: 32px;
 
-        // @include mq-max('md') {
-        //     translate: 0 12%;
-        // }
+        @include mq-max('md') {
+            translate: 0 12%;
+            gap: 26px;
+        }
+
+        @include mq-max('sm') {
+            translate: 0 -12%;
+        }
     }
 
     .work-item {
-        width: 48rem;
-        height: 36rem;
+        aspect-ratio: 3 / 2;
+        width: 28vw;
+        height: auto;
 
         &:hover {
 
@@ -351,9 +336,16 @@
             }
         }
 
+        @include mq-max('xxl') {
+            width: 32vw;
+        }
+
+        @include mq-max('md') {
+            width: 320px;
+        }
+
         @include mq-max('sm') {
-            width: 32rem;
-            height: 24rem;
+            width: 300px;
             translate: 0 0;
 
             &:hover {
@@ -604,7 +596,6 @@
 
         @include mq-max('md') {
             bottom: 10%;
-            right: $section-inner-padding-small;
         }
 
         @include mq-max('sm') {
@@ -1342,8 +1333,9 @@
             text-transform: uppercase;
             margin-bottom: 2rem;
 
-            @include mq-max('md') {}
-            font-size: 24px;
+            @include mq-max('md') {
+                font-size: 24px;
+            }
         }
         p {
             line-height: 120%;
@@ -1578,26 +1570,22 @@
         filter: none;
         text-align: justify;
         
-        @include mq-max('xl') {
-            font-size: 10.8rem;
-            width: 93.4rem;
+        @include mq-max('xxl') {
             -webkit-text-stroke-width: 2px;
         }
-        
+
         @include mq-max('md') {
-            font-size:  8rem;
-            width: 69.4rem;
+            font-size: 8vw;
+            width: 69.4vw;
         }
         
         @include mq-max('sm') {
-            font-size: 6.8rem;
-            width: 39.4rem;
             -webkit-text-stroke-width: 1px;
+            width: 72.2vw;
         }
 
         @include mq-max('xs') {
-            font-size: 6rem;
-            width: 54.4rem;
+            width: 73.2vw;
         }
 
         &.active {
@@ -1616,7 +1604,7 @@
             @for $i from 1 through 21 {
                 &:nth-of-type(#{$i}) {
                     span {
-                        transition: (0.12s + 0.04s * $i) $cubic-ease-title (0.04s * ($i - 1));
+                        transition: (0.12s + 0.04s * $i) $cubic-ease-title (0.04s * ($i - 1)), font 0s;
                         
                         @if $i % 2 == 0 {
                             translate: 0 100%;
@@ -1669,7 +1657,7 @@
         @include mq-max('sm') {
             flex-wrap: wrap;
             margin: 4rem 0 8rem 0;
-            height: 80px;
+            height: 96px;
         }
         
         .brand-wrapper {
@@ -1682,11 +1670,11 @@
             }
 
             @include mq-max('sm') {
-                width: 10rem;
+                width: 104px;
             }
 
             @include mq-max('xs') {
-                width: 16rem;
+                width: 92px;
             }
 
             .brand-img {

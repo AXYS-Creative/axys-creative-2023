@@ -73,9 +73,9 @@ const nonGsapAnimations = () => {
       }
     };
 
-    handleParallax(".hero-bubble-1", null, "-100%", -0.18, "10%");
-    handleParallax(".hero-bubble-2", null, "-45%", -0.26, "75%");
-    handleParallax(".hero-bubble-3", null, "22%", -0.1, "25%");
+    handleParallax(".hero-bubble-1", null, "-92%", -0.18, "16%");
+    handleParallax(".hero-bubble-2", null, "-40%", -0.26, "75%");
+    handleParallax(".hero-bubble-3", null, "24%", -0.1, "25%");
     handleParallax(".perks-bubble-1", ".perks-img", "-64%", -0.14, "52%"); // Yellow Bubble
     handleParallax(".perks-bubble-2", ".perks-img", "-24%", -0.2, "116%"); // Grey Bubble
     handleParallax(
@@ -171,7 +171,7 @@ const gsapAnimations = () => {
             },
           })
           .to(`.work-item-${itemNumber}`, {
-            x: screenSm ? "-539vw" : screenMd ? "-271vw" : "-113vw",
+            x: screenSm ? "-572vw" : screenMd ? "-288vw" : "-140vw",
           });
       }
 

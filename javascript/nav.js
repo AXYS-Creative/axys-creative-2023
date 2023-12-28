@@ -47,7 +47,6 @@ menuBtn.addEventListener("click", toggleNav);
 
 // Page scroll behavior (tweak with gsap)
 function smoothScrollTo(targetId, delay = 0) {
-  // console.log(targetId);
   const targetElement = document.querySelector(targetId);
   let pageScrollOffset = mqMaxMd.matches ? 40 : mqMaxXxl.matches ? 32 : 40;
 
@@ -179,7 +178,6 @@ const smartTabbing = (() => {
     const desiredPosition =
       elementPosition - viewportHeight + triggerElement.offsetHeight + offset;
 
-    // window.scrollTo({ top: desiredPosition, behavior: "smooth" });
     window.scrollTo({ top: desiredPosition });
   }
 

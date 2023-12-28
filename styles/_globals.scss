@@ -437,8 +437,8 @@ section {
     }
 
     @include mq-max('sm') {
-        height: calc(100vh - 48px); // Fallback for browsers that don't support
-        height: calc(100dvh - $body-padding-small);
+        height: clamp(420px, calc(100vh - 48px), 100vh);
+        // height: calc(100dvh - $body-padding-small); // Doesn't work well with gsap 
         margin: $body-padding-small auto;
         box-shadow: 2px 2px 0 $black;
     }
@@ -596,6 +596,10 @@ section {
     @include mq-max('md') {
         margin-left: $section-inner-padding-small;
     }
+
+    @include mq-max('xs') {
+        font-size: 16px;
+    }
 }
 
 .section-cta-wrapper {
@@ -669,7 +673,11 @@ section {
     
     @include mq-max('sm') {
         border-width: 1px;
-        padding: 1.6rem 2.8rem;
+        padding: 16px 28px;
+    }
+
+    @include mq-max('xs') {
+        padding: 14px 22px;
     }
 }
 
@@ -803,11 +811,11 @@ section {
         border-width: 2px;
     }
 
-    @include mq-max('md') {
+    @include mq-max('lg') {
         border-width: 1px;
         filter: drop-shadow(1px 1px 0 $black);
     }
-    
+
     @include mq-max('sm') {
         transition: none;
     }

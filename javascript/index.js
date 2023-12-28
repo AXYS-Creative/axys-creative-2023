@@ -1,4 +1,4 @@
-import "./page-loading.js";
+// import "./page-loading.js";
 import "./custom-cursor.js";
 import "./questions.js";
 import "./nav.js";
