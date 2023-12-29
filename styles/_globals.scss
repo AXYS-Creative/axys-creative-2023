@@ -521,7 +521,7 @@ section {
         }
     }
 
-    .title-graphic-wrapper {
+    .title-img-wrapper {
         @include row-center;
         position: absolute;
         z-index: 1;
@@ -552,16 +552,16 @@ section {
                 left: 8%;
             }
 
-            .title-graphic {
-                animation: title-graphic-float 2s ease-in-out infinite alternate-reverse;
+            .title-img {
+                animation: title-img-float 2s ease-in-out infinite alternate-reverse;
             }
 
             &-b {
                 translate: -75% 75%;
                 transition-delay: 1.24s;
 
-                .title-graphic {
-                    animation: title-graphic-float 2s ease-in-out 1s infinite alternate-reverse;
+                .title-img {
+                    animation: title-img-float 2s ease-in-out 1s infinite alternate-reverse;
                 }
             }
         }
@@ -571,16 +571,16 @@ section {
             right: 2%;
             transition-delay: 1.12s;
 
-            .title-graphic {
-                animation: title-graphic-float 2s ease-in-out infinite alternate-reverse;
+            .title-img {
+                animation: title-img-float 2s ease-in-out infinite alternate-reverse;
             }
 
             &-b {
                 translate: 80% -80%;
                 transition-delay: 1.36s;
 
-                .title-graphic {
-                    animation: title-graphic-float 2s ease-in-out 1s infinite alternate-reverse;
+                .title-img {
+                    animation: title-img-float 2s ease-in-out 1s infinite alternate-reverse;
                 }
             }
         }

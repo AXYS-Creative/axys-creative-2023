@@ -73,11 +73,11 @@ const nonGsapAnimations = () => {
       }
     };
 
-    handleParallax(".hero-bubble-1", null, "-92%", -0.18, "16%");
-    handleParallax(".hero-bubble-2", null, "-40%", -0.26, "75%");
-    handleParallax(".hero-bubble-3", null, "24%", -0.1, "25%");
-    handleParallax(".perks-bubble-1", ".perks-img", "-64%", -0.14, "52%"); // Yellow Bubble
-    handleParallax(".perks-bubble-2", ".perks-img", "-24%", -0.2, "116%"); // Grey Bubble
+    handleParallax(".hero-bubble-1", null, "-92%", -0.1, "16%");
+    handleParallax(".hero-bubble-2", null, "-40%", -0.16, "75%");
+    handleParallax(".hero-bubble-3", null, "24%", -0.06, "25%");
+    handleParallax(".perks-bubble-1", ".perks-img", "-64%", -0.08, "52%"); // Yellow Bubble
+    handleParallax(".perks-bubble-2", ".perks-img", "-24%", -0.14, "116%"); // Grey Bubble
     handleParallax(
       ".membership-bubble-1",
       ".membership-img",
@@ -136,9 +136,9 @@ const gsapAnimations = () => {
     indent: 24,
   };
 
-  let mm = gsap.matchMedia();
+  let responsiveGsap = gsap.matchMedia();
 
-  mm.add(
+  responsiveGsap.add(
     {
       screenSm: "(max-width: 480px)",
       screenMd: "(max-width: 768px)",
@@ -167,7 +167,6 @@ const gsapAnimations = () => {
               start: "top 70%",
               end: "+580%",
               ease: "linear",
-              // markers: navyMarkers,
             },
           })
           .to(`.work-item-${itemNumber}`, {
@@ -180,7 +179,6 @@ const gsapAnimations = () => {
       workItems.forEach((el, index) => {
         workItemTimeline(index + 1, 0.12 * (index + 1));
       });
-
       // END - Shifting project images
 
       // Descriptiion - Animate the membership prcing cards
@@ -199,18 +197,18 @@ const gsapAnimations = () => {
             ease: screenMd ? "elastic.out(1, 0.75)" : "elastic.out(1, 0.4)",
             scrollTrigger: {
               trigger: trigger,
-              start: "top 40%",
-              end: "75% top",
+              start: "top 80%",
+              end: "64% top",
               toggleActions: "restart reverse restart reverse",
             },
           }
         );
       };
 
-      animateMembershipCards(".membership-card-1", ".membership", 0);
-      animateMembershipCards(".membership-card-2", ".membership", 0.25);
+      animateMembershipCards(".membership-card-1", ".membership-options", 0);
+      animateMembershipCards(".membership-card-2", ".membership-options", 0.25);
 
-      // Description - Question List animation, be mindful it may clash with hover state.
+      // Description - Question List animation
       gsap.fromTo(
         ".faq-item",
         {
@@ -225,9 +223,9 @@ const gsapAnimations = () => {
           stagger: 0.08,
           ease: screenMd ? "back.out(1)" : "back.out(2)",
           scrollTrigger: {
-            trigger: ".questions",
-            start: "top center",
-            end: "center top",
+            trigger: ".questions-list",
+            start: "top 80%",
+            end: "64% top",
             toggleActions: "restart reverse restart reverse",
           },
         }
@@ -236,7 +234,7 @@ const gsapAnimations = () => {
   );
 
   // Query only for large screen animations (Shift Work Title)
-  mm.add("(min-width: 768px)", () => {
+  responsiveGsap.add("(min-width: 768px)", () => {
     // Shift Title Text for Work Section. Large screens only***
     const shiftWorkTitle = gsap.timeline({
       scrollTrigger: {
@@ -247,17 +245,15 @@ const gsapAnimations = () => {
       },
     });
 
-    shiftWorkTitle
-      // .fromTo(
-      .fromTo(
-        ".word-selected",
-        {
-          translateX: "35%",
-        },
-        {
-          translateX: 0,
-        }
-      );
+    shiftWorkTitle.fromTo(
+      ".word-selected",
+      {
+        translateX: "35%",
+      },
+      {
+        translateX: 0,
+      }
+    );
 
     const shiftWorkTitle2 = gsap.timeline({
       scrollTrigger: {
@@ -283,7 +279,8 @@ const gsapAnimations = () => {
   const animateTitleLetters = (
     selector,
     triggerSelector,
-    end = "50% 32%",
+    start = "top 92%",
+    end = "center 4%",
     markers
   ) => {
     const titleLetters = document.querySelectorAll(selector);
@@ -297,7 +294,7 @@ const gsapAnimations = () => {
           ease: "back.out(2)",
           scrollTrigger: {
             trigger: triggerSelector,
-            start: "top center",
+            start: start,
             end: end,
             toggleActions: "restart reverse restart reverse",
             markers: markers,
@@ -309,15 +306,22 @@ const gsapAnimations = () => {
     });
   };
 
-  animateTitleLetters(".work-title-letter", ".work", "+480% top");
-  animateTitleLetters(".perks-title-letter", ".perks");
+  animateTitleLetters(".work-title-letter", ".work", undefined, "+480% top");
+  animateTitleLetters(".perks-title-letter", ".perks-title");
   animateTitleLetters(".membership-title-letter", ".membership");
   animateTitleLetters(".membership-title-letter-sm", ".membership");
   animateTitleLetters(".questions-title-letter", ".questions");
   animateTitleLetters(".questions-title-letter-sm", ".questions");
 
+  //
   // Description - Function to toggle the '.active' css class. Used in Perks, Membership, & Questions Section.
-  const toggleClassActive = (selector, trigger, start, end, markers) => {
+  const toggleClassActive = (
+    selector,
+    trigger,
+    start = "top 92%",
+    end = "center 4%",
+    markers
+  ) => {
     gsap.to(selector, {
       scrollTrigger: {
         trigger: trigger,
@@ -335,172 +339,47 @@ const gsapAnimations = () => {
     });
   };
 
-  toggleClassActive(".perks-columns", ".perks", "top center", "50% 26%");
-  toggleClassActive(".perks-cta-1", ".perks", "top 16%", "50% 6%");
-  toggleClassActive(".perks-cta-2", ".perks", "top 16%", "50% 6%");
-  toggleClassActive(".perks-peep-wrapper", ".perks", "top center", "50% top");
-  toggleClassActive(".perks-bubble-1", ".perks", "top center", "40% 5%");
-  toggleClassActive(".perks-bubble-2", ".perks", "top center", "40% 5%");
-  toggleClassActive(
-    "#perks-title-graphic-wrapper-1",
-    ".perks-title",
-    "top center",
-    "center top"
-  );
-  toggleClassActive(
-    "#perks-title-graphic-wrapper-1-b",
-    ".perks-title",
-    "top center",
-    "center top"
-  );
-  toggleClassActive(
-    "#perks-title-graphic-wrapper-2",
-    ".perks-title",
-    "top center",
-    "center top"
-  );
-  toggleClassActive(
-    "#perks-title-graphic-wrapper-2-b",
-    ".perks-title",
-    "top center",
-    "center top"
-  );
+  // Perks Section
+  toggleClassActive(".perks-columns", ".perks-columns");
+  toggleClassActive(".perks-cta-1", ".perks-btns");
+  toggleClassActive(".perks-cta-2", ".perks-btns");
+  toggleClassActive(".perks-peep-wrapper", ".perks-peep-wrapper");
+  toggleClassActive(".perks-bubble-1", ".perks-peep-wrapper");
+  toggleClassActive(".perks-bubble-2", ".perks-peep-wrapper");
+  toggleClassActive("#perks-title-img-wrapper-1", ".perks-title");
+  toggleClassActive("#perks-title-img-wrapper-1-b", ".perks-title");
+  toggleClassActive("#perks-title-img-wrapper-2", ".perks-title");
+  toggleClassActive("#perks-title-img-wrapper-2-b", ".perks-title");
 
   // Membership Section
-  toggleClassActive(
-    ".membership-peep-wrapper",
-    ".membership",
-    "top center",
-    "50% top"
-  );
-  toggleClassActive(
-    ".membership-bubble-1",
-    ".membership",
-    "top center",
-    "40% 5%"
-  );
-  toggleClassActive(
-    ".membership-bubble-2",
-    ".membership",
-    "top center",
-    "40% 5%"
-  );
-  toggleClassActive(".ribbon", ".membership", "top center", "40% 5%");
-  toggleClassActive(
-    "#membership-title-graphic-wrapper-2",
-    ".membership-title",
-    "top center",
-    "center top"
-  );
-  toggleClassActive(
-    "#membership-title-graphic-wrapper-2-sm",
-    ".membership-title",
-    "top center",
-    "center top"
-  );
+  toggleClassActive(".membership-peep-wrapper", ".membership-peep-wrapper");
+  toggleClassActive(".membership-bubble-1", ".membership-peep-wrapper");
+  toggleClassActive(".membership-bubble-2", ".membership-peep-wrapper");
+  toggleClassActive(".ribbon", ".membership-options", "top 80%", "64% top");
+  toggleClassActive("#membership-title-img-wrapper-2", ".membership-title");
+  toggleClassActive("#membership-title-img-wrapper-2-sm", ".membership-title");
 
   // Questions Section
-  toggleClassActive(
-    ".questions-cta-1",
-    ".questions-btns",
-    "top 95%",
-    "bottom 15%"
-  );
-  toggleClassActive(
-    ".questions-cta-2",
-    ".questions-btns",
-    "top 95%",
-    "bottom 15%"
-  );
-  toggleClassActive(
-    ".questions-peep-wrapper",
-    ".questions-peep-wrapper",
-    "top 75%",
-    "center top"
-  );
-  toggleClassActive(
-    ".questions-bubble-1",
-    ".questions-peep-wrapper",
-    "top 75%",
-    "center top"
-  );
-  toggleClassActive(
-    ".questions-bubble-2",
-    ".questions-peep-wrapper",
-    "top 75%",
-    "center top"
-  );
-  toggleClassActive(
-    ".thought-cloud",
-    ".thought-cloud",
-    "top center",
-    "center top"
-  );
+  toggleClassActive(".questions-cta-1", ".questions-btns");
+  toggleClassActive(".questions-cta-2", ".questions-btns");
+  toggleClassActive(".questions-peep-wrapper", ".questions-peep-wrapper");
+  toggleClassActive(".questions-bubble-1", ".questions-peep-wrapper");
+  toggleClassActive(".questions-bubble-2", ".questions-peep-wrapper");
+  toggleClassActive(".thought-cloud", ".questions-peep-wrapper");
 
   // Pre Footer
-  toggleClassActive(
-    ".pre-footer-title",
-    ".pre-footer",
-    "top 60%",
-    "bottom top"
-  );
-  toggleClassActive(
-    ".pre-footer-img-1-peep-wrapper",
-    ".pre-footer",
-    "top center",
-    "50% top"
-  );
-  toggleClassActive(
-    ".pre-footer-cta",
-    ".pre-footer-main",
-    "top 40%",
-    "bottom top"
-  );
-  toggleClassActive(
-    ".pre-footer-img-1-bubble-1",
-    ".pre-footer",
-    "top 35%",
-    "40% 5%"
-  );
-  toggleClassActive(
-    ".pre-footer-img-1-bubble-2",
-    ".pre-footer",
-    "top 35%",
-    "40% 5%"
-  );
-  toggleClassActive(
-    ".pre-footer-img-1-bubble-3",
-    ".pre-footer",
-    "top 35%",
-    "40% 5%"
-  );
-  toggleClassActive(
-    ".pre-footer-img-2-peep-wrapper",
-    ".pre-footer",
-    "top center",
-    "50% top"
-  );
-  toggleClassActive(
-    ".pre-footer-img-2-bubble-1",
-    ".pre-footer",
-    "top 35%",
-    "40% 5%"
-  );
-  toggleClassActive(
-    ".pre-footer-img-2-bubble-2",
-    ".pre-footer",
-    "top 35%",
-    "40% 5%"
-  );
+  toggleClassActive(".pre-footer-title", ".pre-footer-title");
+  toggleClassActive(".pre-footer-cta", ".pre-footer-cta");
+  toggleClassActive(".pre-footer-img-1-peep-wrapper", ".pre-footer-img-1");
+  toggleClassActive(".pre-footer-img-1-bubble-1", ".pre-footer-img-1");
+  toggleClassActive(".pre-footer-img-1-bubble-2", ".pre-footer-img-1");
+  toggleClassActive(".pre-footer-img-1-bubble-3", ".pre-footer-img-1");
+  toggleClassActive(".pre-footer-img-2-peep-wrapper", ".pre-footer-img-2");
+  toggleClassActive(".pre-footer-img-2-bubble-1", ".pre-footer-img-2");
+  toggleClassActive(".pre-footer-img-2-bubble-2", ".pre-footer-img-2");
 
   // Description - Function to handle Section Description animation. Used in Perks, Membership, & Questions Section.
-  const animateSectionDescription = (
-    selector,
-    trigger,
-    start,
-    end,
-    markers
-  ) => {
+  const animateSectionDescription = (selector, trigger, markers) => {
     gsap.fromTo(
       selector,
       {
@@ -514,8 +393,8 @@ const gsapAnimations = () => {
         ease: "elastic.out(1, 0.5)",
         scrollTrigger: {
           trigger: trigger,
-          start: start,
-          end: end,
+          start: "top 92%",
+          end: "center 4%",
           markers: markers,
           toggleActions: "restart reverse restart reverse",
         },
@@ -523,29 +402,15 @@ const gsapAnimations = () => {
     );
   };
 
-  animateSectionDescription(
-    ".perks-description",
-    ".perks",
-    "top 35%",
-    "center 12%"
-  );
+  animateSectionDescription(".perks-description", ".perks-description");
   animateSectionDescription(
     ".membership-description",
-    ".membership",
-    "top 45%",
-    "center 25%"
+    ".membership-description"
   );
-  animateSectionDescription(
-    ".questions-description",
-    ".questions-description",
-    "top 80%",
-    "bottom 20%"
-  );
+  animateSectionDescription(".questions-description", ".questions-description");
   animateSectionDescription(
     ".pre-footer-description",
-    ".pre-footer-description",
-    "top 80%",
-    "bottom 20%"
+    ".pre-footer-description"
   );
 };
 

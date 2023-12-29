@@ -77,8 +77,8 @@
         }
 
         @include mq-max('xs') {
-            font-size: 20px;
-            width: 264px;
+            font-size: 22px;
+            width: 288px;
         }
 
         span {
@@ -322,19 +322,8 @@
 
     .work-item {
         aspect-ratio: 3 / 2;
-        width: 28vw;
+        width: min(28vw, 640px);
         height: auto;
-
-        &:hover {
-
-            img {
-                translate: 0 -24px;
-            }
-
-            figcaption {
-                translate: 0 -100%;
-            }
-        }
 
         @include mq-max('xxl') {
             width: 32vw;
@@ -347,15 +336,6 @@
         @include mq-max('sm') {
             width: 300px;
             translate: 0 0;
-
-            &:hover {
-                img {
-                    translate: 0 0;
-                }
-                figcaption {
-                    translate: 0 0;
-                }
-            }
         }
 
         img {
@@ -371,7 +351,7 @@
             position: absolute;
             color: $white;
             font-size: max(12px, 1.6rem);
-            translate: 0 -200%;
+            translate: 0 50%;
             z-index: -1;
             transition: 0.4s ease;
             
@@ -494,13 +474,6 @@
                 margin-bottom: 0;
             }
 
-            &::before {
-                // Note: Not all icons translate well across devices 
-                // Visit: https://www.toptal.com/designers/htmlarrows/symbols/
-                content: "\2710"; // Pencil
-                margin-right: 12px;
-            }
-
             &::after {
                 content: "";
                 position: absolute;
@@ -520,6 +493,13 @@
                 @include mq-max('lg') {
                     height: 2px;
                 }
+            }
+
+            i {
+                width: 38px;
+                margin-right: 12px;
+                color: transparent;
+                transition: 0.25s ease;
             }
 
             &:nth-of-type(2) {
@@ -557,6 +537,10 @@
                 color: $black;
                 translate: 0 0;
 
+                i {
+                    color: $black;
+                }
+
                 &::after {
                     width: 100%;
                 }
@@ -580,18 +564,18 @@
     &-img {
         isolation: isolate;
         position: absolute;
-        bottom: 6%;
-        right: 6%;
-        width: clamp(0px, 28%, 28rem);
+        bottom: 12%;
+        right: 12%;
+        width: min(24vw, 240px);
         
         @include mq-max('xxl') {
-            width: max(14rem, 14%);
+            // width: max(14rem, 14%);
         }
 
         @include mq-max('lg') {
             bottom: $section-inner-padding;
             right: 10%;
-            width: max(20rem, 18%);
+            // width: max(20rem, 18%);
         }
 
         @include mq-max('md') {
@@ -601,12 +585,13 @@
         @include mq-max('sm') {
             bottom: unset;
             top: $section-inner-padding-small;
-            width: 8.6rem;
+            // width: 8.6rem;
         }
 
-        // .peep-wrapper {
-        //     // see _globals.scss for styles
-        // }
+        .peep-wrapper {
+            // see _globals.scss for styles
+            width: 100%;
+        }
 
         .bubble-1 {
             background-color: $yellow; 
@@ -686,7 +671,7 @@
             display: none;
         }
 
-        .title-graphic-wrapper-2 {
+        .title-img-wrapper-2 {
             bottom: -4%;
             right: 6%;
             rotate: 4deg;
@@ -705,7 +690,7 @@
     &-title-small-screen {
         color: $blue;
 
-        .title-graphic-wrapper-2 {
+        .title-img-wrapper-2 {
             bottom: 4%;
             right: -18%;
             // rotate: 12deg;
@@ -1656,7 +1641,7 @@
 
         @include mq-max('sm') {
             flex-wrap: wrap;
-            margin: 4rem 0 8rem 0;
+            margin: 4rem 0 24px 0;
             height: 96px;
         }
         
@@ -1826,8 +1811,7 @@
         }
 
         @include mq-max('sm') {
-            top: 80%;
-            scale: 1.25;
+            display: none;
         }
 
         .bubble {
