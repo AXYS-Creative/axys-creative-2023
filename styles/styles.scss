@@ -127,6 +127,10 @@
         pointer-events: none;
         transition: opacity 0.5s ease 0.7s, translate 0.4s $cubic-ease-back-dramatic 0.7s;
 
+        @include mq-max('sm') {
+            width: 68%;
+        }
+
         @include mq-max('xs') {
             width: 72%;
         }
@@ -1103,6 +1107,10 @@
     }
 
     @include mq-max('sm') {
+        padding-bottom: 240px;
+    }
+
+    @include mq-max('xs') {
         padding-bottom: 196px;
     }
 
