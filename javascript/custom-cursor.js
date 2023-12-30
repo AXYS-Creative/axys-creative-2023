@@ -55,7 +55,7 @@ const customCursorHandler = () => {
   const updateHoverElements = () => {
     const newHoverElements = document.querySelectorAll(
       "a, button, .question, .work-item"
-    ); // Include .question for FAQ items
+    );
     newHoverElements.forEach((el) => {
       el.removeEventListener("mouseenter", changeCursorOnHover); // Prevent duplicate listeners
       el.removeEventListener("mouseleave", revertCursorOnLeave);

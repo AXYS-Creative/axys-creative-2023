@@ -1,6 +1,5 @@
 const nonGsapAnimations = () => {
   // Description - Media Query Declarations
-  let mqMinXxl = window.matchMedia("(min-width: 1921px)");
   let mqMaxMd = window.matchMedia("(max-width: 768px)");
   let mqMaxSm = window.matchMedia("(max-width: 480px)");
 
@@ -73,49 +72,47 @@ const nonGsapAnimations = () => {
       }
     };
 
+    // Responsive Bubble Offset - (Bo)
+    let perksBo1 = mqMaxMd.matches ? -0.06 : -0.08;
+    let perksBo2 = mqMaxMd.matches ? -0.1 : -0.14;
+    let membershipBo1 = mqMaxMd.matches ? -0.04 : -0.1;
+    let membershipBo2 = mqMaxMd.matches ? -0.08 : -0.2;
+    let questionsBo1 = mqMaxMd.matches ? -0.04 : -0.1;
+    let questionsBo2 = mqMaxMd.matches ? -0.08 : -0.2;
+
     handleParallax(".hero-bubble-1", null, "-92%", -0.1, "16%");
     handleParallax(".hero-bubble-2", null, "-40%", -0.16, "75%");
     handleParallax(".hero-bubble-3", null, "24%", -0.06, "25%");
-    handleParallax(".perks-bubble-1", ".perks-img", "-64%", -0.08, "52%"); // Yellow Bubble
-    handleParallax(".perks-bubble-2", ".perks-img", "-24%", -0.14, "116%"); // Grey Bubble
+    handleParallax(".perks-bubble-1", ".perks-img", "-64%", perksBo1, "52%"); // Yellow Bubble
+    handleParallax(".perks-bubble-2", ".perks-img", "-24%", perksBo2, "116%"); // Grey Bubble
     handleParallax(
-      ".membership-bubble-1",
+      ".membership-bubble-1", // Green Bubble
       ".membership-img",
-      "-24%",
-      -0.2,
-      "86%"
-    ); // Orange Bubble
+      "-80%",
+      membershipBo1,
+      "148%"
+    );
     handleParallax(
-      ".membership-bubble-2",
+      ".membership-bubble-2", // Orange Bubble
       ".membership-img",
-      "-64%",
-      -0.1,
-      "124%"
-    ); // Green Bubble
+      "-32%",
+      membershipBo2,
+      "80%"
+    );
     handleParallax(
-      ".questions-bubble-1",
+      ".questions-bubble-1", // Purple Bubble
       ".questions-img",
-      "-46%",
-      -0.1,
+      "-40%",
+      questionsBo1,
       "64%"
-    ); // Purple Bubble
-    handleParallax(".questions-bubble-2", ".questions-img", "0%", -0.2, "156%"); // Yellow Bubble
-
-    // Don't worry about altering these media queries until the work section is done
-    if (mqMinXxl.matches) {
-      handleParallax(".perks-bubble-1", "-72%", -0.14, "-720%");
-      handleParallax(".perks-bubble-2", "-16%", -0.18, "-620%");
-    }
-
-    if (mqMaxMd.matches) {
-      handleParallax(".perks-bubble-1", "-72%", -0.14, "-320%");
-      handleParallax(".perks-bubble-2", "-16%", -0.18, "-320%");
-    }
-
-    if (mqMaxSm.matches) {
-      handleParallax(".perks-bubble-1", "-72%", -0.14, "-56%");
-      handleParallax(".perks-bubble-2", "-16%", -0.18, "-40%");
-    }
+    );
+    handleParallax(
+      ".questions-bubble-2", // Yellow Bubble
+      ".questions-img",
+      "0%",
+      questionsBo2,
+      "156%"
+    );
   });
 };
 
@@ -170,7 +167,7 @@ const gsapAnimations = () => {
             },
           })
           .to(`.work-item-${itemNumber}`, {
-            x: screenSm ? "-572vw" : screenMd ? "-288vw" : "-140vw",
+            x: screenSm ? "-570vw" : screenMd ? "-288vw" : "-140vw",
           });
       }
 
@@ -198,7 +195,7 @@ const gsapAnimations = () => {
             scrollTrigger: {
               trigger: trigger,
               start: "top 80%",
-              end: "64% top",
+              end: screenMd ? "80% top" : "64% top",
               toggleActions: "restart reverse restart reverse",
             },
           }
@@ -225,7 +222,7 @@ const gsapAnimations = () => {
           scrollTrigger: {
             trigger: ".questions-list",
             start: "top 80%",
-            end: "64% top",
+            end: screenMd ? "80% top" : "64% top",
             toggleActions: "restart reverse restart reverse",
           },
         }
@@ -280,7 +277,7 @@ const gsapAnimations = () => {
     selector,
     triggerSelector,
     start = "top 92%",
-    end = "center 4%",
+    end = "75% 4%",
     markers
   ) => {
     const titleLetters = document.querySelectorAll(selector);

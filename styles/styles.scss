@@ -127,6 +127,10 @@
         pointer-events: none;
         transition: opacity 0.5s ease 0.7s, translate 0.4s $cubic-ease-back-dramatic 0.7s;
 
+        @include mq-max('xs') {
+            width: 72%;
+        }
+
         &.active {
             translate: 0 0;
             opacity: 1;
@@ -145,6 +149,10 @@
                 rotate 0.4s ease, 
                 translate 0.6s $cubic-ease-back-dramatic 1.5s,
                 opacity 0.24s ease 1.6s;
+        }
+
+        .hero-cta-1{
+            background-color: $purplegrey;
         }
     
         .hero-cta-2 {
@@ -171,18 +179,15 @@
         }
 
         @include mq-max('md') {
-            translate: 0 -16%;
-            width: 48vw;
-            height: 48vw;
+            right: 0;
+            translate: 0 -12%;
+            width: 46vw;
+            height: 46vw;
         }
         
         @include mq-max('sm') {
             width: 68vw;
             height: 68vw;
-        }
-
-        > * {
-            @include absolute-center;
         }
 
         .hero-peep-1 {
@@ -283,6 +288,7 @@
     height: unset;
     border: none;
     box-shadow: none;
+    padding-bottom: 24px;
 
     @include mq-min('sm') {
         @include appear(0.6s, 0.2s);
@@ -311,7 +317,7 @@
         gap: 32px;
 
         @include mq-max('md') {
-            translate: 0 12%;
+            translate: 0 6%;
             gap: 26px;
         }
 
@@ -365,6 +371,10 @@
 
 .perks {
 
+    @include mq-max('md') {
+        height: unset; // Adjusted by description margin bottom
+    }
+
     // &-bg {
         // See ".section-bg" in _globals.scss
     // }
@@ -374,9 +384,14 @@
         color: $coral;
     }
 
-    // &-description {
+    &-description {
         // See ".section-description" in _globals.scss
-    // }
+
+        @include mq-max('md') {
+            width: calc(224px + 24vw);
+            margin-bottom: 164px;
+        }
+    }
 
     &-columns {
         display: flex;
@@ -426,14 +441,16 @@
                 li {
                     transition-delay: 0.4s;
                     
-                    &::after {
+                    &::after,
+                    i {
                         transition-delay: 0.4s;
                     }
 
                     &:nth-of-type(2) {
                         transition-delay: 0.5s;
         
-                        &::after {
+                        &::after,
+                        i {
                             transition-delay: 0.5s;
                         }
                     }
@@ -441,7 +458,8 @@
                     &:nth-of-type(3) {
                         transition-delay: 0.6s;
         
-                        &::after {
+                        &::after,
+                        i {
                             transition-delay: 0.6s;
                         }
                     }
@@ -449,7 +467,8 @@
                     &:nth-of-type(4) {
                         transition-delay: 0.7s;
         
-                        &::after {
+                        &::after,
+                        i {
                             transition-delay: 0.7s;
                         }
                     }
@@ -459,7 +478,7 @@
 
         li {
             position: relative;
-            font-size: max(24px, 3.2rem);
+            font-size: max(20px, 2.8rem);
             font-weight: 400;
             padding: 1rem 0;
             margin-bottom: 1rem;
@@ -472,6 +491,7 @@
             }
             @include mq-max('md') {
                 margin-bottom: 0;
+                padding: 10px 0;
             }
 
             &::after {
@@ -496,17 +516,23 @@
             }
 
             i {
+                font-size: max(14px, 2rem);
                 width: 38px;
-                margin-right: 12px;
+                translate: 0 -2px;
                 color: transparent;
                 transition: 0.25s ease;
+                
+                @include mq-max('md') {
+                    width: 26px;
+                }
             }
 
             &:nth-of-type(2) {
                 // transition-delay: 0.3s;
                 transition-delay: 0.1s;
 
-                &::after {
+                &::after, 
+                i {
                     // transition-delay: 0.3s;
                     transition-delay: 0.1s;
                 }
@@ -515,7 +541,8 @@
             &:nth-of-type(3) {
                 transition-delay: 0.2s;
 
-                &::after {
+                &::after, 
+                i {
                     transition-delay: 0.2s;
                 }
             }
@@ -524,7 +551,8 @@
                 // transition-delay: 0.1s;
                 transition-delay: 0.3s;
 
-                &::after {
+                &::after, 
+                i {
                     // transition-delay: 0.1s;
                     transition-delay: 0.3s;
                 }
@@ -564,71 +592,48 @@
     &-img {
         isolation: isolate;
         position: absolute;
-        bottom: 12%;
-        right: 12%;
-        width: min(24vw, 240px);
-        
-        @include mq-max('xxl') {
-            // width: max(14rem, 14%);
-        }
+        bottom: 10%;
+        right: 4%;
+        width: min(30vw, 580px);
+        height: min(30vw, 580px);
 
         @include mq-max('lg') {
             bottom: $section-inner-padding;
             right: 10%;
-            // width: max(20rem, 18%);
         }
 
         @include mq-max('md') {
-            bottom: 10%;
+            right: -4%;
+            width: 46vw;
+            height: 46vw;
         }
 
         @include mq-max('sm') {
+            width: 38vw;
+            height: 38vw;
             bottom: unset;
             top: $section-inner-padding-small;
-            // width: 8.6rem;
         }
 
         .peep-wrapper {
             // see _globals.scss for styles
-            width: 100%;
+            width: 40%;
         }
 
         .bubble-1 {
             background-color: $yellow; 
-            width: 16rem;
-            height: 16rem;
+            width: 32%;
+            height: 32%;
             z-index: -1;
-            // translate: -68% -28%;
             // animations handled in _globals.scss
-
-            @include mq-max('md') {
-                width: 14rem;
-                height: 14rem;
-            }
-
-            @include mq-max('sm') {
-                width: 5.6rem;
-                height: 5.6rem;
-            }
         }
 
         .bubble-2 {
             background-color: $grey; 
-            width: 22rem;
-            height: 22rem;
+            width: 40%;
+            height: 40%;
             z-index: -2;
-            // translate: -20% -80%;
             // animations handled in _globals.scss
-
-            @include mq-max('md') {
-                width: 16rem;
-                height: 16rem;
-            }
-
-            @include mq-max('sm') {
-                width: 6.2rem;
-                height: 6.2rem;
-            }
         }
     }
 }
@@ -705,10 +710,12 @@
 
         @media (max-width: $membership-mq) {
             align-self: flex-start;
+            width: 480px;
         }
-
+        
         @include mq-max('md') {
             margin-top: 4rem;
+            width: 380px;
         }
 
         @include mq-max('sm') {
@@ -762,6 +769,7 @@
 
         @include mq-max('sm') {
             width: calc(100% - $body-padding-small);
+            padding: 16px;
         }
 
         h3, h4, h5, li {
@@ -787,6 +795,10 @@
             @include mq-max('md') {
                 height: 3px;
             }
+
+            @include mq-max('sm') {
+                margin: 24px 0;
+            }
         }
 
         h4 {
@@ -809,14 +821,14 @@
         }
 
         h5 {
-            font-size: max(0px, 2.8rem);
+            font-size: 2.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 2rem;
+            margin-bottom: 20px;
         }
 
         ul {
-            padding-left: 2.4rem;
+            padding-left: 16px;
             margin-bottom: 6rem;
             display: flex;
             flex-direction: column;
@@ -832,7 +844,7 @@
                 }
                 @include mq-max('sm') {
                     padding: 0.2rem;
-                    margin-bottom: 1rem;
+                    margin-bottom: 10px;
                 }
 
                 &:nth-of-type(3),
@@ -858,7 +870,7 @@
             .tooltip-indicator {
                 position: relative;
                 vertical-align: middle;
-                margin-left: 0.4rem;
+                margin-left: 6px;
                 width: 2rem;
                 height: 2rem;
 
@@ -960,7 +972,7 @@
                 padding: 2rem 4rem;
 
                 @include mq-max('sm') {
-                    padding: 1.8rem 2.4rem;
+                    padding: 16px 20px;
                 }
             }
         }
@@ -1006,7 +1018,7 @@
             }
 
             @include mq-max('xs') {
-                width: 14rem;
+                width: 86px;
             }
     
             svg {
@@ -1033,8 +1045,9 @@
         isolation: isolate;
         position: absolute;
         bottom: 8%;
-        left: 2%;
-        width: clamp(8rem, 12%, 20rem);
+        left: -8%;
+        width: min(30vw, 580px);
+        height: min(30vw, 580px);
         z-index: 2;
 
         @media (max-width: $membership-mq) {
@@ -1046,18 +1059,18 @@
             bottom: auto;
             left: auto;
             top: 24%;
-            right: 4%;
-            width: 16%;
+            right: -10%;
+            width: 46vw;
+            height: 46vw;
         }
 
         @include mq-max('sm') {
             display: none;
-            // top: 37%;
-            // width: 20%;
         }
 
         .peep-wrapper {
             rotate: -2.5deg;
+            width: 34%;
             
             @include mq-max('md') {
                 transform: scaleX(-1);
@@ -1066,40 +1079,18 @@
         }
 
         .bubble-1 {
-            background-color: $coral; 
-            width: 16rem;
-            height: 16rem;
-            // translate: -16% -100%;
+            background-color: $green;
+            width: 28%;
+            height: 28%;
             // animations handled in _globals.scss
-
-            @include mq-max('lg') {
-                width: 10rem;
-                height: 10rem;
-            }
-
-            @include mq-max('sm') {
-                width: 5.6rem;
-                height: 5.6rem;
-            }
         }
 
         .bubble-2 {
-            background-color: $green; 
-            width: 18rem;
-            height: 18rem;
-            // translate: -60% -28%;
+            background-color: $coral; 
+            width: 32%;
+            height: 32%;
             z-index: -2;
             // animations handled in _globals.scss
-
-            @include mq-max('lg') {
-                width: 14rem;
-                height: 14rem;
-            }
-
-            @include mq-max('sm') {
-                width: 5.6rem;
-                height: 5.6rem;
-            }
         }
     }
 }
@@ -1109,6 +1100,10 @@
 
     @include mq-max('lg') {
         padding-bottom: 46rem;
+    }
+
+    @include mq-max('sm') {
+        padding-bottom: 196px;
     }
 
     &-title {
@@ -1136,7 +1131,7 @@
         margin: 2rem $section-inner-padding 4rem;
         
         @include mq-max('lg') {
-            width: 70%;
+            width: 82%;
         }
 
         @include mq-max('md') {
@@ -1165,7 +1160,7 @@
             }
 
             @include mq-max('sm') {
-                padding-top: 3.6rem;
+                padding-top: 36px;
             }
 
             &:hover {
@@ -1185,7 +1180,7 @@
                 }
 
                 @include mq-max('sm') {
-                    padding-top: 5.2rem;
+                    padding-top: 52px;
                 }
             }
         }
@@ -1203,7 +1198,7 @@
             }
 
             @include mq-max('sm') {
-                padding: 2rem 0;
+                padding: 20px 0;
             }
             
             &-indicator {
@@ -1290,26 +1285,30 @@
     &-description {
         margin-left: unset;
         position: absolute;
-        top: 46rem;
-        right: 5vw;
+        top: 60%;
+        right: 5%;
+        translate: 0 -50%;
         width: calc(10rem + 24vw);
 
         @include mq-min('xxxl') {
             width: 56rem;
-            right: calc($section-inner-padding * 4);
         }
 
         @include mq-max('lg') {
             width: 72rem;
             top: auto;
-            bottom: calc($section-inner-padding-small * 10);
+            bottom: 16rem;
             left: $section-inner-padding;
         }
         
         @include mq-max('md') {
-            width: calc(14rem + 50vw);
-            bottom: calc($section-inner-padding-small * 10);
+            width: calc(10rem + 50vw);
             left: $section-inner-padding-small;
+        }
+
+        @include mq-max('sm') {
+            width: 82%;
+            bottom: 64px;
         }
 
         h3 {
@@ -1328,41 +1327,38 @@
     }
 
     &-img {
-        // border: $test;
         isolation: isolate;
         position: absolute;
-        top: 22rem;
-        right: 4vw;
-        width: clamp(0px, 12%, 28rem);
-        height: 50rem;
+        top: 50%;
+        right: -4%;
+        translate: 0 -50%;
+        width: min(30vw, 580px);
+        height: min(30vw, 580px);
         display: flex;
         align-items: flex-end;
-        
-        @include mq-min('xxxl') {
-            right: calc($section-inner-padding * 4);
-        }
 
         @include mq-max('lg') {
             top: unset;
-            height: unset;
-            bottom: $section-inner-padding-small;
-            right: calc($section-inner-padding * 2);
-            width: 16%;
+            translate: 0 0;
+            bottom: 0;
+            right: 6%;
         }
 
         @include mq-max('md') {
-            right: $section-inner-padding;
-            width: 18rem;
+            right: -8%;
+            width: 46vw;
+            height: 46vw;
         }
+
         @include mq-max('sm') {
             bottom: unset;
             top: $section-inner-padding-small;
-            width: 8rem;
         }
 
-        // .peep-wrapper {
-        //     // see _globals.scss for styles
-        // }
+        .peep-wrapper {
+            // see _globals.scss for styles
+            width: 34%;
+        }
 
         .thought-cloud {
             width: 80%;
@@ -1444,51 +1440,18 @@
         }
 
         .bubble-1 {
-            background-color: $purplegrey; 
-            width: 18rem;
-            height: 18rem;
-            // translate: -46% -90%;
+            background-color: $purplegrey;
+            width: 32%;
+            height: 32%;
             z-index: -2;
             // animations handled in _globals.scss
-
-            @include mq-max('lg') {
-                width: 14rem;
-                height: 14rem;
-            }
-
-            @include mq-max('md') {
-                width: 14vw;
-                height: 14vw;
-            }
-
-            @include mq-max('sm') {
-                width: 6rem;
-                height: 6rem;
-            }
         }
 
         .bubble-2 {
-            background-color: $yellow; 
-            width: 14rem;
-            height: 14rem;
-            // translate: 0% -46%;
-
+            background-color: $yellow;
+            width: 26%;
+            height: 26%;
             // animations handled in _globals.scss
-
-            @include mq-max('lg') {
-                width: 12rem;
-                height: 12rem;
-            }
-
-            @include mq-max('md') {
-                width: 10vw;
-                height: 10vw;
-            }
-
-            @include mq-max('sm') {
-                width: 5.4rem;
-                height: 5.4rem;
-            }
         }
     }
 
@@ -1496,13 +1459,12 @@
         // see ".section-cta-wrapper" in _globals.scss
         bottom: unset;
         left: unset;
-        top: 76rem;
-        right: 5vw;
+        top: 78%;
+        right: 5%;
         width: calc(10rem + 24vw);
 
         @include mq-min('xxxl') {
             width: 56rem;
-            right: calc($section-inner-padding * 4);
         }
 
         @include mq-max('lg') {
